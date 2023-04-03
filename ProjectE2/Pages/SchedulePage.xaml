@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectE2.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1100"
+      d:DesignHeight="630" d:DesignWidth="878"
       Title="SchedulePage">
 
     <Grid>
@@ -30,7 +30,7 @@
                     <TextBlock Text="Понедельник"/>
                     <Rectangle/>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Margin="0 8 0 0">
+                <!--<StackPanel Grid.Row="1" Margin="0 8 0 0">
                     <StackPanel.Style>
                         <Style TargetType="StackPanel">
                             <Style.Resources>
@@ -48,8 +48,8 @@
                     <TextBlock Text="4 | МДК.05.01 Проектирование и дизайн информационных систем"/>
                     <TextBlock Text="5 | Физическая культура"/>
                     <TextBlock Text="4 | МДК.05.01 Проектирование и дизайн информационных систем"/>
-                </StackPanel>
-                <!--<ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
+                </StackPanel>-->
+                <ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Style="{StaticResource TextSizeStyle}">
@@ -63,7 +63,7 @@
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>-->
+                </ListView>
             </Grid>
         </Border>
         <Border Name="CellTuesday" Grid.Row="1" Style="{StaticResource CellDayStyle}" 
@@ -138,7 +138,7 @@
                         <DataTemplate>
                             <Grid Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="30" MinWidth="0"/>
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="{Binding Period}"/>

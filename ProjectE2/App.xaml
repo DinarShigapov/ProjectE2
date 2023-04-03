@@ -228,9 +228,13 @@
                 </Style.Resources>
             </Style>
             <Style TargetType="Grid" x:Key="TextSizeStyle">
+                <Setter Property="Height" Value="21"/>
                 <Style.Resources>
                     <Style TargetType="TextBlock">
-                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="FontSize" Value="17"/>
+                        <Setter Property="Margin" Value="5 0 0 4.56"/>
+                        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                        <Setter Property="FontFamily" Value="Bahnschrift Light"/>
                     </Style>
                 </Style.Resources>
             </Style>
