@@ -23,6 +23,7 @@
                    Text="Расписание"
                    Style="{StaticResource MainHeaderTextStyle}"/>
 
+      
         <Frame x:Name="MenuFrame" 
                NavigationUIVisibility="Hidden" 
                Grid.Column="1"
