@@ -23,7 +23,23 @@ namespace ProjectE2.Pages
         public MenuPage()
         {
             InitializeComponent();
-            MenuFrame.Navigate(new SchedulePage());
+            RefreshPage(new SchedulePage());
+        }
+
+        private void BHome_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new SchedulePage());
+        }
+
+        private void BProfile_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new ProfilePage());
+        }
+
+        public void RefreshPage(Page page)
+        {
+            MenuFrame.Navigate(page);
+            MainTextHeader.Text = page.Title;
         }
     }
 }

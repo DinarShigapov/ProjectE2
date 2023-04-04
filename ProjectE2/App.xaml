@@ -57,30 +57,75 @@
 
             <!---->
 
+
+            <Style TargetType="TextBlock" x:Key="MainHeaderTextStyle">
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                <Setter Property="FontSize" Value="50"/>
+                <Setter Property="Opacity" Value="0.4"/>
+            </Style>
             
+
+            <!--AuthStyle-->
+
+            <Style TargetType="StackPanel" x:Key="ProfileStyleSP">
+                <Style.Resources>
+                    <Style TargetType="Image">
+                        <Setter Property="Width" Value="60"/>
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="Opacity" Value="0.2"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+            
+            <!---->
+
             <!--TextBox Style-->
 
-            <Style TargetType="StackPanel">
+
+            <Style TargetType="TextBox" x:Key="TextBoxStyle">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="13 0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Background" Value="#EAEEED"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Style.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Height" Value="35"/>
+                        <Setter Property="Width" Value="250"/>
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+
+            <Style x:Key="DefualtStyle" TargetType="TextBox">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="13 0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Background" Value="#EAEEED"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Style.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Height" Value="35"/>
+                        <Setter Property="Width" Value="250"/>
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+
+
+            <Style TargetType="StackPanel" x:Key="AuthStyle">
                 <Style.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="Margin" Value="15 0"/>
                         <Setter Property="FontSize" Value="20"/>
                         <Setter Property="Foreground" Value="#6D61F5"/>
                     </Style>
-                    <Style TargetType="TextBox">
-                        <Setter Property="VerticalContentAlignment" Value="Center"/>
-                        <Setter Property="Padding" Value="13 0"/>
-                        <Setter Property="FontSize" Value="16"/>
-                        <Setter Property="Background" Value="#EAEEED"/>
-                        <Setter Property="BorderThickness" Value="0"/>
-                        <Style.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="Height" Value="35"/>
-                                <Setter Property="Width" Value="250"/>
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-                        </Style.Resources>
-                    </Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource DefualtStyle}"/>
                 </Style.Resources>
             </Style>
 
@@ -93,6 +138,7 @@
             <Style TargetType="Button" x:Key="ButtonStyle">
                 <Setter Property="BorderBrush" Value="Transparent"/>
                 <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
@@ -186,7 +232,7 @@
             <!---->
 
 
-            <!--NoName-->
+            <!--CellDay-->
 
             <Style TargetType="Border" x:Key="CellDayStyle">
                 <Setter Property="BorderBrush" Value="Gray"/>

@@ -7,7 +7,7 @@
         xmlns:Converter="clr-namespace:ProjectE2.Codes"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="700" Width="1100"
+        Height="800" Width="1250"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"

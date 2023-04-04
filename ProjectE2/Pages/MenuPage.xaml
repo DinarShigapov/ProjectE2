@@ -6,17 +6,22 @@
       xmlns:local="clr-namespace:ProjectE2.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1100"
-      Title="MenuPage">
+      Title="Расписание">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="13*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="146*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="202"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="1"
+                   x:Name="MainTextHeader"
+                   Text="Расписание"
+                   Style="{StaticResource MainHeaderTextStyle}"/>
 
         <Frame x:Name="MenuFrame" 
                NavigationUIVisibility="Hidden" 
@@ -24,7 +29,7 @@
                Grid.Row="1"
                Margin="0 0 20 20"/>
 
-        <Grid Grid.RowSpan="2">
+        <Grid Grid.RowSpan="2" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="101*"/>
                 <RowDefinition Height="249*"/>
@@ -32,10 +37,20 @@
             <Border Margin="0,0,30,0"
                         Background="White"
                         BorderThickness="0" Grid.RowSpan="2">
-                <Image Source="{StaticResource questionSquareImage}" 
+                <Grid>
+                    <Image Source="{StaticResource questionSquareImage}" 
                        Width="100"
                        VerticalAlignment="Top"
                        Margin="0 50 0 0"/>
+                    <StackPanel Margin="0 0 0 50"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource ProfileStyleSP}">
+                        <Image Source="{StaticResource AvatarDrawingImage}"/>
+                        <TextBlock Text="Иванов Иван"/>
+                        <TextBlock Text="326 СИС"/>
+
+                    </StackPanel>
+                </Grid>
             </Border>
             <StackPanel Orientation="Vertical"
                     HorizontalAlignment="Left"
@@ -44,13 +59,16 @@
                     Panel.ZIndex="1" Grid.Row="2">
 
                 <RadioButton x:Name="BHome" 
-                         Content="Расписание" 
-                             IsChecked="True"/>
+                             Content="Расписание" 
+                             IsChecked="True"
+                             Click="BHome_Click"/>
                 <Rectangle Height="5" Fill="Transparent"/>
-                <RadioButton x:Name="BGround" 
-                         Content="Профиль" />
+                <RadioButton x:Name="BProfile" 
+                             Content="Профиль"
+                             Click="BProfile_Click"/>
 
             </StackPanel>
+
         </Grid>
     </Grid>
 </Page>

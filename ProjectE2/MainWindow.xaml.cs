@@ -44,6 +44,5 @@ namespace ProjectE2
             this.WindowState = WindowState.Minimized;
         }
 
-    
     }
 }

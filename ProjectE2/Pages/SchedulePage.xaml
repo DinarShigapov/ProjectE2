@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ProjectE2.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="630" d:DesignWidth="878"
-      Title="SchedulePage">
+      Title="Расписание">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -30,7 +30,7 @@
                     <TextBlock Text="Понедельник"/>
                     <Rectangle/>
                 </StackPanel>
-                <!--<StackPanel Grid.Row="1" Margin="0 8 0 0">
+                <StackPanel Grid.Row="1" Margin="0 8 0 0">
                     <StackPanel.Style>
                         <Style TargetType="StackPanel">
                             <Style.Resources>
@@ -48,8 +48,8 @@
                     <TextBlock Text="4 | МДК.05.01 Проектирование и дизайн информационных систем"/>
                     <TextBlock Text="5 | Физическая культура"/>
                     <TextBlock Text="4 | МДК.05.01 Проектирование и дизайн информационных систем"/>
-                </StackPanel>-->
-                <ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
+                </StackPanel>
+                <!--<ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Style="{StaticResource TextSizeStyle}">
@@ -63,7 +63,7 @@
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </ListView>-->
             </Grid>
         </Border>
         <Border Name="CellTuesday" Grid.Row="1" Style="{StaticResource CellDayStyle}" 

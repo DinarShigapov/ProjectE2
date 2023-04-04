@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ProjectE2.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="630" d:DesignWidth="878"
-      Title="ProfilePage">
+      Title="Профиль">
 
     <Grid>
         

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectE2.Pages" xmlns:Converter="clr-namespace:ProjectE2.Codes"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1100"
+      d:DesignHeight="800" d:DesignWidth="1250"
       Title="AuthPage">
 
     <Page.Resources>
@@ -46,14 +46,15 @@
                     </TransformGroup>
                 </Border.RenderTransform>
                 <Grid>
-                    <Image Source="/Resources/Background/BG2.jpeg" Stretch="UniformToFill"  Height="756.2625"/>
+                    <Image Source="/Resources/Background/BG2.jpeg" Stretch="UniformToFill"  Height="850"/>
                 </Grid>
             </Border>
         </Border>
 
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Grid.Column="1" Height="332" Width="250">
+                    Grid.Column="1" Height="332" Width="250"
+                    Style="{StaticResource AuthStyle}">
             <Image Source="{StaticResource AvatarDrawingImage}" Width="150"/>
             <TextBlock Text="Логин" />
             <TextBox/>
@@ -67,7 +68,6 @@
                     Width="120"
                     Height="35"
                     FontSize="15"
-                    Foreground="White"
                     Click="BEnter_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="1,0">

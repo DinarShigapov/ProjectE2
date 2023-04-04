@@ -157,9 +157,6 @@
     <Resource Include="Resources\Background\BG1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Background\BG3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Logo\black-www-icon-17.png" />
   </ItemGroup>
   <ItemGroup>
