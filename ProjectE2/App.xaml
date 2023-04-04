@@ -12,11 +12,63 @@
                 <ResourceDictionary Source="Resources/IconUI/Line2.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Avatar.xaml"/>
                 <ResourceDictionary Source="Resources/Logo/DefLogo.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Exit.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Exit2.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/ExitArrow.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
 
 
-            <!--UI Icon Button-->            
+            <!--UI Icon Button-->
+
+
+            <Style x:Key="ExitButtonStyle" TargetType="Button">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle Name="rect"
+                                           Fill="Transparent" 
+                                           Width="170"
+                                           Height="30"/>
+                                <Image Name="image" Stretch="Fill" 
+                                       Source="{StaticResource ExitArrowDrawingImage}" 
+                                       Width="20"
+                                       Height="15"
+                                       HorizontalAlignment="Left"
+                                       Margin="10 0 0 0"
+                                       Opacity="0.3"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="rect"
+                                                            Storyboard.TargetProperty="Fill.Color"
+                                                            To="#FF883838"
+                                                            Duration="0:0:0.15"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="rect"
+                                                            Storyboard.TargetProperty="Fill.Color"
+                                                            Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
             <Style x:Key="CloseButtonStyle" TargetType="Button">
                 <Setter Property="Background" Value="Transparent" />

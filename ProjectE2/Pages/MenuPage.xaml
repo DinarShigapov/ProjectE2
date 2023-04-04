@@ -50,10 +50,10 @@
                         <TextBlock Text="326 СИС"/>
 
                     </StackPanel>
-                    <Button VerticalAlignment="Bottom"
-                            Content="Выйти"
-                            Background="#FF883838"
-                            BorderThickness="0"/>
+                    <Button x:Name="BLogOut"
+                            Style="{StaticResource ExitButtonStyle}"
+                            VerticalAlignment="Bottom"
+                            Click="BLogOut_Click"/>
                 </Grid>
             </Border>
             <StackPanel Orientation="Vertical"

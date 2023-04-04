@@ -41,5 +41,10 @@ namespace ProjectE2.Pages
             MenuFrame.Navigate(page);
             MainTextHeader.Text = page.Title;
         }
+
+        private void BLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthPage());
+        }
     }
 }
