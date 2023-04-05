@@ -36,6 +36,15 @@ namespace ProjectE2.Pages
             RefreshPage(new ProfilePage());
         }
 
+        private void BMain_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new MainPage());
+        }
+        private void BAssessment_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new AssessmentPage());
+        }
+
         public void RefreshPage(Page page)
         {
             MenuFrame.Navigate(page);
@@ -46,5 +55,6 @@ namespace ProjectE2.Pages
         {
             NavigationService.Navigate(new AuthPage());
         }
+
     }
 }

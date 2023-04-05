@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Geometry x:Key="crossGeometry">F1 M24,24z M0,0z M19,5L4.99998,19 M5.00001,5L19,19</Geometry>
+  <DrawingGroup x:Key="crossDrawingGroup" ClipGeometry="M0,0 V24 H24 V0 H0 Z">
+    <GeometryDrawing Geometry="{StaticResource crossGeometry}">
+      <GeometryDrawing.Pen>
+            <Pen Brush="#FFCACACA" Thickness="1.5" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+      </GeometryDrawing.Pen>
+    </GeometryDrawing>
+  </DrawingGroup>
+    <DrawingImage x:Key="crossDrawingImage" Drawing="{StaticResource crossDrawingGroup}" />
+</ResourceDictionary>

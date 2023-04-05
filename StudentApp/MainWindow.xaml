@@ -1,0 +1,73 @@
+﻿<Window x:Class="StudentApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentApp" xmlns:Converter="clr-namespace:StudentApp.Codes"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="800" Width="1250"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Window.Resources>
+        <Converter:BorderClipConverter x:Key="borderClipConverter" />
+    </Window.Resources>
+
+    <Border CornerRadius="7" Background="#EFF1F8">
+        <Border.Clip>
+            <MultiBinding Converter="{StaticResource borderClipConverter}">
+                <Binding Path="ActualWidth"
+                        RelativeSource="{RelativeSource Self}"/>
+                <Binding Path="ActualHeight"
+                        RelativeSource="{RelativeSource Self}"/>
+                <Binding Path="CornerRadius"
+                        RelativeSource="{RelativeSource Self}"/>
+            </MultiBinding>
+        </Border.Clip>
+        <Grid>
+            <Border CornerRadius="0 0 20 20"
+                    BorderThickness="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="650"
+                    Height="15"
+                    MouseDown="Border_MouseDown">
+                <Border.Background>
+                    <SolidColorBrush Color="Black" 
+                                     Opacity="0.06"/>
+                </Border.Background>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Height" Value="100"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Margin="0 15 20 0">
+                <Button x:Name="BСollapse"
+                        Click="BСollapse_Click"
+                        Margin="15 0"
+                        Style="{StaticResource CollapseButtonStyle}">
+                    <Image/>
+                </Button>
+                <Button x:Name="BClose"
+                        Click="BClose_Click"
+                        Style="{StaticResource CloseButtonStyle}">
+                    <Image/>
+                </Button>
+            </StackPanel>
+            <Frame x:Name="MainFrame" 
+                   NavigationUIVisibility="Hidden"
+                   Panel.ZIndex="-1"/>
+        </Grid>
+    </Border>
+</Window>

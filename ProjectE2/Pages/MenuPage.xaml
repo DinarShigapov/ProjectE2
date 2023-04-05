@@ -54,7 +54,7 @@
                     <Button x:Name="BLogOut"
                             Style="{StaticResource ExitButtonStyle}"
                             VerticalAlignment="Bottom"
-                            Click="BLogOut_Click"/>
+                            Click="BLogOut_Click" Background="#FF9C5353"/>
                 </Grid>
             </Border>
             <StackPanel Orientation="Vertical"
@@ -63,10 +63,20 @@
                     Margin="13,0,0,0"
                     Panel.ZIndex="1" Grid.Row="2">
 
+
+                <RadioButton x:Name="BMain" 
+                             Content="Главная" 
+                             IsChecked="True"
+                             Click="BMain_Click"/>
+                <Rectangle Height="5" Fill="Transparent"/>
                 <RadioButton x:Name="BHome" 
                              Content="Расписание" 
                              IsChecked="True"
                              Click="BHome_Click"/>
+                <Rectangle Height="5" Fill="Transparent"/>
+                <RadioButton x:Name="BAssessment" 
+                             Content="Оценка" 
+                             Click="BAssessment_Click"/>
                 <Rectangle Height="5" Fill="Transparent"/>
                 <RadioButton x:Name="BProfile" 
                              Content="Профиль"

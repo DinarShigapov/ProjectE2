@@ -1,0 +1,7 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Geometry x:Key="lineGeometry">F0 M15,15z M0,0z M2,7.5C2,7.22386,2.22386,7,2.5,7L12.5,7C12.7761,7 13,7.22386 13,7.5 13,7.77614 12.7761,8 12.5,8L2.5,8C2.22386,8,2,7.77614,2,7.5z</Geometry>
+    <DrawingGroup x:Key="lineDrawingGroup" ClipGeometry="M0,0 V15 H15 V0 H0 Z">
+        <GeometryDrawing Brush="#FF7F7F7F" Geometry="{StaticResource lineGeometry}" />
+    </DrawingGroup>
+    <DrawingImage x:Key="lineDrawingImage2" Drawing="{StaticResource lineDrawingGroup}" />
+</ResourceDictionary>

@@ -19,22 +19,26 @@
             <ColumnDefinition x:Name="SizeActionRight" Width="400*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Name="CellMonday" Style="{StaticResource CellDayStyle}" 
-                MouseDown="SizeColumn_MouseDown">
+        <Border Style="{StaticResource CellDayStyle}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="31"/>
                     <RowDefinition Height="114*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Name="CellMonday"
+                           Grid.RowSpan="2" 
+                           MouseDown="SizeColumn_MouseDown"
+                           Fill="Transparent"/>
+
                 <StackPanel>
                     <TextBlock Text="Понедельник"/>
                     <Rectangle/>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Margin="0 8 0 0">
+                <!--<StackPanel Grid.Row="1" Margin="0 8 0 0">
                     <StackPanel.Style>
                         <Style TargetType="StackPanel">
                             <Style.Resources>
-                                <Style TargetType="TextBlock">
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextTrigger}">
                                     <Setter Property="FontSize" Value="17"/>
                                     <Setter Property="Margin" Value="5 0 0 4.56"/>
                                     <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
@@ -48,31 +52,35 @@
                     <TextBlock Text="4 | МДК.05.01 Проектирование и дизайн информационных систем"/>
                     <TextBlock Text="5 | Физическая культура"/>
                     <TextBlock Text="4 | МДК.05.01 Проектирование и дизайн информационных систем"/>
-                </StackPanel>
-                <!--<ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
+                </StackPanel>-->
+                <ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Style="{StaticResource TextSizeStyle}">
+                            <Grid Name="grid" Style="{StaticResource TextSizeStyle}" MouseDown="Grid_MouseDown">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding Period}"/>
-                                <TextBlock Grid.Column="1" 
-                                           Text="{Binding Subject}"/>
+                                <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding Discipline.Name}" TextTrimming="CharacterEllipsis"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>-->
+                </ListView>
             </Grid>
         </Border>
-        <Border Name="CellTuesday" Grid.Row="1" Style="{StaticResource CellDayStyle}" 
-                MouseDown="SizeColumn_MouseDown">
+        <Border Grid.Row="1" Style="{StaticResource CellDayStyle}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="31"/>
                     <RowDefinition Height="114*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Name="CellTuesday"
+                           Grid.RowSpan="2" 
+                           MouseDown="SizeColumn_MouseDown"
+                           Fill="Transparent"/>
+                
                 <StackPanel>
                     <TextBlock Text="Вторник"/>
                     <Rectangle/>
@@ -83,24 +91,27 @@
                             <Grid Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding Period}"/>
-                                <TextBlock Grid.Column="1" 
-                                           Text="{Binding Subject}"/>
+                                <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding Discipline.Name}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
         </Border>
-        <Border Name="CellWednesday" Grid.Row="2" Style="{StaticResource CellDayStyle}"
-                MouseDown="SizeColumn_MouseDown">
+        <Border Grid.Row="2" Style="{StaticResource CellDayStyle}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="31"/>
                     <RowDefinition Height="114*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Name="CellWednesday"
+                           Grid.RowSpan="2" 
+                           MouseDown="SizeColumn_MouseDown"
+                           Fill="Transparent"/>
                 <StackPanel>
                     <TextBlock Text="Среда"/>
                     <Rectangle/>
@@ -111,24 +122,27 @@
                             <Grid Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding Period}"/>
-                                <TextBlock Grid.Column="1" 
-                                           Text="{Binding Subject}"/>
+                                <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding Discipline.Name}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
         </Border>
-        <Border Name="CellThursday" Grid.Column="1" Style="{StaticResource CellDayStyle}" 
-                MouseDown="SizeColumn_MouseDown">
+        <Border Grid.Column="1" Style="{StaticResource CellDayStyle}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="31"/>
                     <RowDefinition Height="114*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Name="CellThursday"
+                           Grid.RowSpan="2" 
+                           MouseDown="SizeColumn_MouseDown"
+                           Fill="Transparent"/>
                 <StackPanel>
                     <TextBlock Text="Четверг"/>
                     <Rectangle/>
@@ -138,25 +152,28 @@
                         <DataTemplate>
                             <Grid Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="30" MinWidth="0"/>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding Period}"/>
-                                <TextBlock Grid.Column="1" 
-                                           Text="{Binding Subject}"/>
+                                <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding Discipline.Name}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
         </Border>
-        <Border Name="CellFriday" Grid.Column="1" Grid.Row="1" Style="{StaticResource CellDayStyle}"
-                MouseDown="SizeColumn_MouseDown">
+        <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource CellDayStyle}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="31"/>
                     <RowDefinition Height="114*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Name="CellFriday"
+                           Grid.RowSpan="2" 
+                           MouseDown="SizeColumn_MouseDown"
+                           Fill="Transparent"/>
                 <StackPanel>
                     <TextBlock Text="Пятница"/>
                     <Rectangle />
@@ -167,24 +184,28 @@
                             <Grid Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding Period}"/>
-                                <TextBlock Grid.Column="1" 
-                                           Text="{Binding Subject}"/>
+                                <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding Discipline.Name}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
         </Border>
-        <Border Name="CellSaturday" Grid.Column="1" Grid.Row="2" Style="{StaticResource CellDayStyle}"
+        <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource CellDayStyle}"
                 MouseDown="SizeColumn_MouseDown">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="31"/>
                     <RowDefinition Height="114*"/>
                 </Grid.RowDefinitions>
+                <Rectangle Name="CellSaturday"
+                           Grid.RowSpan="2" 
+                           MouseDown="SizeColumn_MouseDown"
+                           Fill="Transparent"/>
                 <StackPanel>
                     <TextBlock Text="Суббота"/>
                     <Rectangle />
@@ -195,11 +216,11 @@
                             <Grid Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding Period}"/>
-                                <TextBlock Grid.Column="1" 
-                                           Text="{Binding Subject}"/>
+                                <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding Discipline.Name}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using ProjectE2.Model;
 
 namespace ProjectE2
 {
@@ -13,5 +14,6 @@ namespace ProjectE2
     /// </summary>
     public partial class App : Application
     {
+        public static EducationDBEntities DB = new EducationDBEntities();
     }
 }

@@ -17,7 +17,15 @@
                 <ResourceDictionary Source="Resources/IconUI/ExitArrow.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+            <!--TextTrigger-->
 
+            <Style TargetType="TextBlock" x:Key="TextTrigger">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="#FF6D61F5" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
 
             <!--UI Icon Button-->
 
@@ -47,7 +55,7 @@
                                             <Storyboard>
                                                 <ColorAnimation Storyboard.TargetName="rect"
                                                             Storyboard.TargetProperty="Fill.Color"
-                                                            To="#FF883838"
+                                                            To="#FF9C5353"
                                                             Duration="0:0:0.15"/>
                                             </Storyboard>
                                         </BeginStoryboard>
@@ -306,6 +314,29 @@
                                 <Setter Property="BorderThickness" Value="0"/>
                                 <Setter Property="Margin" Value="10 5 10 10"/>
                                 <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+                                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+                                <Style.Resources>
+                                    <Style TargetType="{x:Type ListViewItem}">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                    <ContentPresenter/>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Foreground" Value="#FF6D61F5" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Resources>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource TextTrigger}">
+                                                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                            </Style>
+                                        </Style.Resources>
+                                    </Style>
+                                </Style.Resources>
                             </Style>
                             <Style TargetType="StackPanel">
                                 <Setter Property="HorizontalAlignment" Value="Left"/>
