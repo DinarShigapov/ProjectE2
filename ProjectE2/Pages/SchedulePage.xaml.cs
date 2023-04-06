@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjectE2.Model;
 
 namespace ProjectE2.Pages
 {
@@ -31,30 +32,37 @@ namespace ProjectE2.Pages
 
         private void ScheduleOutput()
         {
+            var student = App.LoggedStudent;
+
             LVMonday.ItemsSource = App.DB.Schedule.Where(x => 
-            x.GroupId == 1 && 
+            x.GroupId == student.GroupId && 
             x.DayOfTheWeekId == 1 && 
-            x.SemesterId == 6).ToList();
+            x.SemesterId == student.Group.SemesterId).ToList();
 
-            LVTuesday.ItemsSource = App.DB.Schedule.Where(x => x.GroupId == 1
-            && x.DayOfTheWeekId == 2
-            && x.SemesterId == 6).ToList();
+            LVTuesday.ItemsSource = App.DB.Schedule.Where(x => 
+            x.GroupId == student.GroupId && 
+            x.DayOfTheWeekId == 2 && 
+            x.SemesterId == student.Group.SemesterId).ToList();
 
-            LVWednesday.ItemsSource = App.DB.Schedule.Where(x => x.GroupId == 1
-            && x.DayOfTheWeekId == 3
-            && x.SemesterId == 6).ToList();
+            LVWednesday.ItemsSource = App.DB.Schedule.Where(x => 
+            x.GroupId == student.GroupId &&
+            x.DayOfTheWeekId == 3 &&
+            x.SemesterId == student.Group.SemesterId).ToList();
 
-            LVThursday.ItemsSource = App.DB.Schedule.Where(x => x.GroupId == 1
-            && x.DayOfTheWeekId == 4
-            && x.SemesterId == 6).ToList();
+            LVThursday.ItemsSource = App.DB.Schedule.Where(x => 
+            x.GroupId == student.GroupId && 
+            x.DayOfTheWeekId == 4 && 
+            x.SemesterId == student.Group.SemesterId).ToList();
 
-            LVFriday.ItemsSource = App.DB.Schedule.Where(x => x.GroupId == 1
-            && x.DayOfTheWeekId == 5
-            && x.SemesterId == 6).ToList();
+            LVFriday.ItemsSource = App.DB.Schedule.Where(x => 
+            x.GroupId == student.GroupId &&
+            x.DayOfTheWeekId == 5 &&
+            x.SemesterId == student.Group.SemesterId).ToList();
 
-            LVSaturday.ItemsSource = App.DB.Schedule.Where(x => x.GroupId == 1
-            && x.DayOfTheWeekId == 6
-            && x.SemesterId == 6).ToList();
+            LVSaturday.ItemsSource = App.DB.Schedule.Where(x => 
+            x.GroupId == student.GroupId &&
+            x.DayOfTheWeekId == 6 &&
+            x.SemesterId == student.Group.SemesterId).ToList();
         }
 
 
@@ -104,9 +112,14 @@ namespace ProjectE2.Pages
             SizeActionLeft.Width = new GridLength(400, GridUnitType.Star);
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+
+        private void CMInfo_Click(object sender, RoutedEventArgs e)
         {
-            
+            var contextSchedule = (sender as MenuItem).DataContext as Schedule;
+            if (contextSchedule == null)
+                return;
+
+            NavigationService.Navigate(new ScheduleInfoPage(contextSchedule));
         }
     }
 }

@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:ProjectE2.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1100"
+      x:Name="MenuPageTitle"
       Title="Расписание">
 
     <Grid>

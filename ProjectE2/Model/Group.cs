@@ -27,11 +27,12 @@ namespace ProjectE2.Model
         public int QualificationId { get; set; }
         public int FormId { get; set; }
         public int QuantityStudent { get; set; }
-        public int Course { get; set; }
+        public int SemesterId { get; set; }
         public System.DateTime DateOfCreation { get; set; }
     
         public virtual FormOfTraining FormOfTraining { get; set; }
         public virtual Qualification Qualification { get; set; }
+        public virtual Semester Semester { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReportCard> ReportCard { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

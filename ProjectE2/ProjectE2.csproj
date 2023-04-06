@@ -100,6 +100,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ScheduleInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\SchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,25 +147,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EducationDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EducationDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EducationDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EducationDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EducationDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\EduDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -179,46 +198,46 @@
       <DependentUpon>EduDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Post.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>EduDB.tt</DependentUpon>
+      <DependentUpon>EducationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AssessmentPage.xaml.cs">
       <DependentUpon>AssessmentPage.xaml</DependentUpon>
@@ -234,6 +253,9 @@
     </Compile>
     <Compile Include="Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ScheduleInfoPage.xaml.cs">
+      <DependentUpon>ScheduleInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SchedulePage.xaml.cs">
       <DependentUpon>SchedulePage.xaml</DependentUpon>
@@ -259,6 +281,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EduDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Model\EducationDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EducationDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EducationDB.edmx.diagram">
+      <DependentUpon>EducationDB.edmx</DependentUpon>
+    </None>
     <None Include="Model\EduDB.edmx.diagram">
       <DependentUpon>EduDB.edmx</DependentUpon>
     </None>
@@ -291,6 +320,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model\EducationDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EducationDB.edmx</DependentUpon>
+      <LastGenOutput>EducationDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EducationDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EducationDB.edmx</DependentUpon>
+      <LastGenOutput>EducationDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Model\EduDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EduDB.edmx</DependentUpon>

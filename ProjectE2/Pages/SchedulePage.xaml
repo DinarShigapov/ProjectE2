@@ -8,6 +8,8 @@
       d:DesignHeight="630" d:DesignWidth="878"
       Title="Расписание">
 
+    
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150*"/>
@@ -56,7 +58,7 @@
                 <ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Name="grid" Style="{StaticResource TextSizeStyle}" MouseDown="Grid_MouseDown">
+                            <Grid Name="grid" Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
                                     <ColumnDefinition Width="*"/>
@@ -64,6 +66,14 @@
                                 <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding Discipline.Name}" TextTrimming="CharacterEllipsis"/>
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem x:Name="CMInfo" 
+                                                  Header="Информация"
+                                                  Click="CMInfo_Click"/>
+                                        <MenuItem Header="Оценка"/>
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -96,6 +106,12 @@
                                 <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding Discipline.Name}"/>
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Информация"/>
+                                        <MenuItem Header="Оценка"/>
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

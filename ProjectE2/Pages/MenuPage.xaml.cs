@@ -48,7 +48,8 @@ namespace ProjectE2.Pages
         public void RefreshPage(Page page)
         {
             MenuFrame.Navigate(page);
-            MainTextHeader.Text = page.Title;
+            App.MainTitle = page.Title;
+            MainTextHeader.Text = App.MainTitle;
         }
 
         private void BLogOut_Click(object sender, RoutedEventArgs e)

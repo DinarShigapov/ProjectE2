@@ -57,10 +57,10 @@
                     Style="{StaticResource AuthStyle}">
             <Image Source="{StaticResource AvatarDrawingImage}" Width="150"/>
             <TextBlock Text="Логин" />
-            <TextBox/>
+            <TextBox x:Name="TBLogin"/>
             <Rectangle Margin="0 5"/>
             <TextBlock Text="Пароль"/>
-            <TextBox/>
+            <TextBox x:Name="TBPassword"/>
             <Rectangle Margin="0 7"/>
             <Button Content="Войти"
                     x:Name="BEnter"

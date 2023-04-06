@@ -23,7 +23,6 @@ namespace ProjectE2.Model
         public string Email { get; set; }
         public string ResidentialAddress { get; set; }
         public int GroupId { get; set; }
-        public int AverageScore { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public System.DateTime LastLogin { get; set; }
