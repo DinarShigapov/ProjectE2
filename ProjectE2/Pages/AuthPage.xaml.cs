@@ -27,13 +27,26 @@ namespace ProjectE2.Pages
 
         private void BEnter_Click(object sender, RoutedEventArgs e)
         {
+            ButtonEnter();
+        }
+
+        private void BEnter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter)
+                return;
+            ButtonEnter();
+        }
+
+        private void ButtonEnter() 
+        {
+
             var student = App.DB.Student.FirstOrDefault(x => x.Login == TBLogin.Text);
             if (student == null)
             {
                 MessageBox.Show("Логин неверный");
                 return;
             }
-            if (student.Password != student.Password)
+            if (student.Password != TBPassword.Text)
             {
                 MessageBox.Show("Пароль неверный");
                 return;
@@ -42,5 +55,6 @@ namespace ProjectE2.Pages
             App.LoggedStudent = student;
             NavigationService.Navigate(new MenuPage());
         }
+
     }
 }

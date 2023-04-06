@@ -54,6 +54,7 @@
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Grid.Column="1" Width="250"
+                    KeyDown="BEnter_KeyDown"
                     Style="{StaticResource AuthStyle}">
             <Image Source="{StaticResource AvatarDrawingImage}" Width="150"/>
             <TextBlock Text="Логин" />

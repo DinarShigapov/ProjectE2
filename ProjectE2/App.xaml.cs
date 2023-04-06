@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using ProjectE2.Model;
+using ProjectE2.Pages;
 
 namespace ProjectE2
 {
@@ -14,8 +15,9 @@ namespace ProjectE2
     /// </summary>
     public partial class App : Application
     {
-        public static EducationKtitsEntities DB = new EducationKtitsEntities();
+        public static EducationDataBaseEntities DB = new EducationDataBaseEntities();
         public static Student LoggedStudent;
-        public static string MainTitle { get; set; }
+        public static MenuPage menuPage;
+
     }
 }

@@ -19,6 +19,7 @@ namespace ProjectE2.Codes
                 var width = (double)values[0];
                 var height = (double)values[1];
 
+
                 if (width < Double.Epsilon || height < Double.Epsilon)
                 {
                     return Geometry.Empty;

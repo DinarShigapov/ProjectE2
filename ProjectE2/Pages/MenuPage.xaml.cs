@@ -48,8 +48,7 @@ namespace ProjectE2.Pages
         public void RefreshPage(Page page)
         {
             MenuFrame.Navigate(page);
-            App.MainTitle = page.Title;
-            MainTextHeader.Text = App.MainTitle;
+            MainTextHeader.Text = page.Title;
         }
 
         private void BLogOut_Click(object sender, RoutedEventArgs e)
@@ -57,5 +56,14 @@ namespace ProjectE2.Pages
             NavigationService.Navigate(new AuthPage());
         }
 
+
+
+        private void MenuFrame_ContentRendered(object sender, EventArgs e)
+        {
+            var contextContent = (sender as Frame).Content;
+            if (contextContent == null) return;
+
+            RefreshPage(contextContent as Page);
+        }
     }
 }

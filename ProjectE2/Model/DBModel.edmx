@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище EducationDBModel1" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище EducationDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Assessment">
           <Key>
             <PropertyRef Name="Id" />
@@ -538,7 +538,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище EducationDBModel1Container">
+        <EntityContainer Name="Хранилище EducationDataBaseModelContainer">
           <EntitySet Name="Assessment" EntityType="Self.Assessment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Auditorium" EntityType="Self.Auditorium" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClassTime" EntityType="Self.ClassTime" Schema="dbo" store:Type="Tables" />
@@ -673,145 +673,11 @@
             <End Role="Subgroup" EntitySet="Subgroup" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EducationDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="EducationKtitsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Assessment" EntityType="EducationDBModel1.Assessment" />
-          <EntitySet Name="Auditorium" EntityType="EducationDBModel1.Auditorium" />
-          <EntitySet Name="ClassTime" EntityType="EducationDBModel1.ClassTime" />
-          <EntitySet Name="Curriculum" EntityType="EducationDBModel1.Curriculum" />
-          <EntitySet Name="DayOfTheWeek" EntityType="EducationDBModel1.DayOfTheWeek" />
-          <EntitySet Name="Discipline" EntityType="EducationDBModel1.Discipline" />
-          <EntitySet Name="DisciplineTeacher" EntityType="EducationDBModel1.DisciplineTeacher" />
-          <EntitySet Name="Employee" EntityType="EducationDBModel1.Employee" />
-          <EntitySet Name="EmployeePost" EntityType="EducationDBModel1.EmployeePost" />
-          <EntitySet Name="FormOfTraining" EntityType="EducationDBModel1.FormOfTraining" />
-          <EntitySet Name="Gender" EntityType="EducationDBModel1.Gender" />
-          <EntitySet Name="Group" EntityType="EducationDBModel1.Group" />
-          <EntitySet Name="Post" EntityType="EducationDBModel1.Post" />
-          <EntitySet Name="Qualification" EntityType="EducationDBModel1.Qualification" />
-          <EntitySet Name="ReportCard" EntityType="EducationDBModel1.ReportCard" />
-          <EntitySet Name="ReportCardTeacher" EntityType="EducationDBModel1.ReportCardTeacher" />
-          <EntitySet Name="Schedule" EntityType="EducationDBModel1.Schedule" />
-          <EntitySet Name="Semester" EntityType="EducationDBModel1.Semester" />
-          <EntitySet Name="Specialization" EntityType="EducationDBModel1.Specialization" />
-          <EntitySet Name="Student" EntityType="EducationDBModel1.Student" />
-          <EntitySet Name="Subgroup" EntityType="EducationDBModel1.Subgroup" />
-          <AssociationSet Name="FK_Assessment_ReportCard" Association="EducationDBModel1.FK_Assessment_ReportCard">
-            <End Role="ReportCard" EntitySet="ReportCard" />
-            <End Role="Assessment" EntitySet="Assessment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Subgroup_Auditorium" Association="EducationDBModel1.FK_Subgroup_Auditorium">
-            <End Role="Auditorium" EntitySet="Auditorium" />
-            <End Role="Subgroup" EntitySet="Subgroup" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_ClassTime" Association="EducationDBModel1.FK_Schedule_ClassTime">
-            <End Role="ClassTime" EntitySet="ClassTime" />
-            <End Role="Schedule" EntitySet="Schedule" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Curriculum_Discipline" Association="EducationDBModel1.FK_Curriculum_Discipline">
-            <End Role="Discipline" EntitySet="Discipline" />
-            <End Role="Curriculum" EntitySet="Curriculum" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Curriculum_Semester" Association="EducationDBModel1.FK_Curriculum_Semester">
-            <End Role="Semester" EntitySet="Semester" />
-            <End Role="Curriculum" EntitySet="Curriculum" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Curriculum_Specialization" Association="EducationDBModel1.FK_Curriculum_Specialization">
-            <End Role="Specialization" EntitySet="Specialization" />
-            <End Role="Curriculum" EntitySet="Curriculum" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_DayOfTheWeek" Association="EducationDBModel1.FK_Schedule_DayOfTheWeek">
-            <End Role="DayOfTheWeek" EntitySet="DayOfTheWeek" />
-            <End Role="Schedule" EntitySet="Schedule" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DisciplineTeacher_Discipline" Association="EducationDBModel1.FK_DisciplineTeacher_Discipline">
-            <End Role="Discipline" EntitySet="Discipline" />
-            <End Role="DisciplineTeacher" EntitySet="DisciplineTeacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReportCard_Discipline" Association="EducationDBModel1.FK_ReportCard_Discipline">
-            <End Role="Discipline" EntitySet="Discipline" />
-            <End Role="ReportCard" EntitySet="ReportCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Discipline" Association="EducationDBModel1.FK_Schedule_Discipline">
-            <End Role="Discipline" EntitySet="Discipline" />
-            <End Role="Schedule" EntitySet="Schedule" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DisciplineTeacher_Employee" Association="EducationDBModel1.FK_DisciplineTeacher_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="DisciplineTeacher" EntitySet="DisciplineTeacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Gender" Association="EducationDBModel1.FK_Employee_Gender">
-            <End Role="Gender" EntitySet="Gender" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeePost_Employee" Association="EducationDBModel1.FK_EmployeePost_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="EmployeePost" EntitySet="EmployeePost" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReportCardTeacher_Employee" Association="EducationDBModel1.FK_ReportCardTeacher_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="ReportCardTeacher" EntitySet="ReportCardTeacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Subgroup_Employee" Association="EducationDBModel1.FK_Subgroup_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Subgroup" EntitySet="Subgroup" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeePost_Post" Association="EducationDBModel1.FK_EmployeePost_Post">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="EmployeePost" EntitySet="EmployeePost" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Group_FormOfTraining" Association="EducationDBModel1.FK_Group_FormOfTraining">
-            <End Role="FormOfTraining" EntitySet="FormOfTraining" />
-            <End Role="Group" EntitySet="Group" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_Gender" Association="EducationDBModel1.FK_Student_Gender">
-            <End Role="Gender" EntitySet="Gender" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Group_Qualification" Association="EducationDBModel1.FK_Group_Qualification">
-            <End Role="Qualification" EntitySet="Qualification" />
-            <End Role="Group" EntitySet="Group" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Group_Semester" Association="EducationDBModel1.FK_Group_Semester">
-            <End Role="Semester" EntitySet="Semester" />
-            <End Role="Group" EntitySet="Group" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReportCard_Group" Association="EducationDBModel1.FK_ReportCard_Group">
-            <End Role="Group" EntitySet="Group" />
-            <End Role="ReportCard" EntitySet="ReportCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Group" Association="EducationDBModel1.FK_Schedule_Group">
-            <End Role="Group" EntitySet="Group" />
-            <End Role="Schedule" EntitySet="Schedule" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_Group" Association="EducationDBModel1.FK_Student_Group">
-            <End Role="Group" EntitySet="Group" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Qualification_Specialization" Association="EducationDBModel1.FK_Qualification_Specialization">
-            <End Role="Specialization" EntitySet="Specialization" />
-            <End Role="Qualification" EntitySet="Qualification" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReportCard_Semester" Association="EducationDBModel1.FK_ReportCard_Semester">
-            <End Role="Semester" EntitySet="Semester" />
-            <End Role="ReportCard" EntitySet="ReportCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReportCardTeacher_ReportCard" Association="EducationDBModel1.FK_ReportCardTeacher_ReportCard">
-            <End Role="ReportCard" EntitySet="ReportCard" />
-            <End Role="ReportCardTeacher" EntitySet="ReportCardTeacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Semester" Association="EducationDBModel1.FK_Schedule_Semester">
-            <End Role="Semester" EntitySet="Semester" />
-            <End Role="Schedule" EntitySet="Schedule" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Subgroup_Schedule" Association="EducationDBModel1.FK_Subgroup_Schedule">
-            <End Role="Schedule" EntitySet="Schedule" />
-            <End Role="Subgroup" EntitySet="Subgroup" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="EducationDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Assessment">
           <Key>
             <PropertyRef Name="Id" />
@@ -821,7 +687,7 @@
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <Property Name="Assessment1" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ReportCard" Relationship="EducationDBModel1.FK_Assessment_ReportCard" FromRole="Assessment" ToRole="ReportCard" />
+          <NavigationProperty Name="ReportCard" Relationship="Self.FK_Assessment_ReportCard" FromRole="Assessment" ToRole="ReportCard" />
         </EntityType>
         <EntityType Name="Auditorium">
           <Key>
@@ -829,7 +695,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Subgroup" Relationship="EducationDBModel1.FK_Subgroup_Auditorium" FromRole="Auditorium" ToRole="Subgroup" />
+          <NavigationProperty Name="Subgroup" Relationship="Self.FK_Subgroup_Auditorium" FromRole="Auditorium" ToRole="Subgroup" />
         </EntityType>
         <EntityType Name="ClassTime">
           <Key>
@@ -839,7 +705,7 @@
           <Property Name="ClassNumber" Type="Int32" Nullable="false" />
           <Property Name="StartClass" Type="Time" Nullable="false" Precision="7" />
           <Property Name="EndClass" Type="Time" Nullable="false" Precision="7" />
-          <NavigationProperty Name="Schedule" Relationship="EducationDBModel1.FK_Schedule_ClassTime" FromRole="ClassTime" ToRole="Schedule" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_ClassTime" FromRole="ClassTime" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="Curriculum">
           <Key>
@@ -851,9 +717,9 @@
           <Property Name="DisciplineId" Type="Int32" Nullable="false" />
           <Property Name="IndexCurriculum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Discipline" Relationship="EducationDBModel1.FK_Curriculum_Discipline" FromRole="Curriculum" ToRole="Discipline" />
-          <NavigationProperty Name="Semester" Relationship="EducationDBModel1.FK_Curriculum_Semester" FromRole="Curriculum" ToRole="Semester" />
-          <NavigationProperty Name="Specialization" Relationship="EducationDBModel1.FK_Curriculum_Specialization" FromRole="Curriculum" ToRole="Specialization" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Curriculum_Discipline" FromRole="Curriculum" ToRole="Discipline" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK_Curriculum_Semester" FromRole="Curriculum" ToRole="Semester" />
+          <NavigationProperty Name="Specialization" Relationship="Self.FK_Curriculum_Specialization" FromRole="Curriculum" ToRole="Specialization" />
         </EntityType>
         <EntityType Name="DayOfTheWeek">
           <Key>
@@ -861,19 +727,19 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Schedule" Relationship="EducationDBModel1.FK_Schedule_DayOfTheWeek" FromRole="DayOfTheWeek" ToRole="Schedule" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_DayOfTheWeek" FromRole="DayOfTheWeek" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="Discipline">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Abbreviation" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Curriculum" Relationship="EducationDBModel1.FK_Curriculum_Discipline" FromRole="Discipline" ToRole="Curriculum" />
-          <NavigationProperty Name="DisciplineTeacher" Relationship="EducationDBModel1.FK_DisciplineTeacher_Discipline" FromRole="Discipline" ToRole="DisciplineTeacher" />
-          <NavigationProperty Name="ReportCard" Relationship="EducationDBModel1.FK_ReportCard_Discipline" FromRole="Discipline" ToRole="ReportCard" />
-          <NavigationProperty Name="Schedule" Relationship="EducationDBModel1.FK_Schedule_Discipline" FromRole="Discipline" ToRole="Schedule" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Curriculum" Relationship="Self.FK_Curriculum_Discipline" FromRole="Discipline" ToRole="Curriculum" />
+          <NavigationProperty Name="DisciplineTeacher" Relationship="Self.FK_DisciplineTeacher_Discipline" FromRole="Discipline" ToRole="DisciplineTeacher" />
+          <NavigationProperty Name="ReportCard" Relationship="Self.FK_ReportCard_Discipline" FromRole="Discipline" ToRole="ReportCard" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Discipline" FromRole="Discipline" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="DisciplineTeacher">
           <Key>
@@ -882,28 +748,28 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TeacherId" Type="Int32" Nullable="false" />
           <Property Name="DisciplineId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Discipline" Relationship="EducationDBModel1.FK_DisciplineTeacher_Discipline" FromRole="DisciplineTeacher" ToRole="Discipline" />
-          <NavigationProperty Name="Employee" Relationship="EducationDBModel1.FK_DisciplineTeacher_Employee" FromRole="DisciplineTeacher" ToRole="Employee" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_DisciplineTeacher_Discipline" FromRole="DisciplineTeacher" ToRole="Discipline" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_DisciplineTeacher_Employee" FromRole="DisciplineTeacher" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GenderId" Type="Int32" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="DisciplineTeacher" Relationship="EducationDBModel1.FK_DisciplineTeacher_Employee" FromRole="Employee" ToRole="DisciplineTeacher" />
-          <NavigationProperty Name="Gender" Relationship="EducationDBModel1.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
-          <NavigationProperty Name="EmployeePost" Relationship="EducationDBModel1.FK_EmployeePost_Employee" FromRole="Employee" ToRole="EmployeePost" />
-          <NavigationProperty Name="ReportCardTeacher" Relationship="EducationDBModel1.FK_ReportCardTeacher_Employee" FromRole="Employee" ToRole="ReportCardTeacher" />
-          <NavigationProperty Name="Subgroup" Relationship="EducationDBModel1.FK_Subgroup_Employee" FromRole="Employee" ToRole="Subgroup" />
+          <NavigationProperty Name="DisciplineTeacher" Relationship="Self.FK_DisciplineTeacher_Employee" FromRole="Employee" ToRole="DisciplineTeacher" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
+          <NavigationProperty Name="EmployeePost" Relationship="Self.FK_EmployeePost_Employee" FromRole="Employee" ToRole="EmployeePost" />
+          <NavigationProperty Name="ReportCardTeacher" Relationship="Self.FK_ReportCardTeacher_Employee" FromRole="Employee" ToRole="ReportCardTeacher" />
+          <NavigationProperty Name="Subgroup" Relationship="Self.FK_Subgroup_Employee" FromRole="Employee" ToRole="Subgroup" />
         </EntityType>
         <EntityType Name="EmployeePost">
           <Key>
@@ -912,62 +778,62 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PostId" Type="Int32" Nullable="false" />
           <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="EducationDBModel1.FK_EmployeePost_Employee" FromRole="EmployeePost" ToRole="Employee" />
-          <NavigationProperty Name="Post" Relationship="EducationDBModel1.FK_EmployeePost_Post" FromRole="EmployeePost" ToRole="Post" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeePost_Employee" FromRole="EmployeePost" ToRole="Employee" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_EmployeePost_Post" FromRole="EmployeePost" ToRole="Post" />
         </EntityType>
         <EntityType Name="FormOfTraining">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Group" Relationship="EducationDBModel1.FK_Group_FormOfTraining" FromRole="FormOfTraining" ToRole="Group" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Group_FormOfTraining" FromRole="FormOfTraining" ToRole="Group" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GenderName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="EducationDBModel1.FK_Employee_Gender" FromRole="Gender" ToRole="Employee" />
-          <NavigationProperty Name="Student" Relationship="EducationDBModel1.FK_Student_Gender" FromRole="Gender" ToRole="Student" />
+          <Property Name="GenderName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Gender" FromRole="Gender" ToRole="Employee" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Gender" FromRole="Gender" ToRole="Student" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="QualificationId" Type="Int32" Nullable="false" />
           <Property Name="FormId" Type="Int32" Nullable="false" />
           <Property Name="QuantityStudent" Type="Int32" Nullable="false" />
           <Property Name="SemesterId" Type="Int32" Nullable="false" />
           <Property Name="DateOfCreation" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="FormOfTraining" Relationship="EducationDBModel1.FK_Group_FormOfTraining" FromRole="Group" ToRole="FormOfTraining" />
-          <NavigationProperty Name="Qualification" Relationship="EducationDBModel1.FK_Group_Qualification" FromRole="Group" ToRole="Qualification" />
-          <NavigationProperty Name="Semester" Relationship="EducationDBModel1.FK_Group_Semester" FromRole="Group" ToRole="Semester" />
-          <NavigationProperty Name="ReportCard" Relationship="EducationDBModel1.FK_ReportCard_Group" FromRole="Group" ToRole="ReportCard" />
-          <NavigationProperty Name="Schedule" Relationship="EducationDBModel1.FK_Schedule_Group" FromRole="Group" ToRole="Schedule" />
-          <NavigationProperty Name="Student" Relationship="EducationDBModel1.FK_Student_Group" FromRole="Group" ToRole="Student" />
+          <NavigationProperty Name="FormOfTraining" Relationship="Self.FK_Group_FormOfTraining" FromRole="Group" ToRole="FormOfTraining" />
+          <NavigationProperty Name="Qualification" Relationship="Self.FK_Group_Qualification" FromRole="Group" ToRole="Qualification" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK_Group_Semester" FromRole="Group" ToRole="Semester" />
+          <NavigationProperty Name="ReportCard" Relationship="Self.FK_ReportCard_Group" FromRole="Group" ToRole="ReportCard" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Group" FromRole="Group" ToRole="Schedule" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Group" FromRole="Group" ToRole="Student" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="EmployeePost" Relationship="EducationDBModel1.FK_EmployeePost_Post" FromRole="Post" ToRole="EmployeePost" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="EmployeePost" Relationship="Self.FK_EmployeePost_Post" FromRole="Post" ToRole="EmployeePost" />
         </EntityType>
         <EntityType Name="Qualification">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Abbreviation" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Abbreviation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="SpecializationId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Group" Relationship="EducationDBModel1.FK_Group_Qualification" FromRole="Qualification" ToRole="Group" />
-          <NavigationProperty Name="Specialization" Relationship="EducationDBModel1.FK_Qualification_Specialization" FromRole="Qualification" ToRole="Specialization" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Group_Qualification" FromRole="Qualification" ToRole="Group" />
+          <NavigationProperty Name="Specialization" Relationship="Self.FK_Qualification_Specialization" FromRole="Qualification" ToRole="Specialization" />
         </EntityType>
         <EntityType Name="ReportCard">
           <Key>
@@ -979,11 +845,11 @@
           <Property Name="SemesterId" Type="Int32" Nullable="false" />
           <Property Name="DisciplineId" Type="Int32" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Assessment" Relationship="EducationDBModel1.FK_Assessment_ReportCard" FromRole="ReportCard" ToRole="Assessment" />
-          <NavigationProperty Name="Discipline" Relationship="EducationDBModel1.FK_ReportCard_Discipline" FromRole="ReportCard" ToRole="Discipline" />
-          <NavigationProperty Name="Group" Relationship="EducationDBModel1.FK_ReportCard_Group" FromRole="ReportCard" ToRole="Group" />
-          <NavigationProperty Name="Semester" Relationship="EducationDBModel1.FK_ReportCard_Semester" FromRole="ReportCard" ToRole="Semester" />
-          <NavigationProperty Name="ReportCardTeacher" Relationship="EducationDBModel1.FK_ReportCardTeacher_ReportCard" FromRole="ReportCard" ToRole="ReportCardTeacher" />
+          <NavigationProperty Name="Assessment" Relationship="Self.FK_Assessment_ReportCard" FromRole="ReportCard" ToRole="Assessment" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_ReportCard_Discipline" FromRole="ReportCard" ToRole="Discipline" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_ReportCard_Group" FromRole="ReportCard" ToRole="Group" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK_ReportCard_Semester" FromRole="ReportCard" ToRole="Semester" />
+          <NavigationProperty Name="ReportCardTeacher" Relationship="Self.FK_ReportCardTeacher_ReportCard" FromRole="ReportCard" ToRole="ReportCardTeacher" />
         </EntityType>
         <EntityType Name="ReportCardTeacher">
           <Key>
@@ -992,8 +858,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="TeacherId" Type="Int32" Nullable="false" />
           <Property Name="ReportCardId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="EducationDBModel1.FK_ReportCardTeacher_Employee" FromRole="ReportCardTeacher" ToRole="Employee" />
-          <NavigationProperty Name="ReportCard" Relationship="EducationDBModel1.FK_ReportCardTeacher_ReportCard" FromRole="ReportCardTeacher" ToRole="ReportCard" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_ReportCardTeacher_Employee" FromRole="ReportCardTeacher" ToRole="Employee" />
+          <NavigationProperty Name="ReportCard" Relationship="Self.FK_ReportCardTeacher_ReportCard" FromRole="ReportCardTeacher" ToRole="ReportCard" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -1005,12 +871,12 @@
           <Property Name="ClassTimeId" Type="Int32" Nullable="false" />
           <Property Name="SemesterId" Type="Int32" Nullable="false" />
           <Property Name="DisciplineId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ClassTime" Relationship="EducationDBModel1.FK_Schedule_ClassTime" FromRole="Schedule" ToRole="ClassTime" />
-          <NavigationProperty Name="DayOfTheWeek" Relationship="EducationDBModel1.FK_Schedule_DayOfTheWeek" FromRole="Schedule" ToRole="DayOfTheWeek" />
-          <NavigationProperty Name="Discipline" Relationship="EducationDBModel1.FK_Schedule_Discipline" FromRole="Schedule" ToRole="Discipline" />
-          <NavigationProperty Name="Group" Relationship="EducationDBModel1.FK_Schedule_Group" FromRole="Schedule" ToRole="Group" />
-          <NavigationProperty Name="Semester" Relationship="EducationDBModel1.FK_Schedule_Semester" FromRole="Schedule" ToRole="Semester" />
-          <NavigationProperty Name="Subgroup" Relationship="EducationDBModel1.FK_Subgroup_Schedule" FromRole="Schedule" ToRole="Subgroup" />
+          <NavigationProperty Name="ClassTime" Relationship="Self.FK_Schedule_ClassTime" FromRole="Schedule" ToRole="ClassTime" />
+          <NavigationProperty Name="DayOfTheWeek" Relationship="Self.FK_Schedule_DayOfTheWeek" FromRole="Schedule" ToRole="DayOfTheWeek" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Schedule_Discipline" FromRole="Schedule" ToRole="Discipline" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Schedule_Group" FromRole="Schedule" ToRole="Group" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK_Schedule_Semester" FromRole="Schedule" ToRole="Semester" />
+          <NavigationProperty Name="Subgroup" Relationship="Self.FK_Subgroup_Schedule" FromRole="Schedule" ToRole="Subgroup" />
         </EntityType>
         <EntityType Name="Semester">
           <Key>
@@ -1019,39 +885,39 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Course" Type="Int32" Nullable="false" />
           <Property Name="Semester1" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Curriculum" Relationship="EducationDBModel1.FK_Curriculum_Semester" FromRole="Semester" ToRole="Curriculum" />
-          <NavigationProperty Name="Group" Relationship="EducationDBModel1.FK_Group_Semester" FromRole="Semester" ToRole="Group" />
-          <NavigationProperty Name="ReportCard" Relationship="EducationDBModel1.FK_ReportCard_Semester" FromRole="Semester" ToRole="ReportCard" />
-          <NavigationProperty Name="Schedule" Relationship="EducationDBModel1.FK_Schedule_Semester" FromRole="Semester" ToRole="Schedule" />
+          <NavigationProperty Name="Curriculum" Relationship="Self.FK_Curriculum_Semester" FromRole="Semester" ToRole="Curriculum" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Group_Semester" FromRole="Semester" ToRole="Group" />
+          <NavigationProperty Name="ReportCard" Relationship="Self.FK_ReportCard_Semester" FromRole="Semester" ToRole="ReportCard" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Semester" FromRole="Semester" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="Specialization">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Curriculum" Relationship="EducationDBModel1.FK_Curriculum_Specialization" FromRole="Specialization" ToRole="Curriculum" />
-          <NavigationProperty Name="Qualification" Relationship="EducationDBModel1.FK_Qualification_Specialization" FromRole="Specialization" ToRole="Qualification" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Curriculum" Relationship="Self.FK_Curriculum_Specialization" FromRole="Specialization" ToRole="Curriculum" />
+          <NavigationProperty Name="Qualification" Relationship="Self.FK_Qualification_Specialization" FromRole="Specialization" ToRole="Qualification" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GenderId" Type="Int32" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ResidentialAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResidentialAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GroupId" Type="Int32" Nullable="false" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Gender" Relationship="EducationDBModel1.FK_Student_Gender" FromRole="Student" ToRole="Gender" />
-          <NavigationProperty Name="Group" Relationship="EducationDBModel1.FK_Student_Group" FromRole="Student" ToRole="Group" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Student_Gender" FromRole="Student" ToRole="Gender" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Student_Group" FromRole="Student" ToRole="Group" />
         </EntityType>
         <EntityType Name="Subgroup">
           <Key>
@@ -1061,13 +927,13 @@
           <Property Name="TeacherId" Type="Int32" Nullable="false" />
           <Property Name="AuditoriumId" Type="Int32" Nullable="false" />
           <Property Name="ScheduleId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Auditorium" Relationship="EducationDBModel1.FK_Subgroup_Auditorium" FromRole="Subgroup" ToRole="Auditorium" />
-          <NavigationProperty Name="Employee" Relationship="EducationDBModel1.FK_Subgroup_Employee" FromRole="Subgroup" ToRole="Employee" />
-          <NavigationProperty Name="Schedule" Relationship="EducationDBModel1.FK_Subgroup_Schedule" FromRole="Subgroup" ToRole="Schedule" />
+          <NavigationProperty Name="Auditorium" Relationship="Self.FK_Subgroup_Auditorium" FromRole="Subgroup" ToRole="Auditorium" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Subgroup_Employee" FromRole="Subgroup" ToRole="Employee" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Subgroup_Schedule" FromRole="Subgroup" ToRole="Schedule" />
         </EntityType>
         <Association Name="FK_Assessment_ReportCard">
-          <End Type="EducationDBModel1.ReportCard" Role="ReportCard" Multiplicity="1" />
-          <End Type="EducationDBModel1.Assessment" Role="Assessment" Multiplicity="*" />
+          <End Role="ReportCard" Type="Self.ReportCard" Multiplicity="1" />
+          <End Role="Assessment" Type="Self.Assessment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ReportCard">
               <PropertyRef Name="Id" />
@@ -1078,8 +944,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Subgroup_Auditorium">
-          <End Type="EducationDBModel1.Auditorium" Role="Auditorium" Multiplicity="1" />
-          <End Type="EducationDBModel1.Subgroup" Role="Subgroup" Multiplicity="*" />
+          <End Role="Auditorium" Type="Self.Auditorium" Multiplicity="1" />
+          <End Role="Subgroup" Type="Self.Subgroup" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Auditorium">
               <PropertyRef Name="Id" />
@@ -1090,8 +956,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Schedule_ClassTime">
-          <End Type="EducationDBModel1.ClassTime" Role="ClassTime" Multiplicity="1" />
-          <End Type="EducationDBModel1.Schedule" Role="Schedule" Multiplicity="*" />
+          <End Role="ClassTime" Type="Self.ClassTime" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ClassTime">
               <PropertyRef Name="Id" />
@@ -1102,8 +968,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Curriculum_Discipline">
-          <End Type="EducationDBModel1.Discipline" Role="Discipline" Multiplicity="1" />
-          <End Type="EducationDBModel1.Curriculum" Role="Curriculum" Multiplicity="*" />
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Discipline">
               <PropertyRef Name="Id" />
@@ -1114,8 +980,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Curriculum_Semester">
-          <End Type="EducationDBModel1.Semester" Role="Semester" Multiplicity="1" />
-          <End Type="EducationDBModel1.Curriculum" Role="Curriculum" Multiplicity="*" />
+          <End Role="Semester" Type="Self.Semester" Multiplicity="1" />
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Semester">
               <PropertyRef Name="Id" />
@@ -1126,8 +992,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Curriculum_Specialization">
-          <End Type="EducationDBModel1.Specialization" Role="Specialization" Multiplicity="1" />
-          <End Type="EducationDBModel1.Curriculum" Role="Curriculum" Multiplicity="*" />
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="1" />
+          <End Role="Curriculum" Type="Self.Curriculum" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Specialization">
               <PropertyRef Name="Id" />
@@ -1138,8 +1004,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Schedule_DayOfTheWeek">
-          <End Type="EducationDBModel1.DayOfTheWeek" Role="DayOfTheWeek" Multiplicity="1" />
-          <End Type="EducationDBModel1.Schedule" Role="Schedule" Multiplicity="*" />
+          <End Role="DayOfTheWeek" Type="Self.DayOfTheWeek" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DayOfTheWeek">
               <PropertyRef Name="Id" />
@@ -1150,8 +1016,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DisciplineTeacher_Discipline">
-          <End Type="EducationDBModel1.Discipline" Role="Discipline" Multiplicity="1" />
-          <End Type="EducationDBModel1.DisciplineTeacher" Role="DisciplineTeacher" Multiplicity="*" />
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />
+          <End Role="DisciplineTeacher" Type="Self.DisciplineTeacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Discipline">
               <PropertyRef Name="Id" />
@@ -1162,8 +1028,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ReportCard_Discipline">
-          <End Type="EducationDBModel1.Discipline" Role="Discipline" Multiplicity="1" />
-          <End Type="EducationDBModel1.ReportCard" Role="ReportCard" Multiplicity="*" />
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />
+          <End Role="ReportCard" Type="Self.ReportCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Discipline">
               <PropertyRef Name="Id" />
@@ -1174,8 +1040,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Schedule_Discipline">
-          <End Type="EducationDBModel1.Discipline" Role="Discipline" Multiplicity="1" />
-          <End Type="EducationDBModel1.Schedule" Role="Schedule" Multiplicity="*" />
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Discipline">
               <PropertyRef Name="Id" />
@@ -1186,8 +1052,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DisciplineTeacher_Employee">
-          <End Type="EducationDBModel1.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="EducationDBModel1.DisciplineTeacher" Role="DisciplineTeacher" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="DisciplineTeacher" Type="Self.DisciplineTeacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1198,8 +1064,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_Gender">
-          <End Type="EducationDBModel1.Gender" Role="Gender" Multiplicity="1" />
-          <End Type="EducationDBModel1.Employee" Role="Employee" Multiplicity="*" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
               <PropertyRef Name="Id" />
@@ -1210,8 +1076,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmployeePost_Employee">
-          <End Type="EducationDBModel1.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="EducationDBModel1.EmployeePost" Role="EmployeePost" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeePost" Type="Self.EmployeePost" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1222,8 +1088,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ReportCardTeacher_Employee">
-          <End Type="EducationDBModel1.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="EducationDBModel1.ReportCardTeacher" Role="ReportCardTeacher" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="ReportCardTeacher" Type="Self.ReportCardTeacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1234,8 +1100,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Subgroup_Employee">
-          <End Type="EducationDBModel1.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="EducationDBModel1.Subgroup" Role="Subgroup" Multiplicity="*" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Subgroup" Type="Self.Subgroup" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -1246,8 +1112,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmployeePost_Post">
-          <End Type="EducationDBModel1.Post" Role="Post" Multiplicity="1" />
-          <End Type="EducationDBModel1.EmployeePost" Role="EmployeePost" Multiplicity="*" />
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="EmployeePost" Type="Self.EmployeePost" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Post">
               <PropertyRef Name="Id" />
@@ -1258,8 +1124,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Group_FormOfTraining">
-          <End Type="EducationDBModel1.FormOfTraining" Role="FormOfTraining" Multiplicity="1" />
-          <End Type="EducationDBModel1.Group" Role="Group" Multiplicity="*" />
+          <End Role="FormOfTraining" Type="Self.FormOfTraining" Multiplicity="1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FormOfTraining">
               <PropertyRef Name="Id" />
@@ -1270,8 +1136,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Student_Gender">
-          <End Type="EducationDBModel1.Gender" Role="Gender" Multiplicity="1" />
-          <End Type="EducationDBModel1.Student" Role="Student" Multiplicity="*" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
               <PropertyRef Name="Id" />
@@ -1282,8 +1148,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Group_Qualification">
-          <End Type="EducationDBModel1.Qualification" Role="Qualification" Multiplicity="1" />
-          <End Type="EducationDBModel1.Group" Role="Group" Multiplicity="*" />
+          <End Role="Qualification" Type="Self.Qualification" Multiplicity="1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Qualification">
               <PropertyRef Name="Id" />
@@ -1294,8 +1160,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Group_Semester">
-          <End Type="EducationDBModel1.Semester" Role="Semester" Multiplicity="1" />
-          <End Type="EducationDBModel1.Group" Role="Group" Multiplicity="*" />
+          <End Role="Semester" Type="Self.Semester" Multiplicity="1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Semester">
               <PropertyRef Name="Id" />
@@ -1306,8 +1172,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ReportCard_Group">
-          <End Type="EducationDBModel1.Group" Role="Group" Multiplicity="1" />
-          <End Type="EducationDBModel1.ReportCard" Role="ReportCard" Multiplicity="*" />
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="ReportCard" Type="Self.ReportCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
               <PropertyRef Name="Id" />
@@ -1318,8 +1184,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Schedule_Group">
-          <End Type="EducationDBModel1.Group" Role="Group" Multiplicity="1" />
-          <End Type="EducationDBModel1.Schedule" Role="Schedule" Multiplicity="*" />
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
               <PropertyRef Name="Id" />
@@ -1330,8 +1196,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Student_Group">
-          <End Type="EducationDBModel1.Group" Role="Group" Multiplicity="1" />
-          <End Type="EducationDBModel1.Student" Role="Student" Multiplicity="*" />
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
               <PropertyRef Name="Id" />
@@ -1342,8 +1208,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Qualification_Specialization">
-          <End Type="EducationDBModel1.Specialization" Role="Specialization" Multiplicity="1" />
-          <End Type="EducationDBModel1.Qualification" Role="Qualification" Multiplicity="*" />
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="1" />
+          <End Role="Qualification" Type="Self.Qualification" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Specialization">
               <PropertyRef Name="Id" />
@@ -1354,8 +1220,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ReportCard_Semester">
-          <End Type="EducationDBModel1.Semester" Role="Semester" Multiplicity="1" />
-          <End Type="EducationDBModel1.ReportCard" Role="ReportCard" Multiplicity="*" />
+          <End Role="Semester" Type="Self.Semester" Multiplicity="1" />
+          <End Role="ReportCard" Type="Self.ReportCard" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Semester">
               <PropertyRef Name="Id" />
@@ -1366,8 +1232,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ReportCardTeacher_ReportCard">
-          <End Type="EducationDBModel1.ReportCard" Role="ReportCard" Multiplicity="1" />
-          <End Type="EducationDBModel1.ReportCardTeacher" Role="ReportCardTeacher" Multiplicity="*" />
+          <End Role="ReportCard" Type="Self.ReportCard" Multiplicity="1" />
+          <End Role="ReportCardTeacher" Type="Self.ReportCardTeacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ReportCard">
               <PropertyRef Name="Id" />
@@ -1378,8 +1244,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Schedule_Semester">
-          <End Type="EducationDBModel1.Semester" Role="Semester" Multiplicity="1" />
-          <End Type="EducationDBModel1.Schedule" Role="Schedule" Multiplicity="*" />
+          <End Role="Semester" Type="Self.Semester" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Semester">
               <PropertyRef Name="Id" />
@@ -1390,8 +1256,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Subgroup_Schedule">
-          <End Type="EducationDBModel1.Schedule" Role="Schedule" Multiplicity="1" />
-          <End Type="EducationDBModel1.Subgroup" Role="Subgroup" Multiplicity="*" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="Subgroup" Type="Self.Subgroup" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Schedule">
               <PropertyRef Name="Id" />
@@ -1401,227 +1267,362 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="EducationDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Assessment" EntityType="Self.Assessment" />
+          <EntitySet Name="Auditorium" EntityType="Self.Auditorium" />
+          <EntitySet Name="ClassTime" EntityType="Self.ClassTime" />
+          <EntitySet Name="Curriculum" EntityType="Self.Curriculum" />
+          <EntitySet Name="DayOfTheWeek" EntityType="Self.DayOfTheWeek" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" />
+          <EntitySet Name="DisciplineTeacher" EntityType="Self.DisciplineTeacher" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="EmployeePost" EntityType="Self.EmployeePost" />
+          <EntitySet Name="FormOfTraining" EntityType="Self.FormOfTraining" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" />
+          <EntitySet Name="Group" EntityType="Self.Group" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
+          <EntitySet Name="Qualification" EntityType="Self.Qualification" />
+          <EntitySet Name="ReportCard" EntityType="Self.ReportCard" />
+          <EntitySet Name="ReportCardTeacher" EntityType="Self.ReportCardTeacher" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" />
+          <EntitySet Name="Semester" EntityType="Self.Semester" />
+          <EntitySet Name="Specialization" EntityType="Self.Specialization" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="Subgroup" EntityType="Self.Subgroup" />
+          <AssociationSet Name="FK_Assessment_ReportCard" Association="Self.FK_Assessment_ReportCard">
+            <End Role="ReportCard" EntitySet="ReportCard" />
+            <End Role="Assessment" EntitySet="Assessment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subgroup_Auditorium" Association="Self.FK_Subgroup_Auditorium">
+            <End Role="Auditorium" EntitySet="Auditorium" />
+            <End Role="Subgroup" EntitySet="Subgroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_ClassTime" Association="Self.FK_Schedule_ClassTime">
+            <End Role="ClassTime" EntitySet="ClassTime" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Curriculum_Discipline" Association="Self.FK_Curriculum_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Curriculum_Semester" Association="Self.FK_Curriculum_Semester">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Curriculum_Specialization" Association="Self.FK_Curriculum_Specialization">
+            <End Role="Specialization" EntitySet="Specialization" />
+            <End Role="Curriculum" EntitySet="Curriculum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_DayOfTheWeek" Association="Self.FK_Schedule_DayOfTheWeek">
+            <End Role="DayOfTheWeek" EntitySet="DayOfTheWeek" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisciplineTeacher_Discipline" Association="Self.FK_DisciplineTeacher_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="DisciplineTeacher" EntitySet="DisciplineTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportCard_Discipline" Association="Self.FK_ReportCard_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="ReportCard" EntitySet="ReportCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Discipline" Association="Self.FK_Schedule_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DisciplineTeacher_Employee" Association="Self.FK_DisciplineTeacher_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="DisciplineTeacher" EntitySet="DisciplineTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Gender" Association="Self.FK_Employee_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePost_Employee" Association="Self.FK_EmployeePost_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeePost" EntitySet="EmployeePost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportCardTeacher_Employee" Association="Self.FK_ReportCardTeacher_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="ReportCardTeacher" EntitySet="ReportCardTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subgroup_Employee" Association="Self.FK_Subgroup_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Subgroup" EntitySet="Subgroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePost_Post" Association="Self.FK_EmployeePost_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="EmployeePost" EntitySet="EmployeePost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_FormOfTraining" Association="Self.FK_Group_FormOfTraining">
+            <End Role="FormOfTraining" EntitySet="FormOfTraining" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Gender" Association="Self.FK_Student_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Qualification" Association="Self.FK_Group_Qualification">
+            <End Role="Qualification" EntitySet="Qualification" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Semester" Association="Self.FK_Group_Semester">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportCard_Group" Association="Self.FK_ReportCard_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="ReportCard" EntitySet="ReportCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Group" Association="Self.FK_Schedule_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Qualification_Specialization" Association="Self.FK_Qualification_Specialization">
+            <End Role="Specialization" EntitySet="Specialization" />
+            <End Role="Qualification" EntitySet="Qualification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportCard_Semester" Association="Self.FK_ReportCard_Semester">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="ReportCard" EntitySet="ReportCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportCardTeacher_ReportCard" Association="Self.FK_ReportCardTeacher_ReportCard">
+            <End Role="ReportCard" EntitySet="ReportCard" />
+            <End Role="ReportCardTeacher" EntitySet="ReportCardTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Semester" Association="Self.FK_Schedule_Semester">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subgroup_Schedule" Association="Self.FK_Subgroup_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Subgroup" EntitySet="Subgroup" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище EducationDBModel1Container" CdmEntityContainer="EducationKtitsEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EducationDataBaseModelContainer" CdmEntityContainer="EducationDataBaseEntities">
           <EntitySetMapping Name="Assessment">
-            <EntityTypeMapping TypeName="EducationDBModel1.Assessment">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Assessment">
               <MappingFragment StoreEntitySet="Assessment">
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Assessment1" ColumnName="Assessment" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="ReportCardId" ColumnName="ReportCardId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReportCardId" ColumnName="ReportCardId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Assessment1" ColumnName="Assessment" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Auditorium">
-            <EntityTypeMapping TypeName="EducationDBModel1.Auditorium">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Auditorium">
               <MappingFragment StoreEntitySet="Auditorium">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClassTime">
-            <EntityTypeMapping TypeName="EducationDBModel1.ClassTime">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.ClassTime">
               <MappingFragment StoreEntitySet="ClassTime">
-                <ScalarProperty Name="EndClass" ColumnName="EndClass" />
-                <ScalarProperty Name="StartClass" ColumnName="StartClass" />
-                <ScalarProperty Name="ClassNumber" ColumnName="ClassNumber" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClassNumber" ColumnName="ClassNumber" />
+                <ScalarProperty Name="StartClass" ColumnName="StartClass" />
+                <ScalarProperty Name="EndClass" ColumnName="EndClass" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Curriculum">
-            <EntityTypeMapping TypeName="EducationDBModel1.Curriculum">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Curriculum">
               <MappingFragment StoreEntitySet="Curriculum">
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="IndexCurriculum" ColumnName="IndexCurriculum" />
-                <ScalarProperty Name="DisciplineId" ColumnName="DisciplineId" />
-                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
-                <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
+                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
+                <ScalarProperty Name="DisciplineId" ColumnName="DisciplineId" />
+                <ScalarProperty Name="IndexCurriculum" ColumnName="IndexCurriculum" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DayOfTheWeek">
-            <EntityTypeMapping TypeName="EducationDBModel1.DayOfTheWeek">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.DayOfTheWeek">
               <MappingFragment StoreEntitySet="DayOfTheWeek">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Discipline">
-            <EntityTypeMapping TypeName="EducationDBModel1.Discipline">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Discipline">
               <MappingFragment StoreEntitySet="Discipline">
-                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DisciplineTeacher">
-            <EntityTypeMapping TypeName="EducationDBModel1.DisciplineTeacher">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.DisciplineTeacher">
               <MappingFragment StoreEntitySet="DisciplineTeacher">
-                <ScalarProperty Name="DisciplineId" ColumnName="DisciplineId" />
-                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="DisciplineId" ColumnName="DisciplineId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="EducationDBModel1.Employee">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeePost">
-            <EntityTypeMapping TypeName="EducationDBModel1.EmployeePost">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.EmployeePost">
               <MappingFragment StoreEntitySet="EmployeePost">
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="PostId" ColumnName="PostId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FormOfTraining">
-            <EntityTypeMapping TypeName="EducationDBModel1.FormOfTraining">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.FormOfTraining">
               <MappingFragment StoreEntitySet="FormOfTraining">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gender">
-            <EntityTypeMapping TypeName="EducationDBModel1.Gender">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Gender">
               <MappingFragment StoreEntitySet="Gender">
-                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Group">
-            <EntityTypeMapping TypeName="EducationDBModel1.Group">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Group">
               <MappingFragment StoreEntitySet="Group">
-                <ScalarProperty Name="DateOfCreation" ColumnName="DateOfCreation" />
-                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
-                <ScalarProperty Name="QuantityStudent" ColumnName="QuantityStudent" />
-                <ScalarProperty Name="FormId" ColumnName="FormId" />
-                <ScalarProperty Name="QualificationId" ColumnName="QualificationId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="QualificationId" ColumnName="QualificationId" />
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
+                <ScalarProperty Name="QuantityStudent" ColumnName="QuantityStudent" />
+                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
+                <ScalarProperty Name="DateOfCreation" ColumnName="DateOfCreation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Post">
-            <EntityTypeMapping TypeName="EducationDBModel1.Post">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Post">
               <MappingFragment StoreEntitySet="Post">
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Qualification">
-            <EntityTypeMapping TypeName="EducationDBModel1.Qualification">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Qualification">
               <MappingFragment StoreEntitySet="Qualification">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
-                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReportCard">
-            <EntityTypeMapping TypeName="EducationDBModel1.ReportCard">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.ReportCard">
               <MappingFragment StoreEntitySet="ReportCard">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="DisciplineId" ColumnName="DisciplineId" />
-                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
-                <ScalarProperty Name="DateOfCreation" ColumnName="DateOfCreation" />
-                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="DateOfCreation" ColumnName="DateOfCreation" />
+                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
+                <ScalarProperty Name="DisciplineId" ColumnName="DisciplineId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReportCardTeacher">
-            <EntityTypeMapping TypeName="EducationDBModel1.ReportCardTeacher">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.ReportCardTeacher">
               <MappingFragment StoreEntitySet="ReportCardTeacher">
-                <ScalarProperty Name="ReportCardId" ColumnName="ReportCardId" />
-                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="ReportCardId" ColumnName="ReportCardId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Schedule">
-            <EntityTypeMapping TypeName="EducationDBModel1.Schedule">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Schedule">
               <MappingFragment StoreEntitySet="Schedule">
-                <ScalarProperty Name="DisciplineId" ColumnName="DisciplineId" />
-                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
-                <ScalarProperty Name="ClassTimeId" ColumnName="ClassTimeId" />
-                <ScalarProperty Name="DayOfTheWeekId" ColumnName="DayOfTheWeekId" />
-                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="DayOfTheWeekId" ColumnName="DayOfTheWeekId" />
+                <ScalarProperty Name="ClassTimeId" ColumnName="ClassTimeId" />
+                <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
+                <ScalarProperty Name="DisciplineId" ColumnName="DisciplineId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Semester">
-            <EntityTypeMapping TypeName="EducationDBModel1.Semester">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Semester">
               <MappingFragment StoreEntitySet="Semester">
-                <ScalarProperty Name="Semester1" ColumnName="Semester" />
-                <ScalarProperty Name="Course" ColumnName="Course" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Semester1" ColumnName="Semester" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Specialization">
-            <EntityTypeMapping TypeName="EducationDBModel1.Specialization">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Student">
-            <EntityTypeMapping TypeName="EducationDBModel1.Student">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Student">
               <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
-                <ScalarProperty Name="ResidentialAddress" ColumnName="ResidentialAddress" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ResidentialAddress" ColumnName="ResidentialAddress" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subgroup">
-            <EntityTypeMapping TypeName="EducationDBModel1.Subgroup">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Subgroup">
               <MappingFragment StoreEntitySet="Subgroup">
-                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
-                <ScalarProperty Name="AuditoriumId" ColumnName="AuditoriumId" />
-                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="AuditoriumId" ColumnName="AuditoriumId" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

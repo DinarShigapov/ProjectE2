@@ -60,12 +60,13 @@
                         <DataTemplate>
                             <Grid Name="grid" Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="25"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
-                                           Text="{Binding Discipline.Name}" TextTrimming="CharacterEllipsis"/>
+                                           Text="{Binding Discipline.Name}" 
+                                           TextTrimming="CharacterEllipsis"/>
                                 <Grid.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem x:Name="CMInfo" 
@@ -101,9 +102,9 @@
                             <Grid Style="{StaticResource TextSizeStyle}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
+                                <TextBlock x:Name="ds" Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding Discipline.Name}"/>
                                 <Grid.ContextMenu>

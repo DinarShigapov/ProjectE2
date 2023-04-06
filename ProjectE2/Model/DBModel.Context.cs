@@ -13,10 +13,10 @@ namespace ProjectE2.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EducationDBEntities : DbContext
+    public partial class EducationDataBaseEntities : DbContext
     {
-        public EducationDBEntities()
-            : base("name=EducationDBEntities")
+        public EducationDataBaseEntities()
+            : base("name=EducationDataBaseEntities")
         {
         }
     

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProjectE2.Model;
+using ProjectE2.Pages;
 
 namespace ProjectE2.Pages
 {
@@ -118,7 +119,6 @@ namespace ProjectE2.Pages
             var contextSchedule = (sender as MenuItem).DataContext as Schedule;
             if (contextSchedule == null)
                 return;
-
             NavigationService.Navigate(new ScheduleInfoPage(contextSchedule));
         }
     }
