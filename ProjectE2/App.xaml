@@ -17,6 +17,28 @@
                 <ResourceDictionary Source="Resources/IconUI/ExitArrow.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+
+            <Style TargetType="RadioButton" x:Key="RB"/>
+
+            <!--TextStyle-->
+
+            <Style TargetType="TextBlock" x:Key="HeaderText">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="Opacity" Value="0.5"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="DefualtText">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="MainHeaderTextStyle" BasedOn="{StaticResource HeaderText}">
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                <Setter Property="FontSize" Value="50"/>
+            </Style>
+
             <!--TextTrigger-->
 
             <Style TargetType="TextBlock" x:Key="TextTrigger">
@@ -29,7 +51,28 @@
 
             <!--UI Icon Button-->
 
-
+            <Style x:Key="SwitchButtonStyle" TargetType="Button">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Image Name="image" Stretch="Fill" 
+                                       Source="{StaticResource ExitArrowDrawingImage}" 
+                                       Width="20"
+                                       Height="15"
+                                       HorizontalAlignment="Left"
+                                       Opacity="0.3"/>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="image" Property="Opacity" Value="0.5" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            
             <Style x:Key="ExitButtonStyle" TargetType="Button">
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="Template">
@@ -56,7 +99,7 @@
                                                 <ColorAnimation Storyboard.TargetName="rect"
                                                             Storyboard.TargetProperty="Fill.Color"
                                                             To="#FF9C5353"
-                                                            Duration="0:0:0.15"/>
+                                                            Duration="0:0:0.07"/>
                                             </Storyboard>
                                         </BeginStoryboard>
                                     </EventTrigger.Actions>
@@ -119,12 +162,7 @@
             <!---->
 
 
-            <Style TargetType="TextBlock" x:Key="MainHeaderTextStyle">
-                <Setter Property="VerticalAlignment" Value="Bottom"/>
-                <Setter Property="FontSize" Value="50"/>
-                <Setter Property="Opacity" Value="0.4"/>
-                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
-            </Style>
+            
             
 
             <!--AuthStyle-->
@@ -134,9 +172,8 @@
                     <Style TargetType="Image">
                         <Setter Property="Width" Value="40"/>
                     </Style>
-                    <Style TargetType="TextBlock">
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource DefualtText}">
                         <Setter Property="FontSize" Value="16"/>
-                        <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
                         <Setter Property="HorizontalAlignment" Value="Center"/>
                         <Setter Property="Opacity" Value="0.6"/>
                     </Style>

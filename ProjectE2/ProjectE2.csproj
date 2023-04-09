@@ -197,6 +197,9 @@
     <Compile Include="Model\Group.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\PartialClass\Employee.cs" />
+    <Compile Include="Model\PartialClass\Group.cs" />
+    <Compile Include="Model\PartialClass\Student.cs" />
     <Compile Include="Model\Post.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>

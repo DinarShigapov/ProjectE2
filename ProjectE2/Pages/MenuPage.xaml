@@ -49,10 +49,11 @@
                        Margin="0 50 0 0"/>
                     <StackPanel Margin="0 0 0 50"
                                 VerticalAlignment="Bottom"
-                                Style="{StaticResource ProfileStyleSP}">
+                                Style="{StaticResource ProfileStyleSP}"
+                                x:Name="SPProfile">
                         <Image Source="{StaticResource AvatarDrawingImage}"/>
-                        <TextBlock Text="Иванов Иван"/>
-                        <TextBlock Text="326 СИС"/>
+                        <TextBlock Text="{Binding FullName}"/>
+                        <TextBlock Text="{Binding Group.GroupFN}"/>
 
                     </StackPanel>
                     <Button x:Name="BLogOut"

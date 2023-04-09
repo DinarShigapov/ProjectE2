@@ -21,6 +21,7 @@
             <ColumnDefinition x:Name="SizeActionRight" Width="400*"/>
         </Grid.ColumnDefinitions>
 
+        
         <Border Style="{StaticResource CellDayStyle}">
             <Grid>
                 <Grid.RowDefinitions>
@@ -56,6 +57,7 @@
                     <TextBlock Text="4 | МДК.05.01 Проектирование и дизайн информационных систем"/>
                 </StackPanel>-->
                 <ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Name="grid" Style="{StaticResource TextSizeStyle}">
@@ -109,7 +111,9 @@
                                            Text="{Binding Discipline.Name}"/>
                                 <Grid.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Информация"/>
+                                        <MenuItem x:Name="CMInfo" 
+                                                  Header="Информация"
+                                                  Click="CMInfo_Click"/>
                                         <MenuItem Header="Оценка"/>
                                     </ContextMenu>
                                 </Grid.ContextMenu>
@@ -144,6 +148,14 @@
                                 <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding Discipline.Name}"/>
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem x:Name="CMInfo" 
+                                                  Header="Информация"
+                                                  Click="CMInfo_Click"/>
+                                        <MenuItem Header="Оценка"/>
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -175,6 +187,14 @@
                                 <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding Discipline.Name}"/>
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem x:Name="CMInfo" 
+                                                  Header="Информация"
+                                                  Click="CMInfo_Click"/>
+                                        <MenuItem Header="Оценка"/>
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -206,6 +226,14 @@
                                 <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding Discipline.Name}"/>
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem x:Name="CMInfo" 
+                                                  Header="Информация"
+                                                  Click="CMInfo_Click"/>
+                                        <MenuItem Header="Оценка"/>
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -238,6 +266,14 @@
                                 <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding Discipline.Name}"/>
+                                <Grid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem x:Name="CMInfo" 
+                                                  Header="Информация"
+                                                  Click="CMInfo_Click"/>
+                                        <MenuItem Header="Оценка"/>
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

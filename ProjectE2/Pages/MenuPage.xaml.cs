@@ -23,6 +23,7 @@ namespace ProjectE2.Pages
         public MenuPage()
         {
             InitializeComponent();
+            SPProfile.DataContext = App.LoggedStudent;
             RefreshPage(new SchedulePage());
         }
 
