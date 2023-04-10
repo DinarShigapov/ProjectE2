@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using TeacherApp.Model;
 
 namespace TeacherApp
 {
@@ -13,5 +14,7 @@ namespace TeacherApp
     /// </summary>
     public partial class App : Application
     {
+        public static EducationDataBaseEntities DB = new EducationDataBaseEntities();
+        public static Employee LoggedTeacher;
     }
 }

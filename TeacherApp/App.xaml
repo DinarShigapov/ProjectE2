@@ -4,6 +4,349 @@
              xmlns:local="clr-namespace:TeacherApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!--Icon&Logo-->
+                <ResourceDictionary Source="Resources/IconUI/Cross.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Cross2.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Line.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Line2.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Avatar.xaml"/>
+                <ResourceDictionary Source="Resources/Logo/DefLogo.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Exit.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Exit2.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/ExitArrow.xaml"/>
+                <ResourceDictionary Source="Resources/Background/DeveloperImg.xaml"/>
+                <!---->
+
+            </ResourceDictionary.MergedDictionaries>
+
+
+
+            <!--********** General style **********-->
+
+
+            <!--AuthPage-->
+
+            <Style TargetType="TextBox" x:Key="DefualtStyle">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="13 0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Background" Value="#EAEEED"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Style.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Height" Value="35"/>
+                        <Setter Property="Width" Value="250"/>
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+            <Style TargetType="StackPanel" x:Key="AuthStyle">
+                <Style.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                        <Setter Property="Margin" Value="15 0"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="Foreground" Value="#6D61F5"/>
+                    </Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource DefualtStyle}"/>
+                </Style.Resources>
+            </Style>
+
+
+            <Style TargetType="Button" x:Key="ButtonStyle">
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#FFC8C8C8" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="17" />
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+
+            <!--TextBlockStyle-->
+
+            <Style TargetType="TextBlock" x:Key="HeaderText">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="Opacity" Value="0.5"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="DefualtText">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="MainHeaderTextStyle" BasedOn="{StaticResource HeaderText}">
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                <Setter Property="FontSize" Value="50"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="TextTrigger">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="#FF6D61F5" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!---->
+
+            <Style TargetType="StackPanel" x:Key="ProfileStyleSP">
+                <Style.Resources>
+                    <Style TargetType="Image">
+                        <Setter Property="Width" Value="40"/>
+                    </Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource DefualtText}">
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="Opacity" Value="0.6"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+            <!--UI Icon Button-->
+
+            <Style x:Key="SwitchButtonStyle" TargetType="Button">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Image Name="image" Stretch="Fill" 
+                                       Source="{StaticResource ExitArrowDrawingImage}" 
+                                       Width="20"
+                                       Height="15"
+                                       HorizontalAlignment="Left"
+                                       Opacity="0.3"/>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="image" Property="Opacity" Value="0.5" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <Style x:Key="ExitButtonStyle" TargetType="Button">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Rectangle Name="rect"
+                                           Fill="Transparent" 
+                                           Width="170"
+                                           Height="30"/>
+                                <Image Name="image" Stretch="Fill" 
+                                       Source="{StaticResource ExitArrowDrawingImage}" 
+                                       Width="20"
+                                       Height="15"
+                                       HorizontalAlignment="Left"
+                                       Margin="10 0 0 0"
+                                       Opacity="0.3"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="rect"
+                                                            Storyboard.TargetProperty="Fill.Color"
+                                                            To="#FF9C5353"
+                                                            Duration="0:0:0.07"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="rect"
+                                                            Storyboard.TargetProperty="Fill.Color"
+                                                            Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="CloseButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Image Name="image" Stretch="Fill" Source="{StaticResource crossDrawingImage}" />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="image" Property="Source" Value="{StaticResource crossDrawingImage2}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="CollapseButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Width" Value="30"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Image Name="image" Stretch="Fill" Source="{StaticResource lineDrawingImage}" />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="image" Property="Source" Value="{StaticResource lineDrawingImage2}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!---->
+
+
+
+
+            <!--ContextMenu-->
+
+            <Style TargetType="{x:Type ContextMenu}">
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Grid.IsSharedSizeScope" Value="true" />
+                <Setter Property="HasDropShadow" Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ContextMenu}">
+                            <Border x:Name="Border"
+                                    Background="White"
+                                    BorderThickness="0.5">
+                                <Border.BorderBrush>
+                                    <SolidColorBrush Color="Black" />
+                                </Border.BorderBrush>
+                                <StackPanel IsItemsHost="True"
+                                            KeyboardNavigation.DirectionalNavigation="Cycle" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="HasDropShadow"
+                                         Value="true">
+                                    <Setter TargetName="Border"
+                                            Property="Padding"
+                                            Value="0 10" />
+                                    <Setter TargetName="Border"
+                                            Property="CornerRadius"
+                                            Value="5" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!---->
+
+            <!--Menu Button Style-->
+
+            <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton" x:Key="SideBarButton">
+                <Setter Property="Foreground" Value="#8F8F8F"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="Width" Value="180"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Height" Value="45"/>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <Border x:Name="border" Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Left"
+                                              Margin="20 0 0 0"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                                            Storyboard.TargetProperty="Background.Color"
+                                                            To="#FF5043E6"
+                                                            Duration="0:0:0.2"/>
+                                                <ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+                                                            To="White"
+                                                            Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                                            Storyboard.TargetProperty="Background.Color"
+                                                            Duration="0:0:0.1"/>
+                                                <ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+                                                            Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter Property="Background" Value="#6D61F5"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="16"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+            <!---->
+
+            <!--***************-->
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
