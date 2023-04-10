@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:StudentApp.Pages" xmlns:Converter="clr-namespace:StudentApp.Codes"
+      xmlns:local="clr-namespace:StudentApp.Pages" xmlns:Converter="clr-namespace:StudentApps.Codes"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="AuthPage">
@@ -54,13 +54,14 @@
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Grid.Column="1" Width="250"
+                    KeyDown="BEnter_KeyDown"
                     Style="{StaticResource AuthStyle}">
             <Image Source="{StaticResource AvatarDrawingImage}" Width="150"/>
             <TextBlock Text="Логин" />
-            <TextBox/>
+            <TextBox x:Name="TBLogin"/>
             <Rectangle Margin="0 5"/>
             <TextBlock Text="Пароль"/>
-            <TextBox/>
+            <TextBox x:Name="TBPassword"/>
             <Rectangle Margin="0 7"/>
             <Button Content="Войти"
                     x:Name="BEnter"

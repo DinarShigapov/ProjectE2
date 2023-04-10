@@ -7,28 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectE2.Model
+namespace StudentApp.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Curriculum
     {
         public int Id { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Patronymic { get; set; }
-        public int GenderId { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string ResidentialAddress { get; set; }
-        public int GroupId { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public System.DateTime LastLogin { get; set; }
-        public byte[] MainImage { get; set; }
+        public int SpecializationId { get; set; }
+        public int SemesterId { get; set; }
+        public int DisciplineId { get; set; }
+        public string IndexCurriculum { get; set; }
+        public string Link { get; set; }
     
-        public virtual Gender Gender { get; set; }
-        public virtual Group Group { get; set; }
+        public virtual Discipline Discipline { get; set; }
+        public virtual Semester Semester { get; set; }
+        public virtual Specialization Specialization { get; set; }
     }
 }

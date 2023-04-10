@@ -32,12 +32,12 @@
                 <RowDefinition Height="323*"/>
             </Grid.RowDefinitions>
             <Image Source="{StaticResource DeveloperDrawingImage}" 
-                   Width="350" Height="350" 
+                   Width="400" Height="400" 
                    Grid.Row="2"
                    HorizontalAlignment="Right"
-                   Opacity="1"
+                   Opacity="0.7"
                    Panel.ZIndex="-1"
-                   Margin="0 -40 -125 0"/>
+                   Margin="0 -72 -125 0"/>
             <GridSplitter Grid.Row="1" 
                               Height="45"
                               Visibility="Hidden"/>
@@ -54,23 +54,24 @@
 
                 <StackPanel Grid.Column="2" Margin="0 30">
                     <TextBlock Text="ФИО"
-                                       Style="{StaticResource HeaderText}"/>
+                                       Style="{DynamicResource HeaderText}"/>
                     <TextBlock Text="{Binding FullName}"
-                                       Style="{StaticResource DefualtText}"/>
+                                       Style="{DynamicResource DefualtText}"/>
                     <Rectangle Height="10"/>
                     <TextBlock Text="Группа"
-                               Style="{StaticResource HeaderText}"/>
+                               Style="{DynamicResource HeaderText}"/>
                     <TextBlock Text="{Binding Group.GroupFN}"
-                               Style="{StaticResource DefualtText}"/>
+                               Style="{DynamicResource DefualtText}"/>
                     <Rectangle Height="10"/>
                     <TextBlock Text="Логин"
-                               Style="{StaticResource HeaderText}"/>
+                               Style="{DynamicResource HeaderText}"/>
                     <TextBlock Text="{Binding Login}"
-                               Style="{StaticResource DefualtText}"/>
+                               Style="{DynamicResource DefualtText}"/>
                 </StackPanel>
             </Grid>
 
-            <StackPanel Grid.Row="2">
+            <StackPanel Grid.Row="2"
+                        Margin="20 0 0 0">
                 <TextBlock Text="Личные данные"
                            Style="{StaticResource HeaderText}"
                            FontSize="20"/>

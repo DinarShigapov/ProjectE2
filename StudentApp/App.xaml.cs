@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,7 @@ namespace StudentApp
     /// </summary>
     public partial class App : Application
     {
+        public static EducationDataBaseEntities DB = new EducationDataBaseEntities();
+        public static Student LoggedStudent;
     }
 }

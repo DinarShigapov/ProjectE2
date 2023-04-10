@@ -67,6 +67,13 @@
                     VerticalAlignment="Top"
                     Margin="13,0,0,0"
                     Panel.ZIndex="1" Grid.Row="2">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Resources>
+                            <Style TargetType="RadioButton" BasedOn="{StaticResource SideBarButton}"/>
+                        </Style.Resources>
+                    </Style>
+                </StackPanel.Style>
 
 
                 <RadioButton x:Name="BMain" 
@@ -86,9 +93,7 @@
                 <RadioButton x:Name="BProfile" 
                              Content="Профиль"
                              Click="BProfile_Click"/>
-
             </StackPanel>
-
         </Grid>
     </Grid>
 </Page>

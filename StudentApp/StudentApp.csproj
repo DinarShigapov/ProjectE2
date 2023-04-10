@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -68,7 +77,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AssessmentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\AuthPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -80,7 +97,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\ScheduleInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\SchedulePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Background\DeveloperImg.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -122,14 +147,101 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Assessment.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Auditorium.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ClassTime.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Curriculum.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DayOfTheWeek.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Discipline.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DisciplineTeacher.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EducationDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EducationDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EducationDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EducationDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EducationDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employee.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeePost.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FormOfTraining.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Gender.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Group.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Post.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Qualification.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportCard.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportCardTeacher.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Schedule.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Semester.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Specialization.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Student.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Subgroup.cs">
+      <DependentUpon>EducationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AssessmentPage.xaml.cs">
+      <DependentUpon>AssessmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ScheduleInfoPage.xaml.cs">
+      <DependentUpon>ScheduleInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SchedulePage.xaml.cs">
       <DependentUpon>SchedulePage.xaml</DependentUpon>
@@ -151,6 +263,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\EducationDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EducationDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EducationDB.edmx.diagram">
+      <DependentUpon>EducationDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,16 +281,32 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Logo\black-www-icon-17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Logo\Group 4.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\Background\BG1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Background\BG2.jpeg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resources\Logo\black-www-icon-17.png" />
+    <Content Include="Model\EducationDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EducationDB.Context.cs</LastGenOutput>
+      <DependentUpon>EducationDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\EducationDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EducationDB.edmx</DependentUpon>
+      <LastGenOutput>EducationDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Logo\Group 4.png" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

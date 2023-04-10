@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentApp.Pages
+namespace ProjectE2.Pages
 {
     /// <summary>
     /// Логика взаимодействия для MenuPage.xaml
@@ -23,6 +23,7 @@ namespace StudentApp.Pages
         public MenuPage()
         {
             InitializeComponent();
+            SPProfile.DataContext = App.LoggedStudent;
             RefreshPage(new SchedulePage());
         }
 
@@ -36,6 +37,15 @@ namespace StudentApp.Pages
             RefreshPage(new ProfilePage());
         }
 
+        private void BMain_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new MainPage());
+        }
+        private void BAssessment_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new AssessmentPage());
+        }
+
         public void RefreshPage(Page page)
         {
             MenuFrame.Navigate(page);
@@ -45,6 +55,16 @@ namespace StudentApp.Pages
         private void BLogOut_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+        }
+
+
+
+        private void MenuFrame_ContentRendered(object sender, EventArgs e)
+        {
+            var contextContent = (sender as Frame).Content;
+            if (contextContent == null) return;
+
+            RefreshPage(contextContent as Page);
         }
     }
 }

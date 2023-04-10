@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace StudentApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ProfilePage.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class ProfilePage : Page
+    public partial class MainPage : Page
     {
-        public ProfilePage()
+        public MainPage()
         {
             InitializeComponent();
-            DataContext = App.LoggedStudent;
         }
     }
 }

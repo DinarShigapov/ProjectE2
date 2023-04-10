@@ -6,6 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+
                 <!--Icon&Logo-->
                 <ResourceDictionary Source="Resources/IconUI/Cross.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Cross2.xaml"/>
@@ -18,12 +19,72 @@
                 <ResourceDictionary Source="Resources/IconUI/ExitArrow.xaml"/>
                 <ResourceDictionary Source="Resources/Background/DeveloperImg.xaml"/>
                 <!---->
+
             </ResourceDictionary.MergedDictionaries>
 
 
 
-            <!--TextStyle-->
+            <!--********** General style **********-->
+            
+            
+            <!--AuthPage-->
 
+            <Style TargetType="TextBox" x:Key="DefualtStyle">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="13 0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Background" Value="#EAEEED"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Style.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Height" Value="35"/>
+                        <Setter Property="Width" Value="250"/>
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+            <Style TargetType="StackPanel" x:Key="AuthStyle">
+                <Style.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                        <Setter Property="Margin" Value="15 0"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="Foreground" Value="#6D61F5"/>
+                    </Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource DefualtStyle}"/>
+                </Style.Resources>
+            </Style>
+
+
+            <Style TargetType="Button" x:Key="ButtonStyle">
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#FFC8C8C8" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="17" />
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+
+            <!--TextBlockStyle-->
+            
             <Style TargetType="TextBlock" x:Key="HeaderText">
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
@@ -48,43 +109,21 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-            
+
             <!---->
 
-            <!--TextBox Style-->
-
-            <Style TargetType="TextBox" x:Key="TextBoxStyle">
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="Padding" Value="13 0"/>
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Background" Value="#EAEEED"/>
-                <Setter Property="BorderThickness" Value="0"/>
+            <Style TargetType="StackPanel" x:Key="ProfileStyleSP">
                 <Style.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Height" Value="35"/>
-                        <Setter Property="Width" Value="250"/>
-                        <Setter Property="CornerRadius" Value="20"/>
+                    <Style TargetType="Image">
+                        <Setter Property="Width" Value="40"/>
+                    </Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource DefualtText}">
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="Opacity" Value="0.6"/>
                     </Style>
                 </Style.Resources>
             </Style>
-
-
-            <Style TargetType="TextBox" x:Key="DefualtStyle">
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="Padding" Value="13 0"/>
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Background" Value="#EAEEED"/>
-                <Setter Property="BorderThickness" Value="0"/>
-                <Style.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Height" Value="35"/>
-                        <Setter Property="Width" Value="250"/>
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </Style.Resources>
-            </Style>
-
-            <!---->
 
             <!--UI Icon Button-->
 
@@ -200,24 +239,6 @@
 
 
             
-            
-
-            <!--AuthStyle-->
-
-            <Style TargetType="StackPanel" x:Key="ProfileStyleSP">
-                <Style.Resources>
-                    <Style TargetType="Image">
-                        <Setter Property="Width" Value="40"/>
-                    </Style>
-                    <Style TargetType="TextBlock" BasedOn="{StaticResource DefualtText}">
-                        <Setter Property="FontSize" Value="16"/>
-                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                        <Setter Property="Opacity" Value="0.6"/>
-                    </Style>
-                </Style.Resources>
-            </Style>
-            
-            <!---->
 
             <!--ContextMenu-->
 
@@ -254,59 +275,11 @@
                 </Setter>
             </Style>
 
-           
-
-
-
-            <Style TargetType="StackPanel" x:Key="AuthStyle">
-                <Style.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
-                        <Setter Property="Margin" Value="15 0"/>
-                        <Setter Property="FontSize" Value="20"/>
-                        <Setter Property="Foreground" Value="#6D61F5"/>
-                    </Style>
-                    <Style TargetType="TextBox" BasedOn="{StaticResource DefualtStyle}"/>
-                </Style.Resources>
-            </Style>
-
-
-            <!---->
-
-
-            <!--Button Style-->
-            
-            <Style TargetType="Button" x:Key="ButtonStyle">
-                <Setter Property="BorderBrush" Value="Transparent"/>
-                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
-                <Setter Property="Foreground" Value="White"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Border x:Name="border" Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="#FFC8C8C8" />
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-                <Style.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="17" />
-                    </Style>
-                </Style.Resources>
-
-            </Style>
             <!---->
 
             <!--Menu Button Style-->
             
-            <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
-               TargetType="RadioButton">
+            <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton" x:Key="SideBarButton">
                 <Setter Property="Foreground" Value="#8F8F8F"/>
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
@@ -373,7 +346,11 @@
 
             <!---->
 
+            <!--***************-->
+            
 
+            <!--***** Styles StudentApp *****-->
+            
             <!--CellDay-->
 
             <Style TargetType="Border" x:Key="CellDayStyle">

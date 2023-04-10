@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectE2.Model
+namespace StudentApp.Model
 {
     using System;
     using System.Collections.Generic;

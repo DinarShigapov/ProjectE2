@@ -7,42 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjectE2.Model
+namespace StudentApp.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Discipline
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public Discipline()
         {
+            this.Curriculum = new HashSet<Curriculum>();
             this.DisciplineTeacher = new HashSet<DisciplineTeacher>();
-            this.EmployeePost = new HashSet<EmployeePost>();
-            this.ReportCardTeacher = new HashSet<ReportCardTeacher>();
-            this.Subgroup = new HashSet<Subgroup>();
+            this.ReportCard = new HashSet<ReportCard>();
+            this.Schedule = new HashSet<Schedule>();
         }
     
         public int Id { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Patronymic { get; set; }
-        public int GenderId { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public System.DateTime LastLogin { get; set; }
-        public byte[] MainImage { get; set; }
+        public string Name { get; set; }
+        public string Abbreviation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Curriculum> Curriculum { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DisciplineTeacher> DisciplineTeacher { get; set; }
-        public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeePost> EmployeePost { get; set; }
+        public virtual ICollection<ReportCard> ReportCard { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReportCardTeacher> ReportCardTeacher { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Subgroup> Subgroup { get; set; }
+        public virtual ICollection<Schedule> Schedule { get; set; }
     }
 }
