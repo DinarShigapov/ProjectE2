@@ -57,7 +57,6 @@
                     <TextBlock Text="4 | МДК.05.01 Проектирование и дизайн информационных систем"/>
                 </StackPanel>-->
                 <ListView x:Name="LVMonday" d:ItemsSource="{d:SampleData ItemCount=5}">
-                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Name="grid" Style="{StaticResource TextSizeStyle}">

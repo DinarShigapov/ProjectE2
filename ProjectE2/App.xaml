@@ -6,6 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!--Icon&Logo-->
                 <ResourceDictionary Source="Resources/IconUI/Cross.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Cross2.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Line.xaml"/>
@@ -15,10 +16,11 @@
                 <ResourceDictionary Source="Resources/IconUI/Exit.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Exit2.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/ExitArrow.xaml"/>
+                <ResourceDictionary Source="Resources/Background/DeveloperImg.xaml"/>
+                <!---->
             </ResourceDictionary.MergedDictionaries>
 
 
-            <Style TargetType="RadioButton" x:Key="RB"/>
 
             <!--TextStyle-->
 
@@ -39,8 +41,6 @@
                 <Setter Property="FontSize" Value="50"/>
             </Style>
 
-            <!--TextTrigger-->
-
             <Style TargetType="TextBlock" x:Key="TextTrigger">
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
@@ -48,6 +48,43 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
+            
+            <!---->
+
+            <!--TextBox Style-->
+
+            <Style TargetType="TextBox" x:Key="TextBoxStyle">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="13 0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Background" Value="#EAEEED"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Style.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Height" Value="35"/>
+                        <Setter Property="Width" Value="250"/>
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+
+            <Style TargetType="TextBox" x:Key="DefualtStyle">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="13 0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Background" Value="#EAEEED"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Style.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Height" Value="35"/>
+                        <Setter Property="Width" Value="250"/>
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+            <!---->
 
             <!--UI Icon Button-->
 
@@ -217,39 +254,7 @@
                 </Setter>
             </Style>
 
-            <!--TextBox Style-->
-
-
-            <Style TargetType="TextBox" x:Key="TextBoxStyle">
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="Padding" Value="13 0"/>
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Background" Value="#EAEEED"/>
-                <Setter Property="BorderThickness" Value="0"/>
-                <Style.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Height" Value="35"/>
-                        <Setter Property="Width" Value="250"/>
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </Style.Resources>
-            </Style>
-
-
-            <Style x:Key="DefualtStyle" TargetType="TextBox">
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="Padding" Value="13 0"/>
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Background" Value="#EAEEED"/>
-                <Setter Property="BorderThickness" Value="0"/>
-                <Style.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Height" Value="35"/>
-                        <Setter Property="Width" Value="250"/>
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </Style.Resources>
-            </Style>
+           
 
 
 

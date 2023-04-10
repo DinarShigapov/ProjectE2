@@ -23,6 +23,7 @@ namespace ProjectE2.Pages
         public ProfilePage()
         {
             InitializeComponent();
+            DataContext = App.LoggedStudent;
         }
     }
 }

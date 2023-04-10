@@ -52,7 +52,7 @@
                                 Style="{StaticResource ProfileStyleSP}"
                                 x:Name="SPProfile">
                         <Image Source="{StaticResource AvatarDrawingImage}"/>
-                        <TextBlock Text="{Binding FullName}"/>
+                        <TextBlock Text="{Binding FullNameShort}"/>
                         <TextBlock Text="{Binding Group.GroupFN}"/>
 
                     </StackPanel>

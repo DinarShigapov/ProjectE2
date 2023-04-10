@@ -8,7 +8,7 @@ namespace ProjectE2.Model
 {
     public partial class Student
     {
-        public string FullName
+        public string FullNameShort
         {
             get 
             {
@@ -16,6 +16,13 @@ namespace ProjectE2.Model
             }
         }
 
+        public string FullName
+        {
+            get
+            {
+                return $"{LastName} {FirstName} {Patronymic}";
+            }
+        }
 
     }
 }
