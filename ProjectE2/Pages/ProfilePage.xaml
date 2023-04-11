@@ -35,7 +35,7 @@
                    Width="400" Height="400" 
                    Grid.Row="2"
                    HorizontalAlignment="Right"
-                   Opacity="0.7"
+                   Opacity="0.85"
                    Panel.ZIndex="-1"
                    Margin="0 -72 -125 0"/>
             <GridSplitter Grid.Row="1" 

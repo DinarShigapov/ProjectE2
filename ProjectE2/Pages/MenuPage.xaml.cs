@@ -54,7 +54,9 @@ namespace ProjectE2.Pages
 
         private void BLogOut_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AuthPage());
+
+            NavigationService.Navigate(new AuthPage());           
+            
         }
 
 

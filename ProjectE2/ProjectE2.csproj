@@ -163,19 +163,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -192,56 +192,71 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\DBTochka.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTochka.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DBTochka.Designer.cs">
+      <DependentUpon>DBTochka.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Model\DBTochka1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTochka.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\PartialClass\Group.cs" />
     <Compile Include="Model\PartialClass\Student.cs" />
     <Compile Include="Model\Post.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
+      <DependentUpon>DBTochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AssessmentPage.xaml.cs">
       <DependentUpon>AssessmentPage.xaml</DependentUpon>
@@ -288,6 +303,13 @@
     <None Include="Model\DBModel.edmx.diagram">
       <DependentUpon>DBModel.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model\DBTochka.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBTochka.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\DBTochka.edmx.diagram">
+      <DependentUpon>DBTochka.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -326,6 +348,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DBTochka.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBTochka.edmx</DependentUpon>
+      <LastGenOutput>DBTochka.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DBTochka.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBTochka.edmx</DependentUpon>
+      <LastGenOutput>DBTochka1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
