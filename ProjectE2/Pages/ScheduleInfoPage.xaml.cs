@@ -25,7 +25,7 @@ namespace ProjectE2.Pages
     {
         Schedule contextSchedule;
         List<Employee> teachers = new List<Employee>();
-        int i = 0;
+        int currentIndex = 0;
         public ScheduleInfoPage(Schedule schedule)
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace ProjectE2.Pages
             if (teachers.Count == 1)
                 SwitchButton.Visibility = Visibility.Hidden;
 
-            BorderContext.DataContext = teachers[i];
+            BorderContext.DataContext = teachers[currentIndex];
             
 
         }
@@ -49,17 +49,17 @@ namespace ProjectE2.Pages
         {
             if (sender == BNext)
             {
-                if (i == teachers.Count - 1)
-                    i = 0;
-                else i++;
+                if (currentIndex == teachers.Count - 1)
+                    currentIndex = 0;
+                else currentIndex++;
             }
             else 
             {
-                if (i == 0)
-                    i = teachers.Count - 1;
-                else i--;
+                if (currentIndex == 0)
+                    currentIndex = teachers.Count - 1;
+                else currentIndex--;
             }
-            BorderContext.DataContext = teachers[i];
+            BorderContext.DataContext = teachers[currentIndex];
         }
     }
 }

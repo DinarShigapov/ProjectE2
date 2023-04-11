@@ -15,18 +15,23 @@ using System.Windows.Shapes;
 using ProjectE2.Model;
 using ProjectE2.Pages;
 
+
+
 namespace ProjectE2.Pages
 {
+    
     /// <summary>
     /// Логика взаимодействия для SchedulePage.xaml
     /// </summary>
     public partial class SchedulePage : Page
     {
+
         public SchedulePage()
         {
             InitializeComponent();
             ScheduleOutput();
         }
+
 
         bool isAciveLeft = false;
         bool isAciveRight = false;
@@ -34,36 +39,38 @@ namespace ProjectE2.Pages
         private void ScheduleOutput()
         {
             var student = App.LoggedStudent;
+            var semesterId = student.Group.SemesterId;
 
-            LVMonday.ItemsSource = App.DB.Schedule.Where(x => 
-            x.GroupId == student.GroupId && 
-            x.DayOfTheWeekId == 1 && 
-            x.SemesterId == student.Group.SemesterId).ToList();
+            for (int i = 1; i <= 6; i++)
+            {
+                var dayOfWeekId = i;
+                var schedule = App.DB.Schedule.Where(x =>
+                    x.GroupId == student.GroupId &&
+                    x.DayOfTheWeekId == dayOfWeekId &&
+                    x.SemesterId == semesterId).ToList();
 
-            LVTuesday.ItemsSource = App.DB.Schedule.Where(x => 
-            x.GroupId == student.GroupId && 
-            x.DayOfTheWeekId == 2 && 
-            x.SemesterId == student.Group.SemesterId).ToList();
-
-            LVWednesday.ItemsSource = App.DB.Schedule.Where(x => 
-            x.GroupId == student.GroupId &&
-            x.DayOfTheWeekId == 3 &&
-            x.SemesterId == student.Group.SemesterId).ToList();
-
-            LVThursday.ItemsSource = App.DB.Schedule.Where(x => 
-            x.GroupId == student.GroupId && 
-            x.DayOfTheWeekId == 4 && 
-            x.SemesterId == student.Group.SemesterId).ToList();
-
-            LVFriday.ItemsSource = App.DB.Schedule.Where(x => 
-            x.GroupId == student.GroupId &&
-            x.DayOfTheWeekId == 5 &&
-            x.SemesterId == student.Group.SemesterId).ToList();
-
-            LVSaturday.ItemsSource = App.DB.Schedule.Where(x => 
-            x.GroupId == student.GroupId &&
-            x.DayOfTheWeekId == 6 &&
-            x.SemesterId == student.Group.SemesterId).ToList();
+                switch (dayOfWeekId)
+                {
+                    case 1:
+                        LVMonday.ItemsSource = schedule;
+                        break;
+                    case 2:
+                        LVTuesday.ItemsSource = schedule;
+                        break;
+                    case 3:
+                        LVWednesday.ItemsSource = schedule;
+                        break;
+                    case 4:
+                        LVThursday.ItemsSource = schedule;
+                        break;
+                    case 5:
+                        LVFriday.ItemsSource = schedule;
+                        break;
+                    case 6:
+                        LVSaturday.ItemsSource = schedule;
+                        break;
+                }
+            }
         }
 
 

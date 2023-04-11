@@ -33,10 +33,10 @@ namespace TeacherApp.Model
 
                 foreach (var item in App.LoggedTeacher.EmployeePost)
                 {
-                    sPost += $"{App.DB.Post.FirstOrDefault(x => x.Id == item.Id).Name}, ";
+                    sPost += $"{App.DB.Post.FirstOrDefault(x => x.Id == item.Id)?.Name}, ";
 
                 }
-                sPost = sPost.TrimEnd(' ').TrimEnd(',');
+                sPost = sPost.TrimEnd(' ', ',');
 
                 return sPost ;
             }

@@ -24,7 +24,7 @@ namespace ProjectE2.Pages
         {
             InitializeComponent();
             SPProfile.DataContext = App.LoggedStudent;
-            RefreshPage(new SchedulePage());
+            RefreshPage(new MainPage());
         }
 
         private void BHome_Click(object sender, RoutedEventArgs e)

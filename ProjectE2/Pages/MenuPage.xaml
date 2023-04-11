@@ -83,7 +83,6 @@
                 <Rectangle Height="5" Fill="Transparent"/>
                 <RadioButton x:Name="BHome" 
                              Content="Расписание" 
-                             IsChecked="True"
                              Click="BHome_Click"/>
                 <Rectangle Height="5" Fill="Transparent"/>
                 <RadioButton x:Name="BAssessment" 
