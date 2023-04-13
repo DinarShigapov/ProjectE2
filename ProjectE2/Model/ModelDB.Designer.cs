@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\262023\Source\Repos\DinarShigapov\ProjectE2\ProjectE2\Model\DBTochka.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\262023\Source\Repos\DinarShigapov\ProjectE2\ProjectE2\Model\ModelDB.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.
