@@ -1271,7 +1271,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EducationDataBaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EducationDataBaseEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Assessment" EntityType="Self.Assessment" />
           <EntitySet Name="Auditorium" EntityType="Self.Auditorium" />
           <EntitySet Name="ClassTime" EntityType="Self.ClassTime" />
@@ -1411,7 +1411,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище EducationDataBaseModelContainer" CdmEntityContainer="EducationDataBaseEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EducationDataBaseModelContainer" CdmEntityContainer="EducationDataBaseEntities2">
           <EntitySetMapping Name="Assessment">
             <EntityTypeMapping TypeName="EducationDataBaseModel.Assessment">
               <MappingFragment StoreEntitySet="Assessment">
