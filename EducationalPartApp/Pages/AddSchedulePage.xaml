@@ -1,0 +1,277 @@
+﻿<Page x:Class="EducationalPartApp.Pages.AddSchedulePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationalPartApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="581.2" d:DesignWidth="880"
+      Title="AddSchedulePage">
+
+    <Border Background="White" 
+                CornerRadius="20"
+                Padding="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="138*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="436*"/>
+                <RowDefinition Height="65"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" CornerRadius="3" Background="#E2E2E2" Height="5"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="183*"/>
+                    <ColumnDefinition Width="97*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="День недели" Style="{StaticResource HeaderText}"
+                           FontSize="20"/>
+                    <StackPanel VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Style.Resources>
+                                    <Style TargetType="Grid" BasedOn="{StaticResource DayOfTheWeekButton}"/>
+                                </Style.Resources>
+                            </Style>
+                        </StackPanel.Style>
+                        <Grid x:Name="MondayGrid">
+                            <RadioButton Content="ПН"
+                                         IsChecked="True"
+                                         GroupName="radio"/>
+                            <Ellipse Fill="#ED6D45" />
+                        </Grid>
+                        <Grid x:Name="TuesdayGrid">
+                            <RadioButton Content="ВТ"
+                                         GroupName="radio"/>
+                            <Ellipse Fill="#ED6D45" />
+                        </Grid>
+                        <Grid x:Name="WednesdayGrid">
+                            <RadioButton Content="СР"
+                                         GroupName="radio"/>
+                            <Ellipse Fill="#ED6D45" />
+                        </Grid>
+                        <Grid x:Name="ThursdayGrid">
+                            <RadioButton Content="ЧТ"
+                                         GroupName="radio"/>
+                            <Ellipse Fill="#ED6D45" />
+                        </Grid>
+                        <Grid x:Name="FridayGrid">
+                            <RadioButton Content="ПТ"
+                                         GroupName="radio"/>
+                            <Ellipse Fill="#ED6D45" />
+                        </Grid>
+                        <Grid x:Name="SaturdayGrid">
+                            <RadioButton Content="СБ"
+                                         GroupName="radio"/>
+                            <Ellipse Fill="#ED6D45" />
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right">
+                    <TextBlock Text="Группа" 
+                               Style="{StaticResource HeaderText}"/>
+                    <TextBlock Text="326 СИС" 
+                               Style="{StaticResource DefualtText}" 
+                               Margin="10 0"/>
+                    <TextBlock Text="ИКОНКА" Foreground="Red" FontSize="10" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+
+            <!--Макет-->
+            <StackPanel Grid.Row="2"
+                        Margin="10"
+                        VerticalAlignment="Center">
+                
+                <!--Макет-->
+                
+                <DockPanel>
+                    <Border Width="64"
+                            Height="50"
+                            DockPanel.Dock="Left"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="1 п" Style="{StaticResource DefualtText}" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <Border Width="306"
+                            Height="50"
+                            DockPanel.Dock="Right"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="Плаксин Н.А." Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                    <Border Width="429"
+                            CornerRadius="14" DockPanel.Dock="Left">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="МДК.06.01 Внедрение информационных систем" 
+                                   Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                </DockPanel>
+                <DockPanel Margin="0 10 0 0">
+                    <Border Width="64"
+                            Height="50"
+                            DockPanel.Dock="Left"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="2 п" Style="{StaticResource DefualtText}" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <Border Width="306"
+                            Height="50"
+                            DockPanel.Dock="Right"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="Плаксин Н.А." Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                    <Border Width="429"
+                            CornerRadius="14" DockPanel.Dock="Left">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="МДК.06.01 Внедрение информационных систем" 
+                                   Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                </DockPanel>
+                <DockPanel Margin="0 10 0 0">
+                    <Border Width="64"
+                            Height="50"
+                            DockPanel.Dock="Left"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="3 п" Style="{StaticResource DefualtText}" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <Border Width="306"
+                            Height="50"
+                            DockPanel.Dock="Right"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="Плаксин Н.А." Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                    <Border Width="429"
+                            CornerRadius="14" DockPanel.Dock="Left">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="МДК.06.01 Внедрение информационных систем" 
+                                   Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                </DockPanel>
+                <DockPanel Margin="0 10 0 0">
+                    <Border Width="64"
+                            Height="50"
+                            DockPanel.Dock="Left"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="4 п" Style="{StaticResource DefualtText}" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <Border Width="306"
+                            Height="50"
+                            DockPanel.Dock="Right"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="Плаксин Н.А." Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                    <Border Width="429"
+                            CornerRadius="14" DockPanel.Dock="Left">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="МДК.06.01 Внедрение информационных систем" 
+                                   Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                </DockPanel>
+                <DockPanel Margin="0 10 0 0">
+                    <Border Width="64"
+                            Height="50"
+                            DockPanel.Dock="Left"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="5 п" Style="{StaticResource DefualtText}" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <Border Width="306"
+                            Height="50"
+                            DockPanel.Dock="Right"
+                            CornerRadius="14">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="Плаксин Н.А." Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                    <Border Width="429"
+                            CornerRadius="14" DockPanel.Dock="Left">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFD9D9D9" Opacity="0.5"/>
+                        </Border.Background>
+                        <TextBlock Text="МДК.06.01 Внедрение информационных систем" 
+                                   Style="{StaticResource DefualtText}" 
+                                   VerticalAlignment="Center"
+                                   Margin="10 0"/>
+                    </Border>
+                </DockPanel>
+            </StackPanel>
+
+            <Button Grid.Row="3" Content="Сохранить" 
+                    Style="{StaticResource ButtonStyle}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Width="170"
+                    Height="50"
+                    Background="#6D61F5"
+                    FontSize="17"/>
+            <!--RМакет-->
+        </Grid>
+    </Border>
+</Page>

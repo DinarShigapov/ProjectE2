@@ -79,6 +79,10 @@
                              IsChecked="True"
                              Click="BMain_Click"/>
                 <Rectangle Height="5" Fill="Transparent"/>
+                <RadioButton x:Name="BAddSchedule" 
+                             Content="Профиль"
+                             Click="BAddSchedule_Click"/>
+                <Rectangle Height="5" Fill="Transparent"/>
                 <RadioButton x:Name="BProfile" 
                              Content="Профиль"
                              Click="BProfile_Click"/>

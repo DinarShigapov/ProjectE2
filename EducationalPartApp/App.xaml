@@ -351,9 +351,83 @@
 
 
 
-            <!--****TeacherApp*****-->
+            <!--****EP*****-->
 
- 
+            <Style TargetType="Grid" x:Key="DayOfTheWeekButton">
+                <Setter Property="Margin" Value="0 0 8 0"/>
+                <Style.Resources>
+                    <Style TargetType="Ellipse">
+                        <Setter Property="Width" Value="10"/>
+                        <Setter Property="Height" Value="10"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                        <Setter Property="VerticalAlignment" Value="Top"/>
+                        <Setter Property="Visibility" Value="Visible"/>
+                        <Setter Property="Margin" Value="0 2 2 0"/>
+                    </Style>
+                    <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="Width" Value="50"/>
+                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                        <Setter Property="VerticalAlignment" Value="Bottom"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type RadioButton}">
+                                    <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                                        <ContentPresenter
+                                x:Name="radioButton"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                                <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Margin" To="0 -5 0 5" Duration="0:0:0.06"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </MultiDataTrigger.EnterActions>
+                                            <MultiDataTrigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Margin" Duration="0:0:0.1"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </MultiDataTrigger.ExitActions>
+                                        </MultiDataTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#6D61F5"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="18"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Background" Value="#CDCDCD"/>
+                                <Setter Property="FontSize" Value="18"/>
+                            </Trigger>
+                        </Style.Triggers>
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="100"/>
+                            </Style>
+                        </Style.Resources>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
             <!--***************-->
 
 
