@@ -40,7 +40,7 @@ namespace ProjectE2.Pages
         private void ButtonEnter() 
         {
 
-            var student = App.DB.Student.FirstOrDefault(x => x.Login == TBLogin.Text);
+            var student = App.DB.Student.First(x => x.Login == TBLogin.Text);
             if (student == null)
             {
                 MessageBox.Show("Логин неверный");

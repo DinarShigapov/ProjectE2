@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EducationalPartApp.Pages;
 
 namespace EducationalPartApp
 {
@@ -23,6 +24,23 @@ namespace EducationalPartApp
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new AuthPage());
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void BClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void BСollapse_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
     }
 }

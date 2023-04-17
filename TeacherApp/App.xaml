@@ -32,6 +32,7 @@
             <Style TargetType="TextBox" x:Key="DefualtStyle">
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
                 <Setter Property="Padding" Value="13 0"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Background" Value="#EAEEED"/>
                 <Setter Property="BorderThickness" Value="0"/>
@@ -69,7 +70,7 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="#FFC8C8C8" />
+                                    <Setter TargetName="border" Property="Background" Value="#FFC8C8C8"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -347,6 +348,89 @@
             <!---->
 
             <!--***************-->
+
+
+
+            <!--****TeacherApp*****-->
+
+            <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton" x:Key="GroupSelectButton">
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Setter Property="Margin" Value="4 0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                                <ContentPresenter
+                                x:Name="radioButton"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                        <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="False"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ThicknessAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Margin" To="0 -5 0 5" Duration="0:0:0.06"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiDataTrigger.EnterActions>
+                                    <MultiDataTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ThicknessAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Margin" Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiDataTrigger.ExitActions>
+                                </MultiDataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#6D65CF"/>
+                                    <GradientStop Color="#6659FB" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Width" Value="60"/>
+                        <Setter Property="Height" Value="60"/>
+                        <Setter Property="FontSize" Value="18"/>
+                    </Trigger>
+                    <Trigger Property="IsChecked" Value="False">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Background" Value="#CDCDCD"/>
+                        <Setter Property="Width" Value="40"/>
+                        <Setter Property="Height" Value="40"/>
+                        <Setter Property="FontSize" Value="18"/>
+                    </Trigger>
+                </Style.Triggers>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="100"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+
+            <!--***************-->
+
+            
+            
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Geometry x:Key="AvatarGeometry1">F1 M64,64z M0,0z M32,32.86A9.22,9.22,0,1,1,41.21,23.64A9.23,9.23,0,0,1,32,32.86z M32,17.43A6.22,6.22,0,1,0,38.21,23.64A6.21,6.21,0,0,0,32,17.43z</Geometry>
+  <Geometry x:Key="AvatarGeometry2">F1 M64,64z M0,0z M32,56.64A24.68,24.68,0,0,1,16.78,51.37A1.52,1.52,0,0,1,16.21,50.31C16.21,50.15,16.21,50,16.21,49.84A15.8,15.8,0,1,1,47.81,49.84C47.81,50,47.81,50.15,47.81,50.31A1.52,1.52,0,0,1,47.24,51.37A24.68,24.68,0,0,1,32,56.64z M19.21,49.45A21.62,21.62,0,0,0,44.79,49.45A12.8,12.8,0,0,0,19.21,49.45z M46.29,50.19L46.29,50.19z</Geometry>
+  <Geometry x:Key="AvatarGeometry3">F1 M64,64z M0,0z M32,56.64A24.65,24.65,0,1,1,47.22,51.37A24.68,24.68,0,0,1,32,56.64z M32,10.36A21.63,21.63,0,0,0,18.64,49A21.64,21.64,0,0,0,53.64,32A21.67,21.67,0,0,0,32,10.36z</Geometry>
+  <DrawingGroup x:Key="AvatarDrawingGroup" ClipGeometry="M0,0 V64 H64 V0 H0 Z">
+        <GeometryDrawing Brush="#FFDCDCDC" Geometry="{StaticResource AvatarGeometry1}" />
+        <GeometryDrawing Brush="#FFDCDCDC" Geometry="{StaticResource AvatarGeometry2}" />
+        <GeometryDrawing Brush="#FFDCDCDC" Geometry="{StaticResource AvatarGeometry3}" />
+  </DrawingGroup>
+  <DrawingImage x:Key="AvatarDrawingImage" Drawing="{StaticResource AvatarDrawingGroup}" />
+</ResourceDictionary>

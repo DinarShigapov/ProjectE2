@@ -1,0 +1,82 @@
+﻿<Page x:Class="EducationalPartApp.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationalPartApp.Pages" xmlns:Converter="clr-namespace:EducationalPartApp.Codes"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1250"
+      Title="AuthPage">
+
+    <Page.Resources>
+        <Converter:BorderClipConverter x:Key="borderClipConverter" />
+    </Page.Resources>
+
+    <Grid Background="#FFFFFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="59*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#EFF1F8"  BorderThickness="0" Margin="-105,-172,15,-266" RenderTransformOrigin="0.5,0.5">
+            <Border.Clip>
+                <MultiBinding Converter="{StaticResource borderClipConverter}">
+                    <Binding Path="ActualWidth"
+                        RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="ActualHeight"
+                        RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="CornerRadius"
+                        RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </Border.Clip>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-15.92"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Border RenderTransformOrigin="0.5,0.5" Margin="-180,158,-165,268" >
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="15.92"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <Grid>
+                    <Image Source="/Resources/Background/BG2.jpeg" Stretch="UniformToFill"  Height="850"/>
+                </Grid>
+            </Border>
+        </Border>
+
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Column="1" Width="250"
+                    KeyDown="BEnter_KeyDown"
+                    Style="{StaticResource AuthStyle}">
+            <Image Source="{StaticResource AvatarDrawingImage}" Width="150"/>
+            <TextBlock Text="Логин" />
+            <TextBox x:Name="TBLogin"/>
+            <Rectangle Margin="0 5"/>
+            <TextBlock Text="Пароль"/>
+            <TextBox x:Name="TBPassword"/>
+            <Rectangle Margin="0 7"/>
+            <Button Content="Войти"
+                    x:Name="BEnter"
+                    Style="{StaticResource ButtonStyle}"
+                    Width="120"
+                    Height="35"
+                    FontSize="18"
+                    Click="BEnter_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="1,0">
+                        <GradientStop Color="#6659FB"/>
+                        <GradientStop Color="#6D65CF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

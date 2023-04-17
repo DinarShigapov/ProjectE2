@@ -60,5 +60,10 @@ namespace TeacherApp.Pages
 
             RefreshPage(contextContent as Page);
         }
+
+        private void BReportCard_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new ReportCardPage());
+        }
     }
 }

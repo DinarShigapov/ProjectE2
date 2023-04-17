@@ -286,115 +286,85 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DBTochka.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBTochka.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DBTochka.Designer.cs">
-      <DependentUpon>DBTochka.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Model\DBTochka1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ED.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ED.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ED.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ED.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ED.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ModelDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ModelDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ModelDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\PartialClass\Group.cs" />
     <Compile Include="Model\PartialClass\Student.cs" />
     <Compile Include="Model\Post.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>DBTochka.tt</DependentUpon>
+      <DependentUpon>ED.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AssessmentPage.xaml.cs">
       <DependentUpon>AssessmentPage.xaml</DependentUpon>
@@ -434,26 +404,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\DBModel.edmx">
+    <EntityDeploy Include="Model\ED.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ED.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\DBModel.edmx.diagram">
-      <DependentUpon>DBModel.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="Model\DBTochka.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBTochka.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\DBTochka.edmx.diagram">
-      <DependentUpon>DBTochka.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="Model\ModelDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\ModelDB.edmx.diagram">
-      <DependentUpon>ModelDB.edmx</DependentUpon>
+    <None Include="Model\ED.edmx.diagram">
+      <DependentUpon>ED.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -484,41 +440,23 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\DBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\DBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\DBTochka.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBTochka.edmx</DependentUpon>
-      <LastGenOutput>DBTochka.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\DBTochka.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBTochka.edmx</DependentUpon>
-      <LastGenOutput>DBTochka1.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\ModelDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\ModelDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-      <LastGenOutput>ModelDB.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\Background\Zoomka.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.2\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.2\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\ED.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ED.edmx</DependentUpon>
+      <LastGenOutput>ED.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ED.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ED.edmx</DependentUpon>
+      <LastGenOutput>ED.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

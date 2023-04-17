@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,12 +72,157 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Codes\BorderClipConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AuthPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MenuPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ProfilePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Background\DeveloperImg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Fonts\FontStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Avatar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Cross.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Cross2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Exit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Exit2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\ExitArrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Line.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Line2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Logo\DefLogo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Assessment.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Auditorium.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ClassTime.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Curriculum.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DayOfTheWeek.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Discipline.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DisciplineTeacher.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ED.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ED.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ED.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ED.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ED.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employee.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeePost.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FormOfTraining.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Gender.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Group.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartialClass\Employee.cs" />
+    <Compile Include="Model\Post.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Qualification.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportCard.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportCardTeacher.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Schedule.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Semester.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Specialization.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Student.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Subgroup.cs">
+      <DependentUpon>ED.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,13 +240,50 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\ED.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ED.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\ED.edmx.diagram">
+      <DependentUpon>ED.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\Jost-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Background\BG1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Background\BG2.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Logo\black-www-icon-17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Logo\Group 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\ED.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ED.Context.cs</LastGenOutput>
+      <DependentUpon>ED.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\ED.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ED.edmx</DependentUpon>
+      <LastGenOutput>ED.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
