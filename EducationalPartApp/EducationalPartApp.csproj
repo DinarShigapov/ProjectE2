@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Codes\BorderClipConverter.cs" />
+    <Compile Include="Codes\ScheduleListClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -133,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resources\IconUI\Pencil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\Logo\DefLogo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,83 +145,83 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ED.Context.cs">
+    <Compile Include="Model\Education.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ED.Context.tt</DependentUpon>
+      <DependentUpon>Education.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ED.cs">
+    <Compile Include="Model\Education.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ED.Designer.cs">
+    <Compile Include="Model\Education.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ED.edmx</DependentUpon>
+      <DependentUpon>Education.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\Post.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddSchedulePage.xaml.cs">
       <DependentUpon>AddSchedulePage.xaml</DependentUpon>
@@ -247,12 +252,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\ED.edmx">
+    <EntityDeploy Include="Model\Education.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ED.Designer.cs</LastGenOutput>
+      <LastGenOutput>Education.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\ED.edmx.diagram">
-      <DependentUpon>ED.edmx</DependentUpon>
+    <None Include="Model\Education.edmx.diagram">
+      <DependentUpon>Education.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -264,7 +269,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\Education.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Education.edmx</DependentUpon>
+      <LastGenOutput>Education.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Education.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Education.edmx</DependentUpon>
+      <LastGenOutput>Education.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Background\BG1.jpg" />
   </ItemGroup>
@@ -276,18 +292,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Logo\Group 4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model\ED.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ED.Context.cs</LastGenOutput>
-      <DependentUpon>ED.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\ED.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ED.edmx</DependentUpon>
-      <LastGenOutput>ED.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

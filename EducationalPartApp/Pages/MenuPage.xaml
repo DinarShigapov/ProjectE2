@@ -80,7 +80,7 @@
                              Click="BMain_Click"/>
                 <Rectangle Height="5" Fill="Transparent"/>
                 <RadioButton x:Name="BAddSchedule" 
-                             Content="Профиль"
+                             Content="Добавить Расп."
                              Click="BAddSchedule_Click"/>
                 <Rectangle Height="5" Fill="Transparent"/>
                 <RadioButton x:Name="BProfile" 

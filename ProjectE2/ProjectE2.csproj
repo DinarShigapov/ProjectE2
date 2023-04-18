@@ -286,85 +286,85 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ED.Context.cs">
+    <Compile Include="Model\Education.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ED.Context.tt</DependentUpon>
+      <DependentUpon>Education.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ED.cs">
+    <Compile Include="Model\Education.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ED.Designer.cs">
+    <Compile Include="Model\Education.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ED.edmx</DependentUpon>
+      <DependentUpon>Education.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\PartialClass\Group.cs" />
     <Compile Include="Model\PartialClass\Student.cs" />
     <Compile Include="Model\Post.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>ED.tt</DependentUpon>
+      <DependentUpon>Education.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AssessmentPage.xaml.cs">
       <DependentUpon>AssessmentPage.xaml</DependentUpon>
@@ -404,12 +404,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\ED.edmx">
+    <EntityDeploy Include="Model\Education.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ED.Designer.cs</LastGenOutput>
+      <LastGenOutput>Education.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\ED.edmx.diagram">
-      <DependentUpon>ED.edmx</DependentUpon>
+    <None Include="Model\Education.edmx.diagram">
+      <DependentUpon>Education.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -447,15 +447,15 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.2\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\ED.Context.tt">
+    <Content Include="Model\Education.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ED.edmx</DependentUpon>
-      <LastGenOutput>ED.Context.cs</LastGenOutput>
+      <DependentUpon>Education.edmx</DependentUpon>
+      <LastGenOutput>Education.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\ED.tt">
+    <Content Include="Model\Education.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ED.edmx</DependentUpon>
-      <LastGenOutput>ED.cs</LastGenOutput>
+      <DependentUpon>Education.edmx</DependentUpon>
+      <LastGenOutput>Education.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

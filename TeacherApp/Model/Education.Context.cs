@@ -13,10 +13,10 @@ namespace TeacherApp.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EducationDataBaseEntities2 : DbContext
+    public partial class EducationDataBaseEntities3 : DbContext
     {
-        public EducationDataBaseEntities2()
-            : base("name=EducationDataBaseEntities2")
+        public EducationDataBaseEntities3()
+            : base("name=EducationDataBaseEntities3")
         {
         }
     

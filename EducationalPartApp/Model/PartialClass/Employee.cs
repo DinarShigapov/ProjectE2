@@ -12,7 +12,7 @@ namespace EducationalPartApp.Model
         {
             get 
             {
-                return $"{LastName} {FirstName.ToCharArray()[0]}. {Patronymic.ToCharArray()[0]}. ";
+                return $"{LastName} {FirstName.ToCharArray()[0]}. {Patronymic.ToCharArray()[0]}.";
             }
         }
 
