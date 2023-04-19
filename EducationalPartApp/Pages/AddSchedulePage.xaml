@@ -31,7 +31,8 @@
                            FontSize="20"/>
                     <StackPanel VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
-                                Orientation="Horizontal">
+                                Orientation="Horizontal"
+                                x:Name="SPDayOfTheWeek">
                         <StackPanel.Style>
                             <Style TargetType="{x:Type StackPanel}">
                                 <Style.Resources>
@@ -44,37 +45,37 @@
                                          IsChecked="True"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" />
+                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
                         </Grid>
                         <Grid x:Name="TuesdayGrid">
                             <RadioButton Content="ВТ"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" />
+                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
                         </Grid>
                         <Grid x:Name="WednesdayGrid">
                             <RadioButton Content="СР"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" />
+                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
                         </Grid>
                         <Grid x:Name="ThursdayGrid">
                             <RadioButton Content="ЧТ"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" />
+                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
                         </Grid>
                         <Grid x:Name="FridayGrid">
                             <RadioButton Content="ПТ"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" />
+                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
                         </Grid>
                         <Grid x:Name="SaturdayGrid">
                             <RadioButton Content="СБ"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" />
+                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
                         </Grid>
                     </StackPanel>
                 </StackPanel>
@@ -235,14 +236,16 @@
 
             <!--RМакет-->
 
-            <Button Grid.Row="3" Content="Сохранить" 
+            <Button x:Name="BSave" 
+                    Grid.Row="3" Content="Сохранить" 
                     Style="{StaticResource ButtonStyle}"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Right"
                     Width="170"
                     Height="50"
                     Background="#6D61F5"
-                    FontSize="17"/>
+                    FontSize="17"
+                    Click="BSave_Click"/>
 
         </Grid>
     </Border>

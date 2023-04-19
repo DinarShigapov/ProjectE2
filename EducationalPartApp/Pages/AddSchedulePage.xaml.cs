@@ -25,7 +25,9 @@ namespace EducationalPartApp.Pages
         //List<Schedule> schedules = new List<Schedule>();
         //List<Subgroup> subgroups = new List<Subgroup>();
 
-        List<List<ScheduleListClass>> scheduleDayOfTheWeek = new List<List<ScheduleListClass>>()
+
+
+        List<List<ScheduleListClass>> scheduleDayOfTheWeek = new List<List<ScheduleListClass>>(6)
         {
             new List<ScheduleListClass>(){ },
             new List<ScheduleListClass>(){ },
@@ -67,29 +69,30 @@ namespace EducationalPartApp.Pages
             var context = scheduleDayOfTheWeek[i];
             for (int j = 0; j < context.Count; j++)
             {
-                if (scheduleDayOfTheWeek[0][j] == null) continue;
-                var buffer = scheduleDayOfTheWeek[0][j].schedule;
+                if (context[j] == null) continue;
+                var scheduleBuffer = context[j].schedule;
+                var subgroupsBuffer = context[j].subgroups;
                 switch (j)
                 {
                     case 0:
-                        DisciplineOneLesson.DataContext = buffer;
-                        TeacherOneLesson.Text = StringTeacherList(scheduleDayOfTheWeek[0][j].subgroups);
+                        DisciplineOneLesson.DataContext = scheduleBuffer;
+                        TeacherOneLesson.Text = StringTeacherList(subgroupsBuffer);
                         break;
                     case 1:
-                        DisciplineTwoLesson.DataContext = buffer;
-                        TeacherTwoLesson.Text = StringTeacherList(scheduleDayOfTheWeek[0][j].subgroups);
+                        DisciplineTwoLesson.DataContext = scheduleBuffer;
+                        TeacherTwoLesson.Text = StringTeacherList(subgroupsBuffer);
                         break;
                     case 2:
-                        DisciplineThreeLesson.DataContext = buffer;
-                        TeacherThreeLesson.Text = StringTeacherList(scheduleDayOfTheWeek[0][j].subgroups);
+                        DisciplineThreeLesson.DataContext = scheduleBuffer;
+                        TeacherThreeLesson.Text = StringTeacherList(subgroupsBuffer);
                         break;
                     case 3:
-                        DisciplineFourLesson.DataContext = buffer;
-                        TeacherFourLesson.Text = StringTeacherList(scheduleDayOfTheWeek[0][j].subgroups);
+                        DisciplineFourLesson.DataContext = scheduleBuffer;
+                        TeacherFourLesson.Text = StringTeacherList(subgroupsBuffer);
                         break;
                     case 4:
-                        DisciplineFiveLesson.DataContext = buffer;
-                        TeacherFiveLesson.Text = StringTeacherList(scheduleDayOfTheWeek[0][j].subgroups);
+                        DisciplineFiveLesson.DataContext = scheduleBuffer;
+                        TeacherFiveLesson.Text = StringTeacherList(subgroupsBuffer);
                         break;
                     default:
                         break;
@@ -137,6 +140,21 @@ namespace EducationalPartApp.Pages
                     break;
             }
             RefreshSchedule(index);
+        }
+
+        private void BSave_Click(object sender, RoutedEventArgs e)
+        {
+
+            int i = 0;
+            foreach (var item in SPDayOfTheWeek.Children)
+            {
+                if (scheduleDayOfTheWeek[i].Count == 0)
+                {
+                    var itemBuffer = item as Grid;
+                    itemBuffer.Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Visible;
+                }
+                i++;
+            }
         }
     }
 }
