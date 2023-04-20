@@ -156,5 +156,17 @@ namespace EducationalPartApp.Pages
                 i++;
             }
         }
+
+        private void BEditTeacher_Click(object sender, RoutedEventArgs e)
+        {
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+            if (window == null)
+                return;
+
+            PopUpControl popUp = window.FindName("popup") as PopUpControl;
+            var popUpFrame = popUp.Content as Frame;
+            //popUpFrame.Navigate(new AuthPage());
+            popUp.Visibility = Visibility.Visible;
+        }
     }
 }

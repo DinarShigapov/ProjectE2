@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Codes\PopUpControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +77,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Codes\BorderClipConverter.cs" />
+    <Compile Include="Codes\PopUpControl.xaml.cs">
+      <DependentUpon>PopUpControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Codes\ScheduleListClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

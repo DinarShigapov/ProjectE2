@@ -91,7 +91,8 @@
                                Margin="10 0"
                                FontSize="27"/>
                     <Button x:Name="BEditTeacher"
-                        Style="{StaticResource EditButtonStyle}">
+                        Style="{StaticResource EditButtonStyle}"
+                            Click="BEditTeacher_Click">
                         <Image/>
                     </Button>
                 </StackPanel>
