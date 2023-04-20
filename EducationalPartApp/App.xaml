@@ -370,6 +370,31 @@
 
             <!---->
 
+            <!--PopUpStyle-->
+
+            <Style TargetType="Border" x:Key="sasa">
+                <Style.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <!--<DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="0" Duration="0:0:1">
+
+                                    </DoubleAnimation>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="0" Duration="0:0:1" >
+
+                                    </DoubleAnimation>-->
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+            
+            <!---->
+
+
+
             <!--***************-->
 
 
