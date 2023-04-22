@@ -140,83 +140,83 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Education.Context.cs">
+    <Compile Include="Model\EDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Education.Context.tt</DependentUpon>
+      <DependentUpon>EDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Education.cs">
+    <Compile Include="Model\EDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Education.Designer.cs">
+    <Compile Include="Model\EDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Education.edmx</DependentUpon>
+      <DependentUpon>EDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\Post.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>Education.tt</DependentUpon>
+      <DependentUpon>EDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
@@ -247,12 +247,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\Education.edmx">
+    <EntityDeploy Include="Model\EDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Education.Designer.cs</LastGenOutput>
+      <LastGenOutput>EDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\Education.edmx.diagram">
-      <DependentUpon>Education.edmx</DependentUpon>
+    <None Include="Model\EDB.edmx.diagram">
+      <DependentUpon>EDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -280,15 +280,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\Education.Context.tt">
+    <Content Include="Model\EDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Education.edmx</DependentUpon>
-      <LastGenOutput>Education.Context.cs</LastGenOutput>
+      <DependentUpon>EDB.edmx</DependentUpon>
+      <LastGenOutput>EDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\Education.tt">
+    <Content Include="Model\EDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Education.edmx</DependentUpon>
-      <LastGenOutput>Education.cs</LastGenOutput>
+      <DependentUpon>EDB.edmx</DependentUpon>
+      <LastGenOutput>EDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
