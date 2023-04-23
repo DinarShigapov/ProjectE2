@@ -81,6 +81,8 @@
       <DependentUpon>PopUpControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\ScheduleListClass.cs" />
+    <Compile Include="Codes\WatermarkAdorner.cs" />
+    <Compile Include="Codes\WatermarkService.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -141,7 +143,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resources\Background\BG5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Lock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconUI\Man.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\IconUI\Pencil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Logo\LogoV1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -302,6 +320,7 @@
       <DependentUpon>EDB.edmx</DependentUpon>
       <LastGenOutput>EDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\IconUI\Manchik.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

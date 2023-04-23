@@ -8,75 +8,62 @@
       d:DesignHeight="800" d:DesignWidth="1250"
       Title="AuthPage">
 
-    <Page.Resources>
-        <Converter:BorderClipConverter x:Key="borderClipConverter" />
-    </Page.Resources>
-
     <Grid Background="#FFFFFF">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="51*"/>
-            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Background="#EFF1F8"  BorderThickness="0" Margin="-105,-172,15,-266" RenderTransformOrigin="0.5,0.5">
-            <Border.Clip>
-                <MultiBinding Converter="{StaticResource borderClipConverter}">
-                    <Binding Path="ActualWidth"
-                        RelativeSource="{RelativeSource Self}"/>
-                    <Binding Path="ActualHeight"
-                        RelativeSource="{RelativeSource Self}"/>
-                    <Binding Path="CornerRadius"
-                        RelativeSource="{RelativeSource Self}"/>
-                </MultiBinding>
-            </Border.Clip>
-            <Border.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-15.92"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Border.RenderTransform>
-            <Border RenderTransformOrigin="0.5,0.5" Margin="-180,158,-165,268" >
-                <Border.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="15.92"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Border.RenderTransform>
-                <Grid>
-                    <Image Source="/Resources/Background/BG2.jpeg" Stretch="UniformToFill"  Height="850"/>
-                </Grid>
-            </Border>
-        </Border>
-
+        <Image Source="{StaticResource LogoV1DrawingImage}"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Width="150"
+               Margin="20 20 0 0"/>
+        <Image Source="{StaticResource WriteDrawingImage}"
+               Grid.Column="1"
+               Width="900"
+               RenderOptions.BitmapScalingMode="Fant"/>
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Grid.Column="1" Width="250"
-                    KeyDown="BEnter_KeyDown"
-                    Style="{StaticResource AuthStyle}">
-            <Image Source="{StaticResource AvatarDrawingImage}" Width="150"/>
-            <TextBlock Text="Логин" />
-            <TextBox x:Name="TBLogin"/>
-            <Rectangle Margin="0 5"/>
-            <TextBlock Text="Пароль"/>
-            <TextBox x:Name="TBPassword"/>
-            <Rectangle Margin="0 7"/>
-            <Button Content="Войти"
-                    x:Name="BEnter"
-                    Style="{StaticResource ButtonStyle}"
-                    Width="120"
-                    Height="35"
-                    FontSize="18"
-                    Click="BEnter_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="1,0">
-                        <GradientStop Color="#6659FB"/>
-                        <GradientStop Color="#6D65CF" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+                    Orientation="Vertical" Width="278"
+                    MaxWidth="278">
+            <TextBlock Text="Авторизация"
+                       Style="{StaticResource MainHeaderTextStyle}"
+                       Margin="0 0 0 50"
+                       Opacity="0.7"/>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource PlaceholderTextBoxStyle}" 
+                         Tag="Логин" Grid.ColumnSpan="2"
+                         x:Name="TBLogin"/>
+                <Image Source="{StaticResource ManDrawingImage}"
+                       HorizontalAlignment="Center"
+                       Width="20"
+                       Height="20"
+                       Margin="0 -5 0 0"/>
+            </Grid>
+            <Grid Margin="0 30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Style="{StaticResource PlaceholderTextBoxStyle}" 
+                         Tag="Пароль" Grid.ColumnSpan="2"
+                         x:Name="TBPassword"/>
+                <Image Source="{StaticResource LockDrawingImage}"
+                       HorizontalAlignment="Center"
+                       Width="20"
+                       Height="20"
+                       Margin="0 -5 0 0"/>
+            </Grid>
+            <Button Style="{StaticResource ButtonStyle}"
+                    Content="Войти"
+                    Height="35" Width="150"
+                    Click="BEnter_Click"/>
         </StackPanel>
     </Grid>
 </Page>

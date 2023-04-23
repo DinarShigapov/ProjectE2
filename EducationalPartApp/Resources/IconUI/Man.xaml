@@ -1,0 +1,18 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DrawingImage x:Key="ManDrawingImage">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V21 H19 V0 H0 Z">
+                <GeometryDrawing Geometry="F0 M19,21z M0,0z M14,6.5C14,8.98528 11.9853,11 9.5,11 7.01472,11 5,8.98528 5,6.5 5,4.01472 7.01472,2 9.5,2 11.9853,2 14,4.01472 14,6.5z M13.2858,11.7843C14.9294,10.6047 16,8.6774 16,6.5 16,2.91015 13.0899,0 9.5,0 5.91015,0 3,2.91015 3,6.5 3,8.6774 4.07063,10.6047 5.71417,11.7843 6.87411,11.2798 8.15438,11 9.5,11 10.8456,11 12.1259,11.2798 13.2858,11.7843z">
+                    <GeometryDrawing.Brush>
+                        <SolidColorBrush Color="#FF000000" Opacity="0.2" />
+                    </GeometryDrawing.Brush>
+                </GeometryDrawing>
+                <GeometryDrawing Geometry="F0 M19,21z M0,0z M16.9836,21C16.9945,20.8347 17,20.668 17,20.5 17,16.3579 13.6421,13 9.5,13 5.35786,13 2,16.3579 2,20.5 2,20.668 2.00552,20.8347 2.0164,21L0.0129321,21C0.00434618,20.8344 0,20.6677 0,20.5 0,15.2533 4.25329,11 9.5,11 14.7467,11 19,15.2533 19,20.5 19,20.6677 18.9957,20.8344 18.9871,21L16.9836,21z">
+                    <GeometryDrawing.Brush>
+                        <SolidColorBrush Color="#FF000000" Opacity="0.2" />
+                    </GeometryDrawing.Brush>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+</ResourceDictionary>

@@ -12,13 +12,17 @@
                 <ResourceDictionary Source="Resources/IconUI/Cross2.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Line.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Line2.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Lock.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Avatar.xaml"/>
                 <ResourceDictionary Source="Resources/Logo/DefLogo.xaml"/>
+                <ResourceDictionary Source="Resources/Logo/LogoV1.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Exit.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Exit2.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/ExitArrow.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Pencil.xaml"/>
+                <ResourceDictionary Source="Resources/IconUI/Man.xaml"/>
                 <ResourceDictionary Source="Resources/Background/DeveloperImg.xaml"/>
+                <ResourceDictionary Source="Resources/Background/BG5.xaml"/>
                 <!---->
 
             </ResourceDictionary.MergedDictionaries>
@@ -30,39 +34,13 @@
 
             <!--AuthPage-->
 
-            <Style TargetType="TextBox" x:Key="DefualtStyle">
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="Padding" Value="13 0"/>
-                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Background" Value="#EAEEED"/>
-                <Setter Property="BorderThickness" Value="0"/>
-                <Style.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Height" Value="35"/>
-                        <Setter Property="Width" Value="250"/>
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </Style.Resources>
-            </Style>
-
-            <Style TargetType="StackPanel" x:Key="AuthStyle">
-                <Style.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
-                        <Setter Property="Margin" Value="15 0"/>
-                        <Setter Property="FontSize" Value="20"/>
-                        <Setter Property="Foreground" Value="#6D61F5"/>
-                    </Style>
-                    <Style TargetType="TextBox" BasedOn="{StaticResource DefualtStyle}"/>
-                </Style.Resources>
-            </Style>
-
 
             <Style TargetType="Button" x:Key="ButtonStyle">
                 <Setter Property="BorderBrush" Value="Transparent"/>
                 <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
                 <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="#6D61F5"/>
+                <Setter Property="FontSize" Value="20"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
@@ -82,6 +60,69 @@
                         <Setter Property="CornerRadius" Value="17" />
                     </Style>
                 </Style.Resources>
+            </Style>
+
+
+            <Style x:Key="PlaceholderTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+                <Setter Property="BorderThickness" Value="0 0 0 2"/>
+                <Setter Property="BorderBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="Black" Opacity="0.2"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="Black" Opacity="0.8"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Padding" Value="20 0 0 0"/>
+                <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border x:Name="border"
+                                    Padding="{TemplateBinding Padding}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    SnapsToDevicePixels="True">
+                                <Grid>
+
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                    <TextBlock x:Name="textBlock"
+                                               Foreground="{TemplateBinding BorderBrush}"
+                                               IsHitTestVisible="False"
+                                               Margin="{TemplateBinding Padding}"
+                                               Text="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}"
+                                               Visibility="Collapsed" />
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Text" Value="">
+                                    <Setter TargetName="textBlock" Property="Visibility" Value="Visible" />
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Opacity" Value="0.56" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="BorderBrush">
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="#FF6D61F5" Opacity="0.7"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter TargetName="border" Property="BorderBrush" >
+                                        <Setter.Value>
+                                            <SolidColorBrush Color="#FF6154F5" Opacity="0.7"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
 
@@ -390,7 +431,7 @@
                     </EventTrigger>
                 </Style.Triggers>
             </Style>
-            
+
             <!---->
 
 
@@ -476,8 +517,8 @@
                 </Style.Resources>
             </Style>
 
-            
-            
+
+
             <!--***************-->
 
 

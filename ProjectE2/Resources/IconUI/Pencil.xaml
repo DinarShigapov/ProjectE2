@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Geometry x:Key="PencilGeometry1">F1 M13,17z M0,0z M7,2.71289L10.4641,4.71289 4.4641,15.1052C3.91182,16.0618,2.68864,16.3895,1.73205,15.8372L1.73205,15.8372C0.775469,15.285,0.447719,14.0618,1,13.1052L7,2.71289z</Geometry>
+  <Geometry x:Key="PencilGeometry2">F1 M13,17z M0,0z M8.06628,0.866025C8.34243,0.387733,8.95402,0.223858,9.43231,0.5L11.1644,1.5C11.6427,1.77614,11.8065,2.38773,11.5304,2.86603L11.0407,3.71422 7.57658,1.71422 8.06628,0.866025z</Geometry>
+  <DrawingGroup x:Key="PencilDrawingGroup" ClipGeometry="M0,0 V17 H13 V0 H0 Z">
+    <DrawingGroup Opacity="0.5">
+      <GeometryDrawing Brush="#FF7D7D7D" Geometry="{StaticResource PencilGeometry1}" />
+      <GeometryDrawing Brush="#FF7D7D7D" Geometry="{StaticResource PencilGeometry2}" />
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="PencilDrawingImage" Drawing="{StaticResource PencilDrawingGroup}" />
+</ResourceDictionary>
