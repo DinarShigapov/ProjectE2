@@ -22,9 +22,6 @@ namespace EducationalPartApp.Pages
     /// </summary>
     public partial class AddSchedulePage : Page
     {
-        //List<Schedule> schedules = new List<Schedule>();
-        //List<Subgroup> subgroups = new List<Subgroup>();
-
 
 
         List<List<ScheduleListClass>> scheduleDayOfTheWeek = new List<List<ScheduleListClass>>(6)
@@ -42,8 +39,8 @@ namespace EducationalPartApp.Pages
             InitializeComponent();
             for (int i = 0; i < 5; i++)
             {
-                var scheduleMondayList = App.DB.Schedule.Where(x => x.DayOfTheWeekId == i + 1 && x.GroupId == 1).ToList();
-                foreach (var item in scheduleMondayList)
+                var scheduleList = App.DB.Schedule.Where(x => x.DayOfTheWeekId == i + 1 && x.GroupId == 1).ToList();
+                foreach (var item in scheduleList)
                 {
                     var buffer = new ScheduleListClass { schedule = item, subgroups = item.Subgroup.ToList() };
                     scheduleDayOfTheWeek[i].Add(buffer);
@@ -165,7 +162,7 @@ namespace EducationalPartApp.Pages
 
             PopUpControl popUp = window.FindName("popup") as PopUpControl;
             var popUpFrame = popUp.Content as Frame;
-            //popUpFrame.Navigate(new AuthPage());
+            popUpFrame.Navigate(new AuthPage());
             popUp.Visibility = Visibility.Visible;
         }
     }

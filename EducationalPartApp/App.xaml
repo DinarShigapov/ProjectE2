@@ -70,7 +70,7 @@
                         <SolidColorBrush Color="Black" Opacity="0.2"/>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="FontSize" Value="20"/>
                 <Setter Property="Foreground">
                     <Setter.Value>
                         <SolidColorBrush Color="Black" Opacity="0.8"/>
