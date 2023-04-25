@@ -81,7 +81,7 @@
                     </ResourceDictionary>
                 </materialDesign:DialogHost.Resources>
                 <materialDesign:DialogHost.DialogContent>
-                    <Grid x:Name="gridDialogHost" Width="300" Height="150" HorizontalAlignment="Center"
+                    <Grid x:Name="gridDialogHost" HorizontalAlignment="Center"
                           Margin="30">
 
                         <Button Style="{StaticResource CloseButtonStyle}"
@@ -90,7 +90,7 @@
                                 HorizontalAlignment="Right"
                                 Width="15"
                                 Height="15"/>
-                        <Frame NavigationUIVisibility="Hidden"/>
+                        <Frame x:Name="PopUpFrame" NavigationUIVisibility="Hidden"/>
                     </Grid>
                 </materialDesign:DialogHost.DialogContent>
             </materialDesign:DialogHost>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EducationalPartApp.Pages;
+using MaterialDesignThemes.Wpf;
 
 namespace EducationalPartApp
 {
@@ -27,6 +28,17 @@ namespace EducationalPartApp
             MainFrame.Navigate(new AuthPage());
         }
 
+        public void ChangeFrameWindow(Page page) 
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow?.MainFrame.Content is MenuPage menuPage)
+            {
+                var menuFrame = menuPage.FindName("MenuFrame") as Frame;
+                menuFrame.Navigate(page);
+            }
+            var popUp = mainWindow?.FindName("DialogHostModal") as DialogHost;
+            popUp.IsOpen = false;
+        }
 
         public void GetFrameWindow(Page page, double width, double height) 
         {
@@ -34,20 +46,21 @@ namespace EducationalPartApp
             if (window == null)
                 return;
 
-            MaterialDesignThemes.Wpf.DialogHost popUp = window.FindName("DialogHostModal") as MaterialDesignThemes.Wpf.DialogHost;
+            var popUp = window?.FindName("DialogHostModal") as DialogHost;
             var gridSize = popUp.FindName("gridDialogHost") as Grid;
-
             foreach (var item in gridSize.Children)
             {
                 if (item is Frame)
                 {
-                    var item1 = (Frame)item;
-                    item1.Navigate(page);
-                    gridSize.Width = width;
-                    gridSize.Height = height;
+                    var frame = (Frame)item;
+                    frame.Navigate(page);
+                    gridSize.Width = page.Width;
+                    gridSize.Height = page.Height;
+                    popUp.IsOpen = true;
+                    break;
                 }
             }
-            popUp.IsOpen = true;
+
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
