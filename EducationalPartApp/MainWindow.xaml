@@ -70,7 +70,7 @@
                    NavigationUIVisibility="Hidden"
                    Panel.ZIndex="-1"/>
             <local:PopUpControl x:Name="popup" 
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                 <Frame NavigationUIVisibility="Hidden"/>
             </local:PopUpControl>
         </Grid>
