@@ -7,6 +7,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
+                
+                
                 <!--Icon&Logo-->
                 <ResourceDictionary Source="Resources/IconUI/Cross.xaml"/>
                 <ResourceDictionary Source="Resources/IconUI/Cross2.xaml"/>
@@ -23,6 +25,8 @@
                 <ResourceDictionary Source="Resources/IconUI/Man.xaml"/>
                 <ResourceDictionary Source="Resources/Background/DeveloperImg.xaml"/>
                 <ResourceDictionary Source="Resources/Background/BG5.xaml"/>
+
+                
                 <!---->
 
             </ResourceDictionary.MergedDictionaries>

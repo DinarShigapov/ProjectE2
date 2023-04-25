@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EducationalPartApp.Codes" xmlns:Converter="clr-namespace:EducationalPartApp.Codes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="800" Width="1250"
@@ -69,10 +70,30 @@
             <Frame x:Name="MainFrame" 
                    NavigationUIVisibility="Hidden"
                    Panel.ZIndex="-1"/>
-            <local:PopUpControl x:Name="popup" 
-                                Visibility="Collapsed">
-                <Frame NavigationUIVisibility="Hidden"/>
-            </local:PopUpControl>
+            <materialDesign:DialogHost x:Name="DialogHostModal" BorderBrush="White">
+                <materialDesign:DialogHost.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.MergedDictionaries>
+                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Purple.xaml" />
+                        </ResourceDictionary.MergedDictionaries>
+                    </ResourceDictionary>
+                </materialDesign:DialogHost.Resources>
+                <materialDesign:DialogHost.DialogContent>
+                    <Grid x:Name="gridDialogHost" Width="300" Height="150" HorizontalAlignment="Center"
+                          Margin="30">
+
+                        <Button Style="{StaticResource CloseButtonStyle}"
+                                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                                Width="15"
+                                Height="15"/>
+                        <Frame NavigationUIVisibility="Hidden"/>
+                    </Grid>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
         </Grid>
     </Border>
 </Window>

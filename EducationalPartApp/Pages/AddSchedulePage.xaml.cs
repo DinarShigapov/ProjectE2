@@ -142,17 +142,37 @@ namespace EducationalPartApp.Pages
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
 
-            int i = 0;
-            foreach (var item in SPDayOfTheWeek.Children)
+            //int i = 0;
+            //foreach (var item in SPDayOfTheWeek.Children)
+            //{
+            //    if (scheduleDayOfTheWeek[i].Count == 0)
+            //    {
+            //        var itemBuffer = item as Grid;
+            //        itemBuffer.Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Visible;
+            //    }
+            //    i++;
+            //}
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+            if (window == null)
+                return;
+
+            MaterialDesignThemes.Wpf.DialogHost popUp = window.FindName("DialogHostModal") as MaterialDesignThemes.Wpf.DialogHost;
+            var gridSize = popUp.FindName("gridDialogHost") as Grid;
+
+            foreach (var item in gridSize.Children)
             {
-                if (scheduleDayOfTheWeek[i].Count == 0)
+                if (item is Frame)
                 {
-                    var itemBuffer = item as Grid;
-                    itemBuffer.Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Visible;
+                    GroupSelectPage selectPage = new GroupSelectPage();
+                    var item1 = (Frame)item;
+                    item1.Navigate(new GroupSelectPage());
+                    gridSize.Width = 300;
+                    gridSize.Height = 200;
                 }
-                i++;
             }
+            popUp.IsOpen = true;
         }
+
 
         private void BEditTeacher_Click(object sender, RoutedEventArgs e)
         {
@@ -160,10 +180,12 @@ namespace EducationalPartApp.Pages
             if (window == null)
                 return;
 
-            PopUpControl popUp = window.FindName("popup") as PopUpControl;
-            var popUpFrame = popUp.Content as Frame;
-            popUpFrame.Navigate(new AuthPage());
-            popUp.Visibility = Visibility.Visible;
+            MaterialDesignThemes.Wpf.DialogHost popUp = window.FindName("SAas") as MaterialDesignThemes.Wpf.DialogHost;
+
+            popUp.IsOpen = true;
+            //var popUpFrame = popUp.Content as Frame;
+            //popUpFrame.Navigate(new AuthPage());
+            //popUp.Visibility = Visibility.Visible;
         }
     }
 }
