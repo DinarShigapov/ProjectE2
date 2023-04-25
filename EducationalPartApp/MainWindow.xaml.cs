@@ -70,7 +70,8 @@ namespace EducationalPartApp
 
         private void BClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+
+            Application.Current.Shutdown();
         }
 
         private void BСollapse_Click(object sender, RoutedEventArgs e)
