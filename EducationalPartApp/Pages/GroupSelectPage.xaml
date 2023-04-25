@@ -9,8 +9,9 @@
       Title="GroupSelectPage">
 
     <Grid>
-        <TextBlock Text="DSSDS"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+        <Button Style="{StaticResource ButtonStyle}"
+                Width="140"
+                Height="40"
+                Content="326 СИС" Click="Button_Click"/>
     </Grid>
 </Page>

@@ -24,5 +24,25 @@ namespace EducationalPartApp.Pages
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            var frame = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+
+            if (frame.GetType() == typeof(MainWindow))
+            {
+                var frameContent = (frame as MainWindow).MainFrame;
+                if (frameContent.Content.GetType() == typeof(MenuPage)) 
+                {
+                    var menuFrame = (frameContent.Content as MenuPage).FindName("MenuFrame") as Frame;
+                    menuFrame.Navigate(new AddSchedulePage());
+                }
+            }
+            MaterialDesignThemes.Wpf.DialogHost popUp = frame.FindName("DialogHostModal") as MaterialDesignThemes.Wpf.DialogHost;
+            popUp.IsOpen = false;
+
+
+        }
     }
 }

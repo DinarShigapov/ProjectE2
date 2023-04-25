@@ -24,5 +24,11 @@ namespace EducationalPartApp.Pages
         {
             InitializeComponent();
         }
+
+        private void BCreate_Click(object sender, RoutedEventArgs e)
+        {
+            var window = Application.Current.Windows.OfType<MainWindow>().SingleOrDefault(x => x.IsActive);
+            window.GetFrameWindow(new GroupSelectPage(), 300, 200);
+        }
     }
 }

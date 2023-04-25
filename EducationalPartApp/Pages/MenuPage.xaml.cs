@@ -64,7 +64,7 @@ namespace EducationalPartApp.Pages
 
         private void BAddSchedule_Click(object sender, RoutedEventArgs e)
         {
-            RefreshPage(new AddSchedulePage());
+            RefreshPage(new ScheduleListPage());
         }
     }
 }

@@ -27,6 +27,28 @@ namespace EducationalPartApp
             MainFrame.Navigate(new AuthPage());
         }
 
+
+        public void GetFrameWindow(Page page, double width, double height) 
+        {
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+            if (window == null)
+                return;
+
+            MaterialDesignThemes.Wpf.DialogHost popUp = window.FindName("DialogHostModal") as MaterialDesignThemes.Wpf.DialogHost;
+            var gridSize = popUp.FindName("gridDialogHost") as Grid;
+
+            foreach (var item in gridSize.Children)
+            {
+                if (item is Frame)
+                {
+                    var item1 = (Frame)item;
+                    item1.Navigate(page);
+                    gridSize.Width = width;
+                    gridSize.Height = height;
+                }
+            }
+            popUp.IsOpen = true;
+        }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

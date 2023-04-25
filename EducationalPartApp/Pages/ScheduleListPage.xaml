@@ -57,6 +57,8 @@
                     </Grid>
                 </Border>
                 <Button Style="{StaticResource ButtonStyle}"
+                        x:Name="BCreate"
+                        Click="BCreate_Click"
                         VerticalAlignment="Bottom"
                         Height="35" Width="150"
                         Content="Создать"/>

@@ -142,35 +142,19 @@ namespace EducationalPartApp.Pages
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
 
-            //int i = 0;
-            //foreach (var item in SPDayOfTheWeek.Children)
-            //{
-            //    if (scheduleDayOfTheWeek[i].Count == 0)
-            //    {
-            //        var itemBuffer = item as Grid;
-            //        itemBuffer.Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Visible;
-            //    }
-            //    i++;
-            //}
-            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-            if (window == null)
-                return;
-
-            MaterialDesignThemes.Wpf.DialogHost popUp = window.FindName("DialogHostModal") as MaterialDesignThemes.Wpf.DialogHost;
-            var gridSize = popUp.FindName("gridDialogHost") as Grid;
-
-            foreach (var item in gridSize.Children)
+            int i = 0;
+            foreach (var item in SPDayOfTheWeek.Children)
             {
-                if (item is Frame)
+                if (scheduleDayOfTheWeek[i].Count == 0)
                 {
-                    GroupSelectPage selectPage = new GroupSelectPage();
-                    var item1 = (Frame)item;
-                    item1.Navigate(new GroupSelectPage());
-                    gridSize.Width = 300;
-                    gridSize.Height = 200;
+                    var itemBuffer = item as Grid;
+                    itemBuffer.Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Visible;
                 }
+                i++;
             }
-            popUp.IsOpen = true;
+            MainWindow main = new MainWindow();
+            main.GetFrameWindow(new GroupSelectPage(), 300, 200);
+
         }
 
 
