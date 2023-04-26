@@ -52,7 +52,10 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -182,25 +185,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -218,47 +221,62 @@
       <DependentUpon>EDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\Post.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>Tochka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tochka.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tochka.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tochka.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tochka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tochka.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tochka.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddSchedulePage.xaml.cs">
       <DependentUpon>AddSchedulePage.xaml</DependentUpon>
@@ -302,6 +320,13 @@
     <None Include="Model\EDB.edmx.diagram">
       <DependentUpon>EDB.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model\Tochka.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Tochka.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Tochka.edmx.diagram">
+      <DependentUpon>Tochka.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -337,6 +362,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EDB.edmx</DependentUpon>
       <LastGenOutput>EDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Tochka.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Tochka.edmx</DependentUpon>
+      <LastGenOutput>Tochka.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Tochka.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Tochka.edmx</DependentUpon>
+      <LastGenOutput>Tochka.cs</LastGenOutput>
     </Content>
     <Resource Include="Resources\IconUI\Manchik.png" />
   </ItemGroup>

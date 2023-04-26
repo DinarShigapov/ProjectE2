@@ -308,6 +308,23 @@
 
 
 
+            <!--ComboBox-->
+
+            <Style TargetType="ComboBox" x:Key="ComboboxStyle">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ComboBox}">
+                            <Border CornerRadius="1">
+                                <ContentPresenter />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <!---->
 
             <!--ContextMenu-->
 

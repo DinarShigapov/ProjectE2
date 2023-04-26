@@ -26,6 +26,7 @@ namespace EducationalPartApp.Model
         public int ClassTimeId { get; set; }
         public int SemesterId { get; set; }
         public int DisciplineId { get; set; }
+        public System.DateTime Date { get; set; }
     
         public virtual ClassTime ClassTime { get; set; }
         public virtual DayOfTheWeek DayOfTheWeek { get; set; }
