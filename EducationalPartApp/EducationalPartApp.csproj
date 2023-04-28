@@ -185,25 +185,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -221,47 +221,62 @@
       <DependentUpon>EDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
+    <Compile Include="Model\PolyDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolyDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PolyDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolyDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PolyDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolyDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Post.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>Tochka.tt</DependentUpon>
+      <DependentUpon>PolyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Tochka.Context.cs">
       <AutoGen>True</AutoGen>
@@ -324,6 +339,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Tochka.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Model\PolyDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PolyDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\PolyDB.edmx.diagram">
+      <DependentUpon>PolyDB.edmx</DependentUpon>
+    </None>
     <None Include="Model\Tochka.edmx.diagram">
       <DependentUpon>Tochka.edmx</DependentUpon>
     </None>
@@ -362,6 +384,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EDB.edmx</DependentUpon>
       <LastGenOutput>EDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PolyDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PolyDB.edmx</DependentUpon>
+      <LastGenOutput>PolyDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PolyDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PolyDB.edmx</DependentUpon>
+      <LastGenOutput>PolyDB.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Tochka.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

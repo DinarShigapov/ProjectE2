@@ -95,7 +95,8 @@
 
                                     <ScrollViewer x:Name="PART_ContentHost" />
                                     <TextBlock x:Name="textBlock"
-                                               Foreground="{TemplateBinding BorderBrush}"
+                                               Foreground="Black"
+                                               Opacity="0.4"
                                                IsHitTestVisible="False"
                                                Margin="{TemplateBinding Padding}"
                                                Text="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}"
@@ -454,6 +455,23 @@
             </Style>
 
             <!---->
+
+
+            <!--TextBox-->
+
+            <Style TargetType="TextBox">
+                <Setter Property="Height" Value="30"/>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="16"/>
+                        <Setter Property="Padding" Value="10 6 0 0"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+            
+            <!---->
+
+
 
 
 
