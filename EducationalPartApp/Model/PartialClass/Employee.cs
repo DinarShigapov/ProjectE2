@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EducationalPartApp.Model
 {
-    public partial class Employee
+    public partial class Employee : ICloneable
     {
         public string FullNameShort
         {
@@ -40,6 +40,11 @@ namespace EducationalPartApp.Model
 
                 return sPost ;
             }
+        }
+
+        object ICloneable.Clone()
+        {
+            throw new NotImplementedException();
         }
     }
 }
