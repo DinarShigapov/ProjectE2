@@ -126,32 +126,50 @@
         </Style>
     </Page.Resources>
 
-    <Border Background="White"
-            CornerRadius="20"
-            Padding="50">
-        <Grid x:Name="grid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="37*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="93*"/>
-            </Grid.ColumnDefinitions>
+    <Grid x:Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="93*"/>
+        </Grid.ColumnDefinitions>
 
-            <Border CornerRadius="20"
+
+        <Grid Grid.Column="2">
+            <Border Width="{Binding ActualWidth, ElementName=borderSizeTwo, Mode=OneWay}"
+                    Height="{Binding ActualHeight, ElementName=borderSizeTwo, Mode=OneWay}"
+                    CornerRadius="{Binding CornerRadius, ElementName=borderSizeTwo}"
+                    Background="White"
+                    BorderThickness="1"
+                    Panel.ZIndex="-1">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="8" ShadowDepth="0" Color="Black" Opacity="0.1" />
+                </Border.Effect>
+            </Border>
+            <Border Name="borderSizeTwo" CornerRadius="20"
                     Padding="50"
                     Height="{Binding ActualHeight, ElementName=grid, Mode=OneWay}"
-                    Grid.Column="2"
-                    Background="#F0EFEF">
+                    Panel.ZIndex="1"
+                    Background="White">
             </Border>
+        </Grid>
+        
 
-            <GridSplitter Grid.Column="1" Width="15"
-                          Background="Transparent"/>
-
-            <Grid>
-                <Border CornerRadius="20"
+        <Grid>
+            <Grid VerticalAlignment="Top">
+                <Border Width="{Binding ActualWidth, ElementName=borderSizeOne, Mode=OneWay}"
+                        Height="{Binding ActualHeight, ElementName=borderSizeOne, Mode=OneWay}"
+                        CornerRadius="{Binding CornerRadius, ElementName=borderSizeOne}"
+                        Background="White"
+                        BorderThickness="1"
+                        Panel.ZIndex="-1">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="8" ShadowDepth="0" Color="Black" Opacity="0.1" />
+                    </Border.Effect>
+                </Border>
+                <Border Name="borderSizeOne" CornerRadius="20"
                         Padding="20"
                         Height="200"
-                        VerticalAlignment="Top"
-                        Background="#F0EFEF">
+                        Background="White">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="51*"/>
@@ -175,13 +193,13 @@
 
                     </Grid>
                 </Border>
-                <Button Style="{StaticResource ButtonStyle}"
+            </Grid>
+            <Button Style="{StaticResource ButtonStyle}"
                         x:Name="BCreate"
                         Click="BCreate_Click"
                         VerticalAlignment="Bottom"
                         Height="35" Width="150"
                         Content="Создать"/>
-            </Grid>
         </Grid>
-    </Border>
+    </Grid>
 </Page>

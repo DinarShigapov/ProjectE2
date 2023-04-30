@@ -199,6 +199,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Codes\BorderClipConverter.cs" />
+    <Compile Include="Codes\Native.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -302,25 +303,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -337,50 +338,65 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\EduAinur.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduAinur.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduAinur.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduAinur.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduAinur.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduAinur.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\PartialClass\Group.cs" />
     <Compile Include="Model\PartialClass\Student.cs" />
     <Compile Include="Model\Post.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>EDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AssessmentPage.xaml.cs">
       <DependentUpon>AssessmentPage.xaml</DependentUpon>
@@ -427,6 +443,13 @@
     <None Include="Model\EDB.edmx.diagram">
       <DependentUpon>EDB.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model\EduAinur.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EduAinur.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EduAinur.edmx.diagram">
+      <DependentUpon>EduAinur.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -472,6 +495,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EDB.edmx</DependentUpon>
       <LastGenOutput>EDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EduAinur.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EduAinur.edmx</DependentUpon>
+      <LastGenOutput>EduAinur.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EduAinur.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EduAinur.edmx</DependentUpon>
+      <LastGenOutput>EduAinur.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

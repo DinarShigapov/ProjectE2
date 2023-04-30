@@ -54,7 +54,7 @@
     </Reference>
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -87,6 +87,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Codes\BorderClipConverter.cs" />
+    <Compile Include="Codes\Native.cs" />
     <Compile Include="Codes\ScheduleListClass.cs" />
     <Compile Include="Codes\WatermarkAdorner.cs" />
     <Compile Include="Codes\WatermarkService.cs" />
@@ -185,25 +186,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -220,63 +221,63 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\EduAinur.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduAinur.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduAinur.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduAinur.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduAinur.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduAinur.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
-    <Compile Include="Model\PolyDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\PolyDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\PolyDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model\Post.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduAinur.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Tochka.Context.cs">
       <AutoGen>True</AutoGen>
@@ -339,12 +340,12 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Tochka.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="Model\PolyDB.edmx">
+    <EntityDeploy Include="Model\EduAinur.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PolyDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>EduAinur.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\PolyDB.edmx.diagram">
-      <DependentUpon>PolyDB.edmx</DependentUpon>
+    <None Include="Model\EduAinur.edmx.diagram">
+      <DependentUpon>EduAinur.edmx</DependentUpon>
     </None>
     <None Include="Model\Tochka.edmx.diagram">
       <DependentUpon>Tochka.edmx</DependentUpon>
@@ -385,15 +386,15 @@
       <DependentUpon>EDB.edmx</DependentUpon>
       <LastGenOutput>EDB.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\PolyDB.Context.tt">
+    <Content Include="Model\EduAinur.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-      <LastGenOutput>PolyDB.Context.cs</LastGenOutput>
+      <DependentUpon>EduAinur.edmx</DependentUpon>
+      <LastGenOutput>EduAinur.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\PolyDB.tt">
+    <Content Include="Model\EduAinur.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-      <LastGenOutput>PolyDB.cs</LastGenOutput>
+      <DependentUpon>EduAinur.edmx</DependentUpon>
+      <LastGenOutput>EduAinur.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Tochka.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -32,6 +32,14 @@
             </ResourceDictionary.MergedDictionaries>
 
 
+            <Style TargetType="Border" x:Key="BorderShadow">
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        
+                    </Style>
+                </Style.Resources>
+            </Style>
+            
 
             <!--********** General style **********-->
 
