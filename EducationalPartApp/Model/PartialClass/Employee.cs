@@ -30,7 +30,6 @@ namespace EducationalPartApp.Model
             {
                 string sPost = "";
 
-
                 foreach (var item in App.LoggedEP.EmployeePost)
                 {
                     sPost += $"{App.DB.Post.FirstOrDefault(x => x.Id == item.Id)?.Name}, ";
