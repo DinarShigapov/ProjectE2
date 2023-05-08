@@ -88,7 +88,7 @@
                     <TextBlock Text="Группа" 
                                Style="{StaticResource HeaderText}"
                                FontSize="22"/>
-                    <TextBlock x:Name="GroupSelect" 
+                    <TextBlock x:Name="GroupSelect"
                                Style="{StaticResource DefualtText}" 
                                Margin="10 0"
                                FontSize="27"/>

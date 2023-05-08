@@ -19,6 +19,7 @@
             <TextBlock Text="Дисциплина"
                        Style="{StaticResource DefualtText}"/>
             <ComboBox x:Name="CBDisciplines"
+                      SelectedItem="{Binding schedule.Discipline}"
                       DisplayMemberPath="Name"
                       Style="{StaticResource ComboBoxStyleCorner}"
                       Width="{Binding ActualWidth, ElementName=grid, Mode=OneWay}"

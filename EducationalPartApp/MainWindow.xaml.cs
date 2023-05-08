@@ -117,5 +117,10 @@ namespace EducationalPartApp
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void Button_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
     }
 }

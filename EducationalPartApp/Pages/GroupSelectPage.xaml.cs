@@ -27,7 +27,8 @@ namespace EducationalPartApp.Pages
 
         private void BGroupSelection_Click(object sender, RoutedEventArgs e)
         {
-            new MainWindow().ChangeFrameWindow(new AddSchedulePage());
+            var group326 = App.DB.Group.FirstOrDefault(x => x.Id == 1);
+            new MainWindow().ChangeFrameWindow(new AddSchedulePage(group326));
         }
     }
 }

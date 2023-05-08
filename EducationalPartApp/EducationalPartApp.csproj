@@ -250,6 +250,7 @@
     <Compile Include="Model\ModelEnums\ClassTimeEnum.cs" />
     <Compile Include="Model\PartialClass\Discipline.cs" />
     <Compile Include="Model\PartialClass\Employee.cs" />
+    <Compile Include="Model\PartialClass\Group.cs" />
     <Compile Include="Model\PartialClass\Schedule.cs" />
     <Compile Include="Model\PartialClass\Semester.cs" />
     <Compile Include="Model\PartialClass\Subgroup.cs" />

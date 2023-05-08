@@ -23,7 +23,6 @@ namespace EducationalPartApp.Pages
     public partial class AddSchedulePage : Page
     {
 
-
         List<List<ScheduleListClass>> scheduleDayOfTheWeek = new List<List<ScheduleListClass>>(6)
         {
             new List<ScheduleListClass>(){ },
@@ -34,14 +33,27 @@ namespace EducationalPartApp.Pages
             new List<ScheduleListClass>(){ }
         };
 
-        public AddSchedulePage()
+        Group contextGroup;
+
+        public AddSchedulePage(Group group)
         {
             InitializeComponent();
+            contextGroup = group;
+            GroupSelect.Text = contextGroup.StrFullName;
             for (int i = 0; i <= 5; i++)
             {
                 for (int h = 0; h < 5; h++)
                 {
-                    scheduleDayOfTheWeek[i].Add(new ScheduleListClass() { schedule = new Schedule { ClassTimeId = h + 1 } });
+                    scheduleDayOfTheWeek[i].Add(new ScheduleListClass() 
+                    { 
+                        schedule = new Schedule 
+                        { 
+                            ClassTimeId = h + 1, 
+                            Group = contextGroup, 
+                            DayOfTheWeekId = i + 1,
+                            Semester = contextGroup.Semester
+                        } 
+                    });
                 }
             }
             RefreshSchedule(0);

@@ -30,21 +30,24 @@ namespace EducationalPartApp.Pages
         public EditLessonPage(ScheduleListClass listClass)
         {
             InitializeComponent();
-            _scheduleSave = (ScheduleListClass)listClass.Clone();
             _schedule = listClass;
+            _scheduleSave = (ScheduleListClass)listClass.Clone();
             DataContext = _scheduleSave;
             CBDisciplines.ItemsSource = App.DB.Discipline.ToList();
-            CBDisciplines.SelectedItem = _schedule.schedule.Discipline;
             CBAuditoriums.ItemsSource = App.DB.Auditorium.ToList();
-            if (_schedule.subgroups != null)
+            CBDisciplines.SelectedItem = _scheduleSave.schedule.Discipline;
+            if (_scheduleSave.subgroups != null)
             {
-                LVTeacherList.ItemsSource = _schedule.subgroups.ToList();
-            }
+                 _subgroupList.AddRange(_scheduleSave.subgroups);
+                LVTeacherList.ItemsSource = _subgroupList.ToList();
+            }   
         }
 
         private void CBDisciplines_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _schedule.schedule.Discipline = (Discipline)CBDisciplines.SelectedItem;
+            _subgroupList.Clear();
+            LVTeacherList.ItemsSource = _subgroupList.ToList();
+
             if (CBDisciplines.SelectedItem != null)
             {
                 var disciplineBuffer = CBDisciplines.SelectedItem as Discipline;
@@ -52,7 +55,7 @@ namespace EducationalPartApp.Pages
                 List<Employee> employees = new List<Employee>();
                 foreach (var item in listEmployee)
                 {
-                    employees = App.DB.Employee.Where(x => x.Id == item.TeacherId).ToList();
+                    employees.Add(item.Employee);
                 }
                 CBTeachers.ItemsSource = employees;
                 SPTeacherAud.IsEnabled = true;
@@ -62,13 +65,18 @@ namespace EducationalPartApp.Pages
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
 
+            if (_subgroupList.Count == 0)
+            {
+                MessageBox.Show("Выберите преподавателя","Внимание",MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            _scheduleSave.subgroups = _subgroupList.ToList();
             foreach (PropertyInfo property in typeof(ScheduleListClass).GetProperties().Where(p => p.CanWrite))
             {
                 if (property.Name == "ScheduleListClass") break;
-                property.SetValue(_scheduleSave, property.GetValue(_schedule, null), null);
+                property.SetValue(_schedule, property.GetValue(_scheduleSave, null), null);
             }
-
-            _schedule.subgroups = _subgroupList.ToList();
 
             var mainWindow = Application.Current.MainWindow as MainWindow;
             if (mainWindow?.MainFrame.Content is MenuPage menuPage)
@@ -93,6 +101,40 @@ namespace EducationalPartApp.Pages
             var selectTeacher = CBTeachers.SelectedItem as Employee;
             var selectAuditorium = CBAuditoriums.SelectedItem as Auditorium;
             if (selectTeacher == null || selectAuditorium == null) return;
+
+            foreach (var item in App.DB.Subgroup)
+            {
+                if (item.Employee == selectTeacher 
+                    && item.Schedule.Date.Year == new DateTime(DateTime.Now.Year, 1, 1).Year
+                    && item.Schedule.DayOfTheWeekId == _scheduleSave.schedule.DayOfTheWeekId
+                    && item.Schedule.ClassTimeId == _scheduleSave.schedule.ClassTimeId)
+                {
+                    MessageBox.Show($"В это время у {item.Employee.FullNameShort} проводиться урок");
+                    return;
+                }
+
+                if (item.Auditorium == selectAuditorium
+                    && item.Schedule.Date.Year == new DateTime(DateTime.Now.Year, 1, 1).Year
+                    && item.Schedule.DayOfTheWeekId == _scheduleSave.schedule.DayOfTheWeekId
+                    && item.Schedule.ClassTimeId == _scheduleSave.schedule.ClassTimeId)
+                {
+                    MessageBox.Show($"В это время каб. {item.Auditorium.Name} занят");
+                    return;
+                }
+            }
+
+            if (_subgroupList.FirstOrDefault(x => x.Employee == selectTeacher) != null)
+            {
+                MessageBox.Show("Данный преподаватель есть в списке", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (_subgroupList.FirstOrDefault(x => x.Auditorium == selectAuditorium) != null)
+            {
+                MessageBox.Show("Данный кабинет занят", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
 
             _subgroupList.Add(new Subgroup { Employee = selectTeacher, Auditorium = selectAuditorium });
             LVTeacherList.ItemsSource = _subgroupList.ToList();
