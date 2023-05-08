@@ -7,9 +7,50 @@ using EducationalPartApp.Model;
 
 namespace EducationalPartApp.Codes
 {
-    public class ScheduleListClass
+    public class ScheduleListClass: ICloneable
     {
-        public Schedule schedule;
-        public List<Subgroup> subgroups;
+        public Schedule schedule { get; set; }
+        public List<Subgroup> subgroups { get; set; }
+        public ScheduleListClass()
+        {
+        }
+
+        public ScheduleListClass(Schedule schedule, List<Subgroup> subgroups)
+        {
+            this.schedule = schedule;
+            this.subgroups = subgroups;
+        }
+
+        public string StrAllTeacher
+        {
+            get 
+            {
+                string buffer = "";
+                if (subgroups != null) 
+                {
+                    foreach (var item in subgroups)
+                    {
+
+                        buffer += $"{item.Employee.FullNameShort} / ";
+
+                    }
+                    return buffer.TrimEnd(' ', '/');
+                }
+                return null;
+            }
+        }
+
+        public object Clone() 
+        {
+            var cloneBuffer = (ScheduleListClass)MemberwiseClone();
+            cloneBuffer.schedule = schedule.Clone();
+            return cloneBuffer;
+        }
+
+        //object Clone()
+        //{
+        //    var cloneBuffer = (ScheduleListClass)this.MemberwiseClone();
+        //    cloneBuffer.subgroups = (Subgroup)this.subgroups.Clone();
+        //}
     }
 }

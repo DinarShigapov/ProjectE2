@@ -3,10 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:EducationalPartApp.Pages"
+      xmlns:local="clr-namespace:EducationalPartApp.Pages" xmlns:Converters="clr-namespace:EducationalPartApp.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="581.2" d:DesignWidth="880"
       Title="Добавить расписание">
+
+    <Page.Resources>
+        <Converters:WidthConverter x:Key="widthConvert"/>
+    </Page.Resources>
 
     <Border Background="White" 
                 CornerRadius="20"
@@ -84,151 +88,61 @@
                     <TextBlock Text="Группа" 
                                Style="{StaticResource HeaderText}"
                                FontSize="22"/>
-                    <TextBlock Text="326 СИС" 
+                    <TextBlock x:Name="GroupSelect" 
                                Style="{StaticResource DefualtText}" 
                                Margin="10 0"
                                FontSize="27"/>
                 </StackPanel>
             </Grid>
-            
+
 
 
             <!--Макет-->
-            <StackPanel Grid.Row="2"
-                        Margin="10"
-                        x:Name="SPSchedule"
-                        VerticalAlignment="Center">
-
-
-                <Border CornerRadius="10"
-                        Padding="10"
-                        Margin="0 10">
-                    <Border.Background>
-                        <SolidColorBrush Color="#FFCDCDCD" Opacity="0.6"/>
-                    </Border.Background>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="293*"/>
-                            <ColumnDefinition Width="150*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="1 п" Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="DisciplineOneLesson" 
-                                   Text="{Binding Discipline.Name}" 
-                                   Style = "{StaticResource DefualtText}"
-                                   Grid.Column="1"
-                                   HorizontalAlignment="Left">
-                        </TextBlock>
-                        <TextBlock x:Name="TeacherOneLesson" 
-                                   Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"
-                                   Grid.Column="2"/>
-                    </Grid>
-                </Border>
-                <Border CornerRadius="10"
-                        Padding="10"
-                        Margin="0 10">
-                    <Border.Background>
-                        <SolidColorBrush Color="#FFCDCDCD" Opacity="0.6"/>
-                    </Border.Background>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="293*"/>
-                            <ColumnDefinition Width="150*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="2 п" Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="DisciplineTwoLesson" 
-                                   Text="{Binding Discipline.Name}" 
-                                   Style="{StaticResource DefualtText}"
-                                   Grid.Column="1"
-                                   HorizontalAlignment="Left"/>
-                        <TextBlock x:Name="TeacherTwoLesson" 
-                                   Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"
-                                   Grid.Column="2"/>
-                    </Grid>
-                </Border>
-                <Border CornerRadius="10"
-                        Padding="10"
-                        Margin="0 10">
-                    <Border.Background>
-                        <SolidColorBrush Color="#FFCDCDCD" Opacity="0.6"/>
-                    </Border.Background>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="293*"/>
-                            <ColumnDefinition Width="150*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="3 п" Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="DisciplineThreeLesson" 
-                                   Text="{Binding Discipline.Name}"  
-                                   Style="{StaticResource DefualtText}"
-                                   Grid.Column="1"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="TeacherThreeLesson" 
-                                   Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"
-                                   Grid.Column="2"/>
-                    </Grid>
-                </Border>
-                <Border CornerRadius="10"
-                        Padding="10"
-                        Margin="0 10">
-                    <Border.Background>
-                        <SolidColorBrush Color="#FFCDCDCD" Opacity="0.6"/>
-                    </Border.Background>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="293*"/>
-                            <ColumnDefinition Width="150*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="4 п" Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="DisciplineFourLesson" 
-                                   Text="{Binding Discipline.Name}" 
-                                   Style="{StaticResource DefualtText}"
-                                   Grid.Column="1"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="TeacherFourLesson" 
-                                   Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"
-                                   Grid.Column="2"/>
-                    </Grid>
-                </Border>
-                <Border CornerRadius="10"
-                        Padding="10"
-                        Margin="0 10">
-                    <Border.Background>
-                        <SolidColorBrush Color="#FFCDCDCD" Opacity="0.6"/>
-                    </Border.Background>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="293*"/>
-                            <ColumnDefinition Width="150*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="5 п" Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="DisciplineFiveLesson" 
-                                   Text="{Binding Discipline.Name}"  
-                                   Style="{StaticResource DefualtText}"
-                                   Grid.Column="1"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="TeacherFiveLesson" 
-                                   Style="{StaticResource DefualtText}"
-                                   HorizontalAlignment="Center"
-                                   Grid.Column="2"/>
-                    </Grid>
-                </Border>
-
-            </StackPanel>
-
+            <Grid x:Name="grid" Grid.Row="2">
+                <ListView x:Name="LVLesson" 
+                          d:ItemsSource="{d:SampleData ItemCount=5}"
+                          BorderThickness="0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="10"
+                                    Width="{Binding Path=ActualWidth, ElementName=LVLesson, Converter={StaticResource widthConvert}, ConverterParameter=28}"
+                                    Height="55"
+                                    Padding="10"
+                                    Margin="0 10">
+                                <Border.Background>
+                                    <SolidColorBrush Color="#FFCDCDCD" Opacity="0.6"/>
+                                </Border.Background>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="293*"/>
+                                        <ColumnDefinition Width="150*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding schedule.ClassTimeId}" 
+                                               Style="{StaticResource DefualtText}"
+                                               HorizontalAlignment="Center"/>
+                                    <TextBlock x:Name="DisciplineOneLesson" 
+                                           Text="{Binding schedule.Discipline.Name}"
+                                           Style = "{StaticResource DefualtText}"
+                                           Grid.Column="1"
+                                           HorizontalAlignment="Left">
+                                    </TextBlock>
+                                    <TextBlock x:Name="TeacherOneLesson" 
+                                           Text="{Binding StrAllTeacher}"
+                                           Style="{StaticResource DefualtText}"
+                                           HorizontalAlignment="Center"
+                                           Grid.Column="2"/>
+                                    <Button x:Name="BEditLessom"
+                                            Grid.Column="3"
+                                            Style="{StaticResource EditButtonStyle}"
+                                            Click="BEditLesson_Click"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
             <!--RМакет-->
 
             <Button x:Name="BSave" 
@@ -241,7 +155,7 @@
                     Background="#6D61F5"
                     FontSize="17"
                     Click="BSave_Click"/>
-        
+
         </Grid>
     </Border>
 </Page>

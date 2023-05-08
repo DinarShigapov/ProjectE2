@@ -43,7 +43,15 @@ namespace EducationalPartApp
             popUp.IsOpen = false;
         }
 
-        public void GetFrameWindow(Page page, double width, double height) 
+        public void ClosePopup()
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            var popUp = mainWindow?.FindName("DialogHostModal") as DialogHost;
+            popUp.DataContext = null;
+            popUp.IsOpen = false;
+        }
+
+        public void GetFrameWindow(Page page) 
         {
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
             if (window == null)

@@ -14,7 +14,7 @@ namespace EducationalPartApp
     /// </summary>
     public partial class App : Application
     {
-        public static EducationDataBaseEntities4 DB = new EducationDataBaseEntities4();
+        public static EducationDataBaseEntities DB = new EducationDataBaseEntities();
         public static Employee LoggedEP;
     }
 }

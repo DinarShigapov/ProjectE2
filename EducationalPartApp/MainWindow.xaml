@@ -14,10 +14,12 @@
         ResizeMode="CanResize"
         Background="Transparent">
 
-    <Border CornerRadius="0" Background="#EFF1F8"
-            BorderThickness="1">
+    <Border x:Name="MainBorder" 
+            CornerRadius="0" 
+            Background="#EFF1F8"
+            BorderThickness="2">
         <Border.BorderBrush>
-            <SolidColorBrush Color="#FF9200FF" Opacity="0.5"/>
+            <SolidColorBrush Color="#6D61F5" Opacity="0.1"/>
         </Border.BorderBrush>
         <Grid>
             <Border CornerRadius="0 0 20 20"
@@ -73,11 +75,10 @@
                     </ResourceDictionary>
                 </materialDesign:DialogHost.Resources>
                 <materialDesign:DialogHost.DialogContent>
-                    <Grid x:Name="gridDialogHost" HorizontalAlignment="Center"
-                          Margin="30">
+                    <Grid x:Name="gridDialogHost" HorizontalAlignment="Center">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="18"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Button Style="{StaticResource CloseButtonStyle}"
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
@@ -85,8 +86,11 @@
                                 HorizontalAlignment="Right"
                                 Width="15"
                                 Height="15"
-                                Margin="0 -10 0 0"/>
-                        <Frame x:Name="PopUpFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+                                Margin="-15 15 15 -15"/>
+                        <Frame x:Name="PopUpFrame" 
+                               Grid.Row="1" 
+                               NavigationUIVisibility="Hidden"
+                               Margin="25"/>
                     </Grid>
                 </materialDesign:DialogHost.DialogContent>
             </materialDesign:DialogHost>

@@ -8,18 +8,23 @@
       x:Name="groupSelect"
       Title="GroupSelectPage">
 
-    <StackPanel Height="140"
-                Width="200"
-                Margin="25 0 25 0"
-                Orientation="Vertical">
-        <StackPanel Margin="0 0 0 21">
+    <Grid Margin="25 0 25 0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel>
             <TextBlock Text="Группа"
                        Style="{StaticResource HeaderText}"/>
-            <TextBox/>
+            <TextBox x:Name="dasd"/>
         </StackPanel>
         <Button Style="{StaticResource ButtonStyle}"
                 Width="144"
+                Grid.Row="1"
                 Height="31"
-                Content="Создать" Click="BGroupSelection_Click"/>
-    </StackPanel>
+                Content="Создать" 
+                Click="BGroupSelection_Click" 
+                Margin="0 11 0 0" 
+                Grid.RowSpan="2"/>
+    </Grid>
 </Page>

@@ -37,77 +37,21 @@ namespace EducationalPartApp.Pages
         public AddSchedulePage()
         {
             InitializeComponent();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i <= 5; i++)
             {
-                var scheduleList = App.DB.Schedule.Where(x => x.DayOfTheWeekId == i + 1 && x.GroupId == 1).ToList();
-                foreach (var item in scheduleList)
+                for (int h = 0; h < 5; h++)
                 {
-                    var buffer = new ScheduleListClass { schedule = item, subgroups = item.Subgroup.ToList() };
-                    scheduleDayOfTheWeek[i].Add(buffer);
+                    scheduleDayOfTheWeek[i].Add(new ScheduleListClass() { schedule = new Schedule { ClassTimeId = h + 1 } });
                 }
             }
             RefreshSchedule(0);
-            
         }
 
         private void RefreshSchedule(int i) 
         {
-            DisciplineOneLesson.DataContext = null;
-            TeacherOneLesson.Text = "";
-            DisciplineTwoLesson.DataContext = null;
-            TeacherTwoLesson.Text = "";
-            DisciplineThreeLesson.DataContext = null;
-            TeacherThreeLesson.Text = "";
-            DisciplineFourLesson.DataContext = null;
-            TeacherFourLesson.Text = "";
-            DisciplineFiveLesson.DataContext = null;
-            TeacherFiveLesson.Text = "";
-
-            var context = scheduleDayOfTheWeek[i];
-            for (int j = 0; j < context.Count; j++)
-            {
-                if (context[j] == null) continue;
-                var scheduleBuffer = context[j].schedule;
-                var subgroupsBuffer = context[j].subgroups;
-                switch (j)
-                {
-                    case 0:
-                        DisciplineOneLesson.DataContext = scheduleBuffer;
-                        TeacherOneLesson.Text = StringTeacherList(subgroupsBuffer);
-                        break;
-                    case 1:
-                        DisciplineTwoLesson.DataContext = scheduleBuffer;
-                        TeacherTwoLesson.Text = StringTeacherList(subgroupsBuffer);
-                        break;
-                    case 2:
-                        DisciplineThreeLesson.DataContext = scheduleBuffer;
-                        TeacherThreeLesson.Text = StringTeacherList(subgroupsBuffer);
-                        break;
-                    case 3:
-                        DisciplineFourLesson.DataContext = scheduleBuffer;
-                        TeacherFourLesson.Text = StringTeacherList(subgroupsBuffer);
-                        break;
-                    case 4:
-                        DisciplineFiveLesson.DataContext = scheduleBuffer;
-                        TeacherFiveLesson.Text = StringTeacherList(subgroupsBuffer);
-                        break;
-                    default:
-                        break;
-                }
-            }
+            LVLesson.ItemsSource = scheduleDayOfTheWeek[i].ToList();
         }
 
-        private string StringTeacherList(List<Subgroup> subgroups) 
-        {
-            string buffer = "";
-            foreach (var item in subgroups)
-            {
-
-                buffer += $"{App.DB.Employee.FirstOrDefault(x => x.Id == item.TeacherId).FullNameShort} / ";
-
-            }
-            return buffer.TrimEnd(' ', '/');
-        }
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
@@ -145,31 +89,31 @@ namespace EducationalPartApp.Pages
             int i = 0;
             foreach (var item in SPDayOfTheWeek.Children)
             {
-                if (scheduleDayOfTheWeek[i].Count == 0)
+                if (scheduleDayOfTheWeek[i].All(x => x.schedule.Discipline == null) == true)
                 {
                     var itemBuffer = item as Grid;
                     itemBuffer.Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Visible;
                 }
+                else 
+                {
+                    (item as Grid).Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Hidden;
+                }
                 i++;
             }
-            MainWindow main = new MainWindow();
-            main.GetFrameWindow(new GroupSelectPage(), 300, 200);
 
         }
 
 
         private void BEditTeacher_Click(object sender, RoutedEventArgs e)
         {
-            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-            if (window == null)
-                return;
+        }
 
-            MaterialDesignThemes.Wpf.DialogHost popUp = window.FindName("SAas") as MaterialDesignThemes.Wpf.DialogHost;
+        private void BEditLesson_Click(object sender, RoutedEventArgs e)
+        {
+            var dsds = (sender as Button).DataContext as ScheduleListClass;
+            var window = Application.Current.Windows.OfType<MainWindow>().SingleOrDefault(x => x.IsActive);
 
-            popUp.IsOpen = true;
-            //var popUpFrame = popUp.Content as Frame;
-            //popUpFrame.Navigate(new AuthPage());
-            //popUp.Visibility = Visibility.Visible;
+            window.GetFrameWindow(new EditLessonPage(dsds));
         }
     }
 }

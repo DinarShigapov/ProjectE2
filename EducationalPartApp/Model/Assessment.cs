@@ -15,12 +15,14 @@ namespace EducationalPartApp.Model
     public partial class Assessment
     {
         public int Id { get; set; }
-        public int ReportCardId { get; set; }
+        public int LessonId { get; set; }
         public int StudentId { get; set; }
-        public int Assessment1 { get; set; }
-        public System.DateTime Date { get; set; }
+        public int RaitingSystemId { get; set; }
         public int TeacherId { get; set; }
     
-        public virtual ReportCard ReportCard { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Lesson Lesson { get; set; }
+        public virtual RaitingSystem RaitingSystem { get; set; }
+        public virtual Student Student { get; set; }
     }
 }
