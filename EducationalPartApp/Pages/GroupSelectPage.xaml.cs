@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EducationalPartApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,18 @@ namespace EducationalPartApp.Pages
         public GroupSelectPage()
         {
             InitializeComponent();
+            LVGroupSelect.ItemsSource = App.DB.Group.ToList();
         }
 
         private void BGroupSelection_Click(object sender, RoutedEventArgs e)
         {
-            var group326 = App.DB.Group.FirstOrDefault(x => x.Id == 1);
-            new MainWindow().ChangeFrameWindow(new AddSchedulePage(group326));
+            var selectGroup = LVGroupSelect.SelectedItem as Group;
+            if (LVGroupSelect.SelectedItem == null)
+            {
+                return;
+            }
+
+            new MainWindow().ChangeFrameWindow(new AddSchedulePage(selectGroup));
         }
     }
 }

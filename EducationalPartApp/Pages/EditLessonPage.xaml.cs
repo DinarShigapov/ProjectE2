@@ -102,21 +102,21 @@ namespace EducationalPartApp.Pages
             var selectAuditorium = CBAuditoriums.SelectedItem as Auditorium;
             if (selectTeacher == null || selectAuditorium == null) return;
 
-            foreach (var item in App.DB.Subgroup)
+            var subgroupsNow = App.DB.Subgroup.Where(
+                x => x.Schedule.DayOfTheWeekId == _scheduleSave.schedule.DayOfTheWeekId
+                && x.Schedule.ClassTimeId == _scheduleSave.schedule.ClassTimeId
+                && x.Schedule.SemesterId == _scheduleSave.schedule.Group.Semester.Id
+                && x.Schedule.Date.Year == DateTime.Now.Year).ToList();
+
+            foreach (var item in subgroupsNow.ToList())
             {
-                if (item.Employee == selectTeacher 
-                    && item.Schedule.Date.Year == new DateTime(DateTime.Now.Year, 1, 1).Year
-                    && item.Schedule.DayOfTheWeekId == _scheduleSave.schedule.DayOfTheWeekId
-                    && item.Schedule.ClassTimeId == _scheduleSave.schedule.ClassTimeId)
+                if (item.Employee == selectTeacher)
                 {
                     MessageBox.Show($"В это время у {item.Employee.FullNameShort} проводиться урок");
                     return;
                 }
 
-                if (item.Auditorium == selectAuditorium
-                    && item.Schedule.Date.Year == new DateTime(DateTime.Now.Year, 1, 1).Year
-                    && item.Schedule.DayOfTheWeekId == _scheduleSave.schedule.DayOfTheWeekId
-                    && item.Schedule.ClassTimeId == _scheduleSave.schedule.ClassTimeId)
+                if (item.Auditorium == selectAuditorium)
                 {
                     MessageBox.Show($"В это время каб. {item.Auditorium.Name} занят");
                     return;

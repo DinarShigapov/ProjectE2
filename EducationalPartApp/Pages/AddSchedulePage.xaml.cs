@@ -93,6 +93,8 @@ namespace EducationalPartApp.Pages
                     break;
             }
             RefreshSchedule(index);
+            _lessonOneSwitch = -1;
+            _lessonTwoSwitch = -1;
         }
 
         private void BSave_Click(object sender, RoutedEventArgs e)
@@ -126,6 +128,37 @@ namespace EducationalPartApp.Pages
             var window = Application.Current.Windows.OfType<MainWindow>().SingleOrDefault(x => x.IsActive);
 
             window.GetFrameWindow(new EditLessonPage(dsds));
+        }
+
+        private int _lessonOneSwitch = -1;
+        private int _lessonTwoSwitch = -1;
+        private void MISwitchLesson_Click(object sender, RoutedEventArgs e)
+        {
+            if (_lessonOneSwitch == -1)
+            {
+                _lessonOneSwitch = LVLesson.SelectedIndex;
+            }
+            else 
+            {
+                _lessonTwoSwitch = LVLesson.SelectedIndex;
+            }
+
+            if (_lessonTwoSwitch != -1 && _lessonOneSwitch != -1)
+            {
+                var scheduleSwitch = scheduleDayOfTheWeek[5];
+
+                var buff = scheduleSwitch[_lessonOneSwitch];
+                scheduleSwitch[_lessonOneSwitch] = scheduleSwitch[_lessonTwoSwitch];
+                scheduleSwitch[_lessonTwoSwitch] = buff;
+
+                scheduleSwitch[_lessonOneSwitch].schedule.ClassTimeId = _lessonOneSwitch + 1;
+                scheduleSwitch[_lessonTwoSwitch].schedule.ClassTimeId = _lessonTwoSwitch + 1;
+
+                LVLesson.ItemsSource = null;
+                LVLesson.ItemsSource = scheduleSwitch;
+                _lessonOneSwitch = -1;
+                _lessonTwoSwitch = -1;
+            }
         }
     }
 }

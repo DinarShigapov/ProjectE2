@@ -138,6 +138,13 @@
                                             Style="{StaticResource EditButtonStyle}"
                                             Click="BEditLesson_Click"/>
                                 </Grid>
+                                <Border.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem x:Name="MISwitchLesson" 
+                                                  Header="Сменить"
+                                                  Click="MISwitchLesson_Click"/>
+                                    </ContextMenu>
+                                </Border.ContextMenu>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
