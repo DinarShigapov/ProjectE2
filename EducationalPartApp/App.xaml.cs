@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using EducationalPartApp.Model;
 
 namespace EducationalPartApp
@@ -16,5 +17,6 @@ namespace EducationalPartApp
     {
         public static EducationDataBaseEntities DB = new EducationDataBaseEntities();
         public static Employee LoggedEP;
+        public static List<Page> scheduleLists = new List<Page>();
     }
 }

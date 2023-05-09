@@ -23,6 +23,7 @@ namespace EducationalPartApp.Pages
     public partial class AddSchedulePage : Page
     {
 
+        Group contextGroup;
         List<List<ScheduleListClass>> scheduleDayOfTheWeek = new List<List<ScheduleListClass>>(6)
         {
             new List<ScheduleListClass>(){ },
@@ -33,7 +34,6 @@ namespace EducationalPartApp.Pages
             new List<ScheduleListClass>(){ }
         };
 
-        Group contextGroup;
 
         public AddSchedulePage(Group group)
         {
@@ -93,13 +93,12 @@ namespace EducationalPartApp.Pages
                     break;
             }
             RefreshSchedule(index);
-            _lessonOneSwitch = -1;
-            _lessonTwoSwitch = -1;
+            ClearSwitch();
         }
 
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
-
+            ClearSwitch();
             int i = 0;
             foreach (var item in SPDayOfTheWeek.Children)
             {
@@ -124,6 +123,7 @@ namespace EducationalPartApp.Pages
 
         private void BEditLesson_Click(object sender, RoutedEventArgs e)
         {
+            ClearSwitch();
             var dsds = (sender as Button).DataContext as ScheduleListClass;
             var window = Application.Current.Windows.OfType<MainWindow>().SingleOrDefault(x => x.IsActive);
 
@@ -132,11 +132,25 @@ namespace EducationalPartApp.Pages
 
         private int _lessonOneSwitch = -1;
         private int _lessonTwoSwitch = -1;
+        private string _switchInfo = "";
+
+        private void ClearSwitch()
+        {
+            _lessonOneSwitch = -1;
+            _lessonTwoSwitch = -1;
+            _switchInfo = string.Empty;
+            TBSwitchInfo.Text = string.Empty;
+            TBSwitchInfo.Visibility = Visibility.Collapsed;
+        }
+
         private void MISwitchLesson_Click(object sender, RoutedEventArgs e)
         {
             if (_lessonOneSwitch == -1)
             {
                 _lessonOneSwitch = LVLesson.SelectedIndex;
+                TBSwitchInfo.Visibility = Visibility.Visible;
+                _switchInfo += $"Cменить {_lessonOneSwitch + 1} ";
+                TBSwitchInfo.Text += _switchInfo;
             }
             else 
             {
@@ -158,6 +172,16 @@ namespace EducationalPartApp.Pages
                 LVLesson.ItemsSource = scheduleSwitch;
                 _lessonOneSwitch = -1;
                 _lessonTwoSwitch = -1;
+                ClearSwitch();
+            }
+        }
+
+        private void LVLesson_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_switchInfo != "")
+            {
+                TBSwitchInfo.Text = _switchInfo;
+                TBSwitchInfo.Text += $"⇄ {LVLesson.SelectedIndex + 1}";
             }
         }
     }

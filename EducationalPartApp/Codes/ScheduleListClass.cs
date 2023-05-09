@@ -9,6 +9,7 @@ namespace EducationalPartApp.Codes
 {
     public class ScheduleListClass: ICloneable
     {
+
         public Schedule schedule { get; set; }
         public List<Subgroup> subgroups { get; set; }
         public ScheduleListClass()

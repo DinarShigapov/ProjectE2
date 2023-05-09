@@ -101,11 +101,14 @@
             <Grid x:Name="grid" Grid.Row="2">
                 <ListView x:Name="LVLesson" 
                           d:ItemsSource="{d:SampleData ItemCount=5}"
-                          BorderThickness="0">
+                          BorderThickness="0"
+                          SelectionChanged="LVLesson_SelectionChanged"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border CornerRadius="10"
-                                    Width="{Binding Path=ActualWidth, ElementName=LVLesson, Converter={StaticResource widthConvert}, ConverterParameter=28}"
+                                    Width="{Binding Path=ActualWidth, ElementName=LVLesson, Converter={StaticResource widthConvert}, ConverterParameter=15}"
                                     Height="55"
                                     Padding="10"
                                     Margin="0 10">
@@ -152,16 +155,24 @@
             </Grid>
             <!--RМакет-->
 
-            <Button x:Name="BSave" 
-                    Grid.Row="3" Content="Сохранить" 
-                    Style="{StaticResource ButtonStyle}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
-                    Width="170"
-                    Height="50"
-                    Background="#6D61F5"
-                    FontSize="17"
-                    Click="BSave_Click"/>
+            <Grid Grid.Row="3">
+                <TextBlock x:Name="TBSwitchInfo"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Left"
+                           Visibility="Hidden"
+                           Opacity="0.5"
+                           Style="{StaticResource DefualtText}"/>
+                <Button x:Name="BSave"  
+                        Content="Сохранить" 
+                        Style="{StaticResource ButtonStyle}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Width="170"
+                        Height="50"
+                        Background="#6D61F5"
+                        FontSize="17"
+                        Click="BSave_Click"/>
+            </Grid>
 
         </Grid>
     </Border>
