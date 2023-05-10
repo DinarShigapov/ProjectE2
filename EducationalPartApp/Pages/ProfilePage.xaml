@@ -29,7 +29,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="281"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="323*"/>
+                <RowDefinition Height="320*"/>
             </Grid.RowDefinitions>
             <Image x:Name="image" Source="{StaticResource DeveloperDrawingImage}" 
                    Width="470"
@@ -40,8 +40,9 @@
                    Panel.ZIndex="-1"
                    Margin="0 -130 -100 0"/>
             <GridSplitter Grid.Row="1" 
-                              Height="45"
-                              Visibility="Hidden"/>
+                          Height="45"
+                          Visibility="Hidden"
+                          IsEnabled="False"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="281"/>
@@ -87,10 +88,6 @@
                 <TextBlock Text="{Binding Email}"
                            Style="{StaticResource DefualtText}"/>
                 <Rectangle Height="10"/>
-                <TextBlock Text="Адрес"
-                           Style="{StaticResource HeaderText}"/>
-                <TextBlock Text="{Binding ResidentialAddress}"
-                           Style="{StaticResource DefualtText}"/>
             </StackPanel>
         </Grid>
     </Border>

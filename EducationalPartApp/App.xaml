@@ -495,6 +495,44 @@
 
             <!--****EP*****-->
 
+
+
+            <Style TargetType="ListView" x:Key="ListViewStyle">
+                <Style.Resources>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border Name="border">
+                                        <ContentPresenter Name="content"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter TargetName="border" Property="Background" Value="white"/>
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Style.Resources>
+            </Style>
+
+            <Style TargetType="{x:Type Border}" x:Key="BorderAnimate">
+                <Setter Property="BorderThickness" Value="2"/>
+                <Style.Triggers>
+                    <Trigger Property="Border.IsMouseOver" Value="True">
+                        <Setter Property="Border.BorderBrush">
+                            <Setter.Value>
+                                <SolidColorBrush Color="Gray" Opacity="0.6"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+
+                </Style.Triggers>
+            </Style>
+            
             <Style TargetType="Grid" x:Key="DayOfTheWeekButton">
                 <Setter Property="Margin" Value="0 0 8 0"/>
                 <Style.Resources>

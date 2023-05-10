@@ -109,7 +109,6 @@ namespace EducationalPartApp
 
         private void BClose_Click(object sender, RoutedEventArgs e)
         {
-
              Application.Current.Shutdown();
         }
 

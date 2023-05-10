@@ -5,164 +5,179 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EducationalPartApp.Pages" xmlns:Converters="clr-namespace:EducationalPartApp.Converters"
       mc:Ignorable="d" 
-      d:DesignHeight="581.2" d:DesignWidth="880"
+      d:DesignHeight="650" d:DesignWidth="880"
       Title="Добавить расписание">
 
     <Page.Resources>
         <Converters:WidthConverter x:Key="widthConvert"/>
     </Page.Resources>
 
-    <Border Background="White" 
-                CornerRadius="20"
-                Padding="20">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="138*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="436*"/>
-                <RowDefinition Height="65"/>
-            </Grid.RowDefinitions>
-            <Border Grid.Row="1" CornerRadius="3" Background="#E2E2E2" Height="5"/>
+
+    <Grid>
+        <Border Width="{Binding ActualWidth, ElementName=borderSizeOne, Mode=OneWay}"
+                        Height="{Binding ActualHeight, ElementName=borderSizeOne, Mode=OneWay}"
+                        CornerRadius="{Binding CornerRadius, ElementName=borderSizeOne}"
+                        Background="White"
+                        BorderThickness="1"
+                        Panel.ZIndex="-1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="0" Color="Black" Opacity="0.2" />
+            </Border.Effect>
+        </Border>
+        <Border x:Name="borderSizeOne" Background="White" 
+            CornerRadius="20"
+            Padding="20">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="183*"/>
-                    <ColumnDefinition Width="97*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="День недели" Style="{StaticResource HeaderText}"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="138*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="436*"/>
+                    <RowDefinition Height="65"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="1" CornerRadius="3" Background="#E2E2E2" Height="5"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="183*"/>
+                        <ColumnDefinition Width="97*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="День недели" Style="{StaticResource HeaderText}"
                            FontSize="20"/>
-                    <StackPanel VerticalAlignment="Center"
+                        <StackPanel VerticalAlignment="Center"
                                 HorizontalAlignment="Left"
                                 Orientation="Horizontal"
                                 x:Name="SPDayOfTheWeek">
-                        <StackPanel.Style>
-                            <Style TargetType="{x:Type StackPanel}">
-                                <Style.Resources>
-                                    <Style TargetType="{x:Type Grid}" BasedOn="{StaticResource DayOfTheWeekButton}"/>
-                                </Style.Resources>
-                            </Style>
-                        </StackPanel.Style>
-                        <Grid x:Name="MondayGrid">
-                            <RadioButton Content="ПН"
+                            <StackPanel.Style>
+                                <Style TargetType="{x:Type StackPanel}">
+                                    <Style.Resources>
+                                        <Style TargetType="{x:Type Grid}" BasedOn="{StaticResource DayOfTheWeekButton}"/>
+                                    </Style.Resources>
+                                </Style>
+                            </StackPanel.Style>
+                            <Grid x:Name="MondayGrid">
+                                <RadioButton Content="ПН"
                                          IsChecked="True"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
-                        </Grid>
-                        <Grid x:Name="TuesdayGrid">
-                            <RadioButton Content="ВТ"
+                                <Ellipse Fill="#ED6D45" Visibility="Hidden" />
+                            </Grid>
+                            <Grid x:Name="TuesdayGrid">
+                                <RadioButton Content="ВТ"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
-                        </Grid>
-                        <Grid x:Name="WednesdayGrid">
-                            <RadioButton Content="СР"
+                                <Ellipse Fill="#ED6D45" Visibility="Hidden" />
+                            </Grid>
+                            <Grid x:Name="WednesdayGrid">
+                                <RadioButton Content="СР"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
-                        </Grid>
-                        <Grid x:Name="ThursdayGrid">
-                            <RadioButton Content="ЧТ"
+                                <Ellipse Fill="#ED6D45" Visibility="Hidden" />
+                            </Grid>
+                            <Grid x:Name="ThursdayGrid">
+                                <RadioButton Content="ЧТ"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
-                        </Grid>
-                        <Grid x:Name="FridayGrid">
-                            <RadioButton Content="ПТ"
+                                <Ellipse Fill="#ED6D45" Visibility="Hidden" />
+                            </Grid>
+                            <Grid x:Name="FridayGrid">
+                                <RadioButton Content="ПТ"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
-                        </Grid>
-                        <Grid x:Name="SaturdayGrid">
-                            <RadioButton Content="СБ"
+                                <Ellipse Fill="#ED6D45" Visibility="Hidden" />
+                            </Grid>
+                            <Grid x:Name="SaturdayGrid">
+                                <RadioButton Content="СБ"
                                          GroupName="radio"
                                          Click="RadioButton_Click"/>
-                            <Ellipse Fill="#ED6D45" Visibility="Hidden" />
-                        </Grid>
+                                <Ellipse Fill="#ED6D45" Visibility="Hidden" />
+                            </Grid>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-                <StackPanel Grid.Column="1"
+                    <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right">
-                    <TextBlock Text="Группа" 
+                        <TextBlock Text="Группа" 
                                Style="{StaticResource HeaderText}"
                                FontSize="22"/>
-                    <TextBlock x:Name="GroupSelect"
+                        <TextBlock x:Name="GroupSelect"
                                Style="{StaticResource DefualtText}" 
                                Margin="10 0"
                                FontSize="27"/>
-                </StackPanel>
-            </Grid>
+                    </StackPanel>
+                </Grid>
 
-
-
-            <!--Макет-->
-            <Grid x:Name="grid" Grid.Row="2">
-                <ListView x:Name="LVLesson" 
-                          d:ItemsSource="{d:SampleData ItemCount=5}"
-                          BorderThickness="0"
-                          SelectionChanged="LVLesson_SelectionChanged"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                          ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Border CornerRadius="10"
-                                    Width="{Binding Path=ActualWidth, ElementName=LVLesson, Converter={StaticResource widthConvert}, ConverterParameter=15}"
-                                    Height="55"
-                                    Padding="10"
-                                    Margin="0 10">
-                                <Border.Background>
-                                    <SolidColorBrush Color="#FFCDCDCD" Opacity="0.6"/>
-                                </Border.Background>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50"/>
-                                        <ColumnDefinition Width="293*"/>
-                                        <ColumnDefinition Width="150*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding schedule.ClassTimeId}" 
+                <Grid x:Name="grid" Grid.Row="2">
+                    <ListView x:Name="LVLesson" 
+                              d:ItemsSource="{d:SampleData ItemCount=5}"
+                              BorderThickness="0"
+                              Style="{StaticResource ListViewStyle}"
+                              SelectionChanged="LVLesson_SelectionChanged"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="10"
+                                        Width="{Binding Path=ActualWidth, ElementName=LVLesson, Converter={StaticResource widthConvert}, ConverterParameter=15}"
+                                        Height="55"
+                                        Padding="10"
+                                        Style="{StaticResource BorderAnimate}"
+                                        Margin="0 10">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="#FFCDCDCD" Opacity="0.6"/>
+                                    </Border.Background>
+                                    
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="293*"/>
+                                            <ColumnDefinition Width="150*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding schedule.ClassTimeId}" 
                                                Style="{StaticResource DefualtText}"
                                                HorizontalAlignment="Center"/>
-                                    <TextBlock x:Name="DisciplineOneLesson" 
+                                        <TextBlock x:Name="DisciplineOneLesson" 
                                            Text="{Binding schedule.Discipline.Name}"
                                            Style = "{StaticResource DefualtText}"
                                            Grid.Column="1"
                                            HorizontalAlignment="Left">
-                                    </TextBlock>
-                                    <TextBlock x:Name="TeacherOneLesson" 
+                                        </TextBlock>
+                                        <TextBlock x:Name="TeacherOneLesson" 
                                            Text="{Binding StrAllTeacher}"
                                            Style="{StaticResource DefualtText}"
                                            HorizontalAlignment="Center"
                                            Grid.Column="2"/>
-                                    <Button x:Name="BEditLessom"
-                                            Grid.Column="3"
+                                        <StackPanel Grid.Column="3"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center">
+                                            <Button x:Name="BEditLessom"
                                             Style="{StaticResource EditButtonStyle}"
-                                            Click="BEditLesson_Click"/>
-                                </Grid>
-                                <Border.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem x:Name="MISwitchLesson" 
+                                            Click="BEditLesson_Click"
+                                            Margin="0 0 10 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Border.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem x:Name="MISwitchLesson" 
                                                   Header="Сменить"
                                                   Click="MISwitchLesson_Click"/>
-                                    </ContextMenu>
-                                </Border.ContextMenu>
-                            </Border>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
-            <!--RМакет-->
+                                        </ContextMenu>
+                                    </Border.ContextMenu>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
 
-            <Grid Grid.Row="3">
-                <TextBlock x:Name="TBSwitchInfo"
+                <Grid Grid.Row="3">
+                    <TextBlock x:Name="TBSwitchInfo"
                            VerticalAlignment="Bottom"
                            HorizontalAlignment="Left"
                            Visibility="Hidden"
                            Opacity="0.5"
                            Style="{StaticResource DefualtText}"/>
-                <Button x:Name="BSave"  
+                    <Button x:Name="BSave"  
                         Content="Сохранить" 
                         Style="{StaticResource ButtonStyle}"
                         VerticalAlignment="Center"
@@ -172,8 +187,8 @@
                         Background="#6D61F5"
                         FontSize="17"
                         Click="BSave_Click"/>
+                </Grid>
             </Grid>
-
-        </Grid>
-    </Border>
+        </Border>
+    </Grid>
 </Page>

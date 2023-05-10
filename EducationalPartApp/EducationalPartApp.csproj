@@ -54,7 +54,7 @@
     </Reference>
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -191,28 +191,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Attendance.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EduModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -229,23 +229,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EduModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\EduUcebka.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduUcebka.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduUcebka.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduUcebka.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduUcebka.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Lesson.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ModelEnums\ClassTimeEnum.cs" />
     <Compile Include="Model\PartialClass\Discipline.cs" />
@@ -255,34 +270,34 @@
     <Compile Include="Model\PartialClass\Semester.cs" />
     <Compile Include="Model\PartialClass\Subgroup.cs" />
     <Compile Include="Model\Post.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RaitingSystem.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
+      <DependentUpon>EduUcebka.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddSchedulePage.xaml.cs">
       <DependentUpon>AddSchedulePage.xaml</DependentUpon>
@@ -329,6 +344,13 @@
     <None Include="Model\EduModel.edmx.diagram">
       <DependentUpon>EduModel.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model\EduUcebka.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EduUcebka.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EduUcebka.edmx.diagram">
+      <DependentUpon>EduUcebka.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -367,6 +389,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EduModel.edmx</DependentUpon>
       <LastGenOutput>EduModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EduUcebka.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EduUcebka.edmx</DependentUpon>
+      <LastGenOutput>EduUcebka.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EduUcebka.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EduUcebka.edmx</DependentUpon>
+      <LastGenOutput>EduUcebka.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
