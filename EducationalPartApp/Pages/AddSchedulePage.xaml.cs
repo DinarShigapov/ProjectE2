@@ -43,10 +43,8 @@ namespace EducationalPartApp.Pages
             InitializeComponent();
             contextGroup = group;
             GroupSelect.Text = contextGroup.StrFullName;
-            for (int i = 0; i <= 5; i++)
-            {
-                for (int h = 0; h < 5; h++)
-                {
+            for (int i = 0; i <= 5; i++) {
+                for (int h = 0; h < 5; h++) {
                     scheduleDayOfTheWeek[i].Add(new ScheduleListClass() 
                     { 
                         schedule = new Schedule 

@@ -58,10 +58,12 @@ namespace EducationalPartApp.Pages
             int endSecondSemester = 6;
 
             var semesterValue = 0;
-            if (DateTime.Now.Month >= startFirstSemester && DateTime.Now.Month <= endFirstSemester) {
+            var currentMonth = DateTime.Now.Month;
+
+            if (currentMonth >= startFirstSemester && currentMonth <= endFirstSemester) {
                 semesterValue = 1;
             }
-            else if (DateTime.Now.Month >= startSecondSemester && DateTime.Now.Month <= endSecondSemester) {
+            else if (currentMonth >= startSecondSemester && currentMonth <= endSecondSemester) {
                 semesterValue = 2;
             }
 
