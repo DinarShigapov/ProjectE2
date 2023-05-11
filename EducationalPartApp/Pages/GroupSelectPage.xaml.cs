@@ -21,18 +21,18 @@ namespace EducationalPartApp.Pages
     /// </summary>
     public partial class GroupSelectPage : Page
     {
-        List<Group> groups;
+        List<Group> groupsList;
         public GroupSelectPage()
         {
             InitializeComponent();
             CBCourse.ItemsSource = App.DB.Semester.Where(x => x.Semester1 == 2).ToList();
-            GetListGroup();
+            GetGroupsCurrentSemester();
             RefreshListGroup();
         }
 
         private void RefreshListGroup()
         {
-            IEnumerable<Group> groupsFilter = groups.ToList();
+            IEnumerable<Group> groupsFilter = groupsList.ToList();
 
             if (CBCourse.SelectedItem != null) {
                 groupsFilter = groupsFilter.Where(x => x.Semester.Course == (CBCourse.SelectedItem as Semester).Course).ToList();
@@ -50,7 +50,7 @@ namespace EducationalPartApp.Pages
         }
 
 
-        private void GetListGroup()
+        private void GetGroupsCurrentSemester()
         {
             int startFirstSemester = 9;
             int endFirstSemester = 12;
@@ -58,16 +58,14 @@ namespace EducationalPartApp.Pages
             int endSecondSemester = 6;
 
             var semesterValue = 0;
-            if (DateTime.Now.Month >= startFirstSemester && DateTime.Now.Month <= endFirstSemester)
-            {
+            if (DateTime.Now.Month >= startFirstSemester && DateTime.Now.Month <= endFirstSemester) {
                 semesterValue = 1;
             }
-            else if (DateTime.Now.Month >= startSecondSemester && DateTime.Now.Month <= endSecondSemester)
-            {
+            else if (DateTime.Now.Month >= startSecondSemester && DateTime.Now.Month <= endSecondSemester) {
                 semesterValue = 2;
             }
 
-            groups = App.DB.Group.Where(x => x.Semester.Semester1 == semesterValue).ToList();
+            groupsList = App.DB.Group.Where(x => x.Semester.Semester1 == semesterValue).ToList();
         }
 
         private void BGroupSelection_Click(object sender, RoutedEventArgs e)
