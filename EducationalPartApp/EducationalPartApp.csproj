@@ -191,28 +191,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Attendance.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EduModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -245,22 +245,22 @@
       <DependentUpon>EduUcebka.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Lesson.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ModelEnums\ClassTimeEnum.cs" />
     <Compile Include="Model\PartialClass\Discipline.cs" />
@@ -269,35 +269,50 @@
     <Compile Include="Model\PartialClass\Schedule.cs" />
     <Compile Include="Model\PartialClass\Semester.cs" />
     <Compile Include="Model\PartialClass\Subgroup.cs" />
+    <Compile Include="Model\PolyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PolyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PolyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Post.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RaitingSystem.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>EduUcebka.tt</DependentUpon>
+      <DependentUpon>PolyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddSchedulePage.xaml.cs">
       <DependentUpon>AddSchedulePage.xaml</DependentUpon>
@@ -351,6 +366,13 @@
     <None Include="Model\EduUcebka.edmx.diagram">
       <DependentUpon>EduUcebka.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model\PolyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PolyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\PolyModel.edmx.diagram">
+      <DependentUpon>PolyModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -399,6 +421,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EduUcebka.edmx</DependentUpon>
       <LastGenOutput>EduUcebka.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PolyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PolyModel.edmx</DependentUpon>
+      <LastGenOutput>PolyModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PolyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PolyModel.edmx</DependentUpon>
+      <LastGenOutput>PolyModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

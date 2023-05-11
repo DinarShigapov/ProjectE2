@@ -25,8 +25,8 @@
             </Border.Effect>
         </Border>
         <Border x:Name="borderSizeOne" Background="White" 
-            CornerRadius="20"
-            Padding="20">
+                CornerRadius="20"
+                Padding="20">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="138*"/>
@@ -42,11 +42,11 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Text="День недели" Style="{StaticResource HeaderText}"
-                           FontSize="20"/>
+                                   FontSize="20"/>
                         <StackPanel VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                                Orientation="Horizontal"
-                                x:Name="SPDayOfTheWeek">
+                                    HorizontalAlignment="Left"
+                                    Orientation="Horizontal"
+                                    x:Name="SPDayOfTheWeek">
                             <StackPanel.Style>
                                 <Style TargetType="{x:Type StackPanel}">
                                     <Style.Resources>
@@ -94,9 +94,9 @@
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Column="1"
-                            Orientation="Horizontal"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Right">
+                                Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right">
                         <TextBlock Text="Группа" 
                                Style="{StaticResource HeaderText}"
                                FontSize="22"/>
@@ -138,23 +138,23 @@
                                                Style="{StaticResource DefualtText}"
                                                HorizontalAlignment="Center"/>
                                         <TextBlock x:Name="DisciplineOneLesson" 
-                                           Text="{Binding schedule.Discipline.Name}"
-                                           Style = "{StaticResource DefualtText}"
-                                           Grid.Column="1"
-                                           HorizontalAlignment="Left">
+                                                   Text="{Binding schedule.Discipline.Name}"
+                                                   Style = "{StaticResource DefualtText}"
+                                                   Grid.Column="1"
+                                                   HorizontalAlignment="Left">
                                         </TextBlock>
                                         <TextBlock x:Name="TeacherOneLesson" 
-                                           Text="{Binding StrAllTeacher}"
-                                           Style="{StaticResource DefualtText}"
-                                           HorizontalAlignment="Center"
-                                           Grid.Column="2"/>
+                                                   Text="{Binding StrAllTeacher}"
+                                                   Style="{StaticResource DefualtText}"
+                                                   HorizontalAlignment="Center"
+                                                   Grid.Column="2"/>
                                         <StackPanel Grid.Column="3"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Center">
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center">
                                             <Button x:Name="BEditLessom"
-                                            Style="{StaticResource EditButtonStyle}"
-                                            Click="BEditLesson_Click"
-                                            Margin="0 0 10 0"/>
+                                                    Style="{StaticResource EditButtonStyle}"
+                                                    Click="BEditLesson_Click"
+                                                    Margin="0 0 10 0"/>
                                         </StackPanel>
                                     </Grid>
                                     <Border.ContextMenu>
@@ -172,21 +172,21 @@
 
                 <Grid Grid.Row="3">
                     <TextBlock x:Name="TBSwitchInfo"
-                           VerticalAlignment="Bottom"
-                           HorizontalAlignment="Left"
-                           Visibility="Hidden"
-                           Opacity="0.5"
-                           Style="{StaticResource DefualtText}"/>
+                               VerticalAlignment="Bottom"
+                               HorizontalAlignment="Left"
+                               Visibility="Hidden"
+                               Opacity="0.5"
+                               Style="{StaticResource DefualtText}"/>
                     <Button x:Name="BSave"  
-                        Content="Сохранить" 
-                        Style="{StaticResource ButtonStyle}"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Right"
-                        Width="170"
-                        Height="50"
-                        Background="#6D61F5"
-                        FontSize="17"
-                        Click="BSave_Click"/>
+                            Content="Сохранить" 
+                            Style="{StaticResource ButtonStyle}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Width="170"
+                            Height="50"
+                            Background="#6D61F5"
+                            FontSize="17"
+                            Click="BSave_Click"/>
                 </Grid>
             </Grid>
         </Border>

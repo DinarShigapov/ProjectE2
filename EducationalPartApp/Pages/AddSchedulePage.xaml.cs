@@ -24,6 +24,9 @@ namespace EducationalPartApp.Pages
     {
 
         Group contextGroup;
+        private int _lessonOneSwitch = -1;
+        private int _lessonTwoSwitch = -1;
+        private string _switchInfo = "";
         List<List<ScheduleListClass>> scheduleDayOfTheWeek = new List<List<ScheduleListClass>>(6)
         {
             new List<ScheduleListClass>(){ },
@@ -116,11 +119,6 @@ namespace EducationalPartApp.Pages
 
         }
 
-
-        private void BEditTeacher_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void BEditLesson_Click(object sender, RoutedEventArgs e)
         {
             ClearSwitch();
@@ -130,9 +128,7 @@ namespace EducationalPartApp.Pages
             window.GetFrameWindow(new EditLessonPage(dsds));
         }
 
-        private int _lessonOneSwitch = -1;
-        private int _lessonTwoSwitch = -1;
-        private string _switchInfo = "";
+
 
         private void ClearSwitch()
         {
@@ -161,17 +157,15 @@ namespace EducationalPartApp.Pages
             {
                 var scheduleSwitch = scheduleDayOfTheWeek[5];
 
-                var buff = scheduleSwitch[_lessonOneSwitch];
+                var bufferOneLesson = scheduleSwitch[_lessonOneSwitch];
                 scheduleSwitch[_lessonOneSwitch] = scheduleSwitch[_lessonTwoSwitch];
-                scheduleSwitch[_lessonTwoSwitch] = buff;
+                scheduleSwitch[_lessonTwoSwitch] = bufferOneLesson;
 
                 scheduleSwitch[_lessonOneSwitch].schedule.ClassTimeId = _lessonOneSwitch + 1;
                 scheduleSwitch[_lessonTwoSwitch].schedule.ClassTimeId = _lessonTwoSwitch + 1;
 
                 LVLesson.ItemsSource = null;
                 LVLesson.ItemsSource = scheduleSwitch;
-                _lessonOneSwitch = -1;
-                _lessonTwoSwitch = -1;
                 ClearSwitch();
             }
         }

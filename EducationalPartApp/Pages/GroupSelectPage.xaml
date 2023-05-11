@@ -8,18 +8,39 @@
       x:Name="groupSelect"
       Title="GroupSelectPage">
 
-    <Grid Margin="25 0 25 0">
+    <Grid Width="200">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Text="Поиск"
+                           Style="{StaticResource DefualtText}"/>
+                <TextBox x:Name="TBSearch"
+                         TextChanged="TBSearch_TextChanged"/>
+                <TextBlock Text="Семестр / курс"
+                           Style="{StaticResource DefualtText}"/>
+                <ComboBox x:Name="CBCourse"
+                          DisplayMemberPath="Course"
+                          Style="{StaticResource ComboBoxStyleCorner}"
+                          Height="{Binding ActualHeight, ElementName=TBSearch, Mode=OneWay}"
+                          SelectionChanged="CBCourse_SelectionChanged"/>
+            </StackPanel>
             <TextBlock Text="Группы"
-                       Style="{StaticResource HeaderText}"/>
+                       Style="{StaticResource HeaderText}"
+                       Grid.Row="1"
+                       FontSize="14"/>
             <ListView x:Name="LVGroupSelect" 
                       d:ItemsSource="{d:SampleData ItemCount=4}"
-                      MaxHeight="103.8">
+                      Height="103.8"
+                      Grid.Row="2">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding StrFullName}"
@@ -28,7 +49,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
+        </Grid>
         <Button Style="{StaticResource ButtonStyle}"
                 Width="144"
                 Grid.Row="4"
