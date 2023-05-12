@@ -20,7 +20,9 @@ namespace EducationalPartApp.Model
 
         public Subgroup Clone()
         {
-            return (Subgroup)MemberwiseClone();
+            var cloneBuffer = (Subgroup)MemberwiseClone();
+            cloneBuffer.Employee = Employee.Clone();
+            return cloneBuffer;
         }
 
         object ICloneable.Clone()

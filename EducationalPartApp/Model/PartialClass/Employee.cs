@@ -41,6 +41,11 @@ namespace EducationalPartApp.Model
             }
         }
 
+        public Employee Clone()
+        {
+            return (Employee)MemberwiseClone();
+        }
+
         object ICloneable.Clone()
         {
             throw new NotImplementedException();

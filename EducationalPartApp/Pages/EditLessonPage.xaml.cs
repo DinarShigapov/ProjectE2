@@ -112,7 +112,7 @@ namespace EducationalPartApp.Pages
             {
                 if (item.Employee == selectTeacher)
                 {
-                    MessageBox.Show($"В это время у {item.Employee.FullNameShort} проводиться урок");
+                    MessageBox.Show($"В это время {item.Employee.FullNameShort} проводит урок у {item.Schedule.Group.StrFullName}");
                     return;
                 }
 

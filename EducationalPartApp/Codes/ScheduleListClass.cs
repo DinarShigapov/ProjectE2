@@ -41,6 +41,8 @@ namespace EducationalPartApp.Codes
             }
         }
 
+        
+
         public object Clone() 
         {
             var cloneBuffer = (ScheduleListClass)MemberwiseClone();
