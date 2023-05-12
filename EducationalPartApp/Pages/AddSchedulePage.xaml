@@ -150,7 +150,8 @@
                                                    Grid.Column="2"/>
                                         <StackPanel Grid.Column="3"
                                                     VerticalAlignment="Center"
-                                                    HorizontalAlignment="Center">
+                                                    HorizontalAlignment="Center"
+                                                    Orientation="Horizontal">
                                             <Button x:Name="BEditLessom"
                                                     Style="{StaticResource EditButtonStyle}"
                                                     Click="BEditLesson_Click"
@@ -159,9 +160,18 @@
                                     </Grid>
                                     <Border.ContextMenu>
                                         <ContextMenu>
+                                            <MenuItem x:Name="MIEditLesson" 
+                                                  Header="Изменить"
+                                                  Click="MIEditLesson_Click"/>
                                             <MenuItem x:Name="MISwitchLesson" 
                                                   Header="Сменить"
                                                   Click="MISwitchLesson_Click"/>
+                                            <MenuItem x:Name="MICopyLesson" 
+                                                  Header="Копировать"
+                                                  Click="MICopyLesson_Click"/>
+                                            <MenuItem x:Name="MIPasteLesson" 
+                                                  Header="Вставить"
+                                                  Click="MIPasteLesson_Click"/>
                                         </ContextMenu>
                                     </Border.ContextMenu>
                                 </Border>

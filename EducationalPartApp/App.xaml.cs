@@ -15,7 +15,7 @@ namespace EducationalPartApp
     /// </summary>
     public partial class App : Application
     {
-        public static PolyDBEntities DB = new PolyDBEntities();
+        public static EducationDBEntities1312 DB = new EducationDBEntities1312();
         public static Employee LoggedEP;
         public static List<Page> scheduleLists = new List<Page>();
     }

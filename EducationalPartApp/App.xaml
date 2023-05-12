@@ -212,6 +212,27 @@
                 </Setter>
             </Style>
 
+
+            <Style x:Key="SwitchPanelStyle" TargetType="Button">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Image Name="image" Stretch="Fill" 
+                                   Source="{StaticResource ExitArrowDrawingImage}" 
+                                   HorizontalAlignment="Left" 
+                                   Height="8"
+                                   Opacity="0.2"/>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="image" Property="Opacity" Value="0.5" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <Style x:Key="EditButtonStyle" TargetType="Button">
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="Template">

@@ -24,9 +24,13 @@ namespace EducationalPartApp.Pages
     {
 
         Group contextGroup;
-        private int _lessonOneSwitch = -1;
-        private int _lessonTwoSwitch = -1;
+        private int _currentIndexDayOfTheWeek = 0;
+        private ScheduleListClass _copyLesson; 
+        private const int _defualtIndex = -1;
+        private int _lessonOneSwitch = _defualtIndex;
+        private int _lessonTwoSwitch = _defualtIndex;
         private string _switchInfo = "";
+
         List<List<ScheduleListClass>> scheduleDayOfTheWeek = new List<List<ScheduleListClass>>(6)
         {
             new List<ScheduleListClass>(){ },
@@ -93,6 +97,7 @@ namespace EducationalPartApp.Pages
                     index = 0;
                     break;
             }
+            _currentIndexDayOfTheWeek = index;
             RefreshSchedule(index);
             ClearSwitch();
         }
@@ -119,19 +124,52 @@ namespace EducationalPartApp.Pages
 
         private void BEditLesson_Click(object sender, RoutedEventArgs e)
         {
-            ClearSwitch();
-            var dsds = (sender as Button).DataContext as ScheduleListClass;
-            var window = Application.Current.Windows.OfType<MainWindow>().SingleOrDefault(x => x.IsActive);
-
-            window.GetFrameWindow(new EditLessonPage(dsds));
+            var selectLesson = (sender as Button).DataContext as ScheduleListClass;
+            if (selectLesson == null)
+                return;
+            OpenEditorPage(selectLesson);
         }
 
+        private void MICopyLesson_Click(object sender, RoutedEventArgs e)
+        {
+            var copyLessonBuffer = (sender as MenuItem).DataContext as ScheduleListClass;
+            if (copyLessonBuffer == null)
+                return;
+
+            _copyLesson = copyLessonBuffer;
+
+        }
+
+        private void MIPasteLesson_Click(object sender, RoutedEventArgs e)
+        {
+            if (_copyLesson == null && LVLesson.SelectedIndex != -1)
+                return;
+             scheduleDayOfTheWeek[_currentIndexDayOfTheWeek][LVLesson.SelectedIndex] = (ScheduleListClass)_copyLesson.Clone();
+            scheduleDayOfTheWeek[_currentIndexDayOfTheWeek][LVLesson.SelectedIndex].schedule.ClassTimeId = LVLesson.SelectedIndex + 1;
+
+            LVLesson.ItemsSource = null;
+            LVLesson.ItemsSource = scheduleDayOfTheWeek[_currentIndexDayOfTheWeek].ToList();
+
+        }
+
+        private void MIEditLesson_Click(object sender, RoutedEventArgs e)
+        {
+            var selectLesson = (sender as MenuItem).DataContext as ScheduleListClass;
+            if (selectLesson == null)
+                return;
+            OpenEditorPage(selectLesson);
+        }
+
+        private void OpenEditorPage(ScheduleListClass sender)
+        {
+            ClearSwitch();
+            new MainWindow().GetFrameWindow(new EditLessonPage(sender));
+        }
 
 
         private void ClearSwitch()
         {
-            _lessonOneSwitch = -1;
-            _lessonTwoSwitch = -1;
+            _lessonOneSwitch = _lessonTwoSwitch = _defualtIndex;
             _switchInfo = string.Empty;
             TBSwitchInfo.Text = string.Empty;
             TBSwitchInfo.Visibility = Visibility.Collapsed;
@@ -151,19 +189,19 @@ namespace EducationalPartApp.Pages
                 _lessonTwoSwitch = LVLesson.SelectedIndex;
             }
 
-            if (_lessonTwoSwitch != -1 && _lessonOneSwitch != -1)
+            if (_lessonTwoSwitch != _defualtIndex && _lessonOneSwitch != _defualtIndex)
             {
-                var scheduleSwitch = scheduleDayOfTheWeek[5];
+                var lessonSwitch = scheduleDayOfTheWeek[5];
 
-                var bufferOneLesson = scheduleSwitch[_lessonOneSwitch];
-                scheduleSwitch[_lessonOneSwitch] = scheduleSwitch[_lessonTwoSwitch];
-                scheduleSwitch[_lessonTwoSwitch] = bufferOneLesson;
+                var bufferSelectedLesson = lessonSwitch[_lessonOneSwitch];
+                lessonSwitch[_lessonOneSwitch] = lessonSwitch[_lessonTwoSwitch];
+                lessonSwitch[_lessonTwoSwitch] = bufferSelectedLesson;
 
-                scheduleSwitch[_lessonOneSwitch].schedule.ClassTimeId = _lessonOneSwitch + 1;
-                scheduleSwitch[_lessonTwoSwitch].schedule.ClassTimeId = _lessonTwoSwitch + 1;
+                lessonSwitch[_lessonOneSwitch].schedule.ClassTimeId = _lessonOneSwitch + 1;
+                lessonSwitch[_lessonTwoSwitch].schedule.ClassTimeId = _lessonTwoSwitch + 1;
 
                 LVLesson.ItemsSource = null;
-                LVLesson.ItemsSource = scheduleSwitch;
+                LVLesson.ItemsSource = lessonSwitch;
                 ClearSwitch();
             }
         }
@@ -176,5 +214,6 @@ namespace EducationalPartApp.Pages
                 TBSwitchInfo.Text += $"⇄ {LVLesson.SelectedIndex + 1}";
             }
         }
+
     }
 }

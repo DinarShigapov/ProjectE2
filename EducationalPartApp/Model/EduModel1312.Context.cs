@@ -13,10 +13,10 @@ namespace EducationalPartApp.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EducationDBEntities : DbContext
+    public partial class EducationDBEntities1312 : DbContext
     {
-        public EducationDBEntities()
-            : base("name=EducationDBEntities")
+        public EducationDBEntities1312()
+            : base("name=EducationDBEntities1312")
         {
         }
     
