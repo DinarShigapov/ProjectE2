@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace EducationalPartApp.Model
 {
+    [Serializable]
     public partial class Schedule: ICloneable
     {
         public Schedule Clone()

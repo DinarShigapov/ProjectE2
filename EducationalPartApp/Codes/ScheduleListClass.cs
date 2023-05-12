@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using EducationalPartApp.Model;
 
 namespace EducationalPartApp.Codes
 {
+    [Serializable]
     public class ScheduleListClass: ICloneable
     {
 
@@ -41,7 +45,7 @@ namespace EducationalPartApp.Codes
             }
         }
 
-        
+
 
         public object Clone() 
         {
