@@ -142,7 +142,7 @@ namespace EducationalPartApp.Pages
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
             ClearSwitch();
-            if (IsCheckSchedule() == false) return;
+            //if (IsCheckSchedule() == false) return;
 
             for (int h = 0; h < scheduleList.Count; h++)
             {
@@ -232,7 +232,7 @@ namespace EducationalPartApp.Pages
                 || copyLessonBuffer.schedule.Discipline == null)
                 return;
 
-            _copyLesson = (ScheduleListClass)copyLessonBuffer.Clone();
+            _copyLesson = scheduleList[_currentIndexDay].FirstOrDefault(x => x == copyLessonBuffer);
         }
 
         private void MIPasteLesson_Click(object sender, RoutedEventArgs e)
@@ -265,8 +265,8 @@ namespace EducationalPartApp.Pages
 
             var buffer = scheduleList[_currentIndexDay];
 
-            buffer[LVLesson.SelectedIndex] = (ScheduleListClass)_copyLesson.Clone();
-            buffer[LVLesson.SelectedIndex].schedule.ClassTimeId = LVLesson.SelectedIndex + 1;
+            buffer[LVLesson.SelectedIndex].schedule.Discipline = _copyLesson.schedule.Discipline;
+            buffer[LVLesson.SelectedIndex].subgroups = _copyLesson.subgroups;
 
             LVLesson.ItemsSource = null;
             LVLesson.ItemsSource = buffer.ToList();
@@ -285,8 +285,9 @@ namespace EducationalPartApp.Pages
             buffer[selectIndex].schedule.Discipline = null;
             buffer[selectIndex].subgroups.Clear();
 
+
             LVLesson.ItemsSource = null;
-            LVLesson.ItemsSource = buffer.ToList();
+            LVLesson.ItemsSource = scheduleList[_currentIndexDay].ToList();
         }
 
         private void MIEditLesson_Click(object sender, RoutedEventArgs e)

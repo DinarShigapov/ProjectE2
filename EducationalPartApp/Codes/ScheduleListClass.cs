@@ -26,6 +26,11 @@ namespace EducationalPartApp.Codes
             this.subgroups = subgroups;
         }
 
+        public ScheduleListClass(Schedule schedule, List<Subgroup> subgroups, string strAllTeacher) : this(schedule, subgroups)
+        {
+            StrAllTeacher = strAllTeacher;
+        }
+
         public string StrAllTeacher
         {
             get 
@@ -35,7 +40,6 @@ namespace EducationalPartApp.Codes
                 {
                     foreach (var item in subgroups)
                     {
-
                         buffer += $"{item.Employee.FullNameShort} / ";
 
                     }
@@ -43,14 +47,25 @@ namespace EducationalPartApp.Codes
                 }
                 return null;
             }
+            set { }
         }
-
 
 
         public object Clone() 
         {
             var cloneBuffer = (ScheduleListClass)MemberwiseClone();
             cloneBuffer.schedule = schedule.Clone();
+            if (StrAllTeacher != null) cloneBuffer.StrAllTeacher.Clone();
+            if (cloneBuffer.subgroups != null)
+            {
+                List<Subgroup> subgroupsList = new List<Subgroup>(); 
+                foreach (var item in cloneBuffer?.subgroups)
+                {
+                    subgroupsList.Add(item.Clone());
+                }
+                cloneBuffer.subgroups = subgroupsList;
+
+            }
             return cloneBuffer;
         }
 
