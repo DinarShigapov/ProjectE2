@@ -48,7 +48,7 @@ namespace EducationalPartApp.Pages
             contextGroup = group;
             GroupSelect.Text = contextGroup.StrFullName;
             for (int i = 0; i <= 5; i++) {
-                for (int h = 0; h < 5; h++) {
+                for (int h = 0; h < App.DB.ClassTime.Count(); h++) {
                     scheduleList[i].Add(new ScheduleListClass()
                     {
                         schedule = new Schedule
@@ -142,7 +142,7 @@ namespace EducationalPartApp.Pages
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
             ClearSwitch();
-            //if (IsCheckSchedule() == false) return;
+            if (IsCheckSchedule() == false) return;
 
             for (int h = 0; h < scheduleList.Count; h++)
             {
@@ -182,7 +182,7 @@ namespace EducationalPartApp.Pages
             {
                 _lessonOneSwitch = LVLesson.SelectedIndex;
                 TBSwitchInfo.Visibility = Visibility.Visible;
-                _switchInfo += $"Cменить {_lessonOneSwitch + 1} ";
+                _switchInfo += $"Cменить {_lessonOneSwitch + 1} ⇄";
                 TBSwitchInfo.Text += _switchInfo;
             }
             else 
@@ -213,7 +213,7 @@ namespace EducationalPartApp.Pages
             if (_switchInfo != "")
             {
                 TBSwitchInfo.Text = _switchInfo;
-                TBSwitchInfo.Text += $"⇄ {LVLesson.SelectedIndex + 1}";
+                TBSwitchInfo.Text += $" {LVLesson.SelectedIndex + 1}";
             }
         }
 
