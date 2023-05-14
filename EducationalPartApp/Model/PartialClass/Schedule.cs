@@ -18,5 +18,25 @@ namespace EducationalPartApp.Model
         {
             throw new NotImplementedException();
         }
+
+        public string StrAllTeacher
+        {
+            get
+            {
+                string buffer = "";
+                if (Subgroup != null)
+                {
+                    foreach (var item in Subgroup)
+                    {
+                        buffer += $"{item.Employee.FullNameShort} / ";
+
+                    }
+                    return buffer.TrimEnd(' ', '/');
+                }
+                return null;
+            }
+            set { }
+        }
+
     }
 }

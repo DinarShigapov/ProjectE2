@@ -24,21 +24,21 @@ namespace EducationalPartApp.Pages
     /// </summary>
     public partial class EditLessonPage : Page
     {
-        private ScheduleListClass _schedule;
-        private ScheduleListClass _scheduleSave;
+        private Schedule _schedule;
+        private Schedule _scheduleSave;
         private List<Subgroup> _subgroupList = new List<Subgroup>();
-        public EditLessonPage(ScheduleListClass listClass)
+        public EditLessonPage(Schedule listClass)
         {
             InitializeComponent();
             _schedule = listClass;
-            _scheduleSave = (ScheduleListClass)listClass.Clone();
+            _scheduleSave = listClass.Clone();
             DataContext = _scheduleSave;
             CBDisciplines.ItemsSource = App.DB.Discipline.ToList();
             CBAuditoriums.ItemsSource = App.DB.Auditorium.ToList();
-            CBDisciplines.SelectedItem = _scheduleSave.schedule.Discipline;
-            if (_scheduleSave.subgroups != null)
+            CBDisciplines.SelectedItem = _scheduleSave.Discipline;
+            if (_scheduleSave.Subgroup != null)
             {
-                 _subgroupList.AddRange(_scheduleSave.subgroups);
+                 _subgroupList.AddRange(_scheduleSave.Subgroup);
                 LVTeacherList.ItemsSource = _subgroupList.ToList();
             }   
         }
@@ -71,10 +71,10 @@ namespace EducationalPartApp.Pages
                 return;
             }
 
-            _scheduleSave.subgroups = _subgroupList.ToList();
-            foreach (PropertyInfo property in typeof(ScheduleListClass).GetProperties().Where(p => p.CanWrite))
+            _scheduleSave.Subgroup = _subgroupList.ToList();
+            foreach (PropertyInfo property in typeof(Schedule).GetProperties().Where(p => p.CanWrite))
             {
-                if (property.Name == "ScheduleListClass") break;
+                if (property.Name == "Schedule") break;
                 property.SetValue(_schedule, property.GetValue(_scheduleSave, null), null);
             }
 
@@ -103,9 +103,9 @@ namespace EducationalPartApp.Pages
             if (selectTeacher == null || selectAuditorium == null) return;
 
             var subgroupsNow = App.DB.Subgroup.Where(
-                x => x.Schedule.DayOfTheWeekId == _scheduleSave.schedule.DayOfTheWeekId
-                && x.Schedule.ClassTimeId == _scheduleSave.schedule.ClassTimeId
-                && x.Schedule.SemesterId == _scheduleSave.schedule.Group.Semester.Id
+                x => x.Schedule.DayOfTheWeekId == _scheduleSave.DayOfTheWeekId
+                && x.Schedule.ClassTimeId == _scheduleSave.ClassTimeId
+                && x.Schedule.SemesterId == _scheduleSave.Group.Semester.Id
                 && x.Schedule.Date.Year == DateTime.Now.Year).ToList();
 
             foreach (var item in subgroupsNow.ToList())

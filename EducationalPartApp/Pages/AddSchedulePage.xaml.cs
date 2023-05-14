@@ -25,20 +25,21 @@ namespace EducationalPartApp.Pages
 
         Group contextGroup;
         private int _currentIndexDay = 0;
-        private ScheduleListClass _copyLesson;
+        private Schedule _copyLesson;
         private const int _defualtIndex = -1;
         private int _lessonOneSwitch = _defualtIndex;
         private int _lessonTwoSwitch = _defualtIndex;
         private string _switchInfo = "";
 
-        List<List<ScheduleListClass>> scheduleList = new List<List<ScheduleListClass>>(6)
+
+        List<List<Schedule>> scheduleList = new List<List<Schedule>>(6)
         {
-            new List<ScheduleListClass>(){ },
-            new List<ScheduleListClass>(){ },
-            new List<ScheduleListClass>(){ },
-            new List<ScheduleListClass>(){ },
-            new List<ScheduleListClass>(){ },
-            new List<ScheduleListClass>(){ }
+            new List<Schedule>(){ },
+            new List<Schedule>(){ },
+            new List<Schedule>(){ },
+            new List<Schedule>(){ },
+            new List<Schedule>(){ },
+            new List<Schedule>(){ }
         };
 
 
@@ -49,15 +50,12 @@ namespace EducationalPartApp.Pages
             GroupSelect.Text = contextGroup.StrFullName;
             for (int i = 0; i <= 5; i++) {
                 for (int h = 0; h < App.DB.ClassTime.Count(); h++) {
-                    scheduleList[i].Add(new ScheduleListClass()
+                    scheduleList[i].Add(new Schedule()
                     {
-                        schedule = new Schedule
-                        {
-                            ClassTimeId = h + 1,
-                            Group = contextGroup,
-                            DayOfTheWeekId = i + 1,
-                            Semester = contextGroup.Semester
-                        }
+                        ClassTimeId = h + 1,
+                        Group = contextGroup,
+                        DayOfTheWeekId = i + 1,
+                        Semester = contextGroup.Semester
                     });
                 }
             }
@@ -112,7 +110,7 @@ namespace EducationalPartApp.Pages
                 var bufferList = 0; 
                 foreach (var item1 in scheduleList[i])
                 {
-                    if (item1.schedule.Discipline != null)
+                    if (item1.Discipline != null)
                     {
                         bufferList++;
                         quantityLesson++;
@@ -142,30 +140,64 @@ namespace EducationalPartApp.Pages
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
             ClearSwitch();
-            if (IsCheckSchedule() == false) return;
+            //if (IsCheckSchedule() == false) return;
 
-            for (int h = 0; h < scheduleList.Count; h++)
+            //for (int h = 0; h < scheduleList.Count; h++)
+            //{
+            //    for (int g = 0; g < scheduleList[h].Count; g++)
+            //    {
+            //        var scheduleDay = scheduleList[h][g];
+
+            //        if (scheduleDay.Discipline == null)
+            //            continue;
+
+            //        scheduleDay.Date = DateTime.Now;
+            //        App.DB.Schedule.Add(scheduleDay);
+            //        App.DB.SaveChanges();
+            //    }
+            //}
+
+
+            AddReportCard();
+
+
+        }
+
+
+        private void AddReportCard() 
+        {
+            List<Schedule> schedulesbuffer = new List<Schedule>();
+            foreach (var item in scheduleList)
             {
-                for (int g = 0; g < scheduleList[h].Count; g++)
+                foreach (var item1 in item)
                 {
-                    var scheduleDay = scheduleList[h][g].schedule;
-
-                    if (scheduleDay.Discipline == null)
-                        continue;
-
-                    scheduleDay.Date = DateTime.Now;
-                    App.DB.Schedule.Add(scheduleDay);
-                    App.DB.SaveChanges();
-
-                    foreach (var item in scheduleList[h][g].subgroups)
-                    {
-                        item.ScheduleId = scheduleDay.Id;
-                        App.DB.Subgroup.Add(item);
-                    }
-                    App.DB.SaveChanges();
+                    if (item1.Discipline == null) continue;
+                    schedulesbuffer.Add(item1);
                 }
             }
 
+            List<Schedule> disciplineList = schedulesbuffer.GroupBy(x => x.Discipline).Select(x => x.First()).ToList();
+
+
+            foreach (var item in disciplineList)
+            {
+                List<ReportCardTeacher> reportCards =
+                    item.Subgroup.Select(
+                        subgroup => new ReportCardTeacher
+                        {
+                            Employee = subgroup.Employee
+                        }).ToList();
+
+                App.DB.ReportCard.Add(new ReportCard
+                {
+                    Group = item.Group,
+                    Discipline = item.Discipline,
+                    DateOfCreation = DateTime.Now,
+                    ReportCardTeacher = reportCards,
+                    Semester = item.Semester,
+                    IsActive = true
+                });
+            }
         }
 
         private void ClearSwitch()
@@ -199,8 +231,8 @@ namespace EducationalPartApp.Pages
                 lessonSwitch[_lessonOneSwitch] = lessonSwitch[_lessonTwoSwitch];
                 lessonSwitch[_lessonTwoSwitch] = bufferSelectedLesson;
 
-                lessonSwitch[_lessonOneSwitch].schedule.ClassTimeId = _lessonOneSwitch + 1;
-                lessonSwitch[_lessonTwoSwitch].schedule.ClassTimeId = _lessonTwoSwitch + 1;
+                lessonSwitch[_lessonOneSwitch].ClassTimeId = _lessonOneSwitch + 1;
+                lessonSwitch[_lessonTwoSwitch].ClassTimeId = _lessonTwoSwitch + 1;
 
                 LVLesson.ItemsSource = null;
                 LVLesson.ItemsSource = lessonSwitch;
@@ -219,7 +251,7 @@ namespace EducationalPartApp.Pages
 
         private void BEditLesson_Click(object sender, RoutedEventArgs e)
         {
-            var selectLesson = (sender as Button).DataContext as ScheduleListClass;
+            var selectLesson = (sender as Button).DataContext as Schedule;
             if (selectLesson == null)
                 return;
             OpenEditorPage(selectLesson);
@@ -227,9 +259,9 @@ namespace EducationalPartApp.Pages
 
         private void MICopyLesson_Click(object sender, RoutedEventArgs e)
         {
-            var copyLessonBuffer = (sender as MenuItem).DataContext as ScheduleListClass;
+            var copyLessonBuffer = (sender as MenuItem).DataContext as Schedule;
             if (copyLessonBuffer == null 
-                || copyLessonBuffer.schedule.Discipline == null)
+                || copyLessonBuffer.Discipline == null)
                 return;
 
             _copyLesson = scheduleList[_currentIndexDay].FirstOrDefault(x => x == copyLessonBuffer);
@@ -237,26 +269,26 @@ namespace EducationalPartApp.Pages
 
         private void MIPasteLesson_Click(object sender, RoutedEventArgs e)
         {
-            var selectLesson = LVLesson.SelectedItem as ScheduleListClass;
+            var selectLesson = LVLesson.SelectedItem as Schedule;
             if (_copyLesson == null
                 && LVLesson.SelectedIndex != _defualtIndex)
                 return;
 
             var subgroupsNow = App.DB.Subgroup.Where(
-                    x => x.Schedule.DayOfTheWeekId == selectLesson.schedule.DayOfTheWeekId
-                    && x.Schedule.ClassTimeId == selectLesson.schedule.ClassTimeId
-                    && x.Schedule.SemesterId == _copyLesson.schedule.Group.Semester.Id
+                    x => x.Schedule.DayOfTheWeekId == selectLesson.DayOfTheWeekId
+                    && x.Schedule.ClassTimeId == selectLesson.ClassTimeId
+                    && x.Schedule.SemesterId == _copyLesson.Group.Semester.Id
                     && x.Schedule.Date.Year == DateTime.Now.Year).ToList();
 
             foreach (var item in subgroupsNow.ToList())
             {
-                if (_copyLesson.subgroups.FirstOrDefault(x => x.Employee == item.Employee) != null)
+                if (_copyLesson.Subgroup.FirstOrDefault(x => x.Employee == item.Employee) != null)
                 {
                     MessageBox.Show($"В это время {item.Employee.FullNameShort} проводит урок у {item.Schedule.Group.StrFullName}");
                     return;
                 }
 
-                if (_copyLesson.subgroups.FirstOrDefault(x => x.Auditorium == item.Auditorium) != null)
+                if (_copyLesson.Subgroup.FirstOrDefault(x => x.Auditorium == item.Auditorium) != null)
                 {
                     MessageBox.Show($"В это время каб. {item.Auditorium.Name} занят");
                     return;
@@ -265,8 +297,8 @@ namespace EducationalPartApp.Pages
 
             var buffer = scheduleList[_currentIndexDay];
 
-            buffer[LVLesson.SelectedIndex].schedule.Discipline = _copyLesson.schedule.Discipline;
-            buffer[LVLesson.SelectedIndex].subgroups = _copyLesson.subgroups;
+            buffer[LVLesson.SelectedIndex].Discipline = _copyLesson.Discipline;
+            buffer[LVLesson.SelectedIndex].Subgroup = _copyLesson.Subgroup;
 
             LVLesson.ItemsSource = null;
             LVLesson.ItemsSource = buffer.ToList();
@@ -275,15 +307,15 @@ namespace EducationalPartApp.Pages
         private void MIDeleteLesson_Click(object sender, RoutedEventArgs e)
         {
             var selectIndex = LVLesson.SelectedIndex;
-            var selectLesson = LVLesson.SelectedItem as ScheduleListClass;
+            var selectLesson = LVLesson.SelectedItem as Schedule;
             if (selectIndex == _defualtIndex ||
-                selectLesson.schedule.Discipline == null)
+                selectLesson.Discipline == null)
                 return;
 
 
             var buffer = scheduleList[_currentIndexDay];
-            buffer[selectIndex].schedule.Discipline = null;
-            buffer[selectIndex].subgroups.Clear();
+            buffer[selectIndex].Discipline = null;
+            buffer[selectIndex].Subgroup.Clear();
 
 
             LVLesson.ItemsSource = null;
@@ -292,13 +324,13 @@ namespace EducationalPartApp.Pages
 
         private void MIEditLesson_Click(object sender, RoutedEventArgs e)
         {
-            var selectLesson = (sender as MenuItem).DataContext as ScheduleListClass;
+            var selectLesson = (sender as MenuItem).DataContext as Schedule;
             if (selectLesson == null)
                 return;
             OpenEditorPage(selectLesson);
         }
 
-        private void OpenEditorPage(ScheduleListClass sender)
+        private void OpenEditorPage(Schedule sender)
         {
             ClearSwitch();
             new MainWindow().GetFrameWindow(new EditLessonPage(sender));

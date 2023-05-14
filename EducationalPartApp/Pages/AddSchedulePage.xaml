@@ -135,11 +135,11 @@
                                             <ColumnDefinition Width="150*"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{Binding schedule.ClassTimeId}" 
+                                        <TextBlock Text="{Binding ClassTimeId}" 
                                                    Style="{StaticResource DefualtText}"
                                                    HorizontalAlignment="Center"/>
                                         <TextBlock x:Name="DisciplineOneLesson" 
-                                                   Text="{Binding schedule.Discipline.Name}"
+                                                   Text="{Binding Discipline.Name}"
                                                    Style = "{StaticResource DefualtText}"
                                                    Grid.Column="1"
                                                    HorizontalAlignment="Left">
@@ -168,11 +168,13 @@
                                                       Header="Сменить"
                                                       Click="MISwitchLesson_Click"/>
                                             <MenuItem x:Name="MICopyLesson" 
-                                                      Header="Копировать"
-                                                      Click="MICopyLesson_Click"/>
+                                                      Header="Копировать (Бета)"
+                                                      Click="MICopyLesson_Click"
+                                                      IsEnabled="False"/>
                                             <MenuItem x:Name="MIPasteLesson" 
-                                                      Header="Вставить"
-                                                      Click="MIPasteLesson_Click"/>
+                                                      Header="Вставить (Бета)"
+                                                      Click="MIPasteLesson_Click"
+                                                      IsEnabled="False"/>
                                             <MenuItem x:Name="MIDeleteLesson"
                                                       Header="Удалить"
                                                       Click="MIDeleteLesson_Click"/>
