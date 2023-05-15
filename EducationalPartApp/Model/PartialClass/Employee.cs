@@ -43,7 +43,8 @@ namespace EducationalPartApp.Model
 
         public Employee Clone()
         {
-            return (Employee)MemberwiseClone();
+            var cloneBuffer = (Employee)MemberwiseClone();
+            return cloneBuffer;
         }
 
         object ICloneable.Clone()

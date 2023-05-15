@@ -153,8 +153,16 @@ namespace EducationalPartApp.Pages
                         continue;
 
                     scheduleDay.Date = DateTime.Now;
-                    App.DB.Schedule.Add(scheduleDay);
-                    App.DB.SaveChanges();
+                    var result = MessageBox.Show("Расписание нельзя будет изменить!!!\nПродолжить?", "Внимание", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        App.DB.Schedule.Add(scheduleDay);
+                        App.DB.SaveChanges();
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
 
@@ -267,7 +275,7 @@ namespace EducationalPartApp.Pages
                 || copyLessonBuffer.Discipline == null)
                 return;
 
-            _copyLesson = scheduleList[_currentIndexDay].FirstOrDefault(x => x == copyLessonBuffer);
+            _copyLesson = copyLessonBuffer.Clone();
         }
 
         private void MIPasteLesson_Click(object sender, RoutedEventArgs e)
@@ -300,8 +308,10 @@ namespace EducationalPartApp.Pages
 
             var buffer = scheduleList[_currentIndexDay];
 
-            buffer[LVLesson.SelectedIndex].Discipline = _copyLesson.Discipline;
-            buffer[LVLesson.SelectedIndex].Subgroup = _copyLesson.Subgroup;
+            var copyBuffer = _copyLesson.Clone();
+
+            buffer[LVLesson.SelectedIndex].Discipline = copyBuffer.Discipline;
+            buffer[LVLesson.SelectedIndex].Subgroup = copyBuffer.Subgroup;
 
             LVLesson.ItemsSource = null;
             LVLesson.ItemsSource = buffer.ToList();

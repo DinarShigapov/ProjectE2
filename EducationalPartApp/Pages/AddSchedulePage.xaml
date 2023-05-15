@@ -170,11 +170,11 @@
                                             <MenuItem x:Name="MICopyLesson" 
                                                       Header="Копировать (Бета)"
                                                       Click="MICopyLesson_Click"
-                                                      IsEnabled="False"/>
+                                                      IsEnabled="True"/>
                                             <MenuItem x:Name="MIPasteLesson" 
                                                       Header="Вставить (Бета)"
                                                       Click="MIPasteLesson_Click"
-                                                      IsEnabled="False"/>
+                                                      IsEnabled="True"/>
                                             <MenuItem x:Name="MIDeleteLesson"
                                                       Header="Удалить"
                                                       Click="MIDeleteLesson_Click"/>

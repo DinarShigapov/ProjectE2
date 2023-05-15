@@ -20,8 +20,9 @@ namespace EducationalPartApp.Model
 
         public Subgroup Clone()
         {
-            var cloneBuffer = (Subgroup)MemberwiseClone();
-            cloneBuffer.Employee = Employee.Clone();
+            var cloneBuffer = new Subgroup();
+            cloneBuffer.Employee = App.DB.Employee.FirstOrDefault(x => x.Id == Employee.Id);
+            cloneBuffer.Auditorium = App.DB.Auditorium.FirstOrDefault(x => x.Id == Auditorium.Id);
             return cloneBuffer;
         }
 
