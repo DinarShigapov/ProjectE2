@@ -142,6 +142,7 @@ namespace EducationalPartApp.Pages
             ClearSwitch();
             if (IsCheckSchedule() == false) return;
 
+
             for (int h = 0; h < scheduleList.Count; h++)
             {
                 for (int g = 0; g < scheduleList[h].Count; g++)
@@ -161,7 +162,7 @@ namespace EducationalPartApp.Pages
         }
 
 
-        private void AddReportCard() 
+        private List<Schedule> GetFilteredList() 
         {
             List<Schedule> schedulesbuffer = new List<Schedule>();
             foreach (var item in scheduleList)
@@ -172,8 +173,12 @@ namespace EducationalPartApp.Pages
                     schedulesbuffer.Add(item1);
                 }
             }
+            return schedulesbuffer;
+        }
 
-            List<Schedule> disciplineList = schedulesbuffer.GroupBy(x => x.Discipline).Select(x => x.First()).ToList();
+        private void AddReportCard() 
+        {
+            List<Schedule> disciplineList = GetFilteredList().GroupBy(x => x.Discipline).Select(x => x.First()).ToList();
 
 
             foreach (var item in disciplineList)
@@ -194,6 +199,7 @@ namespace EducationalPartApp.Pages
                     Semester = item.Semester,
                     IsActive = true
                 });
+                App.DB.SaveChanges();
             }
         }
 
@@ -330,7 +336,7 @@ namespace EducationalPartApp.Pages
         private void OpenEditorPage(Schedule sender)
         {
             ClearSwitch();
-            new MainWindow().GetFrameWindow(new EditLessonPage(sender));
+            new MainWindow().GetFrameWindow(new EditLessonPage(sender, GetFilteredList()));
         }
 
         private void Border_ContextMenuOpening(object sender, ContextMenuEventArgs e)

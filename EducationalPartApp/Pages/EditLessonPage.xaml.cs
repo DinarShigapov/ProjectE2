@@ -26,10 +26,12 @@ namespace EducationalPartApp.Pages
     {
         private Schedule _schedule;
         private Schedule _scheduleSave;
+        private List<Schedule> _schedulesBuffer;
         private List<Subgroup> _subgroupList = new List<Subgroup>();
-        public EditLessonPage(Schedule listClass)
+        public EditLessonPage(Schedule listClass, List<Schedule> schedulesList)
         {
             InitializeComponent();
+            _schedulesBuffer = schedulesList;
             _schedule = listClass;
             _scheduleSave = listClass.Clone();
             DataContext = _scheduleSave;
@@ -71,6 +73,42 @@ namespace EducationalPartApp.Pages
                 return;
             }
 
+
+            foreach (var item in _schedulesBuffer)
+            {
+                if (item.ClassTimeId == _scheduleSave.ClassTimeId
+                    && item.DayOfTheWeekId == _scheduleSave.DayOfTheWeekId) break;
+
+                if (item.Discipline == _scheduleSave.Discipline)
+                {
+                    string dayBuf = App.DB.DayOfTheWeek.FirstOrDefault(x => x.Id == item.DayOfTheWeekId).Name.ToString();
+                    string classTimeBuf = App.DB.ClassTime.FirstOrDefault(x => x.Id == item.ClassTimeId).ClassNumber.ToString();
+                    if (item.Subgroup.Count > _subgroupList.Count)
+                    {
+
+                        var result = MessageBox.Show(
+                            $"'{dayBuf} {classTimeBuf} п.' было установлено больше преподавателей\nДобавить преподавателя?",
+                            "Внимание", MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            foreach (var teacher in item.Subgroup)
+                            {
+                                if (!_subgroupList.Any(x => x.Employee == teacher.Employee))
+                                {
+                                    _subgroupList.Add(teacher.Clone());
+                                }
+                            }
+                        }
+                        else if (result == MessageBoxResult.No) return;
+
+                    }
+                    else if (item.Subgroup.Count < _subgroupList.Count)
+                    {
+                        MessageBox.Show($"Вы указали больше преподавателей, чем в '{dayBuf} {classTimeBuf} п.'");
+                        return;
+                    }
+                }
+            }
             _scheduleSave.Subgroup = _subgroupList.ToList();
             foreach (PropertyInfo property in typeof(Schedule).GetProperties().Where(p => p.CanWrite))
             {
@@ -108,6 +146,7 @@ namespace EducationalPartApp.Pages
                 && x.Schedule.SemesterId == _scheduleSave.Group.Semester.Id
                 && x.Schedule.Date.Year == DateTime.Now.Year).ToList();
 
+
             foreach (var item in subgroupsNow.ToList())
             {
                 if (item.Employee == selectTeacher)
@@ -134,7 +173,6 @@ namespace EducationalPartApp.Pages
                 MessageBox.Show("Данный кабинет занят", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
 
             _subgroupList.Add(new Subgroup { Employee = selectTeacher, Auditorium = selectAuditorium });
             LVTeacherList.ItemsSource = _subgroupList.ToList();
