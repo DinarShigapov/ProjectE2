@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EducationalPartApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,10 @@ namespace EducationalPartApp.Pages
         {
             InitializeComponent();
             CBCourse.ItemsSource = App.DB.Semester.ToList();
+            LVOneCourse.ItemsSource = App.DB.Group.Where(x => x.Semester.Course == 1).OrderBy(x => x.Name).ToList();
+            LVTwoCourse.ItemsSource = App.DB.Group.Where(x => x.Semester.Course == 2).OrderBy(x => x.Name).ToList();
+            LVThreeCourse.ItemsSource = App.DB.Group.Where(x => x.Semester.Course == 3).OrderBy(x => x.Name).ToList();
+            LVFourCourse.ItemsSource = App.DB.Group.Where(x => x.Semester.Course == 4).OrderBy(x => x.Name).ToList();
         }
 
         private void BCreate_Click(object sender, RoutedEventArgs e)

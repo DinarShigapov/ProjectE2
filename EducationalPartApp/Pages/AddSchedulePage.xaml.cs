@@ -143,6 +143,9 @@ namespace EducationalPartApp.Pages
             if (IsCheckSchedule() == false) return;
 
 
+            var result = MessageBox.Show("Расписание нельзя будет изменить!!!\nПродолжить?", "Внимание", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.No) return;
+
             for (int h = 0; h < scheduleList.Count; h++)
             {
                 for (int g = 0; g < scheduleList[h].Count; g++)
@@ -153,16 +156,10 @@ namespace EducationalPartApp.Pages
                         continue;
 
                     scheduleDay.Date = DateTime.Now;
-                    var result = MessageBox.Show("Расписание нельзя будет изменить!!!\nПродолжить?", "Внимание", MessageBoxButton.YesNo);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        App.DB.Schedule.Add(scheduleDay);
-                        App.DB.SaveChanges();
-                    }
-                    else
-                    {
-                        return;
-                    }
+
+
+                    App.DB.Schedule.Add(scheduleDay);
+                    App.DB.SaveChanges();
                 }
             }
 
