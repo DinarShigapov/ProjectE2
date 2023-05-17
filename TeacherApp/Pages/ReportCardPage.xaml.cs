@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TeacherApp.Model;
+using Group = TeacherApp.Model.Group;
 
 namespace TeacherApp.Pages
 {
@@ -22,33 +23,46 @@ namespace TeacherApp.Pages
     /// </summary>
     public partial class ReportCardPage : Page
     {
-        List<Model.Group> groups = new List<Model.Group>();
 
-        
+        List<ReportCardGroup> reportCardsList = new List<ReportCardGroup>();
 
 
         public ReportCardPage()
         {
             InitializeComponent();
-            groups.AddRange(App.DB.Group.ToList());
-            if (groups.Count > 0)
+
+            
+            
+            if (reportCardsList.Count > 0)
             {
                 RefreshButton();
-                
             }
         }
 
         private void RefreshButton() 
         {
             SPGroup.Children.Clear();
-            for (int i = 1; i <= groups.Count; i++)
+            for (int i = 1; i <= reportCardsList.Count; i++)
             {
                 RadioButton radioBtn = new RadioButton();
-                radioBtn.Content = groups[i - 1].Name;
+                radioBtn.Content = reportCardsList[i - 1].GroupName.Name;
                 if (i == 1) radioBtn.IsChecked = true;
                 SPGroup.Children.Add(radioBtn);
             }
         }
 
+    }
+
+    public class ReportCardGroup
+    {
+        public ReportCardGroup(ReportCard reportCard)
+        {
+
+        }
+
+        public List<ReportCard> ReportCardList { get; set; }
+        public Group GroupName { get; set; }
+
+        
     }
 }

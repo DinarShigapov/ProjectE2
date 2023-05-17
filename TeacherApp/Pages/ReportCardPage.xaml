@@ -6,37 +6,52 @@
       xmlns:local="clr-namespace:TeacherApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Журнал">
+      Title="Журнал"
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
 
     <Grid Background="#FFEFF1F8">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="187*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Margin="13 0 0 -10"
-                    x:Name="SPGroup"
-                    Panel.ZIndex="1">
-            <StackPanel.Style>
-                <Style TargetType="StackPanel">
-                    <Style.Resources>
-                        <Style TargetType="RadioButton" BasedOn="{StaticResource GroupSelectButton}"/>
-                    </Style.Resources>
-                </Style>
-            </StackPanel.Style>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="CBDiscipline"
+                      Style="{DynamicResource ComboBoxStyleCorner}"
+                      Height="35"
+                      Width="300"
+                      BorderThickness="0"
+                      HorizontalAlignment="Left"
+                      Margin="10 0 0 0">
 
-
-            <RadioButton Content="326" 
-                         IsChecked="True"/>
-
-        </StackPanel>
+            </ComboBox>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="13 0 0 -10"
+                        x:Name="SPGroup"
+                        Grid.Column="1"
+                        Panel.ZIndex="1">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Resources>
+                            <Style TargetType="RadioButton" BasedOn="{StaticResource GroupSelectButton}"/>
+                        </Style.Resources>
+                    </Style>
+                </StackPanel.Style>
+                <RadioButton Content="321" IsChecked="True"/>
+                <RadioButton Content="321"/>
+                <RadioButton Content="321"/>
+            </StackPanel>
+        </Grid>
         <Border Background="White" 
                 CornerRadius="20"
                 Grid.Row="1"
                 Padding="10"
-                >
+                Panel.ZIndex="-1">
 
         </Border>
     </Grid>

@@ -4,17 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeacherApp" xmlns:Converter="clr-namespace:TeacherApp.Codes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="800" Width="1250"
+        MinHeight="780" MinWidth="1200"
         WindowStyle="None"
-        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
         Background="Transparent">
 
 
-    <Border Background="#EFF1F8">
+
+    <Border x:Name="MainBorder" 
+            CornerRadius="0" 
+            Background="#EFF1F8"
+            BorderThickness="2">
+        <Border.BorderBrush>
+            <SolidColorBrush Color="#6D61F5" Opacity="0.3"/>
+        </Border.BorderBrush>
         <Grid>
             <Border CornerRadius="0 0 20 20"
                     BorderThickness="0"
@@ -22,7 +31,9 @@
                     VerticalAlignment="Top"
                     Width="650"
                     Height="15"
-                    MouseDown="Border_MouseDown">
+                  
+                    MouseDown="Border_MouseDown"
+                    Panel.ZIndex="1">
                 <Border.Background>
                     <SolidColorBrush Color="Black" 
                                      Opacity="0.06"/>
@@ -56,6 +67,36 @@
             <Frame x:Name="MainFrame" 
                    NavigationUIVisibility="Hidden"
                    Panel.ZIndex="-1"/>
+            <materialDesign:DialogHost x:Name="DialogHostModal" BorderBrush="White" >
+                <materialDesign:DialogHost.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.MergedDictionaries>
+                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Purple.xaml" />
+                        </ResourceDictionary.MergedDictionaries>
+                    </ResourceDictionary>
+                </materialDesign:DialogHost.Resources>
+                <materialDesign:DialogHost.DialogContent>
+                    <Grid x:Name="gridDialogHost" HorizontalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Button Style="{StaticResource CloseButtonStyle}"
+                                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
+                                Width="15"
+                                Height="15"
+                                Margin="-15 15 15 -15"/>
+                        <Frame x:Name="PopUpFrame" 
+                               Grid.Row="1" 
+                               NavigationUIVisibility="Hidden"
+                               Margin="25"/>
+                    </Grid>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
         </Grid>
     </Border>
 </Window>

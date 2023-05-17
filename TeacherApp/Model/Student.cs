@@ -14,6 +14,12 @@ namespace TeacherApp.Model
     
     public partial class Student
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Student()
+        {
+            this.Assessment = new HashSet<Assessment>();
+        }
+    
         public int Id { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -28,6 +34,8 @@ namespace TeacherApp.Model
         public System.DateTime LastLogin { get; set; }
         public byte[] MainImage { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Assessment> Assessment { get; set; }
         public virtual Gender Gender { get; set; }
         public virtual Group Group { get; set; }
     }

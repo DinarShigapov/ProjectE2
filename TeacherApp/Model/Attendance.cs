@@ -12,17 +12,12 @@ namespace TeacherApp.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Assessment
+    public partial class Attendance
     {
         public int Id { get; set; }
-        public int LessonId { get; set; }
         public int StudentId { get; set; }
-        public int RaitingSystemId { get; set; }
-        public int TeacherId { get; set; }
+        public int LessonId { get; set; }
     
-        public virtual Employee Employee { get; set; }
         public virtual Lesson Lesson { get; set; }
-        public virtual RaitingSystem RaitingSystem { get; set; }
-        public virtual Student Student { get; set; }
     }
 }
