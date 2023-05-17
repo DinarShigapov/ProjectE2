@@ -24,6 +24,8 @@
                       Style="{StaticResource ComboBoxStyleCorner}"
                       Width="{Binding ActualWidth, ElementName=grid, Mode=OneWay}"
                       HorizontalAlignment="Left"
+                      MaxWidth="340"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
                       SelectionChanged="CBDisciplines_SelectionChanged"/>
         </StackPanel>
         <StackPanel x:Name="SPTeacherAud" Grid.Row="1"
