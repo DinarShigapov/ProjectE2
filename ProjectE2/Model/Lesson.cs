@@ -12,31 +12,26 @@ namespace ProjectE2.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Lesson
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
+        public Lesson()
         {
             this.Assessment = new HashSet<Assessment>();
+            this.Attendance = new HashSet<Attendance>();
         }
     
         public int Id { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string Patronymic { get; set; }
-        public int GenderId { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string ResidentialAddress { get; set; }
-        public int GroupId { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public System.DateTime LastLogin { get; set; }
-        public byte[] MainImage { get; set; }
+        public string LessonTopic { get; set; }
+        public System.DateTime DateOfTheLesson { get; set; }
+        public bool IsConducted { get; set; }
+        public int ReportCardId { get; set; }
+        public Nullable<System.DateTime> ReplacementDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Assessment> Assessment { get; set; }
-        public virtual Gender Gender { get; set; }
-        public virtual Group Group { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Attendance> Attendance { get; set; }
+        public virtual ReportCard ReportCard { get; set; }
     }
 }

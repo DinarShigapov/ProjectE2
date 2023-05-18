@@ -17,6 +17,7 @@ namespace ProjectE2.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
+            this.Assessment = new HashSet<Assessment>();
             this.DisciplineTeacher = new HashSet<DisciplineTeacher>();
             this.EmployeePost = new HashSet<EmployeePost>();
             this.ReportCardTeacher = new HashSet<ReportCardTeacher>();
@@ -35,6 +36,8 @@ namespace ProjectE2.Model
         public System.DateTime LastLogin { get; set; }
         public byte[] MainImage { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Assessment> Assessment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DisciplineTeacher> DisciplineTeacher { get; set; }
         public virtual Gender Gender { get; set; }

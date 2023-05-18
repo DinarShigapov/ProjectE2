@@ -12,17 +12,18 @@ namespace ProjectE2.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Assessment
+    public partial class RaitingSystem
     {
-        public int Id { get; set; }
-        public int LessonId { get; set; }
-        public int StudentId { get; set; }
-        public int RaitingSystemId { get; set; }
-        public int TeacherId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RaitingSystem()
+        {
+            this.Assessment = new HashSet<Assessment>();
+        }
     
-        public virtual Employee Employee { get; set; }
-        public virtual Lesson Lesson { get; set; }
-        public virtual RaitingSystem RaitingSystem { get; set; }
-        public virtual Student Student { get; set; }
+        public int Id { get; set; }
+        public int RaitingName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Assessment> Assessment { get; set; }
     }
 }

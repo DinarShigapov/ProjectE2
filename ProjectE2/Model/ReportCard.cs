@@ -17,7 +17,7 @@ namespace ProjectE2.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ReportCard()
         {
-            this.Assessment = new HashSet<Assessment>();
+            this.Lesson = new HashSet<Lesson>();
             this.ReportCardTeacher = new HashSet<ReportCardTeacher>();
         }
     
@@ -28,10 +28,10 @@ namespace ProjectE2.Model
         public int DisciplineId { get; set; }
         public bool IsActive { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Assessment> Assessment { get; set; }
         public virtual Discipline Discipline { get; set; }
         public virtual Group Group { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Lesson> Lesson { get; set; }
         public virtual Semester Semester { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReportCardTeacher> ReportCardTeacher { get; set; }
