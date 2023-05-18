@@ -470,9 +470,9 @@
 
             <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#e3e9ef" />
             <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#fff" />
-            <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="#888" />
+            <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="White" />
             <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="#eee" />
-            <SolidColorBrush x:Key="ComboBoxDisabledBorderBrush" Color="#888" />
+            <SolidColorBrush x:Key="ComboBoxDisabledBorderBrush" Color="White" />
             <ControlTemplate TargetType="ToggleButton" x:Key="ComboBoxToggleButtonTemplate">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -612,7 +612,7 @@
                 <GradientStop Color="#FFE5E5E5" Offset="1.0"/>
             </LinearGradientBrush>
             <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
-            <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
+            <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="White"/>
             <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="#FFFFFFFF"/>
             <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
             <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="White"/>
@@ -623,7 +623,7 @@
             </LinearGradientBrush>
             <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FF8B7EEA"/>
             <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FF000000"/>
-            <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="White"/>
             <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="#FF8B7EEA"/>
             <LinearGradientBrush x:Key="ComboBox.MouseOver.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
                 <GradientStop Color="White" Offset="0.0"/>
@@ -663,7 +663,7 @@
                                     <SolidColorBrush Color="White" Opacity="1"/>
                                 </Border.Background>
                                 <Border x:Name="splitBorder" BorderBrush="Transparent" BorderThickness="1" HorizontalAlignment="Right" Margin="0" SnapsToDevicePixels="true" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
-                                    <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z" Fill="{StaticResource ComboBox.Static.Glyph}" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+                                    <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z" Fill="Gray" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
                                 </Border>
                             </Border>
                             <ControlTemplate.Triggers>

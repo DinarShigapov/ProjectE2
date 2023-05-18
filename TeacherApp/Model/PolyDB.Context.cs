@@ -13,10 +13,10 @@ namespace TeacherApp.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EducationDataBaseEntities5 : DbContext
+    public partial class PolyDBEntities : DbContext
     {
-        public EducationDataBaseEntities5()
-            : base("name=EducationDataBaseEntities5")
+        public PolyDBEntities()
+            : base("name=PolyDBEntities")
         {
         }
     
@@ -26,6 +26,7 @@ namespace TeacherApp.Model
         }
     
         public virtual DbSet<Assessment> Assessment { get; set; }
+        public virtual DbSet<Attendance> Attendance { get; set; }
         public virtual DbSet<Auditorium> Auditorium { get; set; }
         public virtual DbSet<ClassTime> ClassTime { get; set; }
         public virtual DbSet<Curriculum> Curriculum { get; set; }
@@ -37,8 +38,10 @@ namespace TeacherApp.Model
         public virtual DbSet<FormOfTraining> FormOfTraining { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Group> Group { get; set; }
+        public virtual DbSet<Lesson> Lesson { get; set; }
         public virtual DbSet<Post> Post { get; set; }
         public virtual DbSet<Qualification> Qualification { get; set; }
+        public virtual DbSet<RaitingSystem> RaitingSystem { get; set; }
         public virtual DbSet<ReportCard> ReportCard { get; set; }
         public virtual DbSet<ReportCardTeacher> ReportCardTeacher { get; set; }
         public virtual DbSet<Schedule> Schedule { get; set; }
