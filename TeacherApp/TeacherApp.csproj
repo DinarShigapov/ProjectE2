@@ -168,96 +168,100 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resources\Picture\Warning.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Attendance.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EduModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EduModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Lesson.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\PartialClass\Student.cs" />
-    <Compile Include="Model\PolyDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\PolyDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\PolyDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model\Post.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RaitingSystem.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
@@ -288,12 +292,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\PolyDB.edmx">
+    <EntityDeploy Include="Model\EduModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PolyDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>EduModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\PolyDB.edmx.diagram">
-      <DependentUpon>PolyDB.edmx</DependentUpon>
+    <None Include="Model\EduModel.edmx.diagram">
+      <DependentUpon>EduModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -321,15 +325,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\PolyDB.Context.tt">
+    <Content Include="Model\EduModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-      <LastGenOutput>PolyDB.Context.cs</LastGenOutput>
+      <DependentUpon>EduModel.edmx</DependentUpon>
+      <LastGenOutput>EduModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\PolyDB.tt">
+    <Content Include="Model\EduModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-      <LastGenOutput>PolyDB.cs</LastGenOutput>
+      <DependentUpon>EduModel.edmx</DependentUpon>
+      <LastGenOutput>EduModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,6 +23,7 @@
                 <ResourceDictionary Source="Resources/IconUI/Man.xaml"/>
                 <ResourceDictionary Source="Resources/Background/DeveloperImg.xaml"/>
                 <ResourceDictionary Source="Resources/Background/BG5.xaml"/>
+                <ResourceDictionary Source="Resources/Picture/Warning.xaml"/>
                 <!---->
 
             </ResourceDictionary.MergedDictionaries>

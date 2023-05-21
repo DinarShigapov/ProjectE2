@@ -26,7 +26,9 @@ namespace TeacherApp.Pages
     {
 
         private List<ReportCardDiscipline> _reportCardsList = new List<ReportCardDiscipline>();
-
+        private ReportCard _selectedReportCard;
+        private Lesson _currentLesson;
+         
 
         public ReportCardPage()
         {
@@ -42,9 +44,8 @@ namespace TeacherApp.Pages
 
                 _reportCardsList.Add(new ReportCardDiscipline(item, reportCards));
             }
-            CBGrade.ItemsSource = App.DB.RaitingSystem.ToList();
-            DGGrade.ItemsSource = App.DB.Student.ToList();
             CBDiscipline.ItemsSource = disciplinesTeachers.ToList();
+            CBDiscipline.SelectedIndex = 0;
             RefreshButton(0);
         }
 
@@ -58,13 +59,7 @@ namespace TeacherApp.Pages
                 RadioButton radioBtn = new RadioButton();
                 radioBtn.DataContext = reportCardBuffer[i - 1];
                 radioBtn.Content = reportCardBuffer[i - 1].Group.Name;
-                radioBtn.Click += RBGroupSelect_Click;
-                if (i == 1)
-                {
-                    radioBtn.IsChecked = true;
-                    RefreshGroupSelect(reportCardBuffer[i - 1]);
-                }
-                    
+                radioBtn.Click += RBGroupSelect_Click;  
                 SPGroup.Children.Add(radioBtn);
             }
         }
@@ -74,17 +69,18 @@ namespace TeacherApp.Pages
             var disciplines = CBDiscipline.SelectedItem as Discipline;
             var index = _reportCardsList.FindIndex(x => x.DisciplineName == disciplines);
             RefreshButton(index);
+            GridVisible.Visibility = Visibility.Collapsed;
         }
 
         private void RefreshGroupSelect(ReportCard reportCard)
         {
+
             var dayOfTheWeek = App.DB.Schedule.Where(
                 x => x.GroupId == reportCard.GroupId &&
                 x.DisciplineId == reportCard.DisciplineId &&
                 x.Subgroup.Any(z => z.TeacherId == App.LoggedTeacher.Id)).ToList();
 
             List<DayOfWeek> days = new List<DayOfWeek>();
-
             foreach (var day in dayOfTheWeek)
             {
                 DayOfWeek dayBuffer = new DayOfWeek();
@@ -112,15 +108,28 @@ namespace TeacherApp.Pages
                 days.Add(dayBuffer);
             }
 
+            int MonthNow = DateTime.Now.Month;
+            int YearNow = DateTime.Now.Year;
 
-
-            CBDateLesson.ItemsSource = DaySchedule(days, new DateTime(2022, 09, 1), new DateTime(2022, 09, DateTime.DaysInMonth(2022, 9)));
+            CBDateLesson.ItemsSource = DaySchedule(
+                days, 
+                new DateTime(YearNow, MonthNow, 1), 
+                new DateTime(YearNow, MonthNow, 
+                DateTime.DaysInMonth(YearNow, MonthNow)));
         }
+
+        void OnChecked(object sender, RoutedEventArgs e)
+        {
+        }
+
 
         private void RBGroupSelect_Click(object sender, RoutedEventArgs e)
         {
             var reportCard = (sender as RadioButton).DataContext as ReportCard;
             RefreshGroupSelect(reportCard);
+            _selectedReportCard = reportCard;
+            _currentLesson = null;
+            GridVisible.Visibility = Visibility.Visible;
         }
 
 
@@ -145,7 +154,24 @@ namespace TeacherApp.Pages
             return daysForSchedule;
         }
 
+        private void BAccept_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void CBDateLesson_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Lesson lesson = new Lesson();
+            lesson.ReportCard = _selectedReportCard;
+            lesson.DateOfTheLesson = (dynamic)CBDateLesson.SelectedItem;
+            DGGrade.ItemsSource = lesson.ReportCard.Group.Student.ToList();
+            _currentLesson = lesson;
+        }
+
+        private void DGGrade_AddingNewItem(object sender, AddingNewItemEventArgs e)
+        {
+
+        }
     }
 
     public class ReportCardDiscipline
@@ -158,7 +184,5 @@ namespace TeacherApp.Pages
 
         public List<ReportCard> ReportCardList { get; set; }
         public Discipline DisciplineName { get; set; }
-
-        
     }
 }

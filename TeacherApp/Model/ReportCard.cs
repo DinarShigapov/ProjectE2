@@ -20,11 +20,7 @@ namespace TeacherApp.Model
             this.Lesson = new HashSet<Lesson>();
             this.ReportCardTeacher = new HashSet<ReportCardTeacher>();
         }
-
-        public ReportCard(Discipline item, List<ReportCard> reportCards)
-        {
-        }
-
+    
         public int Id { get; set; }
         public int GroupId { get; set; }
         public System.DateTime DateOfCreation { get; set; }

@@ -9,6 +9,20 @@
       Title="Журнал"
         xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
 
+    <Page.Resources>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
     <Grid Background="#FFEFF1F8">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -23,8 +37,8 @@
                       Style="{DynamicResource ComboBoxStyleCorner}"
                       Height="35"
                       DisplayMemberPath="Name"
-                      Width="300"
-                      MaxWidth="300"
+                      Width="350"
+                      MaxWidth="350"
                       Padding="10 5 0 0"
                       BorderThickness="0.1"
                       HorizontalAlignment="Left"
@@ -55,64 +69,83 @@
                 Padding="30"
                 Panel.ZIndex="-1">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <StackPanel>
-                        <TextBlock Text="Занятия"
+                <Grid x:Name="GridVisible" 
+                      Visibility="Visible"
+                      Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Занятия"
                                    Style="{StaticResource HeaderText}"/>
-                        <ComboBox x:Name="CBDateLesson"
-                                  Width="200"
-                                  Style="{StaticResource ComboBoxStyleCorner}"
-                                  ItemStringFormat="{}{0:dd/MM/yyyy}"
-                                  HorizontalContentAlignment="Center"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="2">
-                        <TextBlock Text="Тема"
+                            <ComboBox x:Name="CBDateLesson"
+                                      Width="200"
+                                      SelectionChanged="CBDateLesson_SelectionChanged"  
+                                      Style="{StaticResource ComboBoxStyleCorner}"
+                                      ItemStringFormat="{}{0:dd/MM/yyyy}"
+                                      HorizontalContentAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2">
+                            <TextBlock Text="Тема"
                                    Style="{StaticResource HeaderText}"/>
-                        <TextBox Width="200"
+                            <TextBox Width="200"
                                  BorderThickness="0 0 0 1"
                                  TextWrapping="Wrap"
                                  MaxLength="100"
                                  FontFamily="Resources/Fonts/#Jost"/>
-                    </StackPanel>
-                    <Button x:Name="BAccept" 
-                            Style="{StaticResource ButtonStyle}"
-                            Content="Урок прошёл"
-                            Height="27"
-                            Width="120"
-                            FontSize="14"
-                            Grid.Row="5"
-                            VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                        <Button x:Name="BAccept" 
+                                Style="{StaticResource ButtonStyle}"
+                                Content="Урок прошёл"
+                                Height="27"
+                                Width="120"
+                                FontSize="14"
+                                Grid.Row="5"
+                                VerticalAlignment="Bottom"
+                                Click="BAccept_Click"/>
 
+                    </Grid>
+                    <DataGrid x:Name="DGGrade" 
+                              Grid.Column="2"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserResizeColumns="False"
+                              CanUserResizeRows="False"
+                              FontSize="15"
+                              
+                              VerticalContentAlignment="Center" AddingNewItem="DGGrade_AddingNewItem">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Студенты" 
+                                                Binding="{Binding FullName}"
+                                                Width="*"
+                                                IsReadOnly="True"/>
+                            <DataGridCheckBoxColumn Header="Не был">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style>
+                                        <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
+                                        <EventSetter Event="CheckBox.Unchecked" Handler="OnChecked"/>
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                                                   
+                            <DataGridComboBoxColumn x:Name="CBGrade" 
+                                                    Header="Оценка"
+                                                    DisplayMemberPath="RaitingName"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
-                <DataGrid x:Name="DGGrade" 
-                          Grid.Column="2"
-                          AutoGenerateColumns="False"
-                          CanUserAddRows="False"
-                          FontSize="15"
-                          VerticalContentAlignment="Center">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Студенты" 
-                                            Binding="{Binding FullName}" 
-                                            Width="*"
-                                            IsReadOnly="True"/>
-                        <DataGridCheckBoxColumn Header="Не был"/>
-                        <DataGridComboBoxColumn x:Name="CBGrade" 
-                                                Header="Оценка" 
-                                                DisplayMemberPath="RaitingName"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <Image Source="{StaticResource WarningSVGDrawingImage}" Panel.ZIndex="-1"
+                       Opacity="0.7"/>
             </Grid>
         </Border>
     </Grid>

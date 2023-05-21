@@ -109,6 +109,7 @@ namespace EducationalPartApp.Pages
                     }
                 }
             }
+
             _scheduleSave.Subgroup = _subgroupList.ToList();
             foreach (PropertyInfo property in typeof(Schedule).GetProperties().Where(p => p.CanWrite))
             {
@@ -165,12 +166,6 @@ namespace EducationalPartApp.Pages
             if (_subgroupList.FirstOrDefault(x => x.Employee == selectTeacher) != null)
             {
                 MessageBox.Show("Данный преподаватель есть в списке", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (_subgroupList.FirstOrDefault(x => x.Auditorium == selectAuditorium) != null)
-            {
-                MessageBox.Show("Данный кабинет занят", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\TEMP.MCK-KTITS.000\Source\Repos\DinarShigapov\ProjectE2\EducationalPartApp\Model\EduModel1312.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\dinar\Source\Repos\DinarShigapov\ProjectE2\TeacherApp\Model\EduModel.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EducationalPartApp.Model
+namespace TeacherApp.Model
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EducationDBEntities1312 : DbContext
+    public partial class EducationDataBaseEntities : DbContext
     {
-        public EducationDBEntities1312()
-            : base("name=EducationDBEntities1312")
+        public EducationDataBaseEntities()
+            : base("name=EducationDataBaseEntities")
         {
         }
     

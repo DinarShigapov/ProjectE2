@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище EducationDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище EducationDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Assessment">
           <Key>
             <PropertyRef Name="Id" />
@@ -627,7 +627,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище EducationDBModelContainer">
+        <EntityContainer Name="Хранилище EducationDataBaseModelContainer">
           <EntitySet Name="Assessment" EntityType="Self.Assessment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Auditorium" EntityType="Self.Auditorium" Schema="dbo" store:Type="Tables" />
@@ -789,7 +789,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EducationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EducationDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Assessment">
           <Key>
             <PropertyRef Name="Id" />
@@ -1478,7 +1478,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EducationDBEntities1312" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EducationDataBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Assessment" EntityType="Self.Assessment" />
           <EntitySet Name="Attendance" EntityType="Self.Attendance" />
           <EntitySet Name="Auditorium" EntityType="Self.Auditorium" />
@@ -1641,9 +1641,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище EducationDBModelContainer" CdmEntityContainer="EducationDBEntities1312">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EducationDataBaseModelContainer" CdmEntityContainer="EducationDataBaseEntities">
           <EntitySetMapping Name="Assessment">
-            <EntityTypeMapping TypeName="EducationDBModel.Assessment">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Assessment">
               <MappingFragment StoreEntitySet="Assessment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LessonId" ColumnName="LessonId" />
@@ -1654,7 +1654,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Attendance">
-            <EntityTypeMapping TypeName="EducationDBModel.Attendance">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Attendance">
               <MappingFragment StoreEntitySet="Attendance">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
@@ -1663,7 +1663,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Auditorium">
-            <EntityTypeMapping TypeName="EducationDBModel.Auditorium">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Auditorium">
               <MappingFragment StoreEntitySet="Auditorium">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1671,7 +1671,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClassTime">
-            <EntityTypeMapping TypeName="EducationDBModel.ClassTime">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.ClassTime">
               <MappingFragment StoreEntitySet="ClassTime">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ClassNumber" ColumnName="ClassNumber" />
@@ -1681,7 +1681,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Curriculum">
-            <EntityTypeMapping TypeName="EducationDBModel.Curriculum">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Curriculum">
               <MappingFragment StoreEntitySet="Curriculum">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
@@ -1693,7 +1693,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DayOfTheWeek">
-            <EntityTypeMapping TypeName="EducationDBModel.DayOfTheWeek">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.DayOfTheWeek">
               <MappingFragment StoreEntitySet="DayOfTheWeek">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1701,7 +1701,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Discipline">
-            <EntityTypeMapping TypeName="EducationDBModel.Discipline">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Discipline">
               <MappingFragment StoreEntitySet="Discipline">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1710,7 +1710,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DisciplineTeacher">
-            <EntityTypeMapping TypeName="EducationDBModel.DisciplineTeacher">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.DisciplineTeacher">
               <MappingFragment StoreEntitySet="DisciplineTeacher">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
@@ -1719,7 +1719,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="EducationDBModel.Employee">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1736,7 +1736,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeePost">
-            <EntityTypeMapping TypeName="EducationDBModel.EmployeePost">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.EmployeePost">
               <MappingFragment StoreEntitySet="EmployeePost">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PostId" ColumnName="PostId" />
@@ -1745,7 +1745,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FormOfTraining">
-            <EntityTypeMapping TypeName="EducationDBModel.FormOfTraining">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.FormOfTraining">
               <MappingFragment StoreEntitySet="FormOfTraining">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1753,7 +1753,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gender">
-            <EntityTypeMapping TypeName="EducationDBModel.Gender">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Gender">
               <MappingFragment StoreEntitySet="Gender">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="GenderName" ColumnName="GenderName" />
@@ -1761,7 +1761,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Group">
-            <EntityTypeMapping TypeName="EducationDBModel.Group">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Group">
               <MappingFragment StoreEntitySet="Group">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1774,7 +1774,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lesson">
-            <EntityTypeMapping TypeName="EducationDBModel.Lesson">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Lesson">
               <MappingFragment StoreEntitySet="Lesson">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LessonTopic" ColumnName="LessonTopic" />
@@ -1786,7 +1786,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Post">
-            <EntityTypeMapping TypeName="EducationDBModel.Post">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Post">
               <MappingFragment StoreEntitySet="Post">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1794,7 +1794,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Qualification">
-            <EntityTypeMapping TypeName="EducationDBModel.Qualification">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Qualification">
               <MappingFragment StoreEntitySet="Qualification">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
@@ -1804,7 +1804,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RaitingSystem">
-            <EntityTypeMapping TypeName="EducationDBModel.RaitingSystem">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.RaitingSystem">
               <MappingFragment StoreEntitySet="RaitingSystem">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RaitingName" ColumnName="RaitingName" />
@@ -1812,7 +1812,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReportCard">
-            <EntityTypeMapping TypeName="EducationDBModel.ReportCard">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.ReportCard">
               <MappingFragment StoreEntitySet="ReportCard">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="GroupId" ColumnName="GroupId" />
@@ -1824,7 +1824,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReportCardTeacher">
-            <EntityTypeMapping TypeName="EducationDBModel.ReportCardTeacher">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.ReportCardTeacher">
               <MappingFragment StoreEntitySet="ReportCardTeacher">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
@@ -1833,7 +1833,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Schedule">
-            <EntityTypeMapping TypeName="EducationDBModel.Schedule">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Schedule">
               <MappingFragment StoreEntitySet="Schedule">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="GroupId" ColumnName="GroupId" />
@@ -1846,7 +1846,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Semester">
-            <EntityTypeMapping TypeName="EducationDBModel.Semester">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Semester">
               <MappingFragment StoreEntitySet="Semester">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Course" ColumnName="Course" />
@@ -1855,7 +1855,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Specialization">
-            <EntityTypeMapping TypeName="EducationDBModel.Specialization">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
@@ -1864,7 +1864,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Student">
-            <EntityTypeMapping TypeName="EducationDBModel.Student">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Student">
               <MappingFragment StoreEntitySet="Student">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1883,7 +1883,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subgroup">
-            <EntityTypeMapping TypeName="EducationDBModel.Subgroup">
+            <EntityTypeMapping TypeName="EducationDataBaseModel.Subgroup">
               <MappingFragment StoreEntitySet="Subgroup">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
