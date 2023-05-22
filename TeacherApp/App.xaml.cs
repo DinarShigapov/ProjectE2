@@ -14,7 +14,7 @@ namespace TeacherApp
     /// </summary>
     public partial class App : Application
     {
-        public static EducationDataBaseEntities DB = new EducationDataBaseEntities();
+        public static EducationDBEntities DB = new EducationDBEntities();
         public static Employee LoggedTeacher;
     }
 }

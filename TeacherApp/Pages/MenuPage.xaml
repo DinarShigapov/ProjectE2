@@ -86,6 +86,10 @@
                 <RadioButton x:Name="BProfile" 
                              Content="Профиль"
                              Click="BProfile_Click"/>
+                <Rectangle Height="5" Fill="Transparent"/>
+                <RadioButton x:Name="BCallSchedule" 
+                             Content="Звонки"
+                             Click="BCallSchedule_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

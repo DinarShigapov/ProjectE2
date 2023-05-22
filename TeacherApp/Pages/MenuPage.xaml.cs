@@ -65,5 +65,10 @@ namespace TeacherApp.Pages
         {
             RefreshPage(new ReportCardPage());
         }
+
+        private void BCallSchedule_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new CallSchedulePage());
+        }
     }
 }

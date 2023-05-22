@@ -94,15 +94,18 @@
                                       Style="{StaticResource ComboBoxStyleCorner}"
                                       ItemStringFormat="{}{0:dd/MM/yyyy}"
                                       HorizontalContentAlignment="Center"/>
+
                         </StackPanel>
                         <StackPanel Grid.Row="2">
                             <TextBlock Text="Тема"
                                    Style="{StaticResource HeaderText}"/>
-                            <TextBox Width="200"
-                                 BorderThickness="0 0 0 1"
-                                 TextWrapping="Wrap"
-                                 MaxLength="100"
-                                 FontFamily="Resources/Fonts/#Jost"/>
+                            <TextBox x:Name="TBLessonTopic" 
+                                     Width="200"
+                                     Text="{Binding LessonTopic}"
+                                     BorderThickness="0 0 0 1"
+                                     TextWrapping="Wrap"
+                                     MaxLength="100"
+                                     FontFamily="Resources/Fonts/#Jost"/>
                         </StackPanel>
                         <Button x:Name="BAccept" 
                                 Style="{StaticResource ButtonStyle}"
@@ -119,7 +122,6 @@
                               Grid.Column="2"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False"
-                              CanUserResizeColumns="False"
                               CanUserResizeRows="False"
                               FontSize="15"
                               
