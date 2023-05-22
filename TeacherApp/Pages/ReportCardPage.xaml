@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:TeacherApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Журнал"
-        xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+      xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+      Title="Журнал">
 
     <Page.Resources>
         <Style TargetType="{x:Type DataGridCell}">
@@ -131,14 +131,17 @@
                                                 Binding="{Binding FullName}"
                                                 Width="*"
                                                 IsReadOnly="True"/>
-                            <DataGridCheckBoxColumn Header="Не был">
-                                <DataGridCheckBoxColumn.CellStyle>
-                                    <Style>
-                                        <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
-                                        <EventSetter Event="CheckBox.Unchecked" Handler="OnChecked"/>
-                                    </Style>
-                                </DataGridCheckBoxColumn.CellStyle>
-                            </DataGridCheckBoxColumn>
+                            <DataGridTemplateColumn Header="Не был">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsStudent, Mode=OneWay}" 
+                                                  Checked="OnChecked" 
+                                                  Unchecked="OnChecked"
+                                                  VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                                                    
                             <DataGridComboBoxColumn x:Name="CBGrade" 
                                                     Header="Оценка"

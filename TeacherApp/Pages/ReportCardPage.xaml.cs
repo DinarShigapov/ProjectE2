@@ -122,6 +122,7 @@ namespace TeacherApp.Pages
 
         void OnChecked(object sender, RoutedEventArgs e)
         {
+            
         }
 
 
@@ -156,20 +157,21 @@ namespace TeacherApp.Pages
             return daysForSchedule = daysForSchedule.GroupBy(x => x).Select(x => x.First()).ToList();
         }
 
+
         private void BAccept_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        
+
         private void CBDateLesson_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DateTime selectLessonDate = Convert.ToDateTime((dynamic)CBDateLesson.SelectedValue);
 
-
-
             if (selectLessonDate != null && selectLessonDate != default(DateTime))
             {
-
+                
                 if (selectLessonDate > DateTime.Now)
                 {
                     MessageBox.Show("Данный урок не был еще проведен");
@@ -178,27 +180,30 @@ namespace TeacherApp.Pages
                 }
                 else
                 {
-                    Lesson lesson = new Lesson();
-                    lesson.ReportCard = _selectedReportCard;
-                    lesson.DateOfTheLesson = selectLessonDate;
-                    DGGrade.ItemsSource = lesson.ReportCard.Group.Student.ToList();
-                    _currentLesson = lesson;
-                    TBLessonTopic.DataContext = lesson;
+
+                    foreach (var item in App.DB.Lesson.Where(x => x.ReportCard.Id == _selectedReportCard.Id && x.IsConducted == true))
+                    {
+                        if (item.DateOfTheLesson.Date == selectLessonDate.Date
+                            && item.IsConducted == true)
+                        {
+                            _currentLesson = item;
+                            TBLessonTopic.DataContext = _currentLesson;
+                            DGGrade.ItemsSource = _currentLesson.ReportCard.Group.Student.ToList();
+                            BAccept.Content = "Сохранить";
+                        }
+                        else
+                        {
+                            Lesson lesson = new Lesson();
+                            lesson.ReportCard = _selectedReportCard;
+                            lesson.DateOfTheLesson = selectLessonDate;
+                            _currentLesson = lesson;
+                            DGGrade.ItemsSource = lesson.ReportCard.Group.Student.ToList();
+                            TBLessonTopic.DataContext = lesson;
+                            BAccept.Content = "Провести";
+                        }
+                    }
                 }
 
-
-                foreach (var item in App.DB.Lesson.Where(x => x.ReportCard.Id == _selectedReportCard.Id && x.IsConducted == true))
-                {
-                    if (item.DateOfTheLesson.Date == selectLessonDate.Date 
-                        && item.IsConducted == true)
-                    {
-                        BAccept.Content = "Сохранить";
-                    }
-                    else
-                    {
-                        BAccept.Content = "Провести";
-                    }
-                }
             }
         }
 
