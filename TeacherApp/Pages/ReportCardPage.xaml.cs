@@ -26,8 +26,6 @@ namespace TeacherApp.Pages
     {
 
         private List<ReportCardDiscipline> _reportCardsList = new List<ReportCardDiscipline>();
-        private ReportCard _selectedReportCard;
-        private Lesson _currentLesson;
          
 
         public ReportCardPage()
@@ -68,164 +66,21 @@ namespace TeacherApp.Pages
 
         private void CBDiscipline_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            LessonFrame.Content = null;
             var disciplines = CBDiscipline.SelectedItem as Discipline;
             var index = _reportCardsList.FindIndex(x => x.DisciplineName == disciplines);
-            _selectedReportCard = null;
-            _currentLesson = null;
-            TBStudent.DataContext = null;
-            BorderContext.DataContext = null;
             RefreshButton(index);
-            GridVisible.Visibility = Visibility.Collapsed;
         }
 
-        private void RefreshGroupSelect(ReportCard reportCard)
-        {
 
-            var dayOfTheWeek = App.DB.Schedule.Where(
-                x => x.GroupId == reportCard.GroupId &&
-                x.DisciplineId == reportCard.DisciplineId &&
-                x.Subgroup.Any(z => z.TeacherId == App.LoggedTeacher.Id)).ToList();
-
-            List<DayOfWeek> days = new List<DayOfWeek>();
-            foreach (var day in dayOfTheWeek)
-            {
-                DayOfWeek dayBuffer = new DayOfWeek();
-                switch (day.DayOfTheWeek.Name.ToString())
-                {
-                    case "Понедельник":
-                        dayBuffer = DayOfWeek.Monday;
-                        break;
-                    case "Вторник":
-                        dayBuffer = DayOfWeek.Tuesday;
-                        break;
-                    case "Среда":
-                        dayBuffer = DayOfWeek.Wednesday;
-                        break;
-                    case "Четверг":
-                        dayBuffer = DayOfWeek.Thursday;
-                        break;
-                    case "Пятница":
-                        dayBuffer = DayOfWeek.Friday;
-                        break;
-                    case "Суббота":
-                        dayBuffer = DayOfWeek.Saturday;
-                        break;
-                }
-                days.Add(dayBuffer);
-            }
-
-            int MonthNow = DateTime.Now.Month;
-            int YearNow = DateTime.Now.Year;
-
-            CBDateLesson.ItemsSource = DaySchedule(
-                days,
-                new DateTime(YearNow, MonthNow, 1),
-                new DateTime(YearNow, MonthNow,
-                DateTime.DaysInMonth(YearNow, MonthNow)));
-        }
-
-        void OnChecked(object sender, RoutedEventArgs e)
-        {
-            
-        }
 
 
         private void RBGroupSelect_Click(object sender, RoutedEventArgs e)
         {
             var reportCard = (sender as RadioButton).DataContext as ReportCard;
-            RefreshGroupSelect(reportCard);
-            _selectedReportCard = reportCard;
-            _currentLesson = null;
-            GridVisible.Visibility = Visibility.Visible;
+            LessonFrame.Navigate(new ShowLessonPage(reportCard));
         }
 
-
-        private List<DateTime> DaySchedule(List<DayOfWeek> dayOfTheWeeks, DateTime startdDate, DateTime endDate)
-        {
-            List<DateTime> daysForSchedule = new List<DateTime>();
-
-            for (; startdDate < endDate;) {
-                foreach (var item in dayOfTheWeeks) {
-                    if (startdDate.DayOfWeek == item) {
-                        daysForSchedule.Add(startdDate);
-                    }
-                }
-
-                if (DateTime.DaysInMonth(startdDate.Year, startdDate.Month) < startdDate.Day + 1) {
-                    startdDate = new DateTime(startdDate.Year, startdDate.Month + 1, 1);
-                }
-                else {
-                    startdDate = new DateTime(startdDate.Year, startdDate.Month, startdDate.Day + 1);
-                }
-            }
-            return daysForSchedule = daysForSchedule.GroupBy(x => x).Select(x => x.First()).ToList();
-        }
-
-
-        private void BAccept_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        
-
-        private void CBDateLesson_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            DateTime selectLessonDate = Convert.ToDateTime((dynamic)CBDateLesson.SelectedValue);
-
-            if (selectLessonDate != null && selectLessonDate != default)
-            {
-                
-                if (selectLessonDate > DateTime.Now)
-                {
-                    MessageBox.Show("Данный урок не был еще проведен");
-                    CBDateLesson.SelectedIndex = -1;
-                    return;
-                }
-                else
-                {
-                    var checkedLesson = App.DB.Lesson.Where(x => x.ReportCard.Id == _selectedReportCard.Id && x.IsConducted == true);
-                    Lesson lessonBuffer = new Lesson();
-                    foreach (var item in checkedLesson)
-                    {
-                        if (item.DateOfTheLesson.Date == selectLessonDate.Date
-                            && item.IsConducted == true)
-                        {
-                            lessonBuffer = item;
-                        }
-                    }
-
-                    if (lessonBuffer.DateOfTheLesson.Date != default)
-                    {
-                        _currentLesson = lessonBuffer;
-                        TBLessonTopic.DataContext = _currentLesson;
-                        LVStudent.ItemsSource = _currentLesson.ReportCard.Group.Student.ToList();
-                        BAccept.Content = "Сохранить";
-                    }
-                    else
-                    {
-                        Lesson lesson = new Lesson
-                        {
-                            ReportCard = _selectedReportCard,
-                            DateOfTheLesson = selectLessonDate
-                        };
-                        _currentLesson = lesson;
-                        LVStudent.ItemsSource = lesson.ReportCard.Group.Student.ToList();
-                        TBLessonTopic.DataContext = lesson;
-                        BAccept.Content = "Провести";
-                    }
-                }
-
-            }
-        }
-
-
-        private void LVStudent_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Student selectStudent = LVStudent.SelectedItem as Student;
-            if (selectStudent == null) return;
-            TBStudent.DataContext = selectStudent;
-        }
     }
 
     public class ReportCardDiscipline

@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ShowLessonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Background\BG5.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -310,6 +314,9 @@
     </Compile>
     <Compile Include="Pages\ReportCardPage.xaml.cs">
       <DependentUpon>ReportCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShowLessonPage.xaml.cs">
+      <DependentUpon>ShowLessonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
