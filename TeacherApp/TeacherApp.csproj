@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="Codes\BorderClipConverter.cs" />
     <Compile Include="Codes\Native.cs" />
+    <Compile Include="Converters\WidthConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -169,6 +170,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\Logo\LogoV1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Picture\Lvl1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Picture\Lvl2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Picture\Lvl3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

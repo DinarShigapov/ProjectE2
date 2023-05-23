@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TeacherApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+      xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" xmlns:Converters="clr-namespace:TeacherApp.Converters"
       Title="Журнал">
 
     <Page.Resources>
@@ -21,8 +21,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Converters:WidthConverter x:Key="widthConvert"/>
     </Page.Resources>
-    
+
     <Grid Background="#FFEFF1F8">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -63,7 +64,8 @@
                 </StackPanel.Style>
             </StackPanel>
         </Grid>
-        <Border Background="White" 
+        <Border x:Name="BorderContext" 
+                Background="White"
                 CornerRadius="20"
                 Grid.Row="1"
                 Padding="30"
@@ -80,34 +82,41 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="20"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <StackPanel>
-                            <TextBlock Text="Занятия"
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Занятия"
                                    Style="{StaticResource HeaderText}"/>
-                            <ComboBox x:Name="CBDateLesson"
-                                      Width="200"
-                                      SelectionChanged="CBDateLesson_SelectionChanged"  
-                                      Style="{StaticResource ComboBoxStyleCorner}"
-                                      ItemStringFormat="{}{0:dd/MM/yyyy}"
-                                      HorizontalContentAlignment="Center"/>
+                                <ComboBox x:Name="CBDateLesson"
+                                          Width="200"
+                                          HorizontalAlignment="Left"
+                                          SelectionChanged="CBDateLesson_SelectionChanged"  
+                                          Style="{StaticResource ComboBoxStyleCorner}"
+                                          ItemStringFormat="{}{0:dd/MM/yyyy}"
+                                          HorizontalContentAlignment="Center"/>
 
-                        </StackPanel>
-                        <StackPanel Grid.Row="2">
-                            <TextBlock Text="Тема"
+                            </StackPanel>
+                            <StackPanel Grid.Row="2">
+                                <TextBlock Text="Тема"
                                    Style="{StaticResource HeaderText}"/>
-                            <TextBox x:Name="TBLessonTopic" 
-                                     Width="200"
-                                     Text="{Binding LessonTopic}"
-                                     BorderThickness="0 0 0 1"
-                                     TextWrapping="Wrap"
-                                     MaxLength="100"
-                                     FontFamily="Resources/Fonts/#Jost"/>
-                        </StackPanel>
-                        <Button x:Name="BAccept" 
+                                <TextBox x:Name="TBLessonTopic" 
+                                         Width="200"
+                                         Text="{Binding LessonTopic}"
+                                         BorderThickness="0 0 0 1"
+                                         TextWrapping="Wrap"
+                                         MaxLength="100"
+                                         FontFamily="Resources/Fonts/#Jost"/>
+                            </StackPanel>
+                            <Button x:Name="BAccept" 
                                 Style="{StaticResource ButtonStyle}"
                                 Content="Урок прошёл"
                                 Height="27"
@@ -116,40 +125,121 @@
                                 Grid.Row="5"
                                 VerticalAlignment="Bottom"
                                 Click="BAccept_Click"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Студент"
+                                       Style="{StaticResource HeaderText}"/>
+                                <TextBlock x:Name="TBStudent"
+                                           Text="{Binding FullNameShort}" 
+                                           Style="{StaticResource DefualtText}"/>
+                                <Rectangle Width="Auto"
+                                           Height="1"
+                                           Fill="#FFABADB3">
+                                </Rectangle>
+                            </StackPanel>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal"
+                                            VerticalAlignment="Center">
+                                    <CheckBox VerticalAlignment="Center"/>
+                                    <TextBlock Text="Не был"
+                                               Style="{StaticResource DefualtText}"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1"
+                                            Orientation="Horizontal"
+                                            HorizontalAlignment="Right">
+                                    <TextBlock Text="Оценка"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource DefualtText}"/>
+                                    <ComboBox IsEditable="True"
+                                              BorderThickness="1 1 1 1"
+                                              Width="50"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
 
                     </Grid>
-                    <DataGrid x:Name="DGGrade" 
-                              Grid.Column="2"
-                              AutoGenerateColumns="False"
-                              CanUserAddRows="False"
-                              CanUserResizeRows="False"
-                              FontSize="15"
-                              
-                              VerticalContentAlignment="Center" AddingNewItem="DGGrade_AddingNewItem">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Студенты" 
-                                                Binding="{Binding FullName}"
-                                                Width="*"
-                                                IsReadOnly="True"/>
-                            <DataGridTemplateColumn Header="Не был">
-                                <DataGridTemplateColumn.CellTemplate>
+                    <Border Grid.Column="2"
+                            CornerRadius="10"
+                            Padding="10"
+                            BorderThickness="1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="#FF6D61F5" Opacity="0.6"/>
+                        </Border.BorderBrush>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Студенты"
+                                   Style="{StaticResource HeaderText}"/>
+
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox VerticalAlignment="Center"
+                                          Margin="0 0 5 0"/>
+                                    <TextBlock Text="Мало оценок"
+                                           Style="{StaticResource DefualtText}"
+                                           Opacity="0.6"
+                                           FontSize="14"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"
+                                        Grid.Column="1">
+                                    <CheckBox VerticalAlignment="Center"
+                                          Margin="0 0 5 0"/>
+                                    <TextBlock Text="Скрыть отсутствующих"
+                                           Style="{StaticResource DefualtText}"
+                                           Opacity="0.6"
+                                           FontSize="14"/>
+                                </StackPanel>
+                            </Grid>
+                            <ListView x:Name="LVStudent" 
+                                      Grid.Row="6"
+                                      Padding="-10 0 0 0"
+                                      BorderThickness="0"
+                                      d:ItemsSource="{d:SampleData ItemCount=5}"
+                                      Style="{StaticResource ListViewStyle}"
+                                      MouseUp="LVStudent_MouseDown">
+                                <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <CheckBox IsChecked="{Binding IsStudent, Mode=OneWay}" 
-                                                  Checked="OnChecked" 
-                                                  Unchecked="OnChecked"
-                                                  VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
+                                        <Border CornerRadius="15"
+                                                Height="40"
+                                                Style="{StaticResource BorderAnimate}"
+                                                Padding="50 0"
+                                                Width="{Binding Path=ActualWidth, ElementName=LVStudent, Converter={StaticResource widthConvert}, ConverterParameter=4}">
+                                            <Border.Background>
+                                                <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                                            </Border.Background>
+                                            <TextBlock Text="{Binding FullName}"
+                                                       Style="{StaticResource DefualtText}"
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
                                     </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                                                   
-                            <DataGridComboBoxColumn x:Name="CBGrade" 
-                                                    Header="Оценка"
-                                                    DisplayMemberPath="RaitingName"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Border>
                 </Grid>
-                <Image Source="{StaticResource WarningSVGDrawingImage}" Panel.ZIndex="-1"
+                <Image Source="{StaticResource WarningSVGDrawingImage}" 
+                       Panel.ZIndex="-1"
                        Opacity="0.7"/>
             </Grid>
         </Border>

@@ -25,15 +25,6 @@ namespace TeacherApp.Model
             }
         }
 
-        public bool IsStudent
-        {
-            get 
-            {
-                var ADASD = Group;
-                return true; 
-            }
-
-        }
 
     }
 }

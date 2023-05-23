@@ -31,6 +31,28 @@ namespace TeacherApp.Pages
                     item.EndClass >= timeNow)
                 {
                     LVCallSchedule.SelectedIndex = item.Id - 1;
+                    switch (item.Id)
+                    {
+                        case 1:
+                        case 2:
+                        case 3:
+                            ImageBg1.Visibility = Visibility.Visible;
+                            ImageBg2.Visibility = Visibility.Collapsed;
+                            ImageBg3.Visibility = Visibility.Collapsed;
+                            break;
+                        case 4:
+                        case 5:
+                            ImageBg1.Visibility = Visibility.Collapsed;
+                            ImageBg2.Visibility = Visibility.Visible;
+                            ImageBg3.Visibility = Visibility.Collapsed;
+                            break;
+                        case 6:
+                        case 7:
+                            ImageBg1.Visibility = Visibility.Collapsed;
+                            ImageBg2.Visibility = Visibility.Collapsed;
+                            ImageBg3.Visibility = Visibility.Visible;
+                            break;
+                    }
                 }
             }
         }

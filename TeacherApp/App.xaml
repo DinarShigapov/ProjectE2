@@ -24,6 +24,9 @@
                 <ResourceDictionary Source="Resources/Background/DeveloperImg.xaml"/>
                 <ResourceDictionary Source="Resources/Background/BG5.xaml"/>
                 <ResourceDictionary Source="Resources/Picture/Warning.xaml"/>
+                <ResourceDictionary Source="Resources/Picture/Lvl1.xaml"/>
+                <ResourceDictionary Source="Resources/Picture/Lvl2.xaml"/>
+                <ResourceDictionary Source="Resources/Picture/Lvl3.xaml"/>
                 <!---->
 
             </ResourceDictionary.MergedDictionaries>
@@ -393,7 +396,41 @@
 
             <!--***************-->
 
+            <Style TargetType="ListView" x:Key="ListViewStyle">
+                <Style.Resources>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border Name="border">
+                                        <ContentPresenter Name="content"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter TargetName="border" Property="Background" Value="white"/>
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Style.Resources>
+            </Style>
 
+            <Style TargetType="{x:Type Border}" x:Key="BorderAnimate">
+                <Setter Property="BorderThickness" Value="2"/>
+                <Style.Triggers>
+                    <Trigger Property="Border.IsMouseOver" Value="True">
+                        <Setter Property="Border.BorderBrush">
+                            <Setter.Value>
+                                <SolidColorBrush Color="Gray" Opacity="0.6"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+
+                </Style.Triggers>
+            </Style>
 
             <!--****TeacherApp*****-->
 

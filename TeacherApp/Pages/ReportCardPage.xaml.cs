@@ -68,6 +68,10 @@ namespace TeacherApp.Pages
         {
             var disciplines = CBDiscipline.SelectedItem as Discipline;
             var index = _reportCardsList.FindIndex(x => x.DisciplineName == disciplines);
+            _selectedReportCard = null;
+            _currentLesson = null;
+            TBStudent.DataContext = null;
+            BorderContext.DataContext = null;
             RefreshButton(index);
             GridVisible.Visibility = Visibility.Collapsed;
         }
@@ -116,8 +120,6 @@ namespace TeacherApp.Pages
                 new DateTime(YearNow, MonthNow, 1),
                 new DateTime(YearNow, MonthNow,
                 DateTime.DaysInMonth(YearNow, MonthNow)));
-            
-            
         }
 
         void OnChecked(object sender, RoutedEventArgs e)
@@ -180,36 +182,45 @@ namespace TeacherApp.Pages
                 }
                 else
                 {
-
-                    foreach (var item in App.DB.Lesson.Where(x => x.ReportCard.Id == _selectedReportCard.Id && x.IsConducted == true))
+                    var checkedLesson = App.DB.Lesson.Where(x => x.ReportCard.Id == _selectedReportCard.Id && x.IsConducted == true);
+                    Lesson lessonBuffer = new Lesson();
+                    foreach (var item in checkedLesson)
                     {
                         if (item.DateOfTheLesson.Date == selectLessonDate.Date
                             && item.IsConducted == true)
                         {
-                            _currentLesson = item;
-                            TBLessonTopic.DataContext = _currentLesson;
-                            DGGrade.ItemsSource = _currentLesson.ReportCard.Group.Student.ToList();
-                            BAccept.Content = "Сохранить";
+                            lessonBuffer = item;
                         }
-                        else
-                        {
-                            Lesson lesson = new Lesson();
-                            lesson.ReportCard = _selectedReportCard;
-                            lesson.DateOfTheLesson = selectLessonDate;
-                            _currentLesson = lesson;
-                            DGGrade.ItemsSource = lesson.ReportCard.Group.Student.ToList();
-                            TBLessonTopic.DataContext = lesson;
-                            BAccept.Content = "Провести";
-                        }
+                    }
+
+                    if (lessonBuffer.DateOfTheLesson.Date != default(DateTime))
+                    {
+                        _currentLesson = lessonBuffer;
+                        TBLessonTopic.DataContext = _currentLesson;
+                        LVStudent.ItemsSource = _currentLesson.ReportCard.Group.Student.ToList();
+                        BAccept.Content = "Сохранить";
+                    }
+                    else
+                    {
+                        Lesson lesson = new Lesson();
+                        lesson.ReportCard = _selectedReportCard;
+                        lesson.DateOfTheLesson = selectLessonDate;
+                        _currentLesson = lesson;
+                        LVStudent.ItemsSource = lesson.ReportCard.Group.Student.ToList();
+                        TBLessonTopic.DataContext = lesson;
+                        BAccept.Content = "Провести";
                     }
                 }
 
             }
         }
 
-        private void DGGrade_AddingNewItem(object sender, AddingNewItemEventArgs e)
-        {
 
+        private void LVStudent_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var selectStudent = LVStudent.SelectedItem as Student;
+            if (selectStudent == null) return;
+            TBStudent.DataContext = selectStudent;
         }
     }
 
