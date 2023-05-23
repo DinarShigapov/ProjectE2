@@ -56,9 +56,11 @@ namespace TeacherApp.Pages
             if (reportCardBuffer.Count < 0) return;
             for (int i = 1; i <= reportCardBuffer.Count; i++)
             {
-                RadioButton radioBtn = new RadioButton();
-                radioBtn.DataContext = reportCardBuffer[i - 1];
-                radioBtn.Content = reportCardBuffer[i - 1].Group.Name;
+                RadioButton radioBtn = new RadioButton
+                {
+                    DataContext = reportCardBuffer[i - 1],
+                    Content = reportCardBuffer[i - 1].Group.Name
+                };
                 radioBtn.Click += RBGroupSelect_Click;  
                 SPGroup.Children.Add(radioBtn);
             }
@@ -171,7 +173,7 @@ namespace TeacherApp.Pages
         {
             DateTime selectLessonDate = Convert.ToDateTime((dynamic)CBDateLesson.SelectedValue);
 
-            if (selectLessonDate != null && selectLessonDate != default(DateTime))
+            if (selectLessonDate != null && selectLessonDate != default)
             {
                 
                 if (selectLessonDate > DateTime.Now)
@@ -193,7 +195,7 @@ namespace TeacherApp.Pages
                         }
                     }
 
-                    if (lessonBuffer.DateOfTheLesson.Date != default(DateTime))
+                    if (lessonBuffer.DateOfTheLesson.Date != default)
                     {
                         _currentLesson = lessonBuffer;
                         TBLessonTopic.DataContext = _currentLesson;
@@ -202,9 +204,11 @@ namespace TeacherApp.Pages
                     }
                     else
                     {
-                        Lesson lesson = new Lesson();
-                        lesson.ReportCard = _selectedReportCard;
-                        lesson.DateOfTheLesson = selectLessonDate;
+                        Lesson lesson = new Lesson
+                        {
+                            ReportCard = _selectedReportCard,
+                            DateOfTheLesson = selectLessonDate
+                        };
                         _currentLesson = lesson;
                         LVStudent.ItemsSource = lesson.ReportCard.Group.Student.ToList();
                         TBLessonTopic.DataContext = lesson;
@@ -218,7 +222,7 @@ namespace TeacherApp.Pages
 
         private void LVStudent_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            var selectStudent = LVStudent.SelectedItem as Student;
+            Student selectStudent = LVStudent.SelectedItem as Student;
             if (selectStudent == null) return;
             TBStudent.DataContext = selectStudent;
         }
