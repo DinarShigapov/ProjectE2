@@ -76,9 +76,11 @@
                     </Grid>
                     <Grid x:Name="GStudentInfo" Grid.Row="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="5"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <StackPanel>
                             <TextBlock Text="Студент"
@@ -91,13 +93,14 @@
                                            Fill="#FFABADB3">
                             </Rectangle>
                         </StackPanel>
-                        <StackPanel Grid.Row="3" Orientation="Vertical">
+                        <StackPanel Grid.Row="2" Orientation="Vertical">
                             <StackPanel Orientation="Horizontal"
                                             VerticalAlignment="Center"
                                             Margin="0 6">
                                 <TextBlock Text="Не был"
-                                               FontSize="14"
-                                               Style="{StaticResource DefualtText}"/>
+                                           FontSize="16"
+                                           Opacity="0.9"
+                                           Style="{StaticResource DefualtText}"/>
                                 <CheckBox x:Name="ChBStudent"
                                           Checked="ChBStudent_Checked"
                                           Unchecked="ChBStudent_Checked"
@@ -106,16 +109,25 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Оценка"
-                                               FontSize="14"
-                                               VerticalAlignment="Center"
-                                               Style="{StaticResource DefualtText}"/>
+                                           FontSize="16"
+                                           Opacity="0.9"
+                                           VerticalAlignment="Center"
+                                           Style="{StaticResource DefualtText}"/>
                                 <ComboBox x:Name="CBMark"
                                           DisplayMemberPath="RaitingName"
                                           IsEditable="True"
                                           Width="50"
-                                          Margin="5 0 0 0"/>
+                                          Margin="5 0 0 0"
+                                          SelectionChanged="CBMark_SelectionChanged"
+                                          PreviewTextInput="CBMark_PreviewTextInput"
+                                          PreviewKeyDown="CBMark_PreviewKeyDown"/>
                             </StackPanel>
                         </StackPanel>
+                        <Button Grid.Row="6"
+                                Content="Подтвердить"
+                                Style="{StaticResource ButtonStyleV2}"
+                                Width="120"
+                                Height="25"/>
                     </Grid>
 
                 </Grid>

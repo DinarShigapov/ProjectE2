@@ -196,28 +196,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Assessment.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Attendance.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Discipline.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EduModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -235,22 +235,22 @@
       <DependentUpon>EduModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Gender.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Lesson.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PartialClass\ClassTime.cs" />
     <Compile Include="Model\PartialClass\Employee.cs" />
@@ -271,34 +271,49 @@
       <DependentUpon>PolyDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Post.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Qualification.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\RaitingSystem.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Semester.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Specialization.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Student.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>PolyDB.tt</DependentUpon>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TochkaDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TochkaDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TochkaDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TochkaDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TochkaDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TochkaDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
@@ -349,6 +364,13 @@
     <None Include="Model\PolyDB.edmx.diagram">
       <DependentUpon>PolyDB.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model\TochkaDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TochkaDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\TochkaDB.edmx.diagram">
+      <DependentUpon>TochkaDB.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -394,6 +416,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PolyDB.edmx</DependentUpon>
       <LastGenOutput>PolyDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\TochkaDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TochkaDB.edmx</DependentUpon>
+      <LastGenOutput>TochkaDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\TochkaDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TochkaDB.edmx</DependentUpon>
+      <LastGenOutput>TochkaDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

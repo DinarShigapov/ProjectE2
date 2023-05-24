@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -89,10 +90,15 @@ namespace TeacherApp.Pages
             if (selectStudent == null) return;
             GStudentInfo.DataContext = selectStudent;
             CBMark.SelectedItem = selectStudent.Raiting;
+            if (selectStudent.Raiting != null)
+            {
+                ChBStudent.IsEnabled = false;
+            }
             ChBStudent.IsChecked = !selectStudent.IsAttend;
         }
         private void CBDateLesson_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            _selectedStudent = null;
             _currentLesson = null;
             _studentGrades.Clear();
             DateTime selectLessonDate = Convert.ToDateTime((dynamic)CBDateLesson.SelectedValue);
@@ -237,6 +243,40 @@ namespace TeacherApp.Pages
             _selectedStudent = LVStudent.SelectedItem as StudentGrade;
         }
 
+        private void CBMark_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CBMark.SelectedIndex == -1)
+            {
+                ChBStudent.IsEnabled = true;
+            }
+            else
+            {
+                ChBStudent.IsEnabled = false;
+            }
+        }
+
+        private void CBMark_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[2-5]") == false)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (CBMark.SelectedItem != null)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void CBMark_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 
     public class StudentGrade
