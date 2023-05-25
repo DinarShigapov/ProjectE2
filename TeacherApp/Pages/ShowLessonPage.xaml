@@ -65,8 +65,8 @@
                                          FontFamily="Resources/Fonts/#Jost"/>
                         </StackPanel>
                         <Button x:Name="BAccept" 
-                                Style="{StaticResource ButtonStyle}"
-                                Content="Урок прошёл"
+                                Style="{StaticResource ButtonStyleV2}"
+                                Content="Провести"
                                 Height="27"
                                 Width="120"
                                 FontSize="14"
@@ -86,11 +86,11 @@
                             <TextBlock Text="Студент"
                                        Style="{StaticResource HeaderText}"/>
                             <TextBlock x:Name="TBStudent"
-                                           Text="{Binding Student.FullNameShort}" 
-                                           Style="{StaticResource DefualtText}"/>
+                                       Text="{Binding Student.FullNameShort}" 
+                                       Style="{StaticResource DefualtText}"/>
                             <Rectangle Width="Auto"
-                                           Height="1"
-                                           Fill="#FFABADB3">
+                                       Height="1"
+                                       Fill="#FFABADB3">
                             </Rectangle>
                         </StackPanel>
                         <StackPanel Grid.Row="2" Orientation="Vertical">
@@ -102,6 +102,7 @@
                                            Opacity="0.9"
                                            Style="{StaticResource DefualtText}"/>
                                 <CheckBox x:Name="ChBStudent"
+                                          IsChecked="{Binding IsAttend}"
                                           Checked="ChBStudent_Checked"
                                           Unchecked="ChBStudent_Checked"
                                           VerticalAlignment="Center"
@@ -114,6 +115,7 @@
                                            VerticalAlignment="Center"
                                            Style="{StaticResource DefualtText}"/>
                                 <ComboBox x:Name="CBMark"
+                                          SelectedValue="{Binding Raiting}"
                                           DisplayMemberPath="RaitingName"
                                           IsEditable="True"
                                           Width="50"
@@ -123,11 +125,6 @@
                                           PreviewKeyDown="CBMark_PreviewKeyDown"/>
                             </StackPanel>
                         </StackPanel>
-                        <Button Grid.Row="6"
-                                Content="Подтвердить"
-                                Style="{StaticResource ButtonStyleV2}"
-                                Width="120"
-                                Height="25"/>
                     </Grid>
 
                 </Grid>

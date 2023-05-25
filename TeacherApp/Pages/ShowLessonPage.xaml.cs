@@ -86,19 +86,14 @@ namespace TeacherApp.Pages
 
         private void LVStudent_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            var selectStudent = LVStudent.SelectedItem as StudentGrade;
-            if (selectStudent == null) return;
-            GStudentInfo.DataContext = selectStudent;
-            CBMark.SelectedItem = selectStudent.Raiting;
-            if (selectStudent.Raiting != null)
-            {
-                ChBStudent.IsEnabled = false;
-            }
-            ChBStudent.IsChecked = !selectStudent.IsAttend;
+            GStudentInfo.DataContext = _selectedStudent;
         }
+
         private void CBDateLesson_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _selectedStudent = null;
+            _selectedStudent = new StudentGrade();
+            GStudentInfo.DataContext = _selectedStudent;
+            ChBStudent.IsChecked = false;
             _currentLesson = null;
             _studentGrades.Clear();
             DateTime selectLessonDate = Convert.ToDateTime((dynamic)CBDateLesson.SelectedValue);
@@ -124,6 +119,7 @@ namespace TeacherApp.Pages
                             lessonBuffer = item;
                         }
                     }
+
                     if (lessonBuffer.DateOfTheLesson.Date != default)
                     {
                         _currentLesson = lessonBuffer;
@@ -140,13 +136,10 @@ namespace TeacherApp.Pages
                             var studentList = new StudentGrade()
                             {
                                 Student = item,
-                                IsAttend = attendance == null ? true : false,
-                                Raiting = mark.RaitingSystem
-                                
+                                IsAttend = attendance == null ? false : true,
+                                Raiting = mark?.RaitingSystem
                             };
                             _studentGrades.Add(studentList);
-
-
                         }
                         LVStudent.ItemsSource = _studentGrades.ToList();
                         BAccept.Content = "Сохранить";
@@ -164,7 +157,7 @@ namespace TeacherApp.Pages
                             _studentGrades.Add(new StudentGrade()
                             {
                                 Student = item,
-                                IsAttend = true
+                                IsAttend = false
                             });
                         }
                         LVStudent.ItemsSource = _studentGrades.ToList();
@@ -179,7 +172,7 @@ namespace TeacherApp.Pages
         {
             if (ChBHideStudent.IsChecked == true)
             {
-                LVStudent.ItemsSource = _studentGrades.Where(x => x.IsAttend == true).ToList();
+                LVStudent.ItemsSource = _studentGrades.Where(x => x.IsAttend == false).ToList();
             }
             else 
             {
@@ -203,12 +196,12 @@ namespace TeacherApp.Pages
             if (ChBStudent.IsChecked == true)
             {
                 CBMark.IsEnabled = false;
-                _selectedStudent.IsAttend = false;
+                _selectedStudent.IsAttend = true;
             }
             else 
             { 
                 CBMark.IsEnabled = true;
-                _selectedStudent.IsAttend = true;
+                _selectedStudent.IsAttend = false;
             }
         }
 
@@ -282,7 +275,7 @@ namespace TeacherApp.Pages
     public class StudentGrade
     {
         public Student Student { get; set; }
-        public bool IsAttend { get; set; }
+        public bool IsAttend {get ; set;}
         public RaitingSystem Raiting { get; set; }
     }
 
