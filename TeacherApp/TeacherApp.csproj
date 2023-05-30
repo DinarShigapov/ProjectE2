@@ -195,126 +195,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Assessment.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Attendance.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Discipline.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EduModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EduModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EduModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EduModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EduModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Employee.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Gender.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Group.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Lesson.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\PartialClass\ClassTime.cs" />
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\PartialClass\Student.cs" />
-    <Compile Include="Model\PolyDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\PolyDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\PolyDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Post.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Qualification.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\RaitingSystem.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Schedule.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Semester.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Specialization.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Student.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\TochkaDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TochkaDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\TochkaDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TochkaDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\TochkaDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TochkaDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
@@ -350,27 +233,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\EduModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EduModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\EduModel.edmx.diagram">
-      <DependentUpon>EduModel.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="Model\PolyDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PolyDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\PolyDB.edmx.diagram">
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="Model\TochkaDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TochkaDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\TochkaDB.edmx.diagram">
-      <DependentUpon>TochkaDB.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -395,38 +257,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model\EduModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EduModel.edmx</DependentUpon>
-      <LastGenOutput>EduModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\EduModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EduModel.edmx</DependentUpon>
-      <LastGenOutput>EduModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\PolyDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-      <LastGenOutput>PolyDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\PolyDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PolyDB.edmx</DependentUpon>
-      <LastGenOutput>PolyDB.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\TochkaDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TochkaDB.edmx</DependentUpon>
-      <LastGenOutput>TochkaDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\TochkaDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TochkaDB.edmx</DependentUpon>
-      <LastGenOutput>TochkaDB.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

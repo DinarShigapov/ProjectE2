@@ -153,7 +153,9 @@
                     <StackPanel Grid.Column="2">
                         <TextBlock Text="3 КУРС"
                                    HorizontalAlignment="Center"/>
-                        <ListView x:Name="LVThreeCourse" d:ItemsSource="{d:SampleData ItemCount=5}">
+                        <ListView x:Name="LVThreeCourse" 
+                                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                                  MouseDoubleClick="LVThreeCourse_MouseDoubleClick">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding StrFullName}" Style="{StaticResource DefualtText}"/>

@@ -36,5 +36,16 @@ namespace EducationalPartApp.Pages
             var window = Application.Current.Windows.OfType<MainWindow>().SingleOrDefault(x => x.IsActive);
             window.GetFrameWindow(new GroupSelectPage());
         }
+
+        private void LVThreeCourse_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectGroup = LVThreeCourse.SelectedItem as Group;
+            if (LVThreeCourse.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите группу для создания расписания.");
+                return;
+            }
+            new MainWindow().ChangeFrameWindow(new AddSchedulePage(selectGroup, true));
+        }
     }
 }

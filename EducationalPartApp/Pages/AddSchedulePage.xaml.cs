@@ -43,13 +43,28 @@ namespace EducationalPartApp.Pages
         };
 
 
-        public AddSchedulePage(Group group)
+        public AddSchedulePage(Group group, bool IsCreated)
         {
             InitializeComponent();
             contextGroup = group;
             GroupSelect.Text = contextGroup.StrFullName;
-            for (int i = 0; i <= 5; i++) {
-                for (int h = 0; h < App.DB.ClassTime.Count(); h++) {
+            if (IsCreated)
+            {
+                FillList(group);
+            }
+            else
+            {
+                FillList();
+            }
+            RefreshSchedule(0);
+        }
+
+        private void FillList() 
+        {
+            for (int i = 0; i <= 5; i++)
+            {
+                for (int h = 0; h < App.DB.ClassTime.Count(); h++)
+                {
                     scheduleList[i].Add(new Schedule()
                     {
                         ClassTimeId = h + 1,
@@ -59,7 +74,35 @@ namespace EducationalPartApp.Pages
                     });
                 }
             }
-            RefreshSchedule(0);
+        }
+
+        private void FillList(Group group)
+        {
+            for (int i = 0; i <= 5; i++)
+            {
+                for (int h = 0; h < App.DB.ClassTime.Count(); h++)
+                {
+                    var schedule = App.DB.Schedule.FirstOrDefault(x => 
+                        x.ClassTimeId == h + 1 &&
+                        x.Group.Id == group.Id &&
+                        x.DayOfTheWeekId == i + 1 &&
+                        x.SemesterId == group.SemesterId);
+                    if (schedule != null)
+                    {
+                        scheduleList[i].Add(schedule);
+                    }
+                    else
+                    {
+                        scheduleList[i].Add(new Schedule()
+                        {
+                            ClassTimeId = h + 1,
+                            Group = contextGroup,
+                            DayOfTheWeekId = i + 1,
+                            Semester = contextGroup.Semester
+                        });
+                    }
+                }
+            }
         }
 
         private void RefreshSchedule(int i)
@@ -108,6 +151,7 @@ namespace EducationalPartApp.Pages
             foreach (var item in SPDayOfTheWeek.Children)
             {
                 var bufferList = 0; 
+                var ellipseVisibility = (item as Grid).Children.OfType<Ellipse>().FirstOrDefault().Visibility;
                 foreach (var item1 in scheduleList[i])
                 {
                     if (item1.Discipline != null)
@@ -119,13 +163,14 @@ namespace EducationalPartApp.Pages
 
                 if (bufferList < 2)
                 {
-                    (item as Grid).Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Visible;
+                    ellipseVisibility = Visibility.Visible;
                     isFull = false;
                 }
                 else
                 {
-                    (item as Grid).Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Hidden;
+                    ellipseVisibility = Visibility.Hidden;
                 }
+
                 i++;
             }
             if (quantityLesson * 2 > 36)
@@ -142,10 +187,6 @@ namespace EducationalPartApp.Pages
             ClearSwitch();
             if (IsCheckSchedule() == false) return;
 
-
-            var result = MessageBox.Show("Расписание нельзя будет изменить!!!\nПродолжить?", "Внимание", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.No) return;
-
             for (int h = 0; h < scheduleList.Count; h++)
             {
                 for (int g = 0; g < scheduleList[h].Count; g++)
@@ -154,15 +195,22 @@ namespace EducationalPartApp.Pages
 
                     if (scheduleDay.Discipline == null)
                         continue;
-
                     scheduleDay.Date = DateTime.Now;
-
-
                     App.DB.Schedule.Add(scheduleDay);
-                    App.DB.SaveChanges();
                 }
             }
-
+            try
+            {
+                App.DB.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}",
+                    "Ошибка",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
             AddReportCard();
         }
 
@@ -185,7 +233,6 @@ namespace EducationalPartApp.Pages
         {
             List<Schedule> disciplineList = GetFilteredList().GroupBy(x => x.Discipline).Select(x => x.First()).ToList();
 
-
             foreach (var item in disciplineList)
             {
                 List<ReportCardTeacher> reportCards =
@@ -203,9 +250,9 @@ namespace EducationalPartApp.Pages
                     ReportCardTeacher = reportCards,
                     Semester = item.Semester,
                     IsActive = true
-                });
-                App.DB.SaveChanges();
+                }) ;
             }
+            App.DB.SaveChanges();
         }
 
         private void ClearSwitch()
@@ -265,6 +312,14 @@ namespace EducationalPartApp.Pages
             OpenEditorPage(selectLesson);
         }
 
+        // Context Menu ListView
+        private void MIEditLesson_Click(object sender, RoutedEventArgs e)
+        {
+            var selectLesson = (sender as MenuItem).DataContext as Schedule;
+            if (selectLesson == null)
+                return;
+            OpenEditorPage(selectLesson);
+        }
         private void MICopyLesson_Click(object sender, RoutedEventArgs e)
         {
             var copyLessonBuffer = (sender as MenuItem).DataContext as Schedule;
@@ -274,7 +329,6 @@ namespace EducationalPartApp.Pages
 
             _copyLesson = copyLessonBuffer.Clone();
         }
-
         private void MIPasteLesson_Click(object sender, RoutedEventArgs e)
         {
             var selectLesson = LVLesson.SelectedItem as Schedule;
@@ -332,13 +386,6 @@ namespace EducationalPartApp.Pages
             LVLesson.ItemsSource = scheduleList[_currentIndexDay].ToList();
         }
 
-        private void MIEditLesson_Click(object sender, RoutedEventArgs e)
-        {
-            var selectLesson = (sender as MenuItem).DataContext as Schedule;
-            if (selectLesson == null)
-                return;
-            OpenEditorPage(selectLesson);
-        }
 
         private void OpenEditorPage(Schedule sender)
         {

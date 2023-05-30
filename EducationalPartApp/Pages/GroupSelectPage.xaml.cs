@@ -77,7 +77,7 @@ namespace EducationalPartApp.Pages
                 MessageBox.Show("Выберите группу для создания расписания.");
                 return;
             }
-            new MainWindow().ChangeFrameWindow(new AddSchedulePage(selectGroup));
+            new MainWindow().ChangeFrameWindow(new AddSchedulePage(selectGroup, false));
         }
 
         private void TBSearch_TextChanged(object sender, TextChangedEventArgs e)
