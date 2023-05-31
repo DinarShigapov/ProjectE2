@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:EducationalPartApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="581.2" d:DesignWidth="880"
-      Title="ScheduleListPage">
+      Title="Расписания">
 
     <Page.Resources>
         <Style

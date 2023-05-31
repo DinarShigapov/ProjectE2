@@ -24,13 +24,14 @@ namespace EducationalPartApp.Pages
     {
 
         Group contextGroup;
-        private int _currentIndexDay = 0;
         private Schedule _copyLesson;
+        private int _currentIndexDay = 0;
         private const int _defualtIndex = -1;
         private int _lessonOneSwitch = _defualtIndex;
         private int _lessonTwoSwitch = _defualtIndex;
         private string _switchInfo = "";
-
+        private bool _isCreated;
+                private Dictionary<Discipline, List<Employee>> _disciplineTeacher = new Dictionary<Discipline, List<Employee>>(); 
 
         List<List<Schedule>> scheduleList = new List<List<Schedule>>(6)
         {
@@ -47,6 +48,7 @@ namespace EducationalPartApp.Pages
         {
             InitializeComponent();
             contextGroup = group;
+            _isCreated = IsCreated;
             GroupSelect.Text = contextGroup.StrFullName;
             if (IsCreated)
             {
@@ -195,8 +197,11 @@ namespace EducationalPartApp.Pages
 
                     if (scheduleDay.Discipline == null)
                         continue;
-                    scheduleDay.Date = DateTime.Now;
-                    App.DB.Schedule.Add(scheduleDay);
+                    if (scheduleDay.Id == 0)
+                    {
+                        scheduleDay.Date = DateTime.Now;
+                        App.DB.Schedule.Add(scheduleDay);
+                    }
                 }
             }
             try
@@ -211,7 +216,11 @@ namespace EducationalPartApp.Pages
                     MessageBoxImage.Error);
                 return;
             }
-            AddReportCard();
+            if (!_isCreated)
+            {
+                AddReportCard();
+            }
+            
         }
 
 
@@ -281,16 +290,13 @@ namespace EducationalPartApp.Pages
             {
                 var lessonSwitch = scheduleList[_currentIndexDay];
 
-                var bufferSelectedLesson = lessonSwitch[_lessonOneSwitch];
+                lessonSwitch[_lessonOneSwitch].ClassTimeId = _lessonTwoSwitch + 1;
+                lessonSwitch[_lessonTwoSwitch].ClassTimeId = _lessonOneSwitch + 1;
 
-                lessonSwitch[_lessonOneSwitch] = lessonSwitch[_lessonTwoSwitch];
-                lessonSwitch[_lessonTwoSwitch] = bufferSelectedLesson;
-
-                lessonSwitch[_lessonOneSwitch].ClassTimeId = _lessonOneSwitch + 1;
-                lessonSwitch[_lessonTwoSwitch].ClassTimeId = _lessonTwoSwitch + 1;
+                scheduleList[_currentIndexDay] = lessonSwitch.OrderBy(x => x.ClassTimeId).ToList();
 
                 LVLesson.ItemsSource = null;
-                LVLesson.ItemsSource = lessonSwitch;
+                LVLesson.ItemsSource = scheduleList[_currentIndexDay];
                 ClearSwitch();
             }
         }

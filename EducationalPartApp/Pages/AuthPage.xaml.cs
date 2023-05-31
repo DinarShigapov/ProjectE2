@@ -40,7 +40,7 @@ namespace EducationalPartApp.Pages
         private void ButtonEnter() 
         {
 
-            var teacher = App.DB.Employee.FirstOrDefault(x => x.Login == TBLogin.Text);
+            var teacher = App.DB.Employee.SingleOrDefault(x => x.Login == TBLogin.Text);
             if (teacher == null)
             {
                 MessageBox.Show("Логин неверный");

@@ -13,10 +13,10 @@ namespace EducationalPartApp.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EducationDataBaseEntities : DbContext
+    public partial class EducationDBEntities : DbContext
     {
-        public EducationDataBaseEntities()
-            : base("name=EducationDataBaseEntities")
+        public EducationDBEntities()
+            : base("name=EducationDBEntities")
         {
         }
     
@@ -49,5 +49,6 @@ namespace EducationalPartApp.Model
         public virtual DbSet<Specialization> Specialization { get; set; }
         public virtual DbSet<Student> Student { get; set; }
         public virtual DbSet<Subgroup> Subgroup { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
