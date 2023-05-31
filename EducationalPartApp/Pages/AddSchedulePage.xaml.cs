@@ -187,7 +187,7 @@ namespace EducationalPartApp.Pages
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
             ClearSwitch();
-            if (IsCheckSchedule() == false) return;
+            //if (IsCheckSchedule() == false) return;
 
             for (int h = 0; h < scheduleList.Count; h++)
             {
@@ -220,46 +220,27 @@ namespace EducationalPartApp.Pages
             {
                 AddReportCard();
             }
-            
+
         }
 
-
-        private List<Schedule> GetFilteredList() 
-        {
-            List<Schedule> schedulesbuffer = new List<Schedule>();
-            foreach (var item in scheduleList)
-            {
-                foreach (var item1 in item)
-                {
-                    if (item1.Discipline == null) continue;
-                    schedulesbuffer.Add(item1);
-                }
-            }
-            return schedulesbuffer;
-        }
 
         private void AddReportCard() 
         {
-            List<Schedule> disciplineList = GetFilteredList().GroupBy(x => x.Discipline).Select(x => x.First()).ToList();
 
-            foreach (var item in disciplineList)
+            foreach (var item in _disciplineTeacher)
             {
                 List<ReportCardTeacher> reportCards =
-                    item.Subgroup.Select(
-                        subgroup => new ReportCardTeacher
-                        {
-                            Employee = subgroup.Employee
-                        }).ToList();
+                    item.Value.Select(x => new ReportCardTeacher{ Employee = x}).ToList();
 
                 App.DB.ReportCard.Add(new ReportCard
                 {
-                    Group = item.Group,
-                    Discipline = item.Discipline,
+                    Group = contextGroup,
+                    Discipline = item.Key,
                     DateOfCreation = DateTime.Now,
                     ReportCardTeacher = reportCards,
-                    Semester = item.Semester,
+                    Semester = contextGroup.Semester,
                     IsActive = true
-                }) ;
+                });
             }
             App.DB.SaveChanges();
         }
@@ -396,7 +377,7 @@ namespace EducationalPartApp.Pages
         private void OpenEditorPage(Schedule sender)
         {
             ClearSwitch();
-            new MainWindow().GetFrameWindow(new EditLessonPage(sender, GetFilteredList()));
+            new MainWindow().GetFrameWindow(new EditLessonPage(sender, _disciplineTeacher));
         }
 
         private void Border_ContextMenuOpening(object sender, ContextMenuEventArgs e)

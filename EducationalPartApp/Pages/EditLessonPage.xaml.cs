@@ -26,12 +26,13 @@ namespace EducationalPartApp.Pages
     {
         private Schedule _schedule;
         private Schedule _scheduleSave;
-        private List<Schedule> _schedulesBuffer;
+        //private List<Schedule> _schedulesBuffer;
         private List<Subgroup> _subgroupList = new List<Subgroup>();
-        public EditLessonPage(Schedule listClass, List<Schedule> schedulesList)
+        private Dictionary<Discipline, List<Employee>> _disciplineTeacher = new Dictionary<Discipline, List<Employee>>();
+        public EditLessonPage(Schedule listClass, Dictionary<Discipline, List<Employee>> disciplineTeacher)
         {
             InitializeComponent();
-            _schedulesBuffer = schedulesList;
+            _disciplineTeacher = disciplineTeacher;
             _schedule = listClass;
             _scheduleSave = listClass.Clone();
             DataContext = _scheduleSave;
@@ -52,15 +53,26 @@ namespace EducationalPartApp.Pages
 
             if (CBDisciplines.SelectedItem != null)
             {
-                var disciplineBuffer = CBDisciplines.SelectedItem as Discipline;
-                var listEmployee = App.DB.DisciplineTeacher.Where(x => x.DisciplineId == disciplineBuffer.Id).ToList();
-                List<Employee> employees = new List<Employee>();
-                foreach (var item in listEmployee)
+                var discipline = _disciplineTeacher.Any(x => x.Key == CBDisciplines.SelectedItem as Discipline);
+                var teacher = _disciplineTeacher.FirstOrDefault(x => x.Key == CBDisciplines.SelectedItem as Discipline).Value;
+                if (discipline && teacher.Count == 2)
                 {
-                    employees.Add(item.Employee);
+                    CBTeachers.ItemsSource = teacher;
+                    SPTeacherAud.IsEnabled = true;
                 }
-                CBTeachers.ItemsSource = employees;
-                SPTeacherAud.IsEnabled = true;
+                else 
+                {
+                    var disciplineBuffer = CBDisciplines.SelectedItem as Discipline;
+                    var listEmployee = App.DB.DisciplineTeacher.Where(x => x.DisciplineId == disciplineBuffer.Id).ToList();
+                    List<Employee> employees = new List<Employee>();
+                    foreach (var item in listEmployee)
+                    {
+                        employees.Add(item.Employee);
+                    }
+
+                    CBTeachers.ItemsSource = employees;
+                    SPTeacherAud.IsEnabled = true;
+                }
             }
         }
 
@@ -72,49 +84,32 @@ namespace EducationalPartApp.Pages
                 MessageBox.Show("Выберите преподавателя","Внимание",MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
-
-            foreach (var item in _schedulesBuffer)
-            {
-                if (item.ClassTimeId == _scheduleSave.ClassTimeId
-                    && item.DayOfTheWeekId == _scheduleSave.DayOfTheWeekId) break;
-
-                if (item.Discipline == _scheduleSave.Discipline)
-                {
-                    string dayBuf = App.DB.DayOfTheWeek.FirstOrDefault(x => x.Id == item.DayOfTheWeekId).Name.ToString();
-                    string classTimeBuf = App.DB.ClassTime.FirstOrDefault(x => x.Id == item.ClassTimeId).ClassNumber.ToString();
-                    if (item.Subgroup.Count > _subgroupList.Count)
-                    {
-
-                        var result = MessageBox.Show(
-                            $"'{dayBuf} {classTimeBuf} п.' было установлено больше преподавателей\nДобавить преподавателя?",
-                            "Внимание", MessageBoxButton.YesNo);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            foreach (var teacher in item.Subgroup)
-                            {
-                                if (!_subgroupList.Any(x => x.Employee == teacher.Employee))
-                                {
-                                    _subgroupList.Add(teacher.Clone());
-                                }
-                            }
-                        }
-                        else if (result == MessageBoxResult.No) return;
-
-                    }
-                    else if (item.Subgroup.Count < _subgroupList.Count)
-                    {
-                        MessageBox.Show($"Вы указали больше преподавателей, чем в '{dayBuf} {classTimeBuf} п.'");
-                        return;
-                    }
-                }
-            }
-
             _scheduleSave.Subgroup = _subgroupList.ToList();
             foreach (PropertyInfo property in typeof(Schedule).GetProperties().Where(p => p.CanWrite))
             {
                 if (property.Name == "Schedule") break;
                 property.SetValue(_schedule, property.GetValue(_scheduleSave, null), null);
+            }
+
+
+
+            if (!_disciplineTeacher.Any(x => x.Key == _schedule.Discipline))
+            {
+                _disciplineTeacher.Add(_schedule.Discipline, _schedule.Subgroup.Select(x => x.Employee).ToList());
+            }
+            else
+            {
+                var buffer = _disciplineTeacher.FirstOrDefault(x => x.Key == _schedule.Discipline);
+                if (buffer.Key != null)
+                {
+                    foreach (var item in _schedule.Subgroup)
+                    {
+                        if (!buffer.Value.Any(x => x == item.Employee))
+                        {
+                            buffer.Value.Add(item.Employee);
+                        }
+                    }
+                }
             }
 
             var mainWindow = Application.Current.MainWindow as MainWindow;
@@ -136,7 +131,7 @@ namespace EducationalPartApp.Pages
         {
             if (_subgroupList.Count == 2)
                 return;
-
+            var selectDiscipline = CBDisciplines.SelectedItem as Discipline;
             var selectTeacher = CBTeachers.SelectedItem as Employee;
             var selectAuditorium = CBAuditoriums.SelectedItem as Auditorium;
             if (selectTeacher == null || selectAuditorium == null) return;
