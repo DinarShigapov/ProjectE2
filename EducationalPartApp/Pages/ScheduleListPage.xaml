@@ -59,7 +59,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -115,7 +115,20 @@
                         </Style>
                     </Grid.Style>
 
-                    <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Black"/>
+                    <Grid x:Name="GroupInfo" Grid.Row="2" 
+                          Grid.ColumnSpan="4"
+                          Height="20"
+                          Visibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding StrFullName, StringFormat='Группа: {0}'}"
+                                       Style="{StaticResource DefualtText}" />
+                        <TextBlock Text="{Binding DateOfCreation, StringFormat='Дата создания: {0}'}"
+                                       Style="{StaticResource DefualtText}" Grid.Column="1"/>
+                    </Grid>
                     <GridSplitter Grid.Row="1"
                                   Grid.ColumnSpan="4"
                                   Height="3"
@@ -134,7 +147,8 @@
                         <ListView x:Name="LVOneCourse" d:ItemsSource="{d:SampleData ItemCount=5}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding StrFullName}" Style="{StaticResource DefualtText}"/>
+                                    <TextBlock Text="{Binding StrFullName}" 
+                                               Style="{StaticResource DefualtText}"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -158,7 +172,9 @@
                                   MouseDoubleClick="LVThreeCourse_MouseDoubleClick">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding StrFullName}" Style="{StaticResource DefualtText}"/>
+                                    <TextBlock Text="{Binding StrFullName}" 
+                                               Style="{StaticResource DefualtText}"
+                                               MouseDown="LVCourse_MouseDown"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>

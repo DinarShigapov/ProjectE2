@@ -31,7 +31,7 @@ namespace EducationalPartApp.Pages
         private int _lessonTwoSwitch = _defualtIndex;
         private string _switchInfo = "";
         private bool _isCreated;
-                private Dictionary<Discipline, List<Employee>> _disciplineTeacher = new Dictionary<Discipline, List<Employee>>(); 
+        private Dictionary<Discipline, List<Employee>> _disciplineTeacher = new Dictionary<Discipline, List<Employee>>(); 
 
         List<List<Schedule>> scheduleList = new List<List<Schedule>>(6)
         {
@@ -220,7 +220,6 @@ namespace EducationalPartApp.Pages
             {
                 AddReportCard();
             }
-
         }
 
 

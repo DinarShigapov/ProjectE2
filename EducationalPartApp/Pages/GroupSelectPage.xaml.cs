@@ -32,7 +32,8 @@ namespace EducationalPartApp.Pages
 
         private void RefreshListGroup()
         {
-            IEnumerable<Group> groupsFilter = groupsList.ToList();
+            IEnumerable<Group> groupsFilter = groupsList.Where(x => x.ReportCard.Where(z => z.SemesterId == x.SemesterId).Count() == 0 || 
+            x.ReportCard.Count == 0).ToList();
 
             if (CBCourse.SelectedItem != null) {
                 groupsFilter = groupsFilter.Where(x => x.Semester.Course == (CBCourse.SelectedItem as Semester).Course).ToList();
@@ -60,10 +61,12 @@ namespace EducationalPartApp.Pages
             var semesterValue = 0;
             var currentMonth = DateTime.Now.Month;
 
-            if (currentMonth >= startFirstSemester && currentMonth <= endFirstSemester) {
+            if (currentMonth >= startFirstSemester &&
+                currentMonth <= endFirstSemester) {
                 semesterValue = 1;
             }
-            else if (currentMonth >= startSecondSemester && currentMonth <= endSecondSemester) {
+            else if (currentMonth >= startSecondSemester &&
+                currentMonth <= endSecondSemester) {
                 semesterValue = 2;
             }
 

@@ -47,5 +47,15 @@ namespace EducationalPartApp.Pages
             }
             new MainWindow().ChangeFrameWindow(new AddSchedulePage(selectGroup, true));
         }
+
+        private void LVCourse_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var selectGroup = LVThreeCourse.SelectedItem as Group;
+            if (LVThreeCourse.SelectedItem == null)
+            {
+                return;
+            }
+            GroupInfo.DataContext = selectGroup;
+        }
     }
 }
