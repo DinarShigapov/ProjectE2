@@ -26,6 +26,7 @@ namespace TeacherApp.Pages
         private Lesson _currentLesson;
         private ReportCard _selectedReportCard;
         private StudentGrade _selectedStudent;
+        private List<Lesson> _lessonsCurrentSemester;
 
         public ShowLessonPage(ReportCard selectedReportCard)
         {
@@ -33,6 +34,7 @@ namespace TeacherApp.Pages
             _selectedReportCard = selectedReportCard;
             RefreshGroupSelect(_selectedReportCard);
             CBMark.ItemsSource = App.DB.RaitingSystem.ToList();
+            _lessonsCurrentSemester = App.DB.Lesson.Where(x => x.ReportCard.Id == _selectedReportCard.Id && x.IsConducted == true).ToList();
         }
 
         private void RefreshGroupSelect(ReportCard reportCard)
@@ -101,7 +103,7 @@ namespace TeacherApp.Pages
             if (selectLessonDate != null && selectLessonDate != default)
             {
 
-                if (selectLessonDate > DateTime.Now)
+                if (selectLessonDate.Date > DateTime.Now.Date)
                 {
                     MessageBox.Show("Данный урок не был еще проведен");
                     CBDateLesson.SelectedIndex = -1;
@@ -109,18 +111,11 @@ namespace TeacherApp.Pages
                 }
                 else
                 {
-                    var checkedLesson = App.DB.Lesson.Where(x => x.ReportCard.Id == _selectedReportCard.Id && x.IsConducted == true);
-                    Lesson lessonBuffer = new Lesson();
-                    foreach (var item in checkedLesson)
-                    {
-                        if (item.DateOfTheLesson.Date == selectLessonDate.Date
-                            && item.IsConducted == true)
-                        {
-                            lessonBuffer = item;
-                        }
-                    }
+                    Lesson lessonBuffer = _lessonsCurrentSemester.SingleOrDefault(x =>
+                        x.DateOfTheLesson.Date == selectLessonDate.Date &&
+                        x.IsConducted == true);
 
-                    if (lessonBuffer.DateOfTheLesson.Date != default)
+                    if (lessonBuffer !=  null && lessonBuffer.DateOfTheLesson.Date != default)
                     {
                         _currentLesson = lessonBuffer;
                         TBLessonTopic.DataContext = _currentLesson;
@@ -130,7 +125,7 @@ namespace TeacherApp.Pages
                                 x.Student.Id == item.Id &&
                                 x.Lesson.Id == _currentLesson.Id);
                             var attendance = App.DB.Attendance.FirstOrDefault(x =>
-                                x.Student.Id == item.Id &&
+                                x.StudentId == item.Id &&
                                 x.Lesson.Id == _currentLesson.Id);
 
                             var studentList = new StudentGrade()
@@ -184,6 +179,36 @@ namespace TeacherApp.Pages
         private void BAccept_Click(object sender, RoutedEventArgs e)
         {
 
+            Lesson lessonSave = new Lesson
+            {
+                LessonTopic = "Test",
+                DateOfTheLesson = DateTime.Now.Date,
+                IsConducted = true,
+                ReportCard = _selectedReportCard,
+            };
+
+            foreach (var item in _studentGrades)
+            {
+                if (item.Raiting != null)
+                {
+                    lessonSave.Assessment.Add(new Assessment 
+                    {
+                        Student = item.Student,
+                        RaitingSystem = item.Raiting,
+                        Employee = App.LoggedTeacher
+                    });
+                }
+                if (item.IsAttend != false)
+                {
+                    lessonSave.Attendance.Add(new Attendance
+                    {
+                        Student = item.Student
+                    });
+                }
+            }
+
+            App.DB.Lesson.Add(lessonSave);
+            App.DB.SaveChanges();
         }
 
         private void ChBStudent_Checked(object sender, RoutedEventArgs e)

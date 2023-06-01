@@ -8,8 +8,8 @@
       d:DesignHeight="630" d:DesignWidth="878"
       Title="Расписание">
 
-    
-    
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150*"/>
@@ -21,7 +21,7 @@
             <ColumnDefinition x:Name="SizeActionRight" Width="400*"/>
         </Grid.ColumnDefinitions>
 
-        
+
         <Border Style="{StaticResource CellDayStyle}">
             <Grid>
                 <Grid.RowDefinitions>
@@ -67,7 +67,8 @@
                                 <TextBlock Text="{Binding ClassTime.ClassNumber}"/>
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding Discipline.Name}" 
-                                           TextTrimming="CharacterEllipsis"/>
+                                           TextTrimming="CharacterEllipsis">
+                                </TextBlock>
                                 <Grid.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem x:Name="CMInfo" 
@@ -92,7 +93,7 @@
                            Grid.RowSpan="2" 
                            MouseDown="SizeColumn_MouseDown"
                            Fill="Transparent"/>
-                
+
                 <StackPanel>
                     <TextBlock Text="Вторник"/>
                     <Rectangle/>

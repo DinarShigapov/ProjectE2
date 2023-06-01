@@ -15,7 +15,7 @@ namespace ProjectE2
     /// </summary>
     public partial class App : Application
     {
-        public static PolyDBEntities DB = new PolyDBEntities();
+        public static EducationDBEntities DB = new EducationDBEntities();
         public static Student LoggedStudent;
 
     }

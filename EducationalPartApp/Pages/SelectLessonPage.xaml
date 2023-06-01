@@ -65,7 +65,8 @@
                 <DataGridTemplateColumn Header="ПН">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <RadioButton IsChecked="{Binding Monday}" />
+                            <RadioButton IsChecked="{Binding Monday}"
+                                         Checked="RadioButton_Checked"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

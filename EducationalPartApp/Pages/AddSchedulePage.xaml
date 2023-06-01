@@ -179,7 +179,7 @@
                                                       Header="Удалить"
                                                       Click="MIDeleteLesson_Click"/>
                                             <MenuItem x:Name="MIRadioLesson"
-                                                      Header="Проставить"
+                                                      Header="Проставить (Мега Бета)"
                                                       Click="MIRadioLesson_Click"/>
                                         </ContextMenu>
                                     </Border.ContextMenu>

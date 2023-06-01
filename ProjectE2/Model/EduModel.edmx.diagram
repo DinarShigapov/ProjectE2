@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="06d54752d869443b8f36886e183b1364" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="EducationDBModel.Assessment" Width="1.5" PointX="13.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Attendance" Width="1.5" PointX="12.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Auditorium" Width="1.5" PointX="14.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.ClassTime" Width="1.5" PointX="9" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Curriculum" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.DayOfTheWeek" Width="1.5" PointX="9" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Discipline" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.DisciplineTeacher" Width="1.5" PointX="16.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Employee" Width="1.5" PointX="11.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.EmployeePost" Width="1.5" PointX="13.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.FormOfTraining" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Gender" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Group" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Lesson" Width="1.5" PointX="10.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Post" Width="1.5" PointX="11.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Qualification" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.RaitingSystem" Width="1.5" PointX="11.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.ReportCard" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.ReportCardTeacher" Width="1.5" PointX="13.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Schedule" Width="1.5" PointX="11.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Semester" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Specialization" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Student" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.Subgroup" Width="1.5" PointX="16.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="EducationDBModel.FK_Assessment_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Assessment_Lesson" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Assessment_RaitingSystem" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Assessment_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Attendance_Lesson" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Attendance_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Subgroup_Auditorium" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Schedule_ClassTime" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Curriculum_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Curriculum_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Curriculum_Specialization" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Schedule_DayOfTheWeek" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_DisciplineTeacher_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_ReportCard_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Schedule_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_DisciplineTeacher_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Employee_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_EmployeePost_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_ReportCardTeacher_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Subgroup_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_EmployeePost_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Group_FormOfTraining" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Student_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Group_Qualification" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Group_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_ReportCard_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Schedule_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Student_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Lesson_ReportCard" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Qualification_Specialization" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_ReportCard_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_ReportCardTeacher_ReportCard" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Schedule_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationDBModel.FK_Subgroup_Schedule" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

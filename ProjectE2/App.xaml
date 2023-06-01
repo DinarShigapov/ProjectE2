@@ -89,7 +89,8 @@
 
                                     <ScrollViewer x:Name="PART_ContentHost" />
                                     <TextBlock x:Name="textBlock"
-                                               Foreground="{TemplateBinding BorderBrush}"
+                                               Foreground="Black"
+                                               Opacity="0.4"
                                                IsHitTestVisible="False"
                                                Margin="{TemplateBinding Padding}"
                                                Text="{Binding Tag, RelativeSource={RelativeSource TemplatedParent}}"
@@ -396,11 +397,11 @@
             <!--CellDay-->
 
             <Style TargetType="Border" x:Key="CellDayStyle">
-                <Setter Property="BorderBrush" Value="Gray"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
                 <Setter Property="CornerRadius" Value="20"/>
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="Background" Value="White"/>
-                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="BorderThickness" Value="2"/>
                 <Style.Resources>
                     <Style TargetType="Grid">
                         <Setter Property="Margin" Value="10"/>
@@ -456,8 +457,19 @@
                         </Style.Resources>
                     </Style>
                 </Style.Resources>
+                <Style.Triggers>
+                    <Trigger Property="Border.IsMouseOver" Value="True">
+                        <Setter Property="Border.BorderBrush">
+                            <Setter.Value>
+                                <SolidColorBrush Color="#6D61F5" Opacity="0.6"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+
+                </Style.Triggers>
             </Style>
-            
+
+
             <Style TargetType="Grid" x:Key="TextSizeStyle">
                 <Setter Property="Height" Value="25"/>
                 <Style.Resources>

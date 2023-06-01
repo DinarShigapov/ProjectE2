@@ -31,15 +31,17 @@ namespace EducationalPartApp.Pages
 
             for (int i = 1; i <= App.DB.ClassTime.Count(); i++)
             {
+
+
                 TableRows.Add(new TableRow 
                 { 
                     Pair = i.ToString(), 
-                    Monday = false, 
-                    Tuesday = false, 
-                    Wednesday = false, 
-                    Thursday = false, 
-                    Friday = false, 
-                    Saturday = false 
+                    Monday = schedules[0][i - 1].Discipline != null ? true : false,
+                    Tuesday = schedules[1][i - 1].Discipline != null ? true : false, 
+                    Wednesday = schedules[2][i - 1].Discipline != null ? true : false, 
+                    Thursday = schedules[3][i - 1].Discipline != null ? true : false, 
+                    Friday = schedules[4][i - 1].Discipline != null ? true : false, 
+                    Saturday = schedules[5][i - 1].Discipline != null ? true : false
                 });
             }
             DataGrid.ItemsSource = TableRows;
@@ -54,6 +56,11 @@ namespace EducationalPartApp.Pages
             public bool Thursday { get; set; }
             public bool Friday { get; set; }
             public bool Saturday { get; set; }
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -43,7 +43,7 @@ namespace ProjectE2.Pages
         }
         private void BAssessment_Click(object sender, RoutedEventArgs e)
         {
-            RefreshPage(new AssessmentPage());
+            RefreshPage(new MarkStudentPage());
         }
 
         public void RefreshPage(Page page)

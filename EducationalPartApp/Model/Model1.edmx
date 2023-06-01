@@ -63,7 +63,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Abbreviation" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="DisciplineTeacher">
           <Key>
@@ -231,16 +231,6 @@
           <Property Name="AuditoriumId" Type="int" Nullable="false" />
           <Property Name="ScheduleId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <Association Name="FK_Assessment_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Assessment" Type="Self.Assessment" Multiplicity="*" />
@@ -298,6 +288,18 @@
             </Principal>
             <Dependent Role="Attendance">
               <PropertyRef Name="LessonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -662,7 +664,6 @@
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subgroup" EntityType="Self.Subgroup" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Assessment_Employee" Association="Self.FK_Assessment_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Assessment" EntitySet="Assessment" />
@@ -681,6 +682,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Attendance_Lesson" Association="Self.FK_Attendance_Lesson">
             <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Student" Association="Self.FK_Attendance_Student">
+            <End Role="Student" EntitySet="Student" />
             <End Role="Attendance" EntitySet="Attendance" />
           </AssociationSet>
           <AssociationSet Name="FK_Curriculum_Discipline" Association="Self.FK_Curriculum_Discipline">
@@ -825,7 +830,6 @@
           <EntitySet Name="Specialization" EntityType="EducationDBModel.Specialization" />
           <EntitySet Name="Student" EntityType="EducationDBModel.Student" />
           <EntitySet Name="Subgroup" EntityType="EducationDBModel.Subgroup" />
-          <EntitySet Name="sysdiagrams" EntityType="EducationDBModel.sysdiagrams" />
           <AssociationSet Name="FK_Assessment_Employee" Association="EducationDBModel.FK_Assessment_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Assessment" EntitySet="Assessment" />
@@ -844,6 +848,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Attendance_Lesson" Association="EducationDBModel.FK_Attendance_Lesson">
             <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Student" Association="EducationDBModel.FK_Attendance_Student">
+            <End Role="Student" EntitySet="Student" />
             <End Role="Attendance" EntitySet="Attendance" />
           </AssociationSet>
           <AssociationSet Name="FK_Subgroup_Auditorium" Association="EducationDBModel.FK_Subgroup_Auditorium">
@@ -981,6 +989,7 @@
           <Property Name="StudentId" Type="Int32" Nullable="false" />
           <Property Name="LessonId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Lesson" Relationship="EducationDBModel.FK_Attendance_Lesson" FromRole="Attendance" ToRole="Lesson" />
+          <NavigationProperty Name="Student" Relationship="EducationDBModel.FK_Attendance_Student" FromRole="Attendance" ToRole="Student" />
         </EntityType>
         <EntityType Name="Auditorium">
           <Key>
@@ -1028,7 +1037,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Abbreviation" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Abbreviation" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Curriculum" Relationship="EducationDBModel.FK_Curriculum_Discipline" FromRole="Discipline" ToRole="Curriculum" />
           <NavigationProperty Name="DisciplineTeacher" Relationship="EducationDBModel.FK_DisciplineTeacher_Discipline" FromRole="Discipline" ToRole="DisciplineTeacher" />
           <NavigationProperty Name="ReportCard" Relationship="EducationDBModel.FK_ReportCard_Discipline" FromRole="Discipline" ToRole="ReportCard" />
@@ -1236,6 +1245,7 @@
           <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="MainImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Assessment" Relationship="EducationDBModel.FK_Assessment_Student" FromRole="Student" ToRole="Assessment" />
+          <NavigationProperty Name="Attendance" Relationship="EducationDBModel.FK_Attendance_Student" FromRole="Student" ToRole="Attendance" />
           <NavigationProperty Name="Gender" Relationship="EducationDBModel.FK_Student_Gender" FromRole="Student" ToRole="Gender" />
           <NavigationProperty Name="Group" Relationship="EducationDBModel.FK_Student_Group" FromRole="Student" ToRole="Group" />
         </EntityType>
@@ -1250,16 +1260,6 @@
           <NavigationProperty Name="Auditorium" Relationship="EducationDBModel.FK_Subgroup_Auditorium" FromRole="Subgroup" ToRole="Auditorium" />
           <NavigationProperty Name="Employee" Relationship="EducationDBModel.FK_Subgroup_Employee" FromRole="Subgroup" ToRole="Employee" />
           <NavigationProperty Name="Schedule" Relationship="EducationDBModel.FK_Subgroup_Schedule" FromRole="Subgroup" ToRole="Schedule" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Assessment_Employee">
           <End Type="EducationDBModel.Employee" Role="Employee" Multiplicity="1" />
@@ -1318,6 +1318,18 @@
             </Principal>
             <Dependent Role="Attendance">
               <PropertyRef Name="LessonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Student">
+          <End Type="EducationDBModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="EducationDBModel.Attendance" Role="Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1657,7 +1669,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1910,17 +1922,6 @@
                 <ScalarProperty Name="AuditoriumId" ColumnName="AuditoriumId" />
                 <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="EducationDBModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

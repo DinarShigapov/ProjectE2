@@ -7,13 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="800" Width="1250"
+        MinHeight="780" MinWidth="1200"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        ResizeMode="CanResize"
+        ResizeMode="CanResizeWithGrip"
         Background="Transparent">
 
-    <Border  Background="#EFF1F8">
+    <Border x:Name="MainBorder" 
+            CornerRadius="0" 
+            Background="#EFF1F8"
+            BorderThickness="2">
+        <Border.BorderBrush>
+            <SolidColorBrush Color="#6D61F5" Opacity="0.3"/>
+        </Border.BorderBrush>
         <Grid>
             <Border CornerRadius="0 0 20 20"
                     BorderThickness="0"
@@ -21,7 +28,9 @@
                     VerticalAlignment="Top"
                     Width="650"
                     Height="15"
-                    MouseDown="Border_MouseDown">
+                  
+                    MouseDown="Border_MouseDown"
+                    Panel.ZIndex="1">
                 <Border.Background>
                     <SolidColorBrush Color="Black" 
                                      Opacity="0.06"/>

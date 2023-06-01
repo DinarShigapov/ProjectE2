@@ -132,6 +132,7 @@ namespace EducationalPartApp.Pages
             switch ((sender as RadioButton).Content.ToString())
             {
                 case "ПН":
+                default:
                     index = 0;
                     break;
                 case "ВТ":
@@ -148,9 +149,6 @@ namespace EducationalPartApp.Pages
                     break;
                 case "СБ":
                     index = 5;
-                    break;
-                default:
-                    index = 0;
                     break;
             }
             _currentIndexDay = index;
