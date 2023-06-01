@@ -58,7 +58,20 @@ namespace EducationalPartApp.Pages
             {
                 FillList();
             }
+            GetDisciplne();
             RefreshSchedule(0);
+        }
+
+        private void GetDisciplne()
+        {
+            var disciplineList = App.DB.Curriculum.Where(x =>
+                x.SpecializationId == contextGroup.Qualification.SpecializationId &&
+                x.SemesterId == contextGroup.Semester.Id).Select(x => x.Discipline).ToList();
+
+            foreach (var item in disciplineList)
+            {
+                _disciplineTeacher.Add(item, new List<Employee>());
+            }
         }
 
         private void FillList() 
@@ -390,6 +403,12 @@ namespace EducationalPartApp.Pages
             {
                 menuItem.IsEnabled = true;
             }
+        }
+
+        private void MIRadioLesson_Click(object sender, RoutedEventArgs e)
+        {
+            var window = Application.Current.Windows.OfType<MainWindow>().SingleOrDefault(x => x.IsActive);
+            window.GetFrameWindow(new SelectLessonPage(scheduleList));
         }
     }
 }

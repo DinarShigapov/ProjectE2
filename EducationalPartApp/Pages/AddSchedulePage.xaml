@@ -178,6 +178,9 @@
                                             <MenuItem x:Name="MIDeleteLesson"
                                                       Header="Удалить"
                                                       Click="MIDeleteLesson_Click"/>
+                                            <MenuItem x:Name="MIRadioLesson"
+                                                      Header="Проставить"
+                                                      Click="MIRadioLesson_Click"/>
                                         </ContextMenu>
                                     </Border.ContextMenu>
                                 </Border>

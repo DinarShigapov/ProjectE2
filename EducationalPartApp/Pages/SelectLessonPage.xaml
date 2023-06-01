@@ -59,6 +59,56 @@
     </Page.Resources>
 
     <Grid>
+        <DataGrid x:Name="DataGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пара" Binding="{Binding Pair}" />
+                <DataGridTemplateColumn Header="ПН">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <RadioButton IsChecked="{Binding Monday}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="ВТ">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <RadioButton IsChecked="{Binding Tuesday}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="СР">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <RadioButton IsChecked="{Binding Wednesday}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="ЧТ">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <RadioButton IsChecked="{Binding Thursday}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="ПТ">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <RadioButton IsChecked="{Binding Friday}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="СБ">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <RadioButton IsChecked="{Binding Saturday}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+    
+    <!--<Grid>
         <DataGrid x:Name="DGLesson" RowHeaderWidth="25" 
                   ColumnHeaderHeight="25">
             <DataGrid.Columns>
@@ -72,71 +122,6 @@
             </DataGrid.Columns>
 
         </DataGrid>
-    </Grid>
-    
-    <!--<Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="25"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-        </Grid.RowDefinitions>
-        <Grid.Style>
-            <Style TargetType="Grid">
-                <Style.Resources>
-                    <Style TargetType="TextBlock" BasedOn="{StaticResource DefualtText}">
-                        <Setter Property="VerticalAlignment" Value="Center"/>
-                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                        <Setter Property="FontSize" Value="10"/>
-                    </Style>
-                    <Style TargetType="Border">
-                        <Setter Property="Background" Value="#6D61F5"/>
-                        <Setter Property="CornerRadius" Value="5"/>
-                        <Setter Property="Margin" Value="1"/>
-                        <Style.Resources>
-                            <Style TargetType="TextBlock" BasedOn="{StaticResource DefualtText}">
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                                <Setter Property="VerticalAlignment" Value="Center"/>
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="FontSize" Value="10"/>
-                            </Style>
-                        </Style.Resources>
-                    </Style>
-                </Style.Resources>
-            </Style>
-        </Grid.Style>
-        <TextBlock Text="1п" 
-                   Grid.Row="1"/>
-        <Border Grid.Column="1">
-            <TextBlock Text="ПН"/>
-        </Border>
-        <Border Grid.Column="2">
-            <TextBlock Text="ВТ"/>
-        </Border>
-        <Border Grid.Column="3">
-            <TextBlock Text="СР"/>
-        </Border>
-        <Border Grid.Column="4">
-            <TextBlock Text="ЧТ"/>
-        </Border>
-        <Border Grid.Column="5">
-            <TextBlock Text="ПТ"/>
-        </Border>
-        <Border Grid.Column="6">
-            <TextBlock Text="СБ"/>
-        </Border>
-
-        <CheckBox Grid.Row="1"
-                  Grid.Column="1"/>
-
-        
-
     </Grid>-->
+    
 </Page>

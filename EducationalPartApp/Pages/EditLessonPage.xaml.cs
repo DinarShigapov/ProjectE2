@@ -36,7 +36,7 @@ namespace EducationalPartApp.Pages
             _schedule = listClass;
             _scheduleSave = listClass.Clone();
             DataContext = _scheduleSave;
-            CBDisciplines.ItemsSource = App.DB.Discipline.ToList();
+            CBDisciplines.ItemsSource = App.DB.Curriculum.Where(x => x.SemesterId == listClass.Semester.Id).Select(x => x.Discipline).ToList();
             CBAuditoriums.ItemsSource = App.DB.Auditorium.ToList();
             CBDisciplines.SelectedItem = _scheduleSave.Discipline;
             if (_scheduleSave.Subgroup != null)

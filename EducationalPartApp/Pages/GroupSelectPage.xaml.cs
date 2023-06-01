@@ -21,7 +21,6 @@ namespace EducationalPartApp.Pages
     /// </summary>
     public partial class GroupSelectPage : Page
     {
-        List<Group> groupsList;
         public GroupSelectPage()
         {
             InitializeComponent();
@@ -32,8 +31,9 @@ namespace EducationalPartApp.Pages
 
         private void RefreshListGroup()
         {
-            IEnumerable<Group> groupsFilter = groupsList.Where(x => x.ReportCard.Where(z => z.SemesterId == x.SemesterId).Count() == 0 || 
-            x.ReportCard.Count == 0).ToList();
+            IEnumerable<Group> groupsFilter = GetGroupsCurrentSemester().Where(
+                x => x.ReportCard.Where(z => z.SemesterId == x.SemesterId).Count() == 0 || 
+                x.ReportCard.Count == 0).ToList();
 
             if (CBCourse.SelectedItem != null) {
                 groupsFilter = groupsFilter.Where(x => x.Semester.Course == (CBCourse.SelectedItem as Semester).Course).ToList();
@@ -51,7 +51,7 @@ namespace EducationalPartApp.Pages
         }
 
 
-        private void GetGroupsCurrentSemester()
+        private List<Group> GetGroupsCurrentSemester()
         {
             int startFirstSemester = 9;
             int endFirstSemester = 12;
@@ -70,7 +70,7 @@ namespace EducationalPartApp.Pages
                 semesterValue = 2;
             }
 
-            groupsList = App.DB.Group.Where(x => x.Semester.Semester1 == semesterValue).ToList();
+            return App.DB.Group.Where(x => x.Semester.Semester1 == semesterValue).ToList();
         }
 
         private void BGroupSelection_Click(object sender, RoutedEventArgs e)
@@ -80,6 +80,14 @@ namespace EducationalPartApp.Pages
                 MessageBox.Show("Выберите группу для создания расписания.");
                 return;
             }
+            if (!App.DB.Curriculum.Any(x => 
+                x.SpecializationId == selectGroup.Qualification.SpecializationId &&
+                x.SemesterId == selectGroup.SemesterId))
+            {
+                MessageBox.Show("Для данной специальности не создан учебный план");
+                return;
+            }
+
             new MainWindow().ChangeFrameWindow(new AddSchedulePage(selectGroup, false));
         }
 
