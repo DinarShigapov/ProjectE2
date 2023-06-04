@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TeacherApp.Model;
+using TeacherApp.ModelAddition;
 
 namespace TeacherApp.Pages
 {
@@ -24,7 +26,7 @@ namespace TeacherApp.Pages
     {
         private List<StudentGrade> _studentGrades = new List<StudentGrade>();
         private Lesson _currentLesson;
-        private ReportCard _selectedReportCard;
+        private readonly ReportCard _selectedReportCard;
         private StudentGrade _selectedStudent;
         private List<Lesson> _lessonsCurrentSemester;
 
@@ -32,12 +34,12 @@ namespace TeacherApp.Pages
         {
             InitializeComponent();
             _selectedReportCard = selectedReportCard;
-            RefreshGroupSelect(_selectedReportCard);
+            CBDateLesson.ItemsSource = RefreshGroupSelect(_selectedReportCard);
             CBMark.ItemsSource = App.DB.RaitingSystem.ToList();
             _lessonsCurrentSemester = App.DB.Lesson.Where(x => x.ReportCard.Id == _selectedReportCard.Id && x.IsConducted == true).ToList();
         }
 
-        private void RefreshGroupSelect(ReportCard reportCard)
+        private List<DateTime> RefreshGroupSelect(ReportCard reportCard)
         {
             var dayOfTheWeek = App.DB.Schedule.Where(
                 x => x.GroupId == reportCard.GroupId &&
@@ -47,11 +49,11 @@ namespace TeacherApp.Pages
             int MonthNow = DateTime.Now.Month;
             int YearNow = DateTime.Now.Year;
 
-            CBDateLesson.ItemsSource = DaySchedule(
-                GetDayLesson(dayOfTheWeek),
-                new DateTime(YearNow, MonthNow, 1),
-                new DateTime(YearNow, MonthNow,
-                DateTime.DaysInMonth(YearNow, MonthNow)));
+           return DaySchedule(
+                    GetDayLesson(dayOfTheWeek),
+                    new DateTime(YearNow, MonthNow, 1),
+                    new DateTime(YearNow, MonthNow,
+                    DateTime.DaysInMonth(YearNow, MonthNow)));
         }
 
         private List<DayOfWeek> GetDayLesson(List<Schedule> schedules)
@@ -88,21 +90,59 @@ namespace TeacherApp.Pages
 
         private void LVStudent_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            GStudentInfo.DataContext = _selectedStudent;
+            if (_selectedStudent.Student != null)
+            {
+                GStudentInfo.DataContext = _selectedStudent;
+                GStudentInfo.Visibility = Visibility.Visible;
+            }
         }
 
-        private void CBDateLesson_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            _selectedStudent = new StudentGrade();
-            GStudentInfo.DataContext = _selectedStudent;
-            ChBStudent.IsChecked = false;
-            _currentLesson = null;
-            _studentGrades.Clear();
-            DateTime selectLessonDate = Convert.ToDateTime((dynamic)CBDateLesson.SelectedValue);
 
+        private List<StudentGrade> GetStudentGrade(Lesson lesson)
+        {
+            List<StudentGrade> studentGradesBuffer = new List<StudentGrade>();
+
+            if (lesson != null &&
+                        lesson.DateOfTheLesson.Date != default)
+            {
+                foreach (var item in lesson.ReportCard.Group.Student)
+                {
+                    var mark = App.DB.Assessment.FirstOrDefault(x =>
+                        x.Student.Id == item.Id &&
+                        x.Lesson.Id == lesson.Id);
+                    var attendance = App.DB.Attendance.FirstOrDefault(x =>
+                        x.StudentId == item.Id &&
+                        x.Lesson.Id == lesson.Id);
+
+                    var studentList = new StudentGrade()
+                    {
+                        Student = item,
+                        IsAttend = attendance == null ? false : true,
+                        Raiting = mark?.RaitingSystem
+                    };
+                    studentGradesBuffer.Add(studentList);
+                }
+                return studentGradesBuffer.ToList();
+            }
+            else
+            {
+                foreach (var item in lesson.ReportCard.Group.Student)
+                {
+                    studentGradesBuffer.Add(new StudentGrade()
+                    {
+                        Student = item,
+                        IsAttend = false
+                    });
+                }
+                return studentGradesBuffer.ToList();
+            }
+        }
+
+        private void GetDateLesson()
+        {
+            DateTime selectLessonDate = Convert.ToDateTime((dynamic)CBDateLesson.SelectedValue);
             if (selectLessonDate != null && selectLessonDate != default)
             {
-
                 if (selectLessonDate.Date > DateTime.Now.Date)
                 {
                     MessageBox.Show("Данный урок не был еще проведен");
@@ -113,29 +153,13 @@ namespace TeacherApp.Pages
                 {
                     Lesson lessonBuffer = _lessonsCurrentSemester.SingleOrDefault(x =>
                         x.DateOfTheLesson.Date == selectLessonDate.Date &&
-                        x.IsConducted == true);
+                        x.IsConducted == true &&
+                        x.ReportCard.Id == _selectedReportCard.Id);
 
-                    if (lessonBuffer !=  null && lessonBuffer.DateOfTheLesson.Date != default)
+                    if (lessonBuffer != null)
                     {
+                        _studentGrades = GetStudentGrade(lessonBuffer);
                         _currentLesson = lessonBuffer;
-                        TBLessonTopic.DataContext = _currentLesson;
-                        foreach (var item in _currentLesson.ReportCard.Group.Student)
-                        {
-                            var mark = App.DB.Assessment.FirstOrDefault(x =>
-                                x.Student.Id == item.Id &&
-                                x.Lesson.Id == _currentLesson.Id);
-                            var attendance = App.DB.Attendance.FirstOrDefault(x =>
-                                x.StudentId == item.Id &&
-                                x.Lesson.Id == _currentLesson.Id);
-
-                            var studentList = new StudentGrade()
-                            {
-                                Student = item,
-                                IsAttend = attendance == null ? false : true,
-                                Raiting = mark?.RaitingSystem
-                            };
-                            _studentGrades.Add(studentList);
-                        }
                         LVStudent.ItemsSource = _studentGrades.ToList();
                         BAccept.Content = "Сохранить";
                     }
@@ -147,20 +171,25 @@ namespace TeacherApp.Pages
                             DateOfTheLesson = selectLessonDate
                         };
                         _currentLesson = lesson;
-                        foreach (var item in lesson.ReportCard.Group.Student)
-                        {
-                            _studentGrades.Add(new StudentGrade()
-                            {
-                                Student = item,
-                                IsAttend = false
-                            });
-                        }
+                        _studentGrades = GetStudentGrade(lesson);
                         LVStudent.ItemsSource = _studentGrades.ToList();
-                        TBLessonTopic.DataContext = lesson;
                         BAccept.Content = "Провести";
                     }
                 }
             }
+        }
+
+        private void CBDateLesson_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LVStudent.Visibility = Visibility.Visible;
+            GListStudent.Visibility = Visibility.Visible;
+            _selectedStudent = new StudentGrade();
+            GStudentInfo.DataContext = _selectedStudent;
+            ChBStudent.IsChecked = false;
+            _currentLesson = null;
+            _studentGrades.Clear();
+
+            GetDateLesson();
         }
 
         private void ChBHideStudent_Checked(object sender, RoutedEventArgs e)
@@ -172,61 +201,6 @@ namespace TeacherApp.Pages
             else 
             {
                 LVStudent.ItemsSource = _studentGrades.ToList();
-            }
-        }
-
-
-        private void BAccept_Click(object sender, RoutedEventArgs e)
-        {
-
-            Lesson lessonSave = new Lesson
-            {
-                LessonTopic = "Test",
-                DateOfTheLesson = DateTime.Now.Date,
-                IsConducted = true,
-                ReportCard = _selectedReportCard,
-            };
-
-            foreach (var item in _studentGrades)
-            {
-                if (item.Raiting != null)
-                {
-                    lessonSave.Assessment.Add(new Assessment 
-                    {
-                        Student = item.Student,
-                        RaitingSystem = item.Raiting,
-                        Employee = App.LoggedTeacher
-                    });
-                }
-                if (item.IsAttend != false)
-                {
-                    lessonSave.Attendance.Add(new Attendance
-                    {
-                        Student = item.Student
-                    });
-                }
-            }
-
-            App.DB.Lesson.Add(lessonSave);
-            App.DB.SaveChanges();
-        }
-
-        private void ChBStudent_Checked(object sender, RoutedEventArgs e)
-        {
-            if (_selectedStudent == null)
-            {
-                ChBHideStudent.IsChecked = false;
-                return;
-            }
-            if (ChBStudent.IsChecked == true)
-            {
-                CBMark.IsEnabled = false;
-                _selectedStudent.IsAttend = true;
-            }
-            else 
-            { 
-                CBMark.IsEnabled = true;
-                _selectedStudent.IsAttend = false;
             }
         }
 
@@ -254,6 +228,98 @@ namespace TeacherApp.Pages
                 }
             }
             return daysForSchedule = daysForSchedule.GroupBy(x => x).Select(x => x.First()).ToList();
+        }
+
+        private void BAccept_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentLesson.Id != 0)
+            {
+                var editList = _studentGrades.ToList();
+                var oldList = GetStudentGrade(_currentLesson).ToList();
+                foreach (var item in oldList)
+                {
+                    var student = editList.FirstOrDefault(x => x.Student.Id == item.Student.Id);
+
+                    if (student.IsAttend != item.IsAttend)
+                    {
+                        if (student.IsAttend == false)
+                        {
+                            var deleteAttend = App.DB.Attendance.SingleOrDefault(x =>
+                                x.StudentId == student.Student.Id &&
+                                x.LessonId == _currentLesson.Id);
+                            App.DB.Attendance.Remove(deleteAttend);
+                        }
+                    }
+
+                    if (student.Raiting != item.Raiting)
+                    {
+                        if (student.Raiting == null)
+                        {
+                            var deleteAttend = App.DB.Assessment.SingleOrDefault(x =>
+                                x.StudentId == student.Student.Id &&
+                                x.LessonId == _currentLesson.Id);
+                            App.DB.Assessment.Remove(deleteAttend);
+                        }
+                    }
+                }
+            }
+            foreach (var item in _studentGrades)
+            {
+                if (item.Raiting != null)
+                {
+                    if (App.DB.Assessment.Any(x => 
+                        x.StudentId != item.Student.Id &&
+                        x.LessonId == _currentLesson.Id))
+                    {
+                        _currentLesson.Assessment.Add(new Assessment
+                        {
+                            Student = item.Student,
+                            RaitingSystem = item.Raiting,
+                            Employee = App.LoggedTeacher
+                        });
+                    }
+                    else
+                    {
+                        var markStudent = App.DB.Assessment.FirstOrDefault(x =>
+                            x.StudentId == item.Student.Id &&
+                            x.LessonId == _currentLesson.Id);
+                        markStudent.RaitingSystemId = item.Raiting.Id;
+                    }
+                }
+                if (item.IsAttend != false)
+                {
+                    _currentLesson.Attendance.Add(new Attendance
+                    {
+                        Student = item.Student
+                    });
+                }
+            }
+
+            if (_currentLesson.Id == 0)
+            {
+                App.DB.Lesson.Add(_currentLesson);
+            }
+
+            App.DB.SaveChanges();
+        }
+       
+        private void ChBStudent_Checked(object sender, RoutedEventArgs e)
+        {
+            if (_selectedStudent == null)
+            {
+                ChBHideStudent.IsChecked = false;
+                return;
+            }
+            if (ChBStudent.IsChecked == true)
+            {
+                CBMark.IsEnabled = false;
+                _selectedStudent.IsAttend = true;
+            }
+            else 
+            { 
+                CBMark.IsEnabled = true;
+                _selectedStudent.IsAttend = false;
+            }
         }
 
         private void LVStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -297,11 +363,5 @@ namespace TeacherApp.Pages
         }
     }
 
-    public class StudentGrade
-    {
-        public Student Student { get; set; }
-        public bool IsAttend {get ; set;}
-        public RaitingSystem Raiting { get; set; }
-    }
 
 }

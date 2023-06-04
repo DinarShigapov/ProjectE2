@@ -307,6 +307,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelAddition\StudentGrade.cs" />
     <Compile Include="Model\Assessment.cs">
       <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
@@ -395,9 +396,6 @@
       <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>EduModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AssessmentPage.xaml.cs">

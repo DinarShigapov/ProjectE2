@@ -1,4 +1,5 @@
 ﻿using ProjectE2.Model;
+using ProjectE2.ModelAddition;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,22 +23,30 @@ namespace ProjectE2.Pages
     public partial class MarkStudentPage : Page
     {
 
-        Dictionary<Discipline, List<Assessment>> marks = new Dictionary<Discipline, List<Assessment>>();
-
-
+        List<StudentGrade> marks = new List<StudentGrade>();
         public MarkStudentPage()
         {
             InitializeComponent();
-            foreach (var item in App.DB.Curriculum.Where(x => 
+            ShowMarkStudent();
+        }
+
+        private void ShowMarkStudent()
+        {
+            foreach (var item in App.DB.Curriculum.Where(x =>
             x.SpecializationId == App.LoggedStudent.Group.Qualification.SpecializationId &&
             x.SemesterId == App.LoggedStudent.Group.SemesterId).Select(x => x.Discipline))
             {
-                var marksList = App.DB.Assessment.Where(x => 
+                var marksList = App.DB.Assessment.Where(x =>
                     x.Student.Id == App.LoggedStudent.Id &&
                     x.Lesson.ReportCard.Discipline.Id == item.Id).ToList();
-                marks.Add(item, marksList);
+                marks.Add(new StudentGrade
+                {
+                    Discipline = item,
+                    Assessments = marksList
+                });
             }
             LVDisciplineMark.ItemsSource = marks;
         }
+
     }
 }

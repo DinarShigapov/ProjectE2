@@ -195,6 +195,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelAddition\StudentGrade.cs" />
     <Compile Include="Model\Assessment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

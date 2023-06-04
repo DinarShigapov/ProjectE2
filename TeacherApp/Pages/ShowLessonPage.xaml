@@ -74,7 +74,9 @@
                                 VerticalAlignment="Bottom"
                                 Click="BAccept_Click"/>
                     </Grid>
-                    <Grid x:Name="GStudentInfo" Grid.Row="2">
+                    <Grid x:Name="GStudentInfo" 
+                          Grid.Row="2"
+                          Visibility="Hidden">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="5"/>
@@ -83,7 +85,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <StackPanel>
-                            <TextBlock Text="Студент"
+                            <TextBlock Text="Выбранный студент"
                                        Style="{StaticResource HeaderText}"/>
                             <TextBlock x:Name="TBStudent"
                                        Text="{Binding Student.FullNameShort}" 
@@ -136,80 +138,85 @@
                         <SolidColorBrush Color="#FF6D61F5" Opacity="0.6"/>
                     </Border.BorderBrush>
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
+                        <Image Source="{StaticResource WriteDrawingImage}"/>
+                        <Grid Background="White"
+                              x:Name="GListStudent"
+                              Visibility="Hidden">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBlock Text="Студенты"
+                            <TextBlock Text="Студенты"
                                    Style="{StaticResource HeaderText}"/>
 
-                        <Grid Grid.Row="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Orientation="Horizontal">
-                                <CheckBox VerticalAlignment="Center"
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox VerticalAlignment="Center"
                                           Margin="0 0 5 0"/>
-                                <TextBlock Text="Мало оценок"
+                                    <TextBlock Text="Мало оценок"
                                            Style="{StaticResource DefualtText}"
                                            Opacity="0.6"
                                            FontSize="14"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal"
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"
                                         Grid.Column="1">
-                                <CheckBox x:Name="ChBHideStudent" 
+                                    <CheckBox x:Name="ChBHideStudent" 
                                           VerticalAlignment="Center"
                                           Margin="0 0 5 0"
                                           Checked="ChBHideStudent_Checked"
                                           Unchecked="ChBHideStudent_Checked"/>
-                                <TextBlock Text="Скрыть отсутствующих"
+                                    <TextBlock Text="Скрыть отсутствующих"
                                            Style="{StaticResource DefualtText}"
                                            Opacity="0.6"
                                            FontSize="14"/>
-                            </StackPanel>
-                        </Grid>
-                        <ListView x:Name="LVStudent" 
-                                  Grid.Row="6"
-                                  Padding="-10 0 0 0"
-                                  BorderThickness="0"
-                                  SelectionChanged="LVStudent_SelectionChanged"
-                                  d:ItemsSource="{d:SampleData ItemCount=5}"
-                                  Style="{StaticResource ListViewStyle}"
-                                  MouseUp="LVStudent_MouseDown">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Border CornerRadius="15"
-                                                Height="40"
-                                                Style="{StaticResource BorderAnimate}"
-                                                Padding="50 0"
-                                                Width="{Binding Path=ActualWidth, ElementName=LVStudent, Converter={StaticResource widthConvert}, ConverterParameter=4}">
-                                        <Border.Background>
-                                            <SolidColorBrush Color="Gray" Opacity="0.3"/>
-                                        </Border.Background>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="{Binding Student.FullName}"
+                                </StackPanel>
+                            </Grid>
+                            <ListView x:Name="LVStudent" 
+                                      Grid.Row="6"
+                                      Padding="-10 0 0 0"
+                                      Background="White"
+                                      BorderThickness="0"
+                                      SelectionChanged="LVStudent_SelectionChanged"
+                                      d:ItemsSource="{d:SampleData ItemCount=5}"
+                                      Style="{StaticResource ListViewStyle}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="15"
+                                            Height="40"
+                                            Style="{StaticResource BorderAnimate}"
+                                            Padding="50 0"
+                                            MouseUp="LVStudent_MouseDown"
+                                            Width="{Binding Path=ActualWidth, ElementName=LVStudent, Converter={StaticResource widthConvert}, ConverterParameter=4}">
+                                            <Border.Background>
+                                                <SolidColorBrush Color="Gray" Opacity="0.3"/>
+                                            </Border.Background>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding Student.FullName}"
                                                             Style="{StaticResource DefualtText}"
                                                             VerticalAlignment="Center"/>
-                                            <TextBlock Text="{Binding Raiting.RaitingName, StringFormat='Оценка: {0}'}"
+                                                <TextBlock Text="{Binding Raiting.RaitingName, StringFormat='Оценка: {0}'}"
                                                            Grid.Column="1"
-                                                           FontSize="13"
                                                            Style="{StaticResource DefualtText}"
                                                            VerticalAlignment="Center"/>
-                                        </Grid>
-                                    </Border>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
                     </Grid>
                 </Border>
             </Grid>

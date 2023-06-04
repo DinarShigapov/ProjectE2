@@ -45,12 +45,12 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="{Binding Key.Name}"
+                            <TextBlock Text="{Binding Discipline.Name}"
                                        TextTrimming="WordEllipsis"
                                        VerticalAlignment="Center"
                                        Style="{StaticResource DefualtText}"
                                        FontSize="16"/>
-                            <ListView ItemsSource="{Binding Value}"
+                            <ListView ItemsSource="{Binding Assessments}"
                                       Grid.Column="2"
                                       BorderThickness="0"
                                       VerticalAlignment="Center"
@@ -68,7 +68,7 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                            <TextBlock Text="4.56"
+                            <TextBlock Text="{Binding AverageRating}"
                                        VerticalAlignment="Center"
                                        FontSize="16"
                                        Grid.Column="4"

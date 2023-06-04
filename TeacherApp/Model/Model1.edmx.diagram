@@ -4,31 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="298e441f2ec04bd6a5a5587e6e858991" Name="Diagram1">
-        <EntityTypeShape EntityType="EducationDBModel.Assessment" Width="1.5" PointX="12.75" PointY="5.75" />
-        <EntityTypeShape EntityType="EducationDBModel.Attendance" Width="1.5" PointX="13.75" PointY="10.125" />
-        <EntityTypeShape EntityType="EducationDBModel.Auditorium" Width="1.5" PointX="11.25" PointY="16.125" />
-        <EntityTypeShape EntityType="EducationDBModel.ClassTime" Width="1.5" PointX="9" PointY="16.75" />
-        <EntityTypeShape EntityType="EducationDBModel.Curriculum" Width="1.5" PointX="3" PointY="11.5" />
-        <EntityTypeShape EntityType="EducationDBModel.DayOfTheWeek" Width="1.5" PointX="9" PointY="19.5" />
-        <EntityTypeShape EntityType="EducationDBModel.Discipline" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="EducationDBModel.DisciplineTeacher" Width="1.5" PointX="15.5" PointY="4.75" />
-        <EntityTypeShape EntityType="EducationDBModel.Employee" Width="1.5" PointX="8.25" PointY="0.75" />
-        <EntityTypeShape EntityType="EducationDBModel.EmployeePost" Width="1.5" PointX="13.5" PointY="1.875" />
-        <EntityTypeShape EntityType="EducationDBModel.FormOfTraining" Width="1.5" PointX="3.75" PointY="8.625" />
-        <EntityTypeShape EntityType="EducationDBModel.Gender" Width="1.5" PointX="6" PointY="2" />
-        <EntityTypeShape EntityType="EducationDBModel.Group" Width="1.5" PointX="6" PointY="11.125" />
-        <EntityTypeShape EntityType="EducationDBModel.Lesson" Width="1.5" PointX="10.5" PointY="7.25" />
-        <EntityTypeShape EntityType="EducationDBModel.Post" Width="1.5" PointX="11.25" PointY="19.125" />
-        <EntityTypeShape EntityType="EducationDBModel.Qualification" Width="1.5" PointX="3.75" PointY="16" />
-        <EntityTypeShape EntityType="EducationDBModel.RaitingSystem" Width="1.5" PointX="10.5" PointY="1.375" />
-        <EntityTypeShape EntityType="EducationDBModel.ReportCard" Width="1.5" PointX="8.25" PointY="6.375" />
-        <EntityTypeShape EntityType="EducationDBModel.ReportCardTeacher" Width="1.5" PointX="10.5" PointY="3.875" />
-        <EntityTypeShape EntityType="EducationDBModel.Schedule" Width="1.5" PointX="11.25" PointY="11.125" />
-        <EntityTypeShape EntityType="EducationDBModel.Semester" Width="1.5" PointX="0.75" PointY="11.75" />
-        <EntityTypeShape EntityType="EducationDBModel.Specialization" Width="1.5" PointX="0.75" PointY="15.5" />
-        <EntityTypeShape EntityType="EducationDBModel.Student" Width="1.5" PointX="8.25" PointY="10.75" />
-        <EntityTypeShape EntityType="EducationDBModel.Subgroup" Width="1.5" PointX="13.5" PointY="13.75" />
+      <Diagram DiagramId="298e441f2ec04bd6a5a5587e6e858991" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="EducationDBModel.Assessment" Width="1.5" PointX="12.75" PointY="11.5" />
+        <EntityTypeShape EntityType="EducationDBModel.Attendance" Width="1.5" PointX="9.75" PointY="7.875" />
+        <EntityTypeShape EntityType="EducationDBModel.Auditorium" Width="1.5" PointX="8.25" PointY="5.125" />
+        <EntityTypeShape EntityType="EducationDBModel.ClassTime" Width="1.5" PointX="6" PointY="2.25" />
+        <EntityTypeShape EntityType="EducationDBModel.Curriculum" Width="1.5" PointX="6" PointY="11" />
+        <EntityTypeShape EntityType="EducationDBModel.DayOfTheWeek" Width="1.5" PointX="6" PointY="22" />
+        <EntityTypeShape EntityType="EducationDBModel.Discipline" Width="1.5" PointX="3.75" PointY="1.875" />
+        <EntityTypeShape EntityType="EducationDBModel.DisciplineTeacher" Width="1.5" PointX="13.5" PointY="15.75" />
+        <EntityTypeShape EntityType="EducationDBModel.Employee" Width="1.5" PointX="8.25" PointY="21.375" />
+        <EntityTypeShape EntityType="EducationDBModel.EmployeePost" Width="1.5" PointX="10.5" PointY="22.625" />
+        <EntityTypeShape EntityType="EducationDBModel.FormOfTraining" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="EducationDBModel.Gender" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="EducationDBModel.Group" Width="1.5" PointX="3" PointY="10.625" />
+        <EntityTypeShape EntityType="EducationDBModel.Lesson" Width="1.5" PointX="7.5" PointY="17.75" />
+        <EntityTypeShape EntityType="EducationDBModel.Post" Width="1.5" PointX="8.25" PointY="26.75" />
+        <EntityTypeShape EntityType="EducationDBModel.Qualification" Width="1.5" PointX="0.75" PointY="14.5" />
+        <EntityTypeShape EntityType="EducationDBModel.RaitingSystem" Width="1.5" PointX="10.5" PointY="5.125" />
+        <EntityTypeShape EntityType="EducationDBModel.ReportCard" Width="1.5" PointX="5.25" PointY="14.875" />
+        <EntityTypeShape EntityType="EducationDBModel.ReportCardTeacher" Width="1.5" PointX="10.5" PointY="15.375" />
+        <EntityTypeShape EntityType="EducationDBModel.Schedule" Width="1.5" PointX="8.25" PointY="10.625" />
+        <EntityTypeShape EntityType="EducationDBModel.Semester" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="EducationDBModel.Specialization" Width="1.5" PointX="3.75" PointY="19" />
+        <EntityTypeShape EntityType="EducationDBModel.Student" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="EducationDBModel.Subgroup" Width="1.5" PointX="10.5" PointY="11.25" />
         <AssociationConnector Association="EducationDBModel.FK_Assessment_Employee" />
         <AssociationConnector Association="EducationDBModel.FK_Assessment_Lesson" />
         <AssociationConnector Association="EducationDBModel.FK_Assessment_RaitingSystem" />
