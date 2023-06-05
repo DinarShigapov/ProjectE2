@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeacherApp.Pages"
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="1000"
       Title="Расписание звонков">
@@ -95,15 +96,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            <Image x:Name="ImageBg1" Source="{StaticResource ComputerDrawingImage}" 
-                   Grid.Column="1"/> 
-            <Image x:Name="ImageBg2" Source="{StaticResource SkillsDrawingImage}" 
-                   Grid.Column="1"
-                   Visibility="Collapsed"/> 
-            <Image x:Name="ImageBg3" Source="{StaticResource HardWorkDrawingImage}" 
-                   Grid.Column="1"
-                   Visibility="Collapsed"/> 
-
+            <Image x:Name="ImageShow" 
+                   Grid.Column="1"/>
+            <!--<Image gif:ImageBehavior.AnimatedSource="\Resources\Picture\ezhick.gif"
+                   gif:ImageBehavior.RepeatBehavior="100x"
+                   Margin="10"
+                   Grid.Column="1"/>-->
         </Grid>
     </Border>
 </Page>

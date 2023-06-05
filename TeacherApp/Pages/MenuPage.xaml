@@ -90,6 +90,10 @@
                 <RadioButton x:Name="BCallSchedule" 
                              Content="Звонки"
                              Click="BCallSchedule_Click"/>
+                <Rectangle Height="5" Fill="Transparent"/>
+                <RadioButton x:Name="BTeacherSchedule" 
+                             Content="Расписание"
+                             Click="BCallSchedule_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

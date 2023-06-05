@@ -8,10 +8,13 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TeacherApp.Pages
 {
@@ -36,25 +39,26 @@ namespace TeacherApp.Pages
                         case 1:
                         case 2:
                         case 3:
-                            ImageBg1.Visibility = Visibility.Visible;
-                            ImageBg2.Visibility = Visibility.Collapsed;
-                            ImageBg3.Visibility = Visibility.Collapsed;
+                            ImageShow.Source = (ImageSource)this.TryFindResource("ComputerDrawingImage");
                             break;
                         case 4:
                         case 5:
-                            ImageBg1.Visibility = Visibility.Collapsed;
-                            ImageBg2.Visibility = Visibility.Visible;
-                            ImageBg3.Visibility = Visibility.Collapsed;
+                            ImageShow.Source = (ImageSource)this.TryFindResource("SkillsDrawingImage");
                             break;
                         case 6:
                         case 7:
-                            ImageBg1.Visibility = Visibility.Collapsed;
-                            ImageBg2.Visibility = Visibility.Collapsed;
-                            ImageBg3.Visibility = Visibility.Visible;
+                            ImageShow.Source = (ImageSource)this.TryFindResource("HardWorkDrawingImage");
                             break;
                     }
+                    break;
+
+                }
+                else
+                {
+                    ImageShow.Source = (ImageSource)this.TryFindResource("LogoV1DrawingImage");
                 }
             }
+
         }
     }
 }
