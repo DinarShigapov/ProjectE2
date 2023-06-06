@@ -112,13 +112,43 @@
                     </StackPanel>
                 </Grid>
             </Border>
-
         </Grid>
 
         <Border Background="White"
                 Grid.Column="2"
                 CornerRadius="20"
->
+                Padding="20">
+            <ListView x:Name="LVMarkStudent"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      d:ItemsSource="{d:SampleData ItemCount=5}"
+                      BorderThickness="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="{Binding ActualWidth, ElementName=LVMarkStudent, Mode=OneWay}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="4"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="textBlock" Text="{Binding Lesson.LessonTopic, TargetNullValue='-'}"
+                                       Style="{StaticResource DefualtText}"/>
+                            <TextBlock Text="{Binding RaitingSystem.RaitingName}"
+                                       Grid.Column="2"
+                                       Style="{StaticResource DefualtText}"/>
+                            <TextBlock Text="{Binding Lesson.DateOfTheLesson, StringFormat='dd/MM/yyyy'}"
+                                       Grid.Column="4"
+                                       Style="{StaticResource DefualtText}" 
+                                       FontSize="7"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Right"
+                                       Margin="14 0"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Border>
     </Grid>
 </Page>

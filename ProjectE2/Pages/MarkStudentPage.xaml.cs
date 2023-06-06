@@ -48,5 +48,17 @@ namespace ProjectE2.Pages
             LVDisciplineMark.ItemsSource = marks;
         }
 
+        private void CMInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var contextSchedule = (sender as MenuItem).DataContext as StudentGrade;
+            if (contextSchedule == null)
+                return;
+
+            ReportCard reportCard = App.DB.ReportCard.FirstOrDefault(x =>
+                x.DisciplineId == contextSchedule.Discipline.Id &&
+                x.SemesterId == App.LoggedStudent.Group.SemesterId &&
+                x.GroupId == App.LoggedStudent.Group.Id);
+            NavigationService.Navigate(new ScheduleInfoPage(reportCard));
+        }
     }
 }

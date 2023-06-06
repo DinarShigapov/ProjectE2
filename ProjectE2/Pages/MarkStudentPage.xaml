@@ -28,12 +28,12 @@
                   Background="Transparent">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="1"
+                    <Border BorderThickness="2"
                             CornerRadius="8"
                             Background="White"
                             Width="{Binding Path=ActualWidth, ElementName=LVDisciplineMark, Converter={StaticResource widthConvert}, ConverterParameter=14}">
                         <Border.BorderBrush>
-                            <SolidColorBrush Color="Black" Opacity="0.2"/>
+                            <SolidColorBrush Color="Gray" Opacity="0.15"/>
                         </Border.BorderBrush>
                         <Grid VerticalAlignment="Center"
                               Margin="10 5">
@@ -74,6 +74,13 @@
                                        Grid.Column="4"
                                        Style="{StaticResource DefualtText}"/>
                         </Grid>
+                        <Border.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="CMInfo" 
+                                          Header="Информация"
+                                          Click="CMInfo_Click"/>
+                            </ContextMenu>
+                        </Border.ContextMenu>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>

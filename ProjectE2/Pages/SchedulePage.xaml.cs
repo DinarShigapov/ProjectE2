@@ -126,7 +126,11 @@ namespace ProjectE2.Pages
             var contextSchedule = (sender as MenuItem).DataContext as Schedule;
             if (contextSchedule == null)
                 return;
-            NavigationService.Navigate(new ScheduleInfoPage(contextSchedule));
+            ReportCard reportCard = App.DB.ReportCard.FirstOrDefault(x =>
+                x.DisciplineId == contextSchedule.Discipline.Id &&
+                x.SemesterId == contextSchedule.Semester.Id &&
+                x.GroupId == contextSchedule.Group.Id);
+            NavigationService.Navigate(new ScheduleInfoPage(reportCard));
         }
     }
 }

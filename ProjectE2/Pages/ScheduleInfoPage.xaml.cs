@@ -23,16 +23,16 @@ namespace ProjectE2.Pages
     /// </summary>
     public partial class ScheduleInfoPage : Page
     {
-        Schedule contextSchedule;
+        ReportCard contextReportCard;
         List<Employee> teachers = new List<Employee>();
         int currentIndex = 0;
-        public ScheduleInfoPage(Schedule schedule)
+        public ScheduleInfoPage(ReportCard reportCard)
         {
             InitializeComponent();
-            contextSchedule = schedule;
-            DataContext = contextSchedule;
+            contextReportCard = reportCard;
+            DataContext = contextReportCard;
 
-            foreach (var item in schedule.Subgroup.ToList())
+            foreach (var item in reportCard.ReportCardTeacher.ToList())
             {
                 teachers.Add(App.DB.Employee.FirstOrDefault(x => x.Id == item.TeacherId));
             }
@@ -40,9 +40,14 @@ namespace ProjectE2.Pages
             if (teachers.Count == 1)
                 SwitchButton.Visibility = Visibility.Hidden;
 
-            BorderContext.DataContext = teachers[currentIndex];
-            
+            if (teachers.Count != 0)
+            {
+                BorderContext.DataContext = teachers[currentIndex];
+            }
 
+            LVMarkStudent.ItemsSource = App.DB.Assessment.Where(x => 
+                x.Lesson.ReportCard.Id == contextReportCard.Id &&
+                x.StudentId == App.LoggedStudent.Id).ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

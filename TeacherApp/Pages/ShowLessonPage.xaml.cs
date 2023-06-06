@@ -188,7 +188,6 @@ namespace TeacherApp.Pages
             ChBStudent.IsChecked = false;
             _currentLesson = null;
             _studentGrades.Clear();
-
             GetDateLesson();
         }
 
@@ -297,6 +296,7 @@ namespace TeacherApp.Pages
 
             if (_currentLesson.Id == 0)
             {
+                _currentLesson.IsConducted = true;
                 App.DB.Lesson.Add(_currentLesson);
             }
 
@@ -362,6 +362,4 @@ namespace TeacherApp.Pages
             }
         }
     }
-
-
 }
