@@ -22,6 +22,7 @@
                 <ResourceDictionary Source="Resources/IconUI/Man.xaml"/>
                 <ResourceDictionary Source="Resources/Background/DeveloperImg.xaml"/>
                 <ResourceDictionary Source="Resources/Background/BG5.xaml"/> 
+                <ResourceDictionary Source="Resources/Background/WomanImg.xaml"/> 
                 <!---->
 
             </ResourceDictionary.MergedDictionaries>
@@ -34,7 +35,7 @@
             <!--AuthPage-->
 
             <Style TargetType="Button" x:Key="ButtonStyle">
-                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="#6D61F5"/>
                 <Setter Property="FontFamily" Value="Resources/Fonts/#Jost" />
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Background" Value="#6D61F5"/>
@@ -43,11 +44,14 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border x:Name="border" Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <ContentPresenter x:Name="textblock" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="#FFC8C8C8"/>
+                                    <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                    <Setter TargetName="border" Property="BorderThickness" Value="1"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#6D61F5"/>
+                                    <Setter TargetName="textblock" Property="TextBlock.Foreground" Value="#6D61F5"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -59,7 +63,6 @@
                     </Style>
                 </Style.Resources>
             </Style>
-
 
             <Style x:Key="PlaceholderTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
                 <Setter Property="BorderThickness" Value="0 0 0 2"/>
@@ -282,6 +285,8 @@
 
 
             
+            
+            
 
             <!--ContextMenu-->
 
@@ -390,7 +395,31 @@
             <!---->
 
             <!--***************-->
-            
+
+            <Style TargetType="ListView" x:Key="LVTextBlock">
+                <Setter Property="MinHeight" Value="200"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Style.Resources>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border Name="border">
+                                        <ContentPresenter Name="content" HorizontalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter TargetName="border" Property="Background" Value="white"/>
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Style.Resources>
+            </Style>
 
             <!--***** Styles StudentApp *****-->
             

@@ -66,5 +66,10 @@ namespace ProjectE2.Pages
             }
             BorderContext.DataContext = teachers[currentIndex];
         }
+
+        private void DateLesson_ToolTipOpening(object sender, ToolTipEventArgs e)
+        {
+               
+        }
     }
 }
