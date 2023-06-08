@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ProjectE2.Pages" xmlns:Converters="clr-namespace:ProjectE2.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MarkStudentPage">
+      Title="Успеваемость">
 
     <Page.Resources>
         <Converters:WidthConverter x:Key="widthConvert"/>

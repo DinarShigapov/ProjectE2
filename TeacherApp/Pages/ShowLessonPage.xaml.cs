@@ -266,8 +266,8 @@ namespace TeacherApp.Pages
             {
                 if (item.Raiting != null)
                 {
-                    if (App.DB.Assessment.Any(x => 
-                        x.StudentId != item.Student.Id &&
+                    if (!App.DB.Assessment.Any(x => 
+                        x.StudentId == item.Student.Id &&
                         x.LessonId == _currentLesson.Id))
                     {
                         _currentLesson.Assessment.Add(new Assessment
@@ -277,6 +277,7 @@ namespace TeacherApp.Pages
                             Employee = App.LoggedTeacher
                         });
                     }
+
                     else
                     {
                         var markStudent = App.DB.Assessment.FirstOrDefault(x =>
@@ -285,7 +286,13 @@ namespace TeacherApp.Pages
                         markStudent.RaitingSystemId = item.Raiting.Id;
                     }
                 }
-                if (item.IsAttend != false)
+                if (App.DB.Attendance.Any(x =>
+                        x.StudentId == item.Student.Id &&
+                        x.LessonId == _currentLesson.Id))
+                {
+                    continue;
+                }
+                else if (item.IsAttend != false)
                 {
                     _currentLesson.Attendance.Add(new Attendance
                     {
