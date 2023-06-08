@@ -66,5 +66,10 @@ namespace EducationalPartApp.Pages
         {
             RefreshPage(new ScheduleListPage());
         }
+
+        private void BCurriculum_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshPage(new AddCurriculumPage());
+        }
     }
 }

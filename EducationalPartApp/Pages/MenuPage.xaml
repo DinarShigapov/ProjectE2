@@ -79,6 +79,10 @@
                              IsChecked="True"
                              Click="BMain_Click"/>
                 <Rectangle Height="5" Fill="Transparent"/>
+                <RadioButton x:Name="BCurriculum" 
+                             Content="Учебный план"
+                             Click="BCurriculum_Click"/>
+                <Rectangle Height="5" Fill="Transparent"/>
                 <RadioButton x:Name="BAddSchedule" 
                              Content="Добавить Расп."
                              Click="BAddSchedule_Click"/>

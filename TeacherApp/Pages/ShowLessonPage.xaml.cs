@@ -231,6 +231,15 @@ namespace TeacherApp.Pages
 
         private void BAccept_Click(object sender, RoutedEventArgs e)
         {
+            if (_currentLesson == null)
+            {
+                MessageBox.Show(
+                    "Выберите урок",
+                    "Внимание",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return;
+            }
             if (_currentLesson.Id != 0)
             {
                 var editList = _studentGrades.ToList();
@@ -307,7 +316,14 @@ namespace TeacherApp.Pages
                 App.DB.Lesson.Add(_currentLesson);
             }
 
-            App.DB.SaveChanges();
+            try
+            {
+                App.DB.SaveChanges();
+                MessageBox.Show("Изменения были сохранены");
+            }
+            catch (Exception)
+            {}
+
         }
        
         private void ChBStudent_Checked(object sender, RoutedEventArgs e)

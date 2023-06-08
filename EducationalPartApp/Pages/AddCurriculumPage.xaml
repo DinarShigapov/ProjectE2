@@ -1,0 +1,104 @@
+﻿<Page x:Class="EducationalPartApp.Pages.AddCurriculumPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationalPartApp.Pages" xmlns:Converters="clr-namespace:EducationalPartApp.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Учебный план">
+
+    <Page.Resources>
+        <Converters:WidthConverter x:Key="widthConvert"/>
+    </Page.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="borderSizeOne" Background="White" 
+                CornerRadius="20"
+                Padding="20">
+            <Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Предметы в учебном плане"
+                               Style="{StaticResource HeaderText}"/>
+                    <ListView d:ItemsSource="{d:SampleData ItemCount=5}"
+                              Grid.Row="1"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                              BorderThickness="2"
+                              BorderBrush="AliceBlue">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Discipline}"
+                                       Style="{StaticResource DefualtText}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </Border>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Background="White" 
+                    CornerRadius="20"
+                    Padding="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="3"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Специальность"
+                               Style="{StaticResource HeaderText}"/>
+                    <ComboBox Grid.Row="2"
+                              Style="{StaticResource ComboBoxStyleCorner}"/>
+                </Grid>
+            </Border>
+            <Border Background="White" 
+                    CornerRadius="20"
+                    Padding="20"
+                    Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="3"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="3"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Предметы"
+                               Style="{StaticResource HeaderText}"/>
+                    <TextBox x:Name="TBSearchDiscipline" 
+                             Height="30"
+                             Grid.Row="2"
+                             TextChanged="TBSearchDiscipline_TextChanged"/>
+                    <ListView x:Name="LVDisciplineSearch"
+                              Grid.Row="4"
+                              MaxHeight="100" d:ItemsSource="{d:SampleData ItemCount=3}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Style="{StaticResource DefualtText}"
+                                           FontSize="13"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
