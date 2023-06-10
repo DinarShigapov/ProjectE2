@@ -176,12 +176,12 @@ namespace EducationalPartApp.Pages
 
                 if (bufferList < 2)
                 {
-                    ellipseVisibility = Visibility.Visible;
+                    (item as Grid).Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Visible;
                     isFull = false;
                 }
                 else
                 {
-                    ellipseVisibility = Visibility.Hidden;
+                    (item as Grid).Children.OfType<Ellipse>().FirstOrDefault().Visibility = Visibility.Hidden;
                 }
 
                 i++;
@@ -198,7 +198,7 @@ namespace EducationalPartApp.Pages
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
             ClearSwitch();
-            //if (IsCheckSchedule() == false) return;
+            if (IsCheckSchedule() == false) return;
 
             for (int h = 0; h < scheduleList.Count; h++)
             {

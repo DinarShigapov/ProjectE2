@@ -196,7 +196,94 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Assessment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Attendance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Auditorium.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ClassTime.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Curriculum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DayOfTheWeek.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Discipline.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DisciplineTeacher.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employee.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeePost.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FormOfTraining.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Gender.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Group.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Lesson.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\PartialClass\RaitingSystem.cs" />
+    <Compile Include="Model\Post.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Qualification.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RaitingSystem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportCard.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReportCardTeacher.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Schedule.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Semester.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Specialization.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Student.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Subgroup.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CartesianCharts.xaml.cs">
       <DependentUpon>CartesianCharts.xaml</DependentUpon>
     </Compile>
@@ -326,96 +413,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelAddition\StudentGrade.cs" />
-    <Compile Include="Model\Assessment.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Attendance.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Auditorium.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ClassTime.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Curriculum.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DayOfTheWeek.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Discipline.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DisciplineTeacher.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EduModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EduModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EduModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EduModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EduModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Employee.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EmployeePost.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\FormOfTraining.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Gender.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Group.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Lesson.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\PartialClass\Employee.cs" />
     <Compile Include="Model\PartialClass\Group.cs" />
     <Compile Include="Model\PartialClass\Student.cs" />
-    <Compile Include="Model\Post.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Qualification.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\RaitingSystem.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ReportCard.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ReportCardTeacher.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Schedule.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Semester.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Specialization.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Student.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Subgroup.cs">
-      <DependentUpon>EduModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AssessmentPage.xaml.cs">
       <DependentUpon>AssessmentPage.xaml</DependentUpon>
     </Compile>
@@ -457,12 +457,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\EduModel.edmx">
+    <EntityDeploy Include="Model\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EduModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\EduModel.edmx.diagram">
-      <DependentUpon>EduModel.edmx</DependentUpon>
+    <None Include="Model\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -500,15 +500,15 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.2\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\EduModel.Context.tt">
+    <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EduModel.edmx</DependentUpon>
-      <LastGenOutput>EduModel.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\EduModel.tt">
+    <Content Include="Model\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EduModel.edmx</DependentUpon>
-      <LastGenOutput>EduModel.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
