@@ -21,10 +21,12 @@ namespace EducationalPartApp.Pages
     /// </summary>
     public partial class AddCurriculumPage : Page
     {
+        List<Discipline> disciplineList;
         public AddCurriculumPage()
         {
             InitializeComponent();
             RefreshDiscipline();
+            CBSpecialization.ItemsSource = App.DB.Specialization.Where(x => x.Curriculum.Count == 0).ToList();
         }
 
         private void RefreshDiscipline() 
@@ -33,8 +35,6 @@ namespace EducationalPartApp.Pages
 
             if (TBSearchDiscipline.Text.Length > 0)
             {
-                //disciplineFilter = disciplineFilter.Where(x => x.Name.ToLower().StartsWith(TBSearchDiscipline.Text.ToLower()));
-
                 disciplineFilter = disciplineFilter.Where(p => p.Name.ToLower().Contains(TBSearchDiscipline.Text.ToLower())).ToList();
             }
             LVDisciplineSearch.ItemsSource = disciplineFilter.ToList();
@@ -43,6 +43,26 @@ namespace EducationalPartApp.Pages
         private void TBSearchDiscipline_TextChanged(object sender, TextChangedEventArgs e)
         {
             RefreshDiscipline();
+        }
+
+        private void CBSpecialization_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LVDisciplineSearch.IsEnabled = true;
+            disciplineList = new List<Discipline>();
+        }
+
+        private void LVDisciplineSearch_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectDiscipline = LVDisciplineSearch.SelectedItem as Discipline;
+            if (selectDiscipline == null) 
+            {
+                return;
+            }
+            if (!disciplineList.Any(x => x.Id == selectDiscipline.Id))
+            {
+                disciplineList.Add(selectDiscipline);
+            }
+            LVCurriculum.ItemsSource = disciplineList.ToList();
         }
     }
 }

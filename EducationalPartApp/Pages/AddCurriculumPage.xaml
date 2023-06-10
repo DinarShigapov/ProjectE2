@@ -30,7 +30,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock Text="Предметы в учебном плане"
                                Style="{StaticResource HeaderText}"/>
-                    <ListView d:ItemsSource="{d:SampleData ItemCount=5}"
+                    <ListView x:Name="LVCurriculum" d:ItemsSource="{d:SampleData ItemCount=5}"
                               Grid.Row="1"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -38,7 +38,7 @@
                               BorderBrush="AliceBlue">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Discipline}"
+                                <TextBlock Text="{Binding Name}"
                                        Style="{StaticResource DefualtText}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -64,7 +64,10 @@
                     </Grid.RowDefinitions>
                     <TextBlock Text="Специальность"
                                Style="{StaticResource HeaderText}"/>
-                    <ComboBox Grid.Row="2"
+                    <ComboBox x:Name="CBSpecialization" 
+                              Grid.Row="2"
+                              SelectionChanged="CBSpecialization_SelectionChanged"
+                              DisplayMemberPath="Name"
                               Style="{StaticResource ComboBoxStyleCorner}"/>
                 </Grid>
             </Border>
@@ -88,6 +91,8 @@
                              TextChanged="TBSearchDiscipline_TextChanged"/>
                     <ListView x:Name="LVDisciplineSearch"
                               Grid.Row="4"
+                              IsEnabled="False"
+                              MouseDoubleClick="LVDisciplineSearch_MouseDoubleClick"
                               MaxHeight="100" d:ItemsSource="{d:SampleData ItemCount=3}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
